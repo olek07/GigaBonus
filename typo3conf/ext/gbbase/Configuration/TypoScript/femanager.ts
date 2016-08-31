@@ -28,8 +28,8 @@ plugin.tx_femanager {
 
     _LOCAL_LANG {
         # Default Language
-        default.tx_femanager_domain_model_user.dateFormat = m.d.Y
-        default.tx_femanager_domain_model_user.dateOfBirth.placeholder = m.d.Y
+        ru.tx_femanager_domain_model_user.dateFormat = m.d.Y
+        ru.tx_femanager_domain_model_user.dateOfBirth.placeholder = m.d.Y
 
         # For DE
         ua.tx_femanager_domain_model_user.dateFormat = m.d.Y
