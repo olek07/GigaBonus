@@ -1,0 +1,22 @@
+config.tx_extbase{
+        persistence{
+                classes{
+                        In2code\Femanager\Domain\Model\User {
+                                subclasses {
+                                        0 = Gigabonus\Gbfemanager\Domain\Model\User
+                                }
+                        }
+                        Gigabonus\Gbfemanager\Domain\Model\User {
+                                mapping {
+                                        tableName = fe_users
+                                        recordType = 0
+                                }
+                        }
+                }
+        }
+
+        objects {
+                In2code\Femanager\Controller\NewController.className  = Gigabonus\Gbfemanager\Controller\NewController
+                In2code\Femanager\Controller\EditController.className = Gigabonus\Gbfemanager\Controller\EditController
+        }
+}

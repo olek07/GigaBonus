@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-13T15:49:07Z" product-name="femanager" target-language="ru">
+		<header/>
+		<body>
+			<trans-unit id="tx_femanager_domain_model_user" approved="yes">
+				<source>User</source>
+			<target state="translated">Пользователь</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.username" approved="yes">
+				<source>Username</source>
+			<target state="translated">Имя пользователя</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.password" approved="yes">
+				<source>Password</source>
+			<target state="translated">Пароль</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.password_repeat" approved="yes">
+				<source>Repeat Password</source>
+			<target state="translated">Повторите пароль</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.usergroup" approved="yes">
+				<source>Usergroup</source>
+			<target state="translated">Группа пользователей</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.name" approved="yes">
+				<source>Full Name</source>
+			<target state="translated">Полное имя</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.firstName" approved="yes">
+				<source>Firstname</source>
+			<target state="translated">Имя</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.middleName" approved="yes">
+				<source>Middlename</source>
+			<target state="translated">Отчество</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.lastName" approved="yes">
+				<source>Lastname</source>
+			<target state="translated">Фамилия</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.dateOfBirth" approved="yes">
+				<source>Birthdate</source>
+			<target state="translated">Дата рождения</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.dateOfBirth.hint" approved="yes">
+				<source>Please type your birthdate as MM/DD/YYYY</source>
+			<target state="translated">Пожалуйста, введите дату рождения в формате MM/DD/YYYY</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.dateOfBirth.placeholder" approved="yes">
+				<source>MM/DD/YYYY</source>
+			<target state="translated">MM/DD/YYYY</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.dateFormat" approved="yes">
+				<source>m/d/Y</source>
+			<target state="translated">d/m/Y</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender" approved="yes">
+				<source>Gender</source>
+			<target state="translated">Пол</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item0" approved="yes">
+				<source>Male</source>
+			<target state="translated">Мужчина</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.gender.item1" approved="yes">
+				<source>Female</source>
+			<target state="translated">Женщина</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.address" approved="yes">
+				<source>Address</source>
+			<target state="translated">Почтовый адрес</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.telephone" approved="yes">
+				<source>Telephone</source>
+			<target state="translated">Телефон</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.fax" approved="yes">
+				<source>Fax</source>
+			<target state="translated">Факс</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.email" approved="yes">
+				<source>Email</source>
+			<target state="translated">Электронная почта</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.title" approved="yes">
+				<source>Title</source>
+			<target state="translated">Название</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.zip" approved="yes">
+				<source>ZIP</source>
+			<target state="translated">ZIP</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.city" approved="yes">
+				<source>City</source>
+			<target state="translated">Город</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.country" approved="yes">
+				<source>Country</source>
+			<target state="translated">Страна</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.www" approved="yes">
+				<source>Website</source>
+			<target state="translated">Веб-сайт</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.company" approved="yes">
+				<source>Company</source>
+			<target state="translated">Организация</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.image" approved="yes">
+				<source>Image</source>
+			<target state="translated">Изображение</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.lastlogin" approved="yes">
+				<source>Last login</source>
+			<target state="translated">Последний вход</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_user.crdate" approved="yes">
+				<source>Creation Time</source>
+			<target state="translated">Время создания</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log" approved="yes">
+				<source>User Log</source>
+			<target state="translated">Журнал наблюдений</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.title" approved="yes">
+				<source>Title</source>
+			<target state="translated">Название</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.crdate" approved="yes">
+				<source>Time</source>
+			<target state="translated">Время</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state" approved="yes">
+				<source>State</source>
+			<target state="translated">Область</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.100" approved="yes">
+				<source>Registration</source>
+			<target state="translated">Регистрация</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.101" approved="yes">
+				<source>New Registration</source>
+			<target state="translated">Регистрация нового пользователя</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.102" approved="yes">
+				<source>Registration confirmed by user</source>
+			<target state="translated">Регистрация подтверждена пользователем</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.103" approved="yes">
+				<source>Registration confirmed by admin</source>
+			<target state="translated">Регистрация подтверждена администратором</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.104" approved="yes">
+				<source>Registration refused by user</source>
+			<target state="translated">Пользователь отказал в регистрации</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.105" approved="yes">
+				<source>Registration refused by admin</source>
+			<target state="translated">Администратор отказал в регистрации</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.106" approved="yes">
+				<source>Profile creation request</source>
+			<target state="translated">Запрос на создание профиля</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.200" approved="yes">
+				<source>Update</source>
+			<target state="translated">Обновление</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.201" approved="yes">
+				<source>Profile updated</source>
+			<target state="translated">Профиль обновлен</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.202" approved="yes">
+				<source>Profile update confirmed by admin</source>
+			<target state="translated">Обновление профиля подтверждённое администратором</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.203" approved="yes">
+				<source>Profile update refused by admin</source>
+			<target state="translated">В обновлении профиля отказано администратором</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.204" approved="yes">
+				<source>Profile update request</source>
+			<target state="translated">Запрос на обновление профиля</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.205" approved="yes">
+				<source>Profile update security failure</source>
+			<target state="translated">Обновление профиля, сбой по безопасности</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.300" approved="yes">
+				<source>Delete</source>
+			<target state="translated">Удаление</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.301" approved="yes">
+				<source>Profile deleted</source>
+			<target state="translated">Профиль удален</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.400" approved="yes">
+				<source>Invitation</source>
+			<target state="translated">Приглашение</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.401" approved="yes">
+				<source>Profile created and user invited</source>
+			<target state="translated">Профиль и приглашенный пользователь создан</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.402" approved="yes">
+				<source>Profile deleted by user</source>
+			<target state="translated">Профиль удален пользователем</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.403" approved="yes">
+				<source>Wrong hash</source>
+			<target state="translated">Неправильный хэш</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.404" approved="yes">
+				<source>You tried to open a restricted page</source>
+			<target state="translated">Была сделана попытка открыть страницу с ограниченным доступом</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.state.405" approved="yes">
+				<source>Password changed and profile activated</source>
+			<target state="translated">Пароль изменен и профиль активирован</target></trans-unit>
+			<trans-unit id="tx_femanager_domain_model_log.user" approved="yes">
+				<source>User</source>
+			<target state="translated">Пользователь</target></trans-unit>
+
+			<trans-unit id="error_no_typoscript" approved="yes">
+				<source>No TypoScript found. Did you already include the static Template?</source>
+			<target state="translated">TypoScript не найден. Вы включили статический шаблон?</target></trans-unit>
+			<trans-unit id="error_no_storagepid" approved="yes">
+				<source>No Storage PID was set. Please set the storage PID via TypoScript or in the plugin settings.</source>
+			<target state="translated">Не установлен Storage PID. Пожалуйста, установите Storage PID для хранения записей с помощью TypoScript или в настройках плагина.</target></trans-unit>
+			<trans-unit id="error_not_authorized" approved="yes">
+				<source>You are not authorized for this action</source>
+			<target state="translated">Вы не авторизованы для этого действия</target></trans-unit>
+			<trans-unit id="validationError" approved="yes">
+				<source>Error</source>
+			<target state="translated">Ошибка</target></trans-unit>
+			<trans-unit id="validationErrorRequiredModel" approved="yes">
+				<source>Username and password must be filled</source>
+			<target state="translated">Имя пользователя и пароль должны быть заполнены</target></trans-unit>
+			<trans-unit id="validationErrorWrongDateFormat" approved="yes">
+				<source>Given date format is wrong</source>
+			<target state="translated">Учитывая формат даты, заполнено неправильно</target></trans-unit>
+			<trans-unit id="validationErrorRequired" approved="yes">
+				<source>Field %s is required</source>
+			<target state="translated">Поле %s обязательно к заполнению</target></trans-unit>
+			<trans-unit id="validationErrorEmail" approved="yes">
+				<source>Field %s is not a valid email address</source>
+			<target state="translated">В поле %s ввеедён неправильный адрес e-mail</target></trans-unit>
+			<trans-unit id="validationErrorMin" approved="yes">
+				<source>Please add more characters to field %s</source>
+			<target state="translated">Пожалуйста, укажите большее символов в поле %s</target></trans-unit>
+			<trans-unit id="validationErrorMax" approved="yes">
+				<source>Please add less characters to field %s</source>
+			<target state="translated">Пожалуйста, укажите меньше символов в поле %s</target></trans-unit>
+			<trans-unit id="validationErrorInt" approved="yes">
+				<source>Only numbers are allowed in field %s</source>
+			<target state="translated">В поле %s разрешены для ввода только цифры</target></trans-unit>
+			<trans-unit id="validationErrorLetters" approved="yes">
+				<source>Only letters are allowed in field %s</source>
+			<target state="translated">В поле %s разрешены для ввода только буквы</target></trans-unit>
+			<trans-unit id="validationErrorUniquePage" approved="yes">
+				<source>Value of field %s is already in use</source>
+			<target state="translated">Значения в поле %s уже используются</target></trans-unit>
+			<trans-unit id="validationErrorUniqueDb" approved="yes">
+				<source>Value of field %s is already in use</source>
+			<target state="translated">Значения в поле %s уже используются</target></trans-unit>
+			<trans-unit id="validationErrorMustInclude" approved="yes">
+				<source>Try another value for field %s</source>
+			<target state="translated">Попробуйте другое значение для поля %s</target></trans-unit>
+			<trans-unit id="validationErrorMustNotInclude" approved="yes">
+				<source>Not allowed signs in field %s</source>
+			<target state="translated">Не допускается ввод знаков в поле %s</target></trans-unit>
+			<trans-unit id="validationErrorInList" approved="yes">
+				<source>This value is not allowed in field %s</source>
+			<target state="translated">Это значение не допускается в поле %s</target></trans-unit>
+			<trans-unit id="validationErrorSameAs" approved="yes">
+				<source>Please check your value</source>
+			<target state="translated">Пожалуйста, проверьте указанные значения</target></trans-unit>
+			<trans-unit id="validationErrorPasswordRepeat" approved="yes">
+				<source>Both passwords do not fit</source>
+			<target state="translated">Введённые пароли не совпадают</target></trans-unit>
+			<trans-unit id="validationErrorDate" approved="yes">
+				<source>Date has the wrong format</source>
+			<target state="translated">Дата имеет неправильный формат</target></trans-unit>
+			<trans-unit id="validationErrorCaptcha" approved="yes">
+				<source>Wrong Captcha code</source>
+			<target state="translated">Защитный код введён неверно</target></trans-unit>
+
+			<trans-unit id="emailCreateAdminConfirmationSubject" approved="yes">
+				<source>Please confirm a new registration</source>
+			<target state="translated">Пожалуйста, подтвердите новую регистрацию</target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationSalutation" approved="yes">
+				<source>Dear Admin,</source>
+			<target state="translated">Уважаемый Администратор,</target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationUserProperties" approved="yes">
+				<source>User properties:</source>
+			<target state="translated">Свойства пользователя:</target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationText1" approved="yes">
+				<source>Please confirm registration of %s by clicking the following link:</source>
+			<target state="translated">Пожалуйста, подтвердите регистрацию %s нажав на следующую ссылку:</target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationLinkConfirm" approved="yes">
+				<source>Confirm registration</source>
+			<target state="translated">Подтвердить регистрацию</target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationText2" approved="yes">
+				<source>If you want to delete the registration, click this link:</source>
+			<target state="translated">Если вы хотите удалить эту регистрацию, нажмите на эту ссылку:</target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationLinkConfirmRefused" approved="yes">
+				<source>Delete profile</source>
+			<target state="translated">Удаление профиля</target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationText3">
+				<source>If you want to delete the registration, without sending an email to the user, click this link:</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateAdminConfirmationLinkConfirmRefusedSilent">
+				<source>Silently delete profile</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserConfirmationSubject">
+				<source>Please confirm your profile creation request</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserConfirmationSalutation" approved="yes">
+				<source>Dear</source>
+			<target state="translated">Уважаемый</target></trans-unit>
+			<trans-unit id="emailCreateUserConfirmationText1">
+				<source>Please confirm your profile registration on our server by clicking the following link:</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserConfirmationLinkConfirm">
+				<source>Confirm profile</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserConfirmationText2">
+				<source>If you don't want to be registered on our system, click this link:</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserConfirmationLinkConfirmRefused" approved="yes">
+				<source>Delete profile</source>
+			<target state="translated">Удаление профиля</target></trans-unit>
+			<trans-unit id="emailCreateUserConfirmationSignature">
+				<source>Your website team.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserNotifySubject">
+				<source>Your registration was confirmed</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserNotifySalutation" approved="yes">
+				<source>Dear</source>
+			<target state="translated">Уважаемый</target></trans-unit>
+			<trans-unit id="emailCreateUserNotifyText1">
+				<source>Your profile was confirmed and successfully created.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserNotifySignature">
+				<source>Your website team.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserNotifyRefusedSubject" approved="yes">
+				<source>Dear</source>
+			<target state="translated">Уважаемый</target></trans-unit>
+			<trans-unit id="emailCreateUserNotifyRefusedSalutation" approved="yes">
+				<source>Dear</source>
+			<target state="translated">Уважаемый</target></trans-unit>
+			<trans-unit id="emailCreateUserNotifyRefusedText1">
+				<source>Thank you for your profile request. We're sorry to tell you, that we had to refuse your request.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateUserNotifyRefusedSignature">
+				<source>Your website team.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateNotifySubject">
+				<source>New profile registration</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailCreateNotifySalutation" approved="yes">
+				<source>Dear Admin,</source>
+			<target state="translated">Уважаемый Администратор,</target></trans-unit>
+			<trans-unit id="emailCreateNotifyText1" approved="yes">
+				<source>Profile creation - User %s</source>
+			<target state="translated">Создание профиля - Пользователь %s</target></trans-unit>
+			<trans-unit id="emailCreateNotifyText2" approved="yes">
+				<source>Profile creation - User %s set a new password and profile was enabled</source>
+			<target state="translated">Создание профиля - Пользователь %s установил новый пароль и профиль был включен</target></trans-unit>
+			<trans-unit id="emailCreateNotifyUserProperties" approved="yes">
+				<source>Profile properties:</source>
+			<target state="translated">Свойства профиля:</target></trans-unit>
+			<trans-unit id="emailUpdateNotifySubject" approved="yes">
+				<source>Profile update</source>
+			<target state="translated">Обновление профиля</target></trans-unit>
+			<trans-unit id="emailUpdateNotifySalutation" approved="yes">
+				<source>Dear Admin,</source>
+			<target state="translated">Уважаемый Администратор,</target></trans-unit>
+			<trans-unit id="emailUpdateNotifyText1" approved="yes">
+				<source>Profile change by user %s</source>
+			<target state="translated">Изменение профиля пользователя %s</target></trans-unit>
+			<trans-unit id="emailUpdateNotifyField" approved="yes">
+				<source>Fieldname</source>
+			<target state="translated">Имя поля</target></trans-unit>
+			<trans-unit id="emailUpdateNotifyOld" approved="yes">
+				<source>Old value</source>
+			<target state="translated">Старое значение</target></trans-unit>
+			<trans-unit id="emailUpdateNotifyNew" approved="yes">
+				<source>New value</source>
+			<target state="translated">Новое значение</target></trans-unit>
+			<trans-unit id="emailUpdateRequestSubject" approved="yes">
+				<source>New profile change request</source>
+			<target state="translated">Новый запрос на изменение профиля</target></trans-unit>
+			<trans-unit id="emailUpdateRequestSalutation" approved="yes">
+				<source>Dear Admin,</source>
+			<target state="translated">Уважаемый Администратор,</target></trans-unit>
+			<trans-unit id="emailUpdateRequestText1" approved="yes">
+				<source>Profile change request from %s</source>
+			<target state="translated">Запрос на изменение профиля от %s</target></trans-unit>
+			<trans-unit id="emailUpdateRequestText2" approved="yes">
+				<source>All changes:</source>
+			<target state="translated">Все изменения:</target></trans-unit>
+			<trans-unit id="emailUpdateRequestField" approved="yes">
+				<source>Fieldname</source>
+			<target state="translated">Имя поля</target></trans-unit>
+			<trans-unit id="emailUpdateRequestOld" approved="yes">
+				<source>Old value</source>
+			<target state="translated">Старое значение</target></trans-unit>
+			<trans-unit id="emailUpdateRequestNew" approved="yes">
+				<source>New value</source>
+			<target state="translated">Новое значение</target></trans-unit>
+			<trans-unit id="emailUpdateRequestLinkConfirm" approved="yes">
+				<source>Confirm changes</source>
+			<target state="translated">Подтвердить изменения</target></trans-unit>
+			<trans-unit id="emailUpdateRequestLinkRefuse" approved="yes">
+				<source>Refuse changes and notify user</source>
+			<target state="translated">Отказать в изменениях и уведомить пользователя</target></trans-unit>
+			<trans-unit id="emailUpdateRequestLinkSiltentRefuse" approved="yes">
+				<source>Refuse changes and do not notify user</source>
+			<target state="translated">Отказать в изменениях без уведомления пользователя</target></trans-unit>
+			<trans-unit id="emailUpdateRequestRefusedSubject">
+				<source>Your update request was refused</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailUpdateRequestRefusedSalutation" approved="yes">
+				<source>Dear</source>
+			<target state="translated">Уважаемый</target></trans-unit>
+			<trans-unit id="emailUpdateRequestRefusedText1">
+				<source>Thank you for your update request. We're sorry to tell you, that we had to refuse your request.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailUpdateRequestRefusedText2">
+				<source>Please contact %s for further information.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailUpdateRequestRefusedSignature">
+				<source>Your website team.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationSubject">
+				<source>Confirm your profile</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationSalutation" approved="yes">
+				<source>Dear</source>
+			<target state="translated">Уважаемый</target></trans-unit>
+			<trans-unit id="emailInvitationText1">
+				<source>Your new profile was just created.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationText2">
+				<source>Please confirm your profile registration on our server by clicking the following link. After that, you can define a password.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationLinkConfirm">
+				<source>Confirm Profile</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationText3">
+				<source>If you don't want to be registered on our system, click this link.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationLinkConfirmRefused" approved="no">
+				<source>Delete Profile</source>
+			<target state="needs-translation">Удаление профиля</target></trans-unit>
+			<trans-unit id="emailInvitationSignature">
+				<source>Your website team.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationAdminNotifiyStep1Subject">
+				<source>User was invited</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationAdminNotifiySubject">
+				<source>User invitation - Profile finally created</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationUserRefusedAdminNotifiyStep1Subject">
+				<source>User refused invitation</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationUserRefusedAdminNotifiySalutation" approved="yes">
+				<source>Dear Admin,</source>
+			<target state="translated">Уважаемый Администратор,</target></trans-unit>
+			<trans-unit id="emailInvitationUserRefusedAdminNotifiyText1">
+				<source>Profile invitation of %s</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationUserRefusedAdminNotifiyText2">
+				<source>Profile invitation - User %s refused to set a new password. The profile was deleted.</source>
+			<target></target></trans-unit>
+			<trans-unit id="emailInvitationUserRefusedAdminNotifiyUserProperties" approved="yes">
+				<source>Profile properties:</source>
+			<target state="translated">Свойства профиля:</target></trans-unit>
+			<trans-unit id="noRecordsFound" approved="yes">
+				<source>No records found.</source>
+			<target state="translated">Записей не найдено.</target></trans-unit>
+			<trans-unit id="noRecordsFoundClearFilter" approved="yes">
+				<source>Clean filter.</source>
+			<target state="translated">Очистить фильтр.</target></trans-unit>
+			<trans-unit id="noRecordsFoundGoToPage0" approved="yes">
+				<source>Show all users from all pages (for administrators only).</source>
+			<target state="translated">Показать всех пользователей со всех страниц (только для администраторов).</target></trans-unit>
+			<trans-unit id="noRecordFoundShow">
+				<source>No FE_User given or not logged in</source>
+			<target></target></trans-unit>
+			<trans-unit id="notLoggedIn">
+				<source>Please log in before</source>
+			<target></target></trans-unit>
+			<trans-unit id="submitNew">
+				<source>Create Profile Now</source>
+			<target></target></trans-unit>
+			<trans-unit id="passwordRepeat" approved="yes">
+				<source>Repeat Password</source>
+			<target state="translated">Повторите пароль</target></trans-unit>
+			<trans-unit id="titleCreateProfile">
+				<source>Create a new user-profile</source>
+			<target></target></trans-unit>
+			<trans-unit id="submitEdit">
+				<source>Update Profile</source>
+			<target></target></trans-unit>
+			<trans-unit id="create">
+				<source>Profile successfully created</source>
+			<target></target></trans-unit>
+			<trans-unit id="createAndInvited">
+				<source>Profile successfully created and user informed</source>
+			<target></target></trans-unit>
+			<trans-unit id="createAndInvitedFinished">
+				<source>Profile successfully changed and enabled</source>
+			<target></target></trans-unit>
+			<trans-unit id="createRequestWaitingForUserConfirm">
+				<source>Thank you for your request. Please check your mail account to confirm the profile.</source>
+			<target></target></trans-unit>
+			<trans-unit id="createRequestWaitingForAdminConfirm">
+				<source>Thank you for your confirmation. You're profile will be available as soon as the admin confirms your request.</source>
+			<target></target></trans-unit>
+			<trans-unit id="createFailedProfile" approved="no">
+				<source>Profile creation failed</source>
+			<target state="needs-translation">Запрос на создание профиля</target></trans-unit>
+			<trans-unit id="userAlreadyConfirmed">
+				<source>Profile is already confirmed</source>
+			<target></target></trans-unit>
+			<trans-unit id="missingUserInDatabase">
+				<source>No Profile found in database. Maybe it was deleted before.</source>
+			<target></target></trans-unit>
+			<trans-unit id="createProfileDeleted">
+				<source>Profile successfully deleted</source>
+			<target></target></trans-unit>
+			<trans-unit id="titleUpdateProfile">
+				<source>Update your user-profile</source>
+			<target></target></trans-unit>
+			<trans-unit id="update">
+				<source>Profile successfully changed</source>
+			<target></target></trans-unit>
+			<trans-unit id="noChanges">
+				<source>No changes detected, nothing to update</source>
+			<target></target></trans-unit>
+			<trans-unit id="updateRequest">
+				<source>Your change request was transmitted to the administrator. After a confirmation, your profile will be up-to-date.</source>
+			<target></target></trans-unit>
+			<trans-unit id="login">
+				<source>You're successfully logged in now</source>
+			<target></target></trans-unit>
+			<trans-unit id="deleteProfile" approved="no">
+				<source>Delete Profile</source>
+			<target state="needs-translation">Удаление профиля</target></trans-unit>
+			<trans-unit id="updateProfile">
+				<source>Profile successfully updated</source>
+			<target></target></trans-unit>
+			<trans-unit id="updateFailedProfile">
+				<source>Profile update failed</source>
+			<target></target></trans-unit>
+			<trans-unit id="field_image_fineuploader">
+				<source>Please enable fineUploader plugin</source>
+			<target></target></trans-unit>
+			<trans-unit id="field_image_drag">
+				<source>Drag file</source>
+			<target></target></trans-unit>
+			<trans-unit id="field_image_drag_processing">
+				<source>Drag in progress ...</source>
+			<target></target></trans-unit>
+			<trans-unit id="field_image_upload" approved="yes">
+				<source>Upload</source>
+			<target state="translated">Загрузить</target></trans-unit>
+			<trans-unit id="empty" approved="yes">
+				<source>empty</source>
+			<target state="translated">пусто</target></trans-unit>
+			<trans-unit id="pleaseChoose" approved="yes">
+				<source>Please choose ...</source>
+			<target state="translated">Сделайте выбор ...</target></trans-unit>
+			<trans-unit id="FilterLabel" approved="yes">
+				<source>Search</source>
+			<target state="translated">Поиск</target></trans-unit>
+			<trans-unit id="FilterPlaceholder" approved="yes">
+				<source>Search ...</source>
+			<target state="translated">Поиск ...</target></trans-unit>
+			<trans-unit id="FilterSubmit" approved="yes">
+				<source>Filter now</source>
+			<target state="translated">Теперь фильтр</target></trans-unit>
+			<trans-unit id="UserDeleteConfirmation">
+				<source>Are you sure to delete your profile?</source>
+			<target></target></trans-unit>
+			<trans-unit id="titleInvitationProfile" approved="yes">
+				<source>Invite a new user</source>
+			<target state="translated">Пригласить нового пользователя</target></trans-unit>
+			<trans-unit id="titleInvitationSetPassword">
+				<source>Please set a new password</source>
+			<target></target></trans-unit>
+			<trans-unit id="BackendListUserDeleteConfirmation">
+				<source>Are you sure to delete this User?</source>
+			<target></target></trans-unit>
+			<trans-unit id="BackendListFilterLabel" approved="yes">
+				<source>Search</source>
+			<target state="translated">Поиск</target></trans-unit>
+			<trans-unit id="BackendListLoginAs" approved="yes">
+				<source>Login as</source>
+			<target state="translated">Войти от имени</target></trans-unit>
+		</body>
+	</file>
+</xliff>

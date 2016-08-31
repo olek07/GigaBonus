@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="ru" type="array">
+			<label index="mlang_tabs_tab">Пользователи сайта</label>
+			<label index="mlang_labels_tabdescr">FE Менеджер позволяет просматривать список Пользователей и фильтровать их. Показывает из группы пользователей, по поиску словами или просто показывает пользователей, которые находятся на сайте онлайн</label>
+			<label index="mlang_labels_tablabel">FE Менеджер</label>
+		</languageKey>
+  </data>
+</T3locallangExt>

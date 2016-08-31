@@ -1,0 +1,97 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:layout name="Default" />
+
+	User / Show
+
+<f:section name="main">
+
+	<div class="femanager_show">
+		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+
+		<f:if condition="{user}">
+			<f:then>
+				<ul>
+					<f:if condition="{user.username}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.username" />:
+							<f:link.action action="show" arguments="{user:user}">{user.username}</f:link.action>
+						</li>
+					</f:if>
+					<f:if condition="{user.usergroup}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.usergroup" />:
+							<f:for each="{user.usergroup}" as="usergroup" iteration="i">{usergroup.title}<f:if condition="{i.isLast}"><f:else>, </f:else></f:if></f:for>
+						</li>
+					</f:if>
+					<f:if condition="{user.firstName}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.firstName" />:
+							{user.firstName}
+						</li>
+					</f:if>
+					<f:if condition="{user.lastName}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.lastName" />:
+							{user.lastName}
+						</li>
+					</f:if>
+					<f:if condition="{user.email}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.email" />:
+							<f:link.email email="{user.email}" />
+						</li>
+					</f:if>
+					<li>
+						<f:translate key="tx_femanager_domain_model_user.gender" />:
+						<f:if condition="{user.gender} == 0">
+							<f:then>
+								<f:translate key="tx_femanager_domain_model_user.gender.item0" />
+							</f:then>
+							<f:else>
+								<f:translate key="tx_femanager_domain_model_user.gender.item1" />
+							</f:else>
+						</f:if>
+					</li>
+					<f:if condition="{user.dateOfBirth}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.dateOfBirth" />:
+							<f:format.date format="{f:translate(key:'tx_femanager_domain_model_user.dateFormat')}">{user.dateOfBirth}</f:format.date>
+						</li>
+					</f:if>
+					<f:if condition="{user.address}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.address" />:
+							{user.address}
+						</li>
+					</f:if>
+					<f:if condition="{user.zip}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.zip" />:
+							{user.zip}
+						</li>
+					</f:if>
+					<f:if condition="{user.city}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.city" />:
+							{user.city}
+						</li>
+					</f:if>
+					<f:if condition="{user.country}">
+						<li>
+							<f:translate key="tx_femanager_domain_model_user.country" />:
+							{user.country}
+						</li>
+					</f:if>
+				</ul>
+				<f:for each="{femanager:Misc.Explode(string:'{user.image}')}" as="image">
+					<f:image src="{uploadFolder}/{image}" alt="{user.firstName} {user.lastName}" width="250" />
+				</f:for>
+			</f:then>
+			<f:else>
+				<div class="femanager_note">
+					<f:translate key="noRecordFoundShow" />
+				</div>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>

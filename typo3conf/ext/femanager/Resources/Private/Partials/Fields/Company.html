@@ -1,0 +1,16 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_company control-group">
+	<label for="femanager_field_company" class="control-label">
+		<f:translate key="tx_femanager_domain_model_user.company" />
+		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'company')}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<femanager:form.textfield
+				id="femanager_field_company"
+				property="company"
+				class="input-block-level"
+				additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'company')}" />
+	</div>
+</div>

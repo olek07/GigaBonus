@@ -1,0 +1,16 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_lastname control-group">
+	<label for="femanager_field_lastName" class="control-label">
+		<f:translate key="tx_femanager_domain_model_user.lastName" />
+		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'lastName')}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<femanager:form.textfield
+				id="femanager_field_lastName"
+				property="lastName"
+				class="input-block-level"
+				additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'lastName')}" />
+	</div>
+</div>

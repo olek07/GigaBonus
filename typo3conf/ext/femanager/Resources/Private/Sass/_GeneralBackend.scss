@@ -1,0 +1,19 @@
+.femanager_list {
+  a {
+    &.underline {
+      text-decoration: underline;
+    }
+  }
+  .cursorpointer {
+    cursor: pointer;
+  }
+  .f3-widget-paginator {
+    li {
+      display: inline-block;
+      padding: 2px;
+      &.current {
+        font-weight: bold;
+      }
+    }
+  }
+}

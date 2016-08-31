@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="ru" type="array">
+			<label index="tx_femanager_domain_model_user">Пользователь</label>
+			<label index="tx_femanager_domain_model_user.username">Имя пользователя</label>
+			<label index="tx_femanager_domain_model_user.password">Пароль</label>
+			<label index="tx_femanager_domain_model_user.usergroup">Группа пользователей</label>
+			<label index="tx_femanager_domain_model_user.name">Имя</label>
+			<label index="tx_femanager_domain_model_user.firstName">Имя</label>
+			<label index="tx_femanager_domain_model_user.middleName">Отчество</label>
+			<label index="tx_femanager_domain_model_user.lastName">Фамилия</label>
+			<label index="tx_femanager_domain_model_user.dateOfBirth">Дата рождения</label>
+			<label index="tx_femanager_domain_model_user.gender">Пол</label>
+			<label index="tx_femanager_domain_model_user.gender.item0">мужской</label>
+			<label index="tx_femanager_domain_model_user.gender.item1">женский</label>
+			<label index="tx_femanager_domain_model_user.address">Почтовый адрес</label>
+			<label index="tx_femanager_domain_model_user.telephone">Телефон</label>
+			<label index="tx_femanager_domain_model_user.fax">Факс</label>
+			<label index="tx_femanager_domain_model_user.email">Электронная почта</label>
+			<label index="tx_femanager_domain_model_user.title">Название события</label>
+			<label index="tx_femanager_domain_model_user.zip">ZIP</label>
+			<label index="tx_femanager_domain_model_user.city">Город</label>
+			<label index="tx_femanager_domain_model_user.country">Страна</label>
+			<label index="tx_femanager_domain_model_user.www">Веб-сайт</label>
+			<label index="tx_femanager_domain_model_user.company">Организация</label>
+			<label index="tx_femanager_domain_model_user.image">Изображение</label>
+			<label index="tx_femanager_domain_model_user.lastlogin">Последний вход</label>
+			<label index="tx_femanager_domain_model_user.captcha">Защитный код</label>
+			<label index="fe_users.crdate">Время создания</label>
+			<label index="fe_users.tstamp">Последнее изменение профиля в</label>
+			<label index="fe_users.registrationconfirmedbyuser">Регистрация подтверждается пользователем</label>
+			<label index="fe_users.registrationconfirmedbyadmin">Регистрация подтверждается администратором</label>
+			<label index="fe_users.tab">Регистрация</label>
+			<label index="fe_users.log">Лог действий Пользователей сайта</label>
+			<label index="fe_users.changerequest">Запрос на изменение</label>
+			<label index="tx_femanager_domain_model_log">Журнал наблюдений</label>
+			<label index="tx_femanager_domain_model_log.title">Название события</label>
+			<label index="tx_femanager_domain_model_log.crdate">Время</label>
+			<label index="tx_femanager_domain_model_log.state">Область</label>
+			<label index="tx_femanager_domain_model_log.state.100">Регистрация</label>
+			<label index="tx_femanager_domain_model_log.state.101">Регистрация нового пользователя</label>
+			<label index="tx_femanager_domain_model_log.state.102">Регистрация подтверждается пользователем</label>
+			<label index="tx_femanager_domain_model_log.state.103">Регистрация подтверждается администратором</label>
+			<label index="tx_femanager_domain_model_log.state.104">В регистрации отказано пользователем</label>
+			<label index="tx_femanager_domain_model_log.state.105">В регистрации отказано администратором</label>
+			<label index="tx_femanager_domain_model_log.state.106">Запрос на создание профиля</label>
+			<label index="tx_femanager_domain_model_log.state.200">Обновление</label>
+			<label index="tx_femanager_domain_model_log.state.201">Профиль обновлен</label>
+			<label index="tx_femanager_domain_model_log.state.202">Обновление профиля подтверждённое администратором</label>
+			<label index="tx_femanager_domain_model_log.state.203">В обновлении профиля отказано администратором</label>
+			<label index="tx_femanager_domain_model_log.state.204">Запрос на обновление профиля</label>
+			<label index="tx_femanager_domain_model_log.state.205">Обновление профиля сбой по безопасности</label>
+			<label index="tx_femanager_domain_model_log.state.300">Удаление</label>
+			<label index="tx_femanager_domain_model_log.state.301">Профиль удален</label>
+			<label index="tx_femanager_domain_model_log.state.400">Приглашение</label>
+			<label index="tx_femanager_domain_model_log.state.401">Профиль создан и Приглашенный пользователь</label>
+			<label index="tx_femanager_domain_model_log.state.402">Профиль удален из пользователя</label>
+			<label index="tx_femanager_domain_model_log.state.403">Неправильный Хэш</label>
+			<label index="tx_femanager_domain_model_log.state.404">Была сделана попытка открыть страницу с ограниченным доступом</label>
+			<label index="tx_femanager_domain_model_log.state.405">Пароль изменен и профиль активирован</label>
+			<label index="tx_femanager_domain_model_log.user">Пользователь</label>
+
+			<label index="flexform.main.title">Основные настройки</label>
+			<label index="flexform.main.view">Выбрать отображение</label>
+			<label index="flexform.main.view.0">Регистрация</label>
+			<label index="flexform.main.view.1">Редактировать</label>
+			<label index="flexform.main.view.2">Список</label>
+			<label index="flexform.main.view.3">Подробности</label>
+			<label index="flexform.main.view.4">Приглашение</label>
+			<label index="flexform.new.title">Регистрация</label>
+			<label index="flexform.new.fields">Выберите поля для формы регистрации (если пусто = выбраны все поля)</label>
+			<label index="flexform.new.overrideUserGroup">Выберите Группы пользователей для новых Пользователей</label>
+			<label index="flexform.new.confirmByUser">Регистрация должна подтверждаться отправителем</label>
+			<label index="flexform.new.confirmByAdmin">Регистрация должна быть подтверждена администратором (добавить один или несколько адресов электронной почты)</label>
+			<label index="flexform.new.notifyAdmin">Уведомить администратора о регистрации (добавить один или несколько адресов электронной почты)</label>
+			<label index="flexform.edit.title">Редактировать</label>
+			<label index="flexform.edit.fields">Выберите поля для формы редактирования (если пусто = выбраны все поля)</label>
+			<label index="flexform.edit.showDeleteLink">Показать кнопку Удалить в форме редактирования</label>
+			<label index="flexform.edit.confirmByAdmin">Обновление профиля должно быть подтверждено администратором (добавить один или несколько адресов электронной почты)</label>
+			<label index="flexform.edit.notifyAdmin">Уведомить администратора о обновлении профиля (добавить один или несколько адресов электронной почты)</label>
+			<label index="flexform.list.title">Посмотреть список</label>
+			<label index="flexform.list.filter">Показать поля поиска</label>
+			<label index="flexform.list.limit">Максимум</label>
+			<label index="flexform.list.orderby">Сортировать по</label>
+			<label index="flexform.list.orderby.0">Фамилия</label>
+			<label index="flexform.list.orderby.1">Имя</label>
+			<label index="flexform.list.orderby.2">Организация</label>
+			<label index="flexform.list.sorting">Сортировка</label>
+			<label index="flexform.list.sorting.0">По возрастанию</label>
+			<label index="flexform.list.sorting.1">По убыванию</label>
+			<label index="flexform.list.usergroup">Показать из группы пользователей (если пусто = показать все)</label>
+			<label index="flexform.show.title">Детальное представление</label>
+			<label index="flexform.show.user">Пользователь для показа</label>
+			<label index="flexform.show.user.1">[Авторизованные FE Пользователи]</label>
+			<label index="flexform.invitation.title">Приглашение</label>
+			<label index="flexform.invitation.allowedUserGroups">Ограничить "Добавить приглашение" к одной или нескольким группам пользователей (если пусто = никаких ограничений)</label>
+			<label index="flexform.invitation.fields">Выберите поля для формы приглашения (если пусто = выбраны все поля)</label>
+			<label index="flexform.invitation.overrideUserGroup">Выберите группы пользователей для новых пользователей</label>
+			<label index="flexform.invitation.confirmByAdmin">Регистрация должна быть подтверждена администратором (добавить один или несколько адресов электронной почты)</label>
+			<label index="flexform.invitation.notifyAdminStep1">Уведомить администратора на шаге 1 (добавить один или несколько адресов электронной почты)</label>
+			<label index="flexform.invitation.notifyAdmin">Уведомить администратора, если пользователь устанавливает пароль (добавить один или несколько адресов электронной почты)</label>
+
+			<label index="pleaseChoose">Сделайте выбор...</label>
+		</languageKey>
+  </data>
+</T3locallangExt>

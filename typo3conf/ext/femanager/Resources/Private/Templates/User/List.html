@@ -1,0 +1,123 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:layout name="Default" />
+
+	User / List
+
+	This Template is responsible for the femanager list view
+
+<f:section name="main">
+
+	<div class="femanager_list">
+		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+
+		<f:render partial="User/Searchform" arguments="{_all}" />
+
+		<f:if condition="{users}">
+			<f:then>
+				<ul class="media-list">
+					<f:for each="{users}" as="user">
+						<li class="media list-group-item">
+							<f:for each="{femanager:Misc.Explode(string:'{user.image}')}" as="image">
+								<f:link.action action="show" arguments="{user:user}" class="pull-left">
+									<f:image src="{uploadFolder}/{image}" alt="{user.firstName} {user.lastName}" width="80c" height="80c" class="media-object" />
+								</f:link.action>
+							</f:for>
+							<div class="media-body">
+								<h4 class="media-heading">
+									<f:link.action action="show" arguments="{user:user}">
+										{user.username}
+									</f:link.action>
+								</h4>
+								{user.firstName} {user.lastName} <f:if condition="{user.email}"><f:link.email email="{user.email}">{user.email}</f:link.email></f:if>
+							</div>
+						</li>
+					</f:for>
+				</ul>
+			</f:then>
+			<f:else>
+				<div class="femanager_note">
+					<f:translate key="noRecordsFound" />
+				</div>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>
+
+
+
+
+
+
+
+
+<f:section name="main_old">
+
+	<div class="femanager_list">
+		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+
+		<f:if condition="{users}">
+			<f:then>
+				<ul>
+					<f:for each="{users}" as="user">
+						<li>
+							<ul>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.username" />:
+									<f:link.action action="show" arguments="{user:user}">{user.username}</f:link.action>
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.usergroup" />:
+									<f:for each="{user.usergroup}" as="usergroup" iteration="i">{usergroup.title}<f:if condition="{i.isLast}"><f:else>, </f:else></f:if></f:for>
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.firstName" />:
+									{user.firstName}
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.username" />:
+									{user.lastName}
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.gender" />:
+									<f:if condition="{user.gender} == 0">
+										<f:then>
+											<f:translate key="tx_femanager_domain_model_user.gender.item0" />
+										</f:then>
+										<f:else>
+											<f:translate key="tx_femanager_domain_model_user.gender.item1" />
+										</f:else>
+									</f:if>
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.dateOfBirth" />:
+									<f:format.date format="{f:translate(key:'tx_femanager_domain_model_user.dateFormat')}">{user.dateOfBirth}</f:format.date>
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.address" />:
+									{user.address}
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.zip" />:
+									{user.zip}
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.city" />:
+									{user.city}
+								</li>
+								<li>
+									<f:translate key="tx_femanager_domain_model_user.country" />:
+									{user.country}
+								</li>
+							</ul>
+						</li>
+					</f:for>
+				</ul>
+			</f:then>
+			<f:else>
+				<div class="femanager_note">
+					<f:translate key="noRecordsFound" />
+				</div>
+			</f:else>
+		</f:if>
+	</div>
+</f:section>
