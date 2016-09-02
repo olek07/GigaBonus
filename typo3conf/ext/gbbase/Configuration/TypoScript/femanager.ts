@@ -1,4 +1,6 @@
 plugin.tx_femanager {
+    view.partialRootPaths.10 = EXT:gbfemanager/Resources/Private/Partials/
+
     settings {
         new {
             validation {
@@ -28,12 +30,12 @@ plugin.tx_femanager {
 
     _LOCAL_LANG {
         # Default Language
-        ru.tx_femanager_domain_model_user.dateFormat = m.d.Y
-        ru.tx_femanager_domain_model_user.dateOfBirth.placeholder = m.d.Y
+        ru.tx_femanager_domain_model_user.dateFormat = d.m.Y
+        ru.tx_femanager_domain_model_user.dateOfBirth.placeholder = d.m.Y
 
         # For DE
-        ua.tx_femanager_domain_model_user.dateFormat = m.d.Y
-        ua.tx_femanager_domain_model_user.dateOfBirth.placeholder = m.d.Y
+        ua.tx_femanager_domain_model_user.dateFormat = d.m.Y
+        ua.tx_femanager_domain_model_user.dateOfBirth.placeholder = d.m.Y
     }
 
 }

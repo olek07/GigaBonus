@@ -1,0 +1,13 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_zip control-group">
+	<label for="femanager_field_zip" class="control-label">
+		Language
+	</label>
+	<div class="controls">
+		<femanager:form.textfield
+				id="femanager_field_language"
+				property="language"
+				class="input-block-level"
+				additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'language')}" />
+	</div>
+</div>
