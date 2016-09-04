@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbbase">
+		<header/>
+		<body>
+                    <trans-unit id="gbbase.month.name_1">
+                            <source>Январь</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_2">
+                            <source>Февраль</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_3">
+                            <source>Март</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_4">
+                            <source>Апрель</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_5">
+                            <source>Май</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_6">
+                            <source>Июнь</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_7">
+                            <source>Июль</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_8">
+                            <source>Август</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_9">
+                            <source>Сентябрь</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_10">
+                            <source>Октябрь</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_11">
+                            <source>Ноябрь</source>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month.name_12">
+                            <source>Декабрь</source>
+                    </trans-unit>
+	        </body>
+
+	</file>
+</xliff>
