@@ -1,0 +1,23 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div class="femanager_fieldset femanager_city control-group">
+	<label for="femanager_field_city" class="control-label">
+		<f:translate key="tx_femanager_domain_model_user.city" />
+		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'city')}">
+			<span>*</span>
+		</f:if>
+	</label>
+	<div class="controls">
+		<femanager:form.textfield
+				id="femanager_field_city"
+				property="city"
+				class="input-block-level"
+				additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'city')}" />
+                
+                <f:form.textfield
+				id="femanager_field_city_id"
+				property="cityId"
+                />
+                
+                
+	</div>
+</div>

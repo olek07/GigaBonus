@@ -1,5 +1,6 @@
 plugin.tx_femanager {
     view.partialRootPaths.10 = EXT:gbfemanager/Resources/Private/Partials/
+    view.templateRootPaths.10 = EXT:gbfemanager/Resources/Private/Templates/
 
     settings {
         new {
