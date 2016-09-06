@@ -5,6 +5,7 @@ config{
     language = ru
     locale_all = ru_RU.UTF-8
     htmlTag_setParams = lang="ru" class="nojs"
+    defaultGetVars.L  = 0
     linkVars = L(0-1)
 }
 
