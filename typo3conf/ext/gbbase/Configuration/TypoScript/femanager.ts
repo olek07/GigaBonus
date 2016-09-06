@@ -25,6 +25,8 @@ plugin.tx_femanager {
         edit {
             validation {
                 email.uniqueInDb = 1
+
+                password < plugin.tx_femanager.settings.new.validation.password
             }
         }
     }

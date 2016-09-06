@@ -9,6 +9,6 @@ page.includeJS {
 }
 
 page.includeJSFooterlibs {
-    whatinput = EXT:gbbase/Resources/Public/Script/Libs/what-input.js
-    foundation = EXT:gbbase/Resources/Public/Script/Libs/foundation.min.js    
+    whatinput = EXT:gbbase/Resources/Public/Scripts/Libs/what-input.js
+    foundation = EXT:gbbase/Resources/Public/Scripts/Libs/foundation.min.js    
 }

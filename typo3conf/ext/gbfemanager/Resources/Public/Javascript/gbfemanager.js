@@ -29,7 +29,7 @@ Gbfemanager = {
         var cityName = $('#femanager_field_city').val();
 
         $('#femanager_field_city').autocomplete({
-            source      : '/ajax.php',
+            source      : '/index.php?eID=cities&lang=ru',
             minLength   : 3,
             delay       : 500,
             html        : true,
@@ -48,10 +48,10 @@ Gbfemanager = {
         $('#femanager_field_city').keydown(function(){
             if (cityName !== $('#femanager_field_city').val().trim()) $('#femanager_field_city_id').val(0);
         })
-
+        
         $('#changeUserdataForm').submit(function(event) {
               if (!cityFound) return false;
-              if ($('#femanager_field_city_id').val() == 0) return false;
+              if ($('#femanager_field_city_id').val() === 0) return false;
         });
     }
     

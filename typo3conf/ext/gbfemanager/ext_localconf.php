@@ -26,4 +26,4 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['In2code\\Femanager\\Controller\\N
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/PageTS.ts">'); 
 
 
-$TYPO3_CONF_VARS['FE']['eID_include']['getcities'] = 'EXT:gbfemanager/Classes/Getcities.php';
+$TYPO3_CONF_VARS['FE']['eID_include']['cities'] = 'EXT:gbfemanager/Classes/Cities.php';
