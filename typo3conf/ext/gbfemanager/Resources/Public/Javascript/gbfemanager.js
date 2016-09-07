@@ -29,7 +29,7 @@ Gbfemanager = {
         var cityName = $('#femanager_field_city').val();
 
         $('#femanager_field_city').autocomplete({
-            source      : '/index.php?eID=cities&lang=ru',
+            source      : '/index.php?eID=cities&L=0',
             minLength   : 3,
             delay       : 500,
             html        : true,

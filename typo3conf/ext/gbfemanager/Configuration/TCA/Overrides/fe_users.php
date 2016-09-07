@@ -21,6 +21,10 @@ $feUsersColumns = [
             ],
         ]
     ],
+    'cityId' => [
+        'exclude' => 0,
+        'label' => 'Cityid',
+    ]
 ];
 
 
