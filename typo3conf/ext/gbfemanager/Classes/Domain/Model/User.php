@@ -15,7 +15,7 @@ class User extends \In2code\Femanager\Domain\Model\User {
      *
      * @var int
      */
-    protected $cityid;
+    protected $cityId;
 
     /**
      * Sets the language
@@ -43,18 +43,18 @@ class User extends \In2code\Femanager\Domain\Model\User {
      * @param int $cityid
      * @return User
      */
-    public function setCityid($cityid) {
-        $this->cityid = $cityid;
+    public function setCityid($cityId) {
+        $this->cityId = $cityId;
         return $this;
     }
 
     /**
-     * Returns the cityid
+     * Returns the cityId
      *
      * @return string
      */
-    public function getCityid() {
-        return $this->cityid;
+    public function getCityId() {
+        return $this->cityId;
     }
 
 }

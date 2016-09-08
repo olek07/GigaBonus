@@ -21,9 +21,12 @@ $feUsersColumns = [
             ],
         ]
     ],
-    'cityId' => [
+    'city_id' => [
         'exclude' => 0,
         'label' => 'Cityid',
+        'config' => [
+            'type' => 'input',
+        ]
     ]
 ];
 
@@ -34,4 +37,14 @@ $feUsersColumns = [
     '',
     'after:name'
 );
+
+/*
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    'fe_users',
+    'city_id',
+    '',
+    'after:language'
+);
+*/
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users', $feUsersColumns);

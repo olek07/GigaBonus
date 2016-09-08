@@ -1,9 +1,10 @@
 Gbfemanager = {
 
-   init: function(){
+   init: function(lang){
 
         var obj = this;
         
+        this.lang = lang;
         obj.initCitySuggest();
         
         var birthDay = $('#femanager_field_dateOfBirth').val();
@@ -25,16 +26,15 @@ Gbfemanager = {
     
     initCitySuggest: function() {
         var cityFound = true;
-        var term1 = $('#femanager_field_city').val();
         var cityName = $('#femanager_field_city').val();
 
         $('#femanager_field_city').autocomplete({
-            source      : '/index.php?eID=cities&L=0',
+            source      : '/index.php?eID=cities&L=' + this.lang,
             minLength   : 3,
             delay       : 500,
             html        : true,
             select: function(event, ui) {
-                    var url = ui.item.id;
+                    var url = ui.item.uid;
                     $('#femanager_field_city_id').val(url);
                     cityFound = true;
                     cityName = ui.item.value;
@@ -59,7 +59,3 @@ Gbfemanager = {
 
 }
 
-
-jQuery(document).ready(function(){
-    Gbfemanager.init();
-});

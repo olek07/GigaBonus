@@ -24,10 +24,13 @@ class Cities {
     
 
     public function __construct($TYPO3_CONF_VARS, $term, $lang = 0) {
-        if (!array_key_exists($lang, $this->languages)) {
+        
+        $this->lang = (int)$lang;
+        
+        if (!array_key_exists($this->lang, $this->languages)) {
             exit;
         }
-        $this->lang = $lang;
+        
         $this->term = trim(addslashes($term));
         $this->term = preg_replace('~\s{1,}~' , ' ',  $this->term);
     }
@@ -51,7 +54,7 @@ class Cities {
         // echo $GLOBALS['TYPO3_DB']->debug_lastBuiltQuery;
         if ($GLOBALS['TYPO3_DB']->sql_num_rows($res)) {                             
             while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)){
-              $citiesList[] = array('id' => $row['id'], 'value' => trim($row[$fieldName]));  
+              $citiesList[] = array('uid' => $row['uid'], 'value' => trim($row[$fieldName]));  
             }
         }
         return $citiesList;

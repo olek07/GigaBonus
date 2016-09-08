@@ -20,6 +20,14 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      */
     public function editAction()
     {
+        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+        $lang = (int) \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('L');
+        $pageRenderer->addJsFooterInlineCode('', 
+            "    
+            jQuery(document).ready(function(){
+                Gbfemanager.init($lang);
+            });
+            ");
         parent::editAction();
     }
     
