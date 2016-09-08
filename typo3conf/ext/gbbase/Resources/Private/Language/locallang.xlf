@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbbase">
+	<file source-language="ru" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbbase">
 		<header/>
 		<body>
                     <trans-unit id="gbbase.month.name_1">
