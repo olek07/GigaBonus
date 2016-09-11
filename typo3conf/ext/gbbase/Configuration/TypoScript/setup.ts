@@ -1,11 +1,19 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/config.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/lib.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/langMenu.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/femanager.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/includejs.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/includecss.ts">
 
-# Default PAGE object:
-page = PAGE
 
-page.10 < lib.langMenu
-page.20 < styles.content.get
+page = PAGE
+page.typeNum = 0
+
+page.5 < lib.langMenu
+page.10 = FLUIDTEMPLATE
+page.10 {
+    format = html
+    file = EXT:gbbase/Resources/Private/Templates/Page/Layouts/MainTemplate.html
+    partialRootPath = EXT:gbbase/Resources/Private/Templates/Page/Partials/
+    # layoutRootPath = typo3conf/ext/gbbase/Resources/Private/Templates/Page/Layouts/
+}
