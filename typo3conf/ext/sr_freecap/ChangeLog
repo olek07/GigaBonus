@@ -1,0 +1,401 @@
+2016-02-13  Stanislas Rolland  <typo(arobas)sjbr.ca>
+
+	* Resolves #73422: Cleanup in German word list
+	* Resolves #73423: Incorrect audio rendering when using word lists with non-ASCII characters
+	* Resolves #73220: Follow-up to PHP 5.5 warning when decrypting word with blowfish algorithm
+	* Update version to 2.3.1
+
+2016-02-11  Stanislas Rolland  <typo(arobas)sjbr.ca>
+
+	* Resolves #73394: Replace the English word list
+
+2016-02-10  Stanislas Rolland  <typo(arobas)sjbr.ca>
+
+	* Resolves #73220: PHP 5.5 warning when decrypting word with blowfish algorithm
+
+2016-02-01  Stanislas Rolland  <typo(arobas)sjbr.ca>
+
+	* Cleanup in ImageViewHelper
+	* Correction to composer.json
+	* Resolves #73075: Word list used when renewing captcha image is in wrong language
+
+2015-11-02  Stanislas Rolland  <typo(arobas)sjbr.ca>
+
+	* Resolves #70917: An end brace is in excess in TS setup.
+	* Resolves #66194: 500 error in access log
+
+2015-10-11  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Cleanup
+	* Add composer.json
+	* Move static template registration to TCA overrides
+	* Compatibility with TYPO3 CMS 7
+	* Improve template handling
+	* Cleanup references to versions of TYPO3 CMS lower than 6.2
+	* Delete directory mod1
+	* Update version to 2.3.0
+
+2015-03-31  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #64524: SJBR\SrFreecap\Domain\Model\Font raises warning on PHP 5.4+
+
+2015-03-18  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #65649: $this->freeCap->checkWord accepts empty postvar
+	* Resolves #64524: SJBR\SrFreecap\Domain\Model\Font raises warning on PHP 5.4+
+
+2015-02-10  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #64517: Revert CaptchaValidator::isValid should be protected
+	* Resolves #64972: New view configuration in TYPO3 CMS 6.2
+	* Require TYPO3 CMS 6.2
+	* Update version to 2.2.0
+
+2015-02-04  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #64847: Fatal error on CaptchaValidator::isValid() from context PiBaseApi
+	* Update version to 2.1.1
+
+2015-01-28  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Cleanup
+
+2015-01-27  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #64543: Extension does not handle vendorName
+	* Resolves #64525 (Follow-up): Extbase does not find the templates of backend Font Maker in TYPO3 7.0
+	* Resolves #64548: Font file not found in Font Maker on PHP 5.5
+	* Enable in TYPO3 CMS 7
+	* Update version to 2.1.0
+
+2015-01-26  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #64517: CaptchaValidator::isValid should be protected
+	* Resolves #64519: Validate annotation: class name TtfFileValidator should not start with backslash
+	* Resolves #64520: Extract module configuration from static template
+	* Resolves #64524: SJBR\SrFreecap\Domain\Model\Font raises warning on PHP 5.4+
+	* Resolves #64525: Extbase does not find the templates of backend Font Maker in TYPO3 7.0
+
+2014-09-22  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #61756: Storing session data prevents correct handling of session data in other extensions (Thanks to Daniel Minder)
+	* Update version to 2.0.10
+
+2014-08-01  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Update version to 2.0.9
+
+2014-07-29  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Correction to Spanish localization file
+	* Resolves #60536: Mallformed Last-Modified header (Thanks to Christian Ludwig)
+
+2014-04-14  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Correction to default css styles
+
+2014-04-08  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Localization of audio captcha may fail for lack of available TCA of pages_language_overlay
+
+2014-04-02  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #57543: French text in Italian language file
+
+2014-02-22  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Cleanup calls to deprecated methods
+
+2014-02-21  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Resolves #56045: Add random variable in captcha image src
+	* Update version to 2.0.8
+
+2014-02-13  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Enable in TYPO3 6.2
+	* Update version to 2.0.7
+
+2014-02-07  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #55777: Object manager exceptions raised in TYPO3 6.2	
+
+2013-11-26  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #51900: Danish locallang file wrongly named
+	* Brazilian locallang file wrongly named
+	* Update version to 2.0.6
+
+2013-08-08  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #50931: Error in autoload.php
+	* Update version to 2.0.5
+
+2013-07-10  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Follow-up to bug #47810: Audio Captcha not working under IE 8
+	* Update version to 2.0.4
+
+2013-07-04  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #47810: Audio Captcha not working under IE 8
+	* Update version to 2.0.3
+
+2013-06-19  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Added feature #49272: Add support for mp3 audio captcha rendering
+	* Fixed bug #49274: Voice file for digit 3 in Portuguese is broken	
+
+2013-05-24  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed issue #48516: Replace some default fonts for better readability
+	* Fixed issue #48519: Correct/remove some words from French words list
+	* Updated manual
+	* Fixed textual errors in TS static template
+	* Require 6.0.5-6.1.99
+	* Update version to 2.0.1
+
+2013-05-23  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed issue #48500: Remove superfluous class loader cache entries
+	* Fixed bug #48501: Audio captcha rendering and wordslist selection should apply language fallback rules
+
+2013-05-07  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #46265: Problem with freecap 2.0.0 and postgreSQL (Thanks to Tilo Baller)
+
+2013-04-22  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #46648: Filenames for *.wav causes potential problems
+
+2013-04-20  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #47406: Cleanup in ext_autoload.php
+	* Fixed bug #47407: Keep domain object font ISO-8859-2-encoded
+	* Fixed bug #47408: Incorrect object manager creation
+
+2013-02-14  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Remove "site tag" feature
+	* Updated version to 2.0.0
+
+2013-02-13  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Add option to configure the encryption algorithm in Extension Manager
+	* Disable the audio feature on iOS devices
+	* Use object manager to create object instances
+	* Follow-up to use object manager to create object instances
+
+2013-02-12  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Cleanup audio file rendering
+	* Fix audio player in IE7, IE9 and Opera
+	* Fix audio player in IE8 (but may still be blocked depending on security settings)
+
+2013-02-11  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Update the manual
+	* Namespace the JavaScript functions
+
+2013-02-07  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fix max attempts message
+	* Delete unused directories
+	* Fix model html template insert for pi_base plugin
+
+2013-02-06  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Add translation view helper with formal/informal salutation option
+	* Cleanup configuration files
+	* Add suggested HTML template insert (for pi_base)
+	* Add captcha image and audio icon view helpers
+	* Remove alias on SessionStorage class
+	* Cleanup translation view helper
+	* Require extension vhs 1.5.0
+	* Remove requirement for vhs extension
+	* Fix validation error translation
+	* Cleanup image generator
+
+2012-12-15  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Add captcha validator class
+
+2012-12-13  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Migrate backend GD font maker to extbase
+
+2012-11-15  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Move language labels to private resources directory
+	* Migrate captcha image and audio generation to extbase
+
+2012-11-10  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Move captcha media to private resources directory
+	* Move javascript to public resources directory
+	* Require TYPO3 6.0
+	
+2012-11-09  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Move original freecap to Contrib directory
+
+2012-11-06  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fix font maker script character encoding
+
+2012-11-05  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Migrate localization files to xliff
+	* Migrate font maker module to the use of typo3/mod.php
+	* Add ext_autoload
+
+2012-03-18  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #32848: Captcha image expiry headers
+	* Fixed bug #34729: Problems with encrypt function (Thanks to Carlos Meyer)
+	* Updated version to 1.5.3
+
+2011-12-15  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Follow-up to bug #7066: IE embeded media player display
+	* Updated version to 1.5.0
+	* Fixed bug #32604: BE module broken with TYPO3 4.6
+	* Added feature #32610: Russian documentation (Thanks to Андрей Аксенов)
+	* Updated version to 1.5.1
+	* Follow-up to bug #32604: BE module broken with TYPO3 4.6
+	* Updated version to 1.5.2
+
+2011-12-14  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #7066: IE embeded media player display
+	* Added feature #32567: Use HTML5 audio tag when available
+	* Follow-up to feature #32567: Use HTML5 audio tag when available
+	* Fixed bug #32579: Incorrect length in header of merged wave file
+
+2011-12-13  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Follow-up to bug #13428: pi1/captcha.php: PHP Fatal Error when called directly
+	* Added feature #32488: Require TYPO3 4.5 and PHP 5.3
+	* Added feature #32524: Remove random number generator seeding
+	* Added feature #32525: Use TYPO3 encryption key
+	* Follow-up to bug #26113: On enter, always the same image is loaded
+
+2011-12-12  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #32477: Reference to tslib_pibase constructor in tx_srfreecap_pi2
+	* Fixed bug #13428: pi1/captcha.php: PHP Fatal Error when called directly
+	* Fixed bug #13669: ereg/ereg_replace deprecated since PHP 5.3
+	* Fixed bug #27000: error_reporting in pi1/class.tx_srfreecap_pi1.php
+	* Fixed bug #29276: function.mt-rand: max(1) is smaller than min(5)
+	* Fixed bug #26113: On enter, always the same image is loaded
+	* Fixed bug #32487: Remove reference to mediunDoc
+
+2011-02-15  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #13072: Captcha not showing up when using MP from other domain (Thanks to Ernesto Baschny)
+	* Updated version to 1.4.1
+
+2011-02-10  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #12921: Audio captcha should be accessible by TAB key (Thanks to Elliot Sawyer)
+	* Require PHP 5.1
+	* Updated manual
+	* Fixed bug #12938: "www.mydomain.org" is not RFC 2606 compilant
+	* Partially fixed bug #5628: Political (In-)Correctness of the german word list
+	* Updated version to 1.4.0
+
+2011-02-01  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Added feature #12714: Add TS constants to control darkness of the captcha text. Thanks to Julia Pardanaud.
+	* Added feature #12716: New default values of TS constants to increase CAPTCHA readability. Thanks to Julia Pardanaud.
+
+2010-12-21  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #10223: BE module not shown anymore with TYPO3 4.4
+	* Fixed bug #8528: Typo in Dutch localization of label in pi2/locallang.xml
+	* Fixed bug #7987: maxWordLength problem
+
+2010-04-16  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Require TYPO3 4.3
+	* Manual updated.
+	* Updated ext_emconf from TER version 1.2.3
+
+2010-04-14  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #7259: Use of deprecated function t3lib_div::makeInstanceClassName()
+
+2009-10-20  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug: Mishandling of session data. Thanks to Wolo Wolski.
+	* Updated ext_emconf from TER version 1.2.2
+	* Updated manual.
+
+2009-08-31  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Added feature: new TS constant accessibleOutputImage and textual version.
+	* Manual updated.
+	* Updated ext_emconf from TER version 1.2.0
+
+2009-08-29  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Follow-up to #3056: Audio Captcha is not rendered in IE8
+	* Added feature: Two new TS constants: textHorizontalPosition and textVerticalPosition. Thanks to Julia Pardanaud.
+	* Added Turkish word list. Thanks to Zeynep Nurten Cinarcik.
+
+2009-06-03  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #3056: Audio Captcha is not rendered in IE8
+
+2009-06-01  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Added feature #3526: Use eID API for graphical and audio captcha generation.
+	* Follow-up to #3526 for TYPO3 < 4.3: Use eID API for graphical and audio captcha generation.
+	* Fixed bug #3530: Morphed image blocks background type not working.
+	* Follow-up to feature #3526: Cleanup parameters of new captcha image
+
+2009-05-29  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #3472: No image rendering in T3 V4.3 alpha3.
+
+2009-05-07  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Added feature #3244: User can set the width of the generated captcha-image. Thanks to Simon Schick.
+
+2009-04-15  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Added Russian translation. Thanks to Андрей Аксенов.
+
+2009-04-07  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Fixed bug #3052: "onclick" should be used instead of "onClick". Thanks to Gerald Schwarz.
+	* Fixed bug: Random number generator should be seeded.
+
+2009-04-01  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Removed some words from the default word list.
+	* Added partial Russian translation. Thanks to Esben Fest.
+	* Updated manual.
+	* Updated ext_emconf from TER version 1.1.2
+
+2009-01-24  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Updated manual.
+	* Updated ext_emconf from TER version 1.1.1
+
+2009-01-23  Stanislas Rolland  <typo3@sjbr.ca>
+
+	* Initial upload to TYPO3 Forge
+	* Cleanup: Use UNIX line separators in all files
+	* Fix for current TYPO3 trunk (4.3-dev) caching
+	* Update version number to 1.1.1
+	* Default to local installation
+	* Fixed bug #10132: sr_freecap seems to work only with default language. Thanks to Dan GrÃ¼nzig.
+	* Follow-up to issue #10132: Adding comments
+	* Added Polish translation. Thanks to Daniel Ciunkiewicz.
+	* Correction to the manual. Thanks to Niklas Kanthak.
+	* Remove superfluous spaces in rendered html. Thanks to Niklas Kanthak.
+	* ###SR_FREECAP_ACCESSIBLE### marker should produce inline html. Audio object wrapper changed from div to span. Thanks to Niklas Kanthak.
+	* Updated manual: random background type does not exist anymore with freecap 1.4.
+	* Added missing images for Morphed image blocks option of backgroundType.
+	* Updated damaged images.

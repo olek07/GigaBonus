@@ -11,4 +11,5 @@ page.includeJS {
 page.includeJSFooterlibs {
     whatinput = EXT:gbbase/Resources/Public/Scripts/Libs/what-input.js
     foundation = EXT:gbbase/Resources/Public/Scripts/Libs/foundation.min.js    
+    app = EXT:gbbase/Resources/Public/Scripts/app.js    
 }

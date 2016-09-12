@@ -14,6 +14,29 @@ $signalSlotDispatcher->connect(
     'setUsernameEqualToEmail'                               // Slot name
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'In2code.femanager',
+    'Pi1',
+    [
+        'User' => 'list, show, fileUpload, fileDelete, validate, loginAs',
+        'New' => 'create, new, confirmCreateRequest, createStatus',
+        'Edit' => 'edit, update, delete, confirmUpdateRequest',
+        'ChangeMobileNumber' => 'edit, update',
+        'Invitation' => 'new, create, edit, update, delete, status'
+    ],
+    [
+        'User' => 'list, fileUpload, fileDelete, validate, loginAs',
+        'New' => 'create, new, confirmCreateRequest, createStatus',
+        'Edit' => 'edit, update, delete, confirmUpdateRequest',
+        'ChangeMobileNumber' => 'edit, update',
+        'Invitation' => 'new, create, edit, update, delete'
+    ]
+);
+
+
+
+
+
 /* 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['In2code\\Femanager\\Controller\\NewController'] = array(
     'className' => 'Gigabonus\\Gbfemanager\\Xclass\\NewController'
@@ -24,6 +47,14 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['In2code\\Femanager\\Controller\\N
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/PageTS.ts">'); 
+
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:femanager/Resources/Private/Language/locallang.xlf'][]
+    = 'EXT:gbfemanager/Resources/Private/Language/locallang.xlf';
+
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['ua']['EXT:femanager/Resources/Private/Language/locallang.xlf'][]
+    = 'EXT:gbfemanager/Resources/Private/Language/ua.locallang.xlf';
 
 
 $TYPO3_CONF_VARS['FE']['eID_include']['cities'] = 'EXT:gbfemanager/Classes/Cities.php';

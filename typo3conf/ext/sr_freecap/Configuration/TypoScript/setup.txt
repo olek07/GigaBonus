@@ -1,0 +1,74 @@
+## Configuring the frontend rendering
+plugin.tx_srfreecap {
+	settings {
+		imageHeight = {$plugin.tx_srfreecap.imageHeight}
+		imageAdditionalWidth = {$plugin.tx_srfreecap.imageAdditionalWidth}
+		imageFormat = {$plugin.tx_srfreecap.imageFormat}
+
+		textHorizontalPosition = {$plugin.tx_srfreecap.textHorizontalPosition}
+		textVerticalPosition = {$plugin.tx_srfreecap.textVerticalPosition}
+
+		backgroundType = {$plugin.tx_srfreecap.backgroundType}
+		backgroundBlur = {$plugin.tx_srfreecap.backgroundBlur}
+		backgroundMorph = {$plugin.tx_srfreecap.backgroundMorph}
+
+		maxWordLength = {$plugin.tx_srfreecap.maxWordLength}
+		useWordsList = {$plugin.tx_srfreecap.useWordsList}
+		generateNumbers = {$plugin.tx_srfreecap.generateNumbers}
+
+		colorMaximumDarkness = {$plugin.tx_srfreecap.colorMaximumDarkness}
+		colorMaximumLightness = {$plugin.tx_srfreecap.colorMaximumLightness}
+		textColor = {$plugin.tx_srfreecap.textColor}
+		mergeWithBackground = {$plugin.tx_srfreecap.mergeWithBackground}
+		morphFactor = {$plugin.tx_srfreecap.morphFactor}
+		defaultWordsList = {$plugin.tx_srfreecap.defaultWordsList}
+		fontFiles = {$plugin.tx_srfreecap.fontFiles}
+
+		maxAttempts = {$plugin.tx_srfreecap.maxAttempts}
+
+		accessibleOutput = {$plugin.tx_srfreecap.accessibleOutput}
+		accessibleOutputImage = {$plugin.tx_srfreecap.accessibleOutputImage}
+		
+		salutation = {$plugin.tx_srfreecap.salutation}
+	}
+	view {
+		templateRootPaths {
+			0 = EXT:sr_freecap/Resources/Private/Templates/
+			1 = {$plugin.tx_srfreecap.view.templateRootPath}
+		}
+		partialRootPaths {
+			0 = EXT:sr_freecap/Resources/Private/Partials/
+			1 = {$plugin.tx_srfreecap.view.partialRootPath}
+		}
+		layoutRootPaths {
+			0 = EXT:sr_freecap/Resources/Private/Layouts/
+			1 = {$plugin.tx_srfreecap.view.layoutRootPath}
+		}
+	}
+	_CSS_DEFAULT_STYLE (
+		.tx-srfreecap-captcha label { display: inline-block; width: 150px; }
+		img.tx-srfreecap-image { margin-left: 1em; margin-right: 1em; vertical-align: middle; }
+		.tx-srfreecap-image-accessible {
+			background-color: transparent;
+			vertical-align: middle;
+		}
+		.tx-srfreecap-accessible-link { width: 10em; float: right; vertical-align: middle; margin-right: 7em; }
+		.tx-srfreecap-cant-read { display: inline-block; width: 150px; }
+		.tx-srfreecap-cant-read a:link { background-color:transparent; font-weight:bold; text-decoration:none; }
+	)
+}
+
+## Backward pi_base compatibility
+plugin.tx_srfreecap_pi2 {
+	_CSS_DEFAULT_STYLE (
+		.tx-srfreecap-pi1-captcha label { display: inline-block; width: 150px; }
+		img.tx-srfreecap-pi1-image { margin-left: 1em; margin-right: 1em; vertical-align: middle; }
+		.tx-srfreecap-pi1-image-accessible {
+			background-color: transparent;
+			vertical-align: middle;
+		}
+		.tx-srfreecap-pi1-accessible-link { width: 10em; float: right; vertical-align: middle; margin-right: 7em; }
+		.tx-srfreecap-pi1-cant-read { display: inline-block; width: 150px; }
+		.tx-srfreecap-pi1-cant-read a:link { background-color:transparent; font-weight:bold; text-decoration:none; }
+	)
+}

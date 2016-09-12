@@ -25,10 +25,17 @@ plugin.tx_femanager {
         edit {
             validation {
                 email.uniqueInDb = 1
-
+                // captcha.captcha = 1
                 password < plugin.tx_femanager.settings.new.validation.password
             }
         }
+
+        changemobilenumber {
+            validation {
+                // captcha.captcha = 1
+            }   
+        }
+
     }
 
     _LOCAL_LANG {

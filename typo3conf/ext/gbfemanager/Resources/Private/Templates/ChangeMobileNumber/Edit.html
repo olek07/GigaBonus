@@ -1,0 +1,61 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"	xmlns:f="http://typo3.org/ns/fluid/ViewHelpers" >
+	<f:layout name="Default" />
+
+	User / Edit
+	Available variables:
+	{user}
+	{allUserGroups}
+
+	<f:section name="main">
+		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+		<f:render partial="Misc/FormErrors" arguments="{object:User}" />
+
+                <div class="femanager_new">
+			<f:if condition="{user}">
+				<f:then>
+					<f:form name="user" object="{user}" action="update" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
+						<fieldset>
+							<legend>
+								<f:translate key="titleUpdateProfile" />
+							</legend>
+
+
+                                                                   <f:for each="{femanager:misc.explode(string:'{settings.changemobilenumber.fields}')}" as="field">
+										<f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+								   </f:for>
+                                                                   
+
+								   <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+
+
+						</fieldset>
+
+						<f:render partial="Misc/DeleteLink" arguments="{_all}" />
+					</f:form>
+				</f:then>
+				<f:else>
+					<div class="femanager_note">
+						<f:translate key="notLoggedIn" />
+					</div>
+				</f:else>
+			</f:if>
+		</div>
+
+
+
+
+<p><a data-open="exampleModal1">Click me for a modal</a></p>
+
+
+<div class="reveal" id="exampleModal1" data-options="closeOnClick:false;closeOnEsc:false;" data-reveal>
+  <h1>Awesome. I Have It.</h1>
+  <p class="lead">Your couch. It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+        </f:section>
+
+</div>

@@ -240,11 +240,19 @@ return [
             'packagePath' => 'typo3/sysext/viewpage/',
             'suggestions' => [],
         ],
+        'sr_freecap' => [
+            'composerName' => 'sjbr/sr_freecap',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/sr_freecap/',
+            'suggestions' => [],
+        ],
         'femanager' => [
             'composerName' => 'in2code/femanager',
             'state' => 'active',
             'packagePath' => 'typo3conf/ext/femanager/',
-            'suggestions' => [],
+            'suggestions' => [
+                'sr_freecap',
+            ],
         ],
         'gbfemanager' => [
             'composerName' => 'gbfemanager',
