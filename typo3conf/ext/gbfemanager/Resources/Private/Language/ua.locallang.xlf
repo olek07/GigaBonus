@@ -57,6 +57,11 @@
                             <target>Ім'я</target>
                     </trans-unit>
                     
+                    <trans-unit id="tx_femanager_domain_model_user.zip">
+                            <source>Почтовый индекс</source>
+                            <target>Поштовий індекс</target>
+                    </trans-unit>
+                    
 	        </body>
 
 	</file>
