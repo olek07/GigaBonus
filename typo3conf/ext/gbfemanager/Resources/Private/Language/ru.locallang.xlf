@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-        <file source-language="ru" datatype="plaintext" original="messages" date="2016-09-08T23:02:10Z" product-name="gbfemanager">
+        <file source-language="en" datatype="plaintext" original="messages" date="2016-09-08T23:02:10Z" product-name="gbfemanager">
 		<header/>
 		<body>
+                    <trans-unit id="tx_femanager_domain_model_user.city" approved="yes">
+			<target state="translated">Город, село, населённый пункт</target>
+                    </trans-unit>
+
                     <trans-unit id="tx_femanager_domain_model_user.zip">
+                            <target>Почтовый индекс</target>
+                    </trans-unit> 
+                    <trans-unit id="tx_femanager_domain_model_user.language">
+                            <target>Язык</target>
                     </trans-unit>
 	        </body>
 

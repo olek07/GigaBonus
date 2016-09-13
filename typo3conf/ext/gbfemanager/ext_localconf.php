@@ -49,12 +49,9 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['In2code\\Femanager\\Controller\\N
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/PageTS.ts">'); 
 
 
+
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:femanager/Resources/Private/Language/locallang.xlf'][]
     = 'EXT:gbfemanager/Resources/Private/Language/locallang.xlf';
-
-
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['ua']['EXT:femanager/Resources/Private/Language/locallang.xlf'][]
-    = 'EXT:gbfemanager/Resources/Private/Language/ua.locallang.xlf';
 
 
 $TYPO3_CONF_VARS['FE']['eID_include']['cities'] = 'EXT:gbfemanager/Classes/Cities.php';

@@ -1,66 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="ru" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbbase">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbbase">
 		<header/>
 		<body>
-                    <trans-unit id="gbbase.month.name_1">
-                            <source>Январь</source>
-                            <target>Січень</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_2">
-                            <source>Февраль</source>
-                            <target>Лютий</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_3">
-                            <source>Март</source>
-                            <target>Березень</target> 
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_4">
-                            <source>Апрель</source>
-                            <target>Квітень</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_5">
-                            <source>Май</source>
-                            <target>Травень</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_6">
-                            <source>Июнь</source>
-                            <target>Червень</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_7">
-                            <source>Июль</source>
-                            <target>Липень</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_8">
-                            <source>Август</source>
-                            <target>Серпень</target> 
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_9">
-                            <source>Сентябрь</source>
-                            <target>Вересень</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_10">
-                            <source>Октябрь</source>
-                            <target>Жовтень</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_11">
-                            <source>Ноябрь</source>
-                            <target>Листопад</target>
-                    </trans-unit>
-                    <trans-unit id="gbbase.month.name_12">
-                            <source>Декабрь</source>
-                            <target>Грудень</target>
-                    </trans-unit>
                     
                     <trans-unit id="tx_femanager_domain_model_user.firstName">
                             <source>Имя</source>
                             <target>Ім'я</target>
                     </trans-unit>
+
+                    <trans-unit id="tx_femanager_domain_model_user.middleName" approved="yes">
+			<target state="translated">По-батькові</target>
+                    </trans-unit>
+
+                    <trans-unit id="tx_femanager_domain_model_user.lastName" approved="yes">
+			<target state="translated">Прізвище</target>
+                    </trans-unit>
+
+                    <trans-unit id="tx_femanager_domain_model_user.city" approved="yes">
+			<target state="translated">Місто, село, населений пункт</target>
+                    </trans-unit>
+
+                    <trans-unit id="tx_femanager_domain_model_user.address" approved="yes">
+			<target state="translated">Поштова адреса</target>
+                    </trans-unit>
+
+
+                    <trans-unit id="tx_femanager_domain_model_user.gender" approved="yes">
+			    <target state="translated">Стать</target>
+                    </trans-unit>
+
                     
                     <trans-unit id="tx_femanager_domain_model_user.zip">
                             <source>Почтовый индекс</source>
                             <target>Поштовий індекс</target>
                     </trans-unit>
+
+                    <trans-unit id="tx_femanager_domain_model_user.dateOfBirth" approved="yes">
+			    <target state="translated">Дата народження</target>
+                    </trans-unit>
+
+
+                    <trans-unit id="tx_femanager_domain_model_user.language">
+                            <target>Мова</target>
+                    </trans-unit> 
                     
 	        </body>
 
