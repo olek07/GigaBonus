@@ -18,6 +18,8 @@ plugin.tx_femanager {
                   required = 0
 
                 }
+
+                
             }
             // email.createUserConfirmation.sender = vinslave@mail.ru
         }
@@ -27,12 +29,28 @@ plugin.tx_femanager {
                 email.uniqueInDb = 1
                 // captcha.captcha = 1
                 password < plugin.tx_femanager.settings.new.validation.password
+
+                zip {
+                    min = 5
+                    max = 5
+                    mustInclude = number
+                }
             }
         }
 
         changemobilenumber {
             validation {
+                # Enable clientside Formvalidation (JavaScript)
+                _enable.client = 1
+
+                # Enable serverside Formvalidation (PHP)
+                _enable.server = 1
+
                 // captcha.captcha = 1
+                telephone {
+                    min = 6
+                    intOnly = 1 
+                }
             }   
         }
 

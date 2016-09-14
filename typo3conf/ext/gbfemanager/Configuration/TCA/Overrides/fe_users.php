@@ -27,13 +27,21 @@ $feUsersColumns = [
         'config' => [
             'type' => 'input',
         ]
+    ],
+    'tx_gbfemanager_telephonelastchanged' => [
+        'exclude' => 0,
+        'label' => 'Telephone last changed',
+        'config' => [
+            'type' => 'input',
+            'eval' => 'datetime',
+        ]
     ]
 ];
 
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'fe_users',
-    'language',
+    'language,tx_gbfemanager_telephonelastchanged',
     '',
     'after:name'
 );

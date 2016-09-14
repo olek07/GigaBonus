@@ -1,5 +1,8 @@
 <?php
 namespace Gigabonus\Gbfemanager\Controller;
+
+use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
+
 class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditController {
     
     
@@ -20,6 +23,7 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
      */
     public function editAction()
     {
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->user);
         parent::editAction();
     }
     
@@ -33,6 +37,11 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
      * @return void
      */
     public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
+        
+        $telephonelastchanged = ObjectAccess::getProperty($user, 'txGbfemanagerTelephonelastchanged');
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($telephonelastchanged);
+        $user->setTxGbfemanagerTelephonelastchanged(time());
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);exit;
         parent::updateAction($user);
     }
 

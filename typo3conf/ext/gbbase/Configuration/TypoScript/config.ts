@@ -7,6 +7,9 @@ config{
     htmlTag_setParams = lang="ru" class="nojs"
     defaultGetVars.L  = 0
     linkVars = L(0-1)
+    tx_realurl_enable = 1
+    absRefPrefix = /
+    simulateStaticDocuments = 0
 }
 
 

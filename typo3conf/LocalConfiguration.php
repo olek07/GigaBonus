@@ -69,7 +69,14 @@ return [
         ],
     ],
     'MAIL' => [
-        'transport_sendmail_command' => ' -t -i ',
+        'defaultMailFromAddress' => 'sashaost@mail.ru',
+        'defaultMailFromName' => 'Alexander',
+        'transport' => 'smtp',
+        'transport_sendmail_command' => '',
+        'transport_smtp_encrypt' => 'ssl',
+        'transport_smtp_password' => 'wissen$$$$',
+        'transport_smtp_server' => 'smtp.mail.ru:465',
+        'transport_smtp_username' => 'sashaost@mail.ru',
     ],
     'SYS' => [
         'caching' => [

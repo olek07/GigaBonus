@@ -16,6 +16,12 @@ class User extends \In2code\Femanager\Domain\Model\User {
      * @var int
      */
     protected $cityId;
+    
+    /**
+     *
+     * @var int
+     */
+    protected $txGbfemanagerTelephonelastchanged;
 
     /**
      * Sets the language
@@ -57,4 +63,25 @@ class User extends \In2code\Femanager\Domain\Model\User {
         return $this->cityId;
     }
 
+    
+    /**
+     * Sets the txGbfemanagerTelephonelastchanged
+     *
+     * @param int $txGbfemanagerTelephonelastchanged
+     * @return User
+     */
+    public function setTxGbfemanagerTelephonelastchanged($txGbfemanagerTelephonelastchanged) {
+        $this->txGbfemanagerTelephonelastchanged = $txGbfemanagerTelephonelastchanged;
+        return $this;
+    }
+
+    /**
+     * Returns the txGbfemanagerTelephonelastchanged
+     *
+     * @return string
+     */
+    public function getTxGbfemanagerTelephonelastchanged() {
+        return $this->txGbfemanagerTelephonelastchanged;
+    }
+    
 }
