@@ -19,7 +19,7 @@ class User extends \In2code\Femanager\Domain\Model\User {
     
     /**
      *
-     * @var int
+     * @var \DateTime
      */
     protected $txGbfemanagerTelephonelastchanged;
 

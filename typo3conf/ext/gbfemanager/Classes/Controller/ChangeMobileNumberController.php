@@ -23,7 +23,12 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
      */
     public function editAction()
     {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->user);
+        $t = time() - $this->user->getTxGbfemanagerTelephonelastchanged()->getTimeStamp();
+        $timeToPasswordChange = 0;
+        if ($t < 300) {
+            $timeToPasswordChange = 300 - $t;
+        }
+        $this->view->assign('timeToPasswordChange', $timeToPasswordChange);
         parent::editAction();
     }
     
@@ -36,12 +41,9 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
      * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
      * @return void
      */
-    public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
-        
+    public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null) {
         $telephonelastchanged = ObjectAccess::getProperty($user, 'txGbfemanagerTelephonelastchanged');
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($telephonelastchanged);
         $user->setTxGbfemanagerTelephonelastchanged(time());
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);exit;
         parent::updateAction($user);
     }
 

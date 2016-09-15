@@ -49,7 +49,8 @@ plugin.tx_femanager {
                 // captcha.captcha = 1
                 telephone {
                     min = 6
-                    intOnly = 1 
+                    intOnly = 1
+                    uniqueInDb = 1
                 }
             }   
         }

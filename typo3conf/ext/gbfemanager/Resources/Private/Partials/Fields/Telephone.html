@@ -1,5 +1,11 @@
 {namespace femanager=In2code\Femanager\ViewHelpers}
 <div class="femanager_fieldset femanager_telephone control-group">
+    
+    <f:if condition="{timeToPasswordChange} != 0">
+        <f:then>
+            Пароль можно поменять через {timeToPasswordChange}
+        </f:then>
+        <f:else>
 	<label for="femanager_field_telephone" class="control-label">
 		<f:translate key="tx_femanager_domain_model_user.telephone" />
 		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'telephone')}">
@@ -14,4 +20,6 @@
 				class="input-block-level"
 				additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'telephone')}" />
 	</div>
+        </f:else>
+    </f:if>    
 </div>
