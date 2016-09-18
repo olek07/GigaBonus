@@ -8,6 +8,11 @@
 	{allUserGroups}
 
 	<f:section name="main">
+            
+            <f:link.page pageUid="3" additionalParams="{logintype:'logout'}">Abmelden</f:link.page><br>
+            <f:link.action action="sendConfirmMail">Send confirm again</f:link.action>
+            
+           	<br>
 		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
 		<f:render partial="Misc/FormErrors" arguments="{object:User}" />
 

@@ -28,7 +28,7 @@
 									</numIndex>
 									<numIndex index="2" type="array">
 										<numIndex index="0">LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:flexform.main.view.1</numIndex>
-										<numIndex index="1">Edit->edit;Edit->update;Edit->delete;Edit->confirmUpdateRequest;</numIndex>
+										<numIndex index="1">Edit->edit;Edit->update;Edit->delete;Edit->confirmUpdateRequest;Edit->sendConfirmMail</numIndex>
 									</numIndex>
 									<numIndex index="3" type="array">
 										<numIndex index="0">LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:flexform.main.view.2</numIndex>

@@ -28,6 +28,19 @@ $feUsersColumns = [
             'type' => 'input',
         ]
     ],
+    
+    'telephone' => array(
+        'exclude' => 1,
+        'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.phone',
+        'config' => array(
+            'type' => 'input',
+            'eval' => 'trim,uniqueInPid',
+            'size' => '20',
+            'max' => '20'
+        )
+    ),
+
+    
     'tx_gbfemanager_telephonelastchanged' => [
         'exclude' => 0,
         'label' => 'Telephone last changed',

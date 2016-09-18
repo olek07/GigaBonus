@@ -20,14 +20,14 @@ $signalSlotDispatcher->connect(
     [
         'User' => 'list, show, fileUpload, fileDelete, validate, loginAs',
         'New' => 'create, new, confirmCreateRequest, createStatus',
-        'Edit' => 'edit, update, delete, confirmUpdateRequest',
+        'Edit' => 'edit, update, delete, confirmUpdateRequest, sendConfirmMail',
         'ChangeMobileNumber' => 'edit, update',
         'Invitation' => 'new, create, edit, update, delete, status'
     ],
     [
         'User' => 'list, fileUpload, fileDelete, validate, loginAs',
         'New' => 'create, new, confirmCreateRequest, createStatus',
-        'Edit' => 'edit, update, delete, confirmUpdateRequest',
+        'Edit' => 'edit, update, delete, confirmUpdateRequest, sendConfirmMail',
         'ChangeMobileNumber' => 'edit, update',
         'Invitation' => 'new, create, edit, update, delete'
     ]

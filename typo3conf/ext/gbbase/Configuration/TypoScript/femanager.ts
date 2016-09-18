@@ -26,6 +26,7 @@ plugin.tx_femanager {
     
         edit {
             validation {
+_enable.client = 0
                 email.uniqueInDb = 1
                 // captcha.captcha = 1
                 password < plugin.tx_femanager.settings.new.validation.password
@@ -34,6 +35,10 @@ plugin.tx_femanager {
                     min = 5
                     max = 5
                     mustInclude = number
+                }
+
+                dateOfBirth {
+                    date = 1
                 }
             }
         }
