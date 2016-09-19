@@ -1,0 +1,56 @@
+
+plugin.tx_gbpartner_partnerlisting {
+	view {
+		templateRootPaths.0 = {$plugin.tx_gbpartner_partnerlisting.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_gbpartner_partnerlisting.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_gbpartner_partnerlisting.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_gbpartner_partnerlisting.persistence.storagePid}
+	}
+}
+
+plugin.tx_gbpartner_categorylisting {
+	view {
+		templateRootPaths.0 = {$plugin.tx_gbpartner_categorylisting.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_gbpartner_categorylisting.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_gbpartner_categorylisting.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_gbpartner_categorylisting.persistence.storagePid}
+	}
+}
+
+plugin.tx_gbpartner._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-gbpartner table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-gbpartner table th {
+		font-weight:bold;
+	}
+
+	.tx-gbpartner table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)

@@ -1,0 +1,31 @@
+<table class="tx-gbpartner" xmlns:f="http://www.w3.org/1999/html">
+	<tr>
+		<td>
+			<f:translate key="tx_gbpartner_domain_model_category.name" />
+		</td>
+		<td>
+		<h1>{category.name}</h1>
+
+		<br>
+
+
+
+			<f:for each="{category.partners}" as="match">
+
+				{match.name}<br>
+				<f:for each="{match.image}" as="image" iteration="itemIteration">
+
+					<f:image src="{image.reference.uid}"  treatIdAsReference="1" />
+					<f:image src="fileadmin{image.original.identifier}"  />
+
+					{image.reference.uid}
+
+
+
+				</f:for>
+
+			</f:for>
+
+		</td>
+	</tr>
+</table>

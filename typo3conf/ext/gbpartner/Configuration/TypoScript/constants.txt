@@ -1,0 +1,30 @@
+
+plugin.tx_gbpartner_partnerlisting {
+	view {
+		# cat=plugin.tx_gbpartner_partnerlisting/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:gbpartner/Resources/Private/Templates/
+		# cat=plugin.tx_gbpartner_partnerlisting/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:gbpartner/Resources/Private/Partials/
+		# cat=plugin.tx_gbpartner_partnerlisting/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:gbpartner/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_gbpartner_partnerlisting//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}
+
+plugin.tx_gbpartner_categorylisting {
+	view {
+		# cat=plugin.tx_gbpartner_categorylisting/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:gbpartner/Resources/Private/Templates/
+		# cat=plugin.tx_gbpartner_categorylisting/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:gbpartner/Resources/Private/Partials/
+		# cat=plugin.tx_gbpartner_categorylisting/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:gbpartner/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_gbpartner_categorylisting//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

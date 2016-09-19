@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-01T13:50:03Z" product-name="gbpartner">
+		<header/>
+		<body>
+			<trans-unit id="tx_gbpartner_domain_model_partner">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_gbpartner_domain_model_partner.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_gbpartner_domain_model_partner.teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_gbpartner_domain_model_partner.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_gbpartner_domain_model_partner.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_gbpartner_domain_model_partner.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_gbpartner_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_gbpartner_domain_model_category.name">
+				<source>Name</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
