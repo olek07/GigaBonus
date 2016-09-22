@@ -26,7 +26,7 @@ plugin.tx_femanager {
     
         edit {
             validation {
-_enable.client = 0
+
                 email.uniqueInDb = 1
                 // captcha.captcha = 1
                 password < plugin.tx_femanager.settings.new.validation.password
@@ -58,6 +58,16 @@ _enable.client = 0
                     uniqueInDb = 1
                 }
             }   
+        }
+
+        restorepassword {
+            validation {
+                _enable.client = 0
+                _enable.server = 1
+                // captcha.captcha = 1
+                password < plugin.tx_femanager.settings.new.validation.password
+
+            }
         }
 
     }

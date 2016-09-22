@@ -4,6 +4,7 @@ namespace Gigabonus\Gbfemanager\Controller;
 use In2code\Femanager\Utility\StringUtility;
 use In2code\Femanager\Utility\HashUtility;
 use In2code\Femanager\Utility\LocalizationUtility;
+use \In2code\Femanager\Utility\UserUtility;
 
 class EditController extends \In2code\Femanager\Controller\EditController {
     
@@ -46,7 +47,23 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      * @return void
      */
     public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
+
         parent::updateAction($user);
+        
+        /*
+        $dateOfBirth = \DateTime::createFromFormat('d.m.Y', $this->request->getArgument('user')['dateOfBirth']);
+        $valid = \DateTime::getLastErrors();         
+        
+        if ($valid['warning_count'] == 0 && $valid['error_count'] == 0) {
+            parent::updateAction($user);
+        }
+        else {
+            $user->setDateOfBirth($dateOfBirth);
+            $this->addFlashMessage('Date is false', '', \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
+            $this->forward('edit');
+        }
+         * 
+         */
     }
     
     public function sendConfirmMailAction() {
@@ -59,6 +76,36 @@ class EditController extends \In2code\Femanager\Controller\EditController {
                 
     }
     
+    public function restorePasswordAction() {
+        $user = $this->userRepository->findByUid(1);
+        $this->view->assign('user', $user);
+    }
+
+    
+    
+    /**
+     * action update
+     *
+     * @param User $user
+     * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
+     * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
+     * @return void
+     */
+    public function storeRestoredPasswordAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
+        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);
+        
+        UserUtility::convertPassword($user, $this->settings['edit']['misc']['passwordSave']);
+        $this->userRepository->update($user);
+        $this->persistenceManager->persistAll();
+        $this->addFlashMessage('Password changed');
+
+       // $this->redirectToUri('/ru/my-account/login/');
+
+    }
+
+    
+
+
     /**
      * Send email to user for confirmation
      *
