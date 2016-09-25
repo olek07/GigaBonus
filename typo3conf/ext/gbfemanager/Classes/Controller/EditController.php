@@ -18,7 +18,7 @@ class EditController extends \In2code\Femanager\Controller\EditController {
 
     }
     
-        /**
+    /**
      * action edit
      *
      * @return void
@@ -47,8 +47,13 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      * @return void
      */
     public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
-
-        parent::updateAction($user);
+        if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) ==  $user->getUid()) {
+            parent::updateAction($user);
+        }
+        else {
+            // Versuch die uid im FireBug oder Ähnlichem zu manipulieren 
+            exit;
+        }
         
         /*
         $dateOfBirth = \DateTime::createFromFormat('d.m.Y', $this->request->getArgument('user')['dateOfBirth']);
@@ -75,34 +80,6 @@ class EditController extends \In2code\Femanager\Controller\EditController {
         }
                 
     }
-    
-    public function restorePasswordAction() {
-        $user = $this->userRepository->findByUid(1);
-        $this->view->assign('user', $user);
-    }
-
-    
-    
-    /**
-     * action update
-     *
-     * @param User $user
-     * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
-     * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
-     * @return void
-     */
-    public function storeRestoredPasswordAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
-        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);
-        
-        UserUtility::convertPassword($user, $this->settings['edit']['misc']['passwordSave']);
-        $this->userRepository->update($user);
-        $this->persistenceManager->persistAll();
-        $this->addFlashMessage('Password changed');
-
-       // $this->redirectToUri('/ru/my-account/login/');
-
-    }
-
     
 
 

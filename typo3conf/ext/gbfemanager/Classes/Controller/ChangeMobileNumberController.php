@@ -23,10 +23,13 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
      */
     public function editAction()
     {
-        $t = time() - $this->user->getTxGbfemanagerTelephonelastchanged()->getTimeStamp();
+        $txGbfemanagerTelephonelastchanged = $this->user->getTxGbfemanagerTelephonelastchanged();
         $timeToPasswordChange = 0;
-        if ($t < 300) {
-            $timeToPasswordChange = 300 - $t;
+        if ($txGbfemanagerTelephonelastchanged !== NULL) {
+            $t = time() - $this->user->getTxGbfemanagerTelephonelastchanged()->getTimeStamp();
+            if ($t < 300) {
+                $timeToPasswordChange = 300 - $t;
+            }
         }
         $this->view->assign('timeToPasswordChange', $timeToPasswordChange);
         parent::editAction();
@@ -42,9 +45,15 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
      * @return void
      */
     public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null) {
-        $telephonelastchanged = ObjectAccess::getProperty($user, 'txGbfemanagerTelephonelastchanged');
-        $user->setTxGbfemanagerTelephonelastchanged(time());
-        parent::updateAction($user);
+        if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) ==  $user->getUid()) {
+            $telephonelastchanged = ObjectAccess::getProperty($user, 'txGbfemanagerTelephonelastchanged');
+            $user->setTxGbfemanagerTelephonelastchanged(time());
+            parent::updateAction($user);
+        }
+        else {
+            // Versuch die uid im FireBug oder Ähnlichem zu manipulieren 
+            exit;
+        }
     }
 
 }
