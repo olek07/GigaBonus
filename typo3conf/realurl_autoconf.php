@@ -87,6 +87,12 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 						'GETvar' => 'tx_felogin_pi1[forgot]',
 					)
 				),
+				'forgothash' => array(
+					array(
+						'GETvar' => 'tx_femanager_pi1[forgothash]',
+					)
+				),
+
 
 
                 'gagaga' => array(
