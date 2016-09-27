@@ -17,6 +17,7 @@ return [
         'extConf' => [
             'femanager' => 'a:2:{s:13:"disableModule";s:1:"0";s:10:"disableLog";s:1:"0";}',
             'gbbase' => 'a:0:{}',
+            'gbfelogin' => 'a:0:{}',
             'gbfemanager' => 'a:0:{}',
             'realurl' => 'a:4:{s:10:"configFile";s:26:"typo3conf/realurl_conf.php";s:14:"enableAutoConf";s:1:"1";s:14:"autoConfFormat";s:1:"0";s:12:"enableDevLog";s:1:"0";}',
             'rsaauth' => 'a:1:{s:18:"temporaryDirectory";s:0:"";}',
