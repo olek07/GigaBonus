@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-27T10:56:27Z" product-name="gbaccount">
+		<header/>
+		<body>
+			<trans-unit id="tx_gbaccount_domain_model_transaction">
+				<source>Transaction</source>
+			</trans-unit>
+			<trans-unit id="tx_gbaccount_domain_model_transaction.amount">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_gbaccount_domain_model_transaction.partner">
+				<source>Partner</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
