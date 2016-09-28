@@ -37,7 +37,7 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
         $isFeloginBaseURL = !empty($this->conf['feloginBaseURL']);
         $link = $this->pi_getPageLink($this->conf['restorePasswordPageUid'], '', array(
             rawurlencode('tx_femanager_pi1[forgothash]') => $randHash,
-            'L' => 1
+            'L' => GeneralUtility::_GET('L')
         ));
         
         // Prefix link if necessary
@@ -60,48 +60,57 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
             // No prefix is set, return the error
             return $this->pi_getLL('ll_change_password_nolinkprefix_message');
         }
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);
+
+        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);
                 
-        $this->sendMailWithLink($user['email'], $link);
-        echo $link;exit;
-        $msg = sprintf($this->pi_getLL('ll_forgot_validate_reset_password'), $user['username'], $link, $validEndString);
-        // Add hook for extra processing of mail message
-        if (
-            isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['forgotPasswordMail'])
-            && is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['forgotPasswordMail'])
-        ) {
-            $params = array(
-                'message' => &$msg,
-                'user' => &$user
-            );
-            foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['forgotPasswordMail'] as $reference) {
-                if ($reference) {
-                    GeneralUtility::callUserFunction($reference, $params, $this);
-                }
-            }
-        }
-        if ($user['email']) {
-            $this->cObj->sendNotifyEmail($msg, $user['email'], '', $this->conf['email_from'], $this->conf['email_fromName'], $this->conf['replyTo']);
-        }
+        $this->sendTemplateEmail([$user['email']], ['sashaost@mail.ru'], 'Test subject', 'emailtemplate', ['name' => 'Mila', 'link' => $link]);
 
         return '';
     }
     
-    private function sendMailWithLink($receiver, $link) {
+    
+    /**
+    * @param array $recipient recipient of the email in the format array('recipient@domain.tld' => 'Recipient Name')
+    * @param array $sender sender of the email in the format array('sender@domain.tld' => 'Sender Name')
+    * @param string $subject subject of the email
+    * @param string $templateName template name (UpperCamelCase)
+    * @param array $variables variables to be passed to the Fluid view
+    * @return boolean TRUE on success, otherwise false
+    */
+    protected function sendTemplateEmail(array $recipient, array $sender, $subject, $templateName, array $variables = array()) {
         
         $this->objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        $email = $this->objectManager->get(MailMessage::class);
-        $email
-            ->setTo($receiver)
-            ->setFrom('sashaost@mail.ru')
-            ->setSubject($subject)
-            ->setCharset($GLOBALS['TSFE']->metaCharset)
-            ->setBody('<a href="' . $link . '">dddd</a>', 'text/html');
-        $email->send();
         
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($email->isSent());
-        
+	/** @var \TYPO3\CMS\Fluid\View\StandaloneView $emailView */
+	$emailView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
 
+	$templatePathAndFilename =  'typo3conf/ext/gbfelogin/Resources/Private/Templates/Email/' . $templateName . '.html';
+        
+	$emailView->setTemplatePathAndFilename($templatePathAndFilename);
+	$emailView->assignMultiple($variables);
+	$emailBody = $emailView->render();
+        
+        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($emailBody);
+
+	/** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
+	$message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
+	$message->setTo($recipient)
+		  ->setFrom($sender)
+		  ->setSubject($subject);
+
+	// Possible attachments here
+	//foreach ($attachments as $attachment) {
+	//	$message->attach(\Swift_Attachment::fromPath($attachment));
+	//}
+
+	// Plain text example
+	// $message->setBody('plain text', 'text/plain');
+
+	// HTML Email
+	$message->setBody($emailBody, 'text/html');
+
+	$message->send();
+	return $message->isSent();
     }
 
 }

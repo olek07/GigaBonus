@@ -272,6 +272,12 @@ return [
             'packagePath' => 'typo3conf/ext/gbfelogin/',
             'suggestions' => [],
         ],
+        'gbpartner' => [
+            'composerName' => 'gbpartner',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/gbpartner/',
+            'suggestions' => [],
+        ],
         'realurl' => [
             'composerName' => 'dmitryd/typo3-realurl',
             'state' => 'active',
@@ -308,10 +314,10 @@ return [
             'packagePath' => 'typo3/sysext/filemetadata/',
             'suggestions' => [],
         ],
-        'gbpartner' => [
-            'composerName' => 'gbpartner',
+        'gbaccount' => [
+            'composerName' => 'gbaccount',
             'state' => 'inactive',
-            'packagePath' => 'typo3conf/ext/gbpartner/',
+            'packagePath' => 'typo3conf/ext/gbaccount/',
             'suggestions' => [],
         ],
         'indexed_search' => [

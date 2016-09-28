@@ -139,7 +139,7 @@ return array(
 				'multiple' => 0,
 				'foreign_table' => 'tx_gbpartner_domain_model_partner',
 				'MM' => 'tx_gbpartner_partner_category_mm',
-				'MM_opposite_field' => 'seminars',
+				// 'MM_opposite_field' => 'seminars',
 				'foreign_table_where' => ' AND tx_gbpartner_domain_model_partner.pid=###CURRENT_PID### AND tx_gbpartner_domain_model_partner.sys_language_uid IN (-1, ###REC_FIELD_sys_language_uid###) ',
 				'minitems' => 0,
 				'maxitems' => 99,
