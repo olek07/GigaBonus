@@ -260,6 +260,12 @@ return [
             'packagePath' => 'typo3conf/ext/gbfemanager/',
             'suggestions' => [],
         ],
+        'gbaccount' => [
+            'composerName' => 'gbaccount',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/gbaccount/',
+            'suggestions' => [],
+        ],
         'gbbase' => [
             'composerName' => 'gbbase',
             'state' => 'active',
@@ -312,12 +318,6 @@ return [
             'composerName' => 'typo3/cms-filemetadata',
             'state' => 'inactive',
             'packagePath' => 'typo3/sysext/filemetadata/',
-            'suggestions' => [],
-        ],
-        'gbaccount' => [
-            'composerName' => 'gbaccount',
-            'state' => 'inactive',
-            'packagePath' => 'typo3conf/ext/gbaccount/',
             'suggestions' => [],
         ],
         'indexed_search' => [

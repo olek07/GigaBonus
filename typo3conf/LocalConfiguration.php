@@ -16,6 +16,7 @@ return [
     'EXT' => [
         'extConf' => [
             'femanager' => 'a:2:{s:13:"disableModule";s:1:"0";s:10:"disableLog";s:1:"0";}',
+            'gbaccount' => 'a:0:{}',
             'gbbase' => 'a:0:{}',
             'gbfelogin' => 'a:0:{}',
             'gbfemanager' => 'a:0:{}',

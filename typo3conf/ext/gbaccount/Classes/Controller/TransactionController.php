@@ -83,8 +83,8 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     public function newAction()
     {
         $query = $this->partnerRepository->createQuery();
-        $query->getQuerySettings()->setLanguageUid(2);
-        $query->getQuerySettings()->setStoragePageIds([2]);
+        $query->getQuerySettings()->setLanguageUid(0);
+        $query->getQuerySettings()->setStoragePageIds([11]);
         $result = $query->execute();
 
         /*

@@ -133,6 +133,7 @@ return array(
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_gbpartner_domain_model_partner',
+                                'foreign_table_where' => ' AND tx_gbpartner_domain_model_partner.sys_language_uid IN (-1, ###REC_FIELD_sys_language_uid###) ',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
