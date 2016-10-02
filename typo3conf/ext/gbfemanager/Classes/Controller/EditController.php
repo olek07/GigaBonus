@@ -71,16 +71,6 @@ class EditController extends \In2code\Femanager\Controller\EditController {
          */
     }
     
-    public function sendConfirmMailAction() {
-        if ($this->user->getTxFemanagerConfirmedbyuser()) {
-            exit;
-        }
-        else {
-            $this->createUserConfirmationRequest($this->user);
-        }
-                
-    }
-    
 
 
     /**

@@ -50,6 +50,10 @@
 										<numIndex index="0">Restore password</numIndex>
                                                                                 <numIndex index="1">RestorePassword->edit;RestorePassword->save;</numIndex>
 									</numIndex>
+                                                                        <numIndex index="8" type="array">
+										<numIndex index="0">Send confirmation mail</numIndex>
+                                                                                <numIndex index="1">SendConfirmMail->send;</numIndex>
+									</numIndex>
 
 								</items>
 								<maxitems>1</maxitems>
@@ -705,6 +709,5 @@
 			</el>
                     </ROOT>
                 </restorepassword>
-                
 	</sheets>
 </T3DataStructure>

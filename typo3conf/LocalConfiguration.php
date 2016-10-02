@@ -5,6 +5,7 @@ return [
         'explicitADmode' => 'explicitAllow',
         'installToolPassword' => '$P$CR1lmJLB41ieCST1bY7ptE6eH0bIIp1',
         'loginSecurityLevel' => 'rsa',
+        'versionNumberInFilename' => '0',
     ],
     'DB' => [
         'database' => 'gigabonus',
@@ -74,7 +75,8 @@ return [
     'MAIL' => [
         'defaultMailFromAddress' => 'sashaost@mail.ru',
         'defaultMailFromName' => 'Alexander',
-        'transport' => 'smtp',
+        'transport' => 'mbox',
+        'transport_mbox_file' => '/opt/lampp/htdocs/gigabonus/mail',
         'transport_sendmail_command' => '',
         'transport_smtp_encrypt' => 'ssl',
         'transport_smtp_password' => 'wissen$$$$',

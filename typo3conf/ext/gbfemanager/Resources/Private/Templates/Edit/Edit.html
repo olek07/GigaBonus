@@ -10,7 +10,7 @@
 	<f:section name="main">
             
             <f:link.page pageUid="3" additionalParams="{logintype:'logout'}">Abmelden</f:link.page><br>
-            <f:link.action action="sendConfirmMail">Send confirm again</f:link.action>
+            <f:link.action pageUid="15" controller="">Send confirm again</f:link.action>
             
            	<br>
 		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
@@ -19,7 +19,7 @@
 		<div class="femanager_new">
 			<f:if condition="{user}">
 				<f:then>
-					<f:form name="user" id="changeUserdataForm" object="{user}" action="update" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
+					<f:form name="user" id="changeUserdataForm" object="{user}" action="update" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}" noCacheHash="1">
 						<fieldset>
 							<legend>
 								<f:translate key="titleUpdateProfile" />

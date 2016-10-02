@@ -20,5 +20,6 @@ config.tx_extbase{
                 In2code\Femanager\Controller\EditController.className = Gigabonus\Gbfemanager\Controller\EditController
                 In2code\Femanager\Controller\ChangeMobileNumberController.className = Gigabonus\Gbfemanager\Controller\ChangeMobileNumberController
                 In2code\Femanager\Controller\RestorePasswordController.className = Gigabonus\Gbfemanager\Controller\RestorePasswordController
+                In2code\Femanager\Controller\SendConfirmMailController.className = Gigabonus\Gbfemanager\Controller\SendConfirmMailController
         }
 }
