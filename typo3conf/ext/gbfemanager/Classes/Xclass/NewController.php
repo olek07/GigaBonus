@@ -102,17 +102,6 @@ class NewController extends \In2code\Femanager\Controller\NewController {
         }
         
         $this->finalCreate($user, 'new', 'createStatus');
-        
-        
-        /*
-        $this->userRepository->add($user);
-        $this->persistenceManager->persistAll();
-        LogUtility::log(Log::STATUS_PROFILECREATIONREQUEST, $user);
-        if (!empty($this->settings['new']['confirmByUser'])) {
-            // $this->createUserConfirmationRequest($user);
-        }
-        $this->finalCreate($user, 'new', 'createStatus');
-         * 
-         */
+
     }
 }

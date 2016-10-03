@@ -10,12 +10,13 @@
 		{hash} Hash to ensure authentication of link
 
 <f:section name="main">
-	<p><f:translate key="emailCreateUserConfirmationSalutation" /> {user.username},</p>
---------L=1
+	<p><f:translate key="emailCreateUserConfirmationSalutation" />,</p>
 	<p>
 		<f:translate key="emailCreateUserConfirmationText1" />
 		<br>
-		<f:link.action action="confirmCreateRequest" lang="1" pageUid="4" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}" additionalParams="{L:'0'}">
+
+
+		<f:link.action action="confirmCreateRequest" lang="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
 			<f:translate key="emailCreateUserConfirmationLinkConfirm" />
 		</f:link.action>
 	</p>
@@ -23,7 +24,7 @@
 	<p>
 		<f:translate key="emailCreateUserConfirmationText2" />
 		<br>
-		<f:link.action action="confirmCreateRequest" pageUid="4" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmationRefused'}">
+		<f:link.action action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmationRefused'}">
 			<f:translate key="emailCreateUserConfirmationLinkConfirmRefused" />
 		</f:link.action>
 	</p>
