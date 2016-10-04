@@ -12,10 +12,11 @@
 <f:section name="main">
 	<p><f:translate key="emailCreateUserConfirmationSalutation" />,</p>
 	<p>
+Спасибо за регистрацию на сервисе
 		<f:translate key="emailCreateUserConfirmationText1" />
 		<br>
 
-
+                Для завершения процесса регистрации на сервисе, необходимо подтвердить свою учётную запись, перейдя по ссылке ниже.
 		<f:link.action action="confirmCreateRequest" lang="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
 			<f:translate key="emailCreateUserConfirmationLinkConfirm" />
 		</f:link.action>
@@ -30,4 +31,7 @@
 	</p>
 
 	<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
+
+Хороших покупок и высоких кэшбэков!
+
 </f:section>
