@@ -6,8 +6,25 @@ use In2code\Femanager\Utility\LogUtility;
 use In2code\Femanager\Utility\LocalizationUtility;
 use In2code\Femanager\Utility\StringUtility;
 use In2code\Femanager\Utility\HashUtility;
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 
 class NewController extends \In2code\Femanager\Controller\NewController {
+    
+    /**
+     * Render registration form
+     *
+     * @param User $user
+     * @return void
+     */
+    public function newAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null)
+    {
+        // wenn angemeldet, redirect auf die Startseite 
+        if ($GLOBALS['TSFE']->fe_user->user) {
+            MainHelper::redirect2Home();
+            exit;
+        }
+        parent::newAction($user);
+    }
     
     /**
      * action create

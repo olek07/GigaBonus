@@ -17,16 +17,16 @@
 		<br>
 
                 Для завершения процесса регистрации на сервисе, необходимо подтвердить свою учётную запись, перейдя по ссылке ниже.
-		<f:link.action action="confirmCreateRequest" lang="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
-			<f:translate key="emailCreateUserConfirmationLinkConfirm" />
+		<f:link.action pageUid="{registrationPageId}" action="confirmCreateRequest" lang="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
+		    <f:translate key="emailCreateUserConfirmationLinkConfirm" />
 		</f:link.action>
 	</p>
 
 	<p>
 		<f:translate key="emailCreateUserConfirmationText2" />
 		<br>
-		<f:link.action action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmationRefused'}">
-			<f:translate key="emailCreateUserConfirmationLinkConfirmRefused" />
+		<f:link.action pageUid="{registrationPageId}" action="confirmCreateRequest" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmationRefused'}">
+		    <f:translate key="emailCreateUserConfirmationLinkConfirmRefused" />
 		</f:link.action>
 	</p>
 
