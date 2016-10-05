@@ -4,7 +4,8 @@ namespace Gigabonus\Gbfemanager\Controller;
 use In2code\Femanager\Utility\StringUtility;
 use In2code\Femanager\Utility\HashUtility;
 use In2code\Femanager\Utility\LocalizationUtility;
-use \In2code\Femanager\Utility\UserUtility;
+use In2code\Femanager\Utility\UserUtility;
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 
 class EditController extends \In2code\Femanager\Controller\EditController {
     
@@ -25,14 +26,15 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      */
     public function editAction()
     {
-        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-        $lang = (int) \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('L');
-        $pageRenderer->addJsFooterInlineCode('', 
-            "    
-            jQuery(document).ready(function(){
-                Gbfemanager.init($lang);
-            });
-            ");
+        if ($GLOBALS['TSFE']->id === MainHelper::CHANGEUSERDATAPAGEID) {
+            $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+            $lang = (int) \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('L');
+            $pageRenderer->addJsFooterInlineCode('', 
+                "jQuery(document).ready(function(){
+                    Gbfemanager.init($lang);
+                });"
+            );
+        }
         parent::editAction();
     }
     
