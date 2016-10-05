@@ -33,6 +33,7 @@ use DmitryDulepov\Realurl\Cache\PathCacheEntry;
 use DmitryDulepov\Realurl\Cache\UrlCacheEntry;
 use DmitryDulepov\Realurl\Configuration\ConfigurationReader;
 use DmitryDulepov\Realurl\EncodeDecoderBase;
+use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
@@ -40,12 +41,16 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3\CMS\Frontend\Page\PageRepository;
 
 /**
- * This class contains URL decoder for the RealURL.
+ * This class contains URL decoder for the RealURL. It is singleton because the
+ * same instance must run in two different hooks.
  *
  * @package DmitryDulepov\Realurl\Decoder
  * @author Dmitry Dulepov <dmitry.dulepov@gmail.com>
  */
-class UrlDecoder extends EncodeDecoderBase {
+class UrlDecoder extends EncodeDecoderBase implements SingletonInterface {
+
+	const REDIRECT_STATUS_HEADER = 'HTTP/1.0 301 TYPO3 RealURL Redirect';
+	const REDIRECT_INFO_HEADER = 'X-TYPO3-RealURL-Info';
 
 	/** @var bool */
 	protected $appendedSlash = FALSE;
@@ -53,8 +58,18 @@ class UrlDecoder extends EncodeDecoderBase {
 	/** @var TypoScriptFrontendController */
 	protected $caller;
 
-	/** @var int */
-	protected $detectedLanguageId = 0;
+	/**
+	 * This attribute keeps a detected language id for the speaking URL. Firsts,
+	 * if _DOMAINS configuration has L parameter, it's value will be set to
+	 * $_GET['L']. Than this attribute will be set from $_GET['L'] (if set).
+	 * Finally preVar handling code will check for L after decoding and set
+	 * this attribute either to the decoded value or to zero. This value can
+	 * be null until preVars are decoded. After that it is either zero or
+	 * the decoded language uid.
+	 *
+	 * @var int|null
+	 */
+	protected $detectedLanguageId = null;
 
 	/** @var string */
 	protected $disallowedDoktypes;
@@ -103,6 +118,9 @@ class UrlDecoder extends EncodeDecoderBase {
 	protected $originalPath;
 
 	/** @var string */
+	protected $savedErrorHandler = '';
+
+	/** @var string */
 	protected $siteScript;
 
 	/** @var string */
@@ -143,28 +161,6 @@ class UrlDecoder extends EncodeDecoderBase {
 	}
 
 	/**
-	 * Calculates and adds cHash to the entry. This function is only called
-	 * if we had to decode the entry, which was not in the cache. Even if we
-	 * had cHash in the URL, we force to recalculate it because we could have
-	 * decoded parameters differently than the original URL had (for example,
-	 * skipped some noMatch parameters).
-	 *
-	 * @param UrlCacheEntry $cacheEntry
-	 * @return void
-	 */
-	protected function calculateChash(UrlCacheEntry $cacheEntry) {
-		$requestVariables = $cacheEntry->getRequestVariables();
-		$cacheHashCalculator = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Page\\CacheHashCalculator');
-		/* @var \TYPO3\CMS\Frontend\Page\CacheHashCalculator $cacheHashCalculator */
-		$cHashParameters = $cacheHashCalculator->getRelevantParameters(GeneralUtility::implodeArrayForUrl('', $requestVariables));
-
-		if (count($cHashParameters) > 0) {
-			$requestVariables['cHash'] = $cacheHashCalculator->calculateCacheHash($cHashParameters);
-			$cacheEntry->setRequestVariables($requestVariables);
-		}
-	}
-
-	/**
 	 * Calls user-defined hooks.
 	 *
 	 * @param array $params
@@ -192,6 +188,30 @@ class UrlDecoder extends EncodeDecoderBase {
 	}
 
 	/**
+	 * Checks if the entry is expired and redirects to a non-expired entry.
+	 *
+	 * @param UrlCacheEntry $cacheEntry
+	 */
+	protected function checkExpiration(UrlCacheEntry $cacheEntry) {
+		if ($cacheEntry->getExpiration() > 0) {
+			$newerCacheEntry = $this->cache->getUrlFromCacheByOriginalUrl($cacheEntry->getRootPageId(), $cacheEntry->getOriginalUrl());
+			if ($newerCacheEntry->getExpiration() === 0) {
+				if ($cacheEntry->getSpeakingUrl() !== $newerCacheEntry->getSpeakingUrl()) {
+					@ob_end_clean();
+					header(self::REDIRECT_STATUS_HEADER);
+					header(self::REDIRECT_INFO_HEADER . ': redirecting expired URL to a fresh one');
+					header('Location: ' . GeneralUtility::locationHeaderUrl($newerCacheEntry->getSpeakingUrl()));
+					die;
+				}
+				else {
+					// Got expired and non-expired entry for the same speaking url. Remove expired one.
+					$this->cache->clearUrlCacheById($cacheEntry->getCacheId());
+				}
+			}
+		}
+	}
+
+	/**
 	 * Checks if the missing slash should be corrected.
 	 *
 	 * @return void
@@ -216,13 +236,14 @@ class UrlDecoder extends EncodeDecoderBase {
 					$matches = array();
 					if (preg_match('/^redirect(\[(30[1237])\])?$/', $option, $matches)) {
 						$code = count($matches) > 1 ? $matches[2] : 301;
-						$status = 'HTTP/1.1 ' . $code . ' TYPO3 RealURL redirect for missing slash';
+						$status = 'HTTP/1.1 ' . $code . ' TYPO3 RealURL redirect';
 
 						// Check path segment to be relative for the current site.
 						// parse_url() does not work with relative URLs, so we use it to test
 						if (!@parse_url($this->speakingUri, PHP_URL_HOST)) {
 							@ob_end_clean();
 							header($status);
+							header(self::REDIRECT_INFO_HEADER . ': redirect for missing slash');
 							header('Location: ' . GeneralUtility::locationHeaderUrl($this->speakingUri));
 							exit;
 						}
@@ -242,16 +263,6 @@ class UrlDecoder extends EncodeDecoderBase {
 	protected function convertAliasToId(array $configuration, $value) {
 		$result = (string)$value;
 
-		// Assemble list of fields to look up. This includes localization related fields
-		$translationEnabled = FALSE;
-		$fieldList = array();
-		if ($configuration['languageGetVar'] && $configuration['transOrigPointerField'] && $configuration['languageField']) {
-			$fieldList[] = 'uid';
-			$fieldList[] = $configuration['transOrigPointerField'];
-			$fieldList[] = $configuration['languageField'];
-			$translationEnabled = TRUE;
-		}
-
 		// First, test if there is an entry in cache for the alias
 		if ($configuration['useUniqueCache']) {
 			$cachedId = $this->getFromAliasCacheByAliasValue($configuration, $value, FALSE);
@@ -260,12 +271,25 @@ class UrlDecoder extends EncodeDecoderBase {
 			}
 		}
 
-		if (!is_int($result)) {
+		if (!is_int($result) && $configuration['table'] !== 'pages') {
 			// If no cached entry, look it up directly in the table. Note: this will
 			// most likely fail. When encoding we convert alias field to a nice
 			// looking URL segment, which usually looks differently from the field.
 			// But this is the only thing we can do without fetching each record and
 			// re-encoding the field to find the match.
+
+			// Assemble list of fields to look up. This includes localization related fields
+			$translationEnabled = FALSE;
+			$fieldList = array();
+			if ($configuration['languageGetVar'] && $configuration['transOrigPointerField'] && $configuration['languageField']) {
+				$fieldList[] = 'uid';
+				if ($configuration['table'] !== 'pages') {
+					$fieldList[] = $configuration['transOrigPointerField'];
+					$fieldList[] = $configuration['languageField'];
+				}
+				$translationEnabled = TRUE;
+			}
+
 			$fieldList[] = $configuration['id_field'];
 			$row = $this->databaseConnection->exec_SELECTgetSingleRow(implode(',', $fieldList),
 				$configuration['table'],
@@ -307,7 +331,8 @@ class UrlDecoder extends EncodeDecoderBase {
 					$this->tsfe->pageNotFoundAndExit('[realurl] Broken mount point at page with uid=' . $originalMountPointPid);
 				}
 			}
-			if ($this->detectedLanguageId > 0 && !isset($page['_PAGES_OVERLAY'])) {
+			$languageExceptionUids = (string)$this->configuration->get('pagePath/languageExceptionUids');
+			if ($this->detectedLanguageId > 0 && !isset($page['_PAGES_OVERLAY']) && (empty($languageExceptionUids) || !GeneralUtility::inList($languageExceptionUids, $this->detectedLanguageId))) {
 				$page = $this->pageRepository->getPageOverlay($page, (int)$this->detectedLanguageId);
 			}
 			foreach (self::$pageTitleFields as $field) {
@@ -458,14 +483,22 @@ class UrlDecoder extends EncodeDecoderBase {
 							// Path is valid so far, so we cache it
 							$this->putToPathCache($result);
 						}
-					} else {
-						if ((int)$currentPid !== (int)$this->rootPageId) {
-							$currentPid = 0;
-						}
+					}
+					elseif ($this->isPostVar($segment, $currentPid)) {
+						// Not decoded, looks like a postVarSet. Put it back.
+						array_unshift($remainingPathSegments, $segment);
+						break;
+					}
+					else {
+						// Not decoded, not a postVarSet, could be a fixedPostVar. Still put back and hope for the best!
 						array_unshift($remainingPathSegments, $segment);
 						break;
 					}
 				}
+			}
+			elseif ($currentPid === 0) {
+				// Found a postVar on the rootPage
+				$currentPid = $this->rootPageId;
 			}
 		}
 		if ($allPathsAreExpired && !$result) {
@@ -480,7 +513,8 @@ class UrlDecoder extends EncodeDecoderBase {
 					$result->getPagePath() .
 					substr($this->speakingUri, $startPosition + strlen($this->expiredPath));
 				@ob_end_clean();
-				header('HTTP/1.1 302 TYPO3 RealURL redirect for expired page path');
+				header(self::REDIRECT_STATUS_HEADER);
+				header(self::REDIRECT_INFO_HEADER . ': redirect for expired page path');
 				header('Location: ' . GeneralUtility::locationHeaderUrl($newUrl));
 				die;
 			}
@@ -548,6 +582,9 @@ class UrlDecoder extends EncodeDecoderBase {
 				$this->detectedLanguageId = (int)$requestVariables['L'];
 			}
 		}
+		if (is_null($this->detectedLanguageId)) {
+			$this->detectedLanguageId = (int)$this->configuration->get('init/defaultLanguageUid');
+		}
 
 		return $requestVariables;
 	}
@@ -607,9 +644,16 @@ class UrlDecoder extends EncodeDecoderBase {
 			'decodeUrlParameterBlockUseAsIs',
 		);
 
-		$getVarValue = count($pathSegments) > 0 ? array_shift($pathSegments) : '';
-		if ($this->emptySegmentValue !== '' && $getVarValue === $this->emptySegmentValue) {
+		if (count($pathSegments) > 0) {
+			$getVarValue = count($pathSegments) > 0 ? array_shift($pathSegments) : '';
+			if ($this->emptySegmentValue !== '' && $getVarValue === $this->emptySegmentValue) {
+				$getVarValue = '';
+			}
+			$isFakeValue = false;
+		}
+		else {
 			$getVarValue = '';
+			$isFakeValue = true;
 		}
 
 		// TODO Possible hook here before any other function? Pass name, value, segments and config
@@ -618,7 +662,7 @@ class UrlDecoder extends EncodeDecoderBase {
 		if (!isset($varConfiguration['cond']) || $this->checkLegacyCondition($varConfiguration['cond'], $previousValue)) {
 			foreach ($varProcessingFunctions as $varProcessingFunction) {
 				if (isset($varConfiguration['GETvar'])) {
-					if ($this->$varProcessingFunction($varConfiguration, $getVarValue, $requestVariables, $pathSegments)) {
+					if ($this->$varProcessingFunction($varConfiguration, $getVarValue, $requestVariables, $pathSegments, $isFakeValue)) {
 						$previousValue = (string)end($requestVariables);
 						$handled = TRUE;
 						break;
@@ -629,7 +673,7 @@ class UrlDecoder extends EncodeDecoderBase {
 				}
 			}
 		}
-		if (!$handled) {
+		if (!$handled && !$isFakeValue) {
 			array_unshift($pathSegments, $getVarValue);
 		}
 	}
@@ -682,13 +726,16 @@ class UrlDecoder extends EncodeDecoderBase {
 	 * @param $getVarValue
 	 * @param array $requestVariables
 	 * @param array $pathSegments
+	 * @param bool $isFakeValue
 	 * @return bool
 	 */
-	protected function decodeUrlParameterBlockUsingNoMatch(array $configuration, $getVarValue, /** @noinspection PhpUnusedParameterInspection */ array &$requestVariables, array &$pathSegments) {
+	protected function decodeUrlParameterBlockUsingNoMatch(array $configuration, $getVarValue, /** @noinspection PhpUnusedParameterInspection */ array &$requestVariables, array &$pathSegments, $isFakeValue) {
 		$result = FALSE;
 		if ($configuration['noMatch'] == 'bypass') {
 			// If no match and "bypass" is set, then return the value to $pathSegments and break
-			array_unshift($pathSegments, $getVarValue);
+			if (!$isFakeValue) {
+				array_unshift($pathSegments, $getVarValue);
+			}
 			$result = TRUE;
 		} elseif ($configuration['noMatch'] == 'null') {
 			// If no match and "null" is set, then break (without setting any value!)
@@ -705,14 +752,16 @@ class UrlDecoder extends EncodeDecoderBase {
 	 * @param $getVarValue
 	 * @param array $requestVariables
 	 * @param array $pathSegments
+	 * @param bool $isFakeValue
 	 * @return bool
 	 */
-	protected function decodeUrlParameterBlockUsingUserFunc(array $configuration, $getVarValue, array &$requestVariables, array &$pathSegments) {
+	protected function decodeUrlParameterBlockUsingUserFunc(array $configuration, $getVarValue, array &$requestVariables, array &$pathSegments, $isFakeValue) {
 		$result = FALSE;
 
 		if (isset($configuration['userFunc'])) {
 			$parameters = array(
 				'decodeAlias' => true,
+				'isFakeValue' => $isFakeValue,
 				'origValue' => $getVarValue,
 				'pathParts' => &$pathSegments,
 				'pObj' => &$this,
@@ -800,8 +849,6 @@ class UrlDecoder extends EncodeDecoderBase {
 		$cacheEntry->setPageId($pageId);
 		$cacheEntry->setRequestVariables($requestVariables);
 
-		$this->calculateChash($cacheEntry);
-
 		return $cacheEntry;
 	}
 
@@ -873,9 +920,10 @@ class UrlDecoder extends EncodeDecoderBase {
 					'*', 'pages', 'pid IN (' . implode(',', $ids) . ')' .
 					' AND doktype NOT IN (' . $this->disallowedDoktypes . ')' . $pagesEnableFields
 				);
-				if ($this->detectedLanguageId > 0) {
-					foreach ($children as &$child) {
-						$child = $this->pageRepository->getPageOverlay($child, (int)$this->detectedLanguageId);
+				$languageExceptionUids = (string)$this->configuration->get('pagePath/languageExceptionUids');
+				if ($this->detectedLanguageId > 0 && (empty($languageExceptionUids) || !GeneralUtility::inList($languageExceptionUids, $this->detectedLanguageId))) {
+					foreach ($children as $key => $child) {
+						$children[$key] = $this->pageRepository->getPageOverlay($child, (int)$this->detectedLanguageId);
 					}
 				}
 
@@ -907,17 +955,18 @@ class UrlDecoder extends EncodeDecoderBase {
 	}
 
 	/**
-	 * Parses the URL and validates the result.
+	 * Parses the URL and validates the result. This function will strip possible
+	 * query string from speaking URL (we only need to decode the speaking URL!)
 	 *
 	 * @return array
 	 */
-	protected function getUrlParts() {
-		$uParts = @parse_url($this->speakingUri);
-		if (!is_array($uParts)) {
+	protected function getUrlPath() {
+		$urlPath = @parse_url('/' . ltrim($this->speakingUri, '/'), PHP_URL_PATH);
+		if (!is_string($urlPath)) {
 			$this->throw404('Current URL is invalid');
 		}
 
-		return $uParts;
+		return ltrim($urlPath, '/');
 	}
 
 	/**
@@ -1045,8 +1094,8 @@ class UrlDecoder extends EncodeDecoderBase {
 			}
 			$goodPath = substr($this->originalPath, 0, $badPathPartPos) . substr($this->originalPath, $badPathPartPos + $badPathPartLength);
 			@ob_end_clean();
-			header('HTTP/1.1 301 RealURL postVarSet_failureMode redirect');
-			header('X-TYPO3-RealURL-Info: ' . $postVarSetKey);
+			header(self::REDIRECT_STATUS_HEADER);
+			header(self::REDIRECT_INFO_HEADER  . ': postVarSet_failureMode redirect for ' . $postVarSetKey);
 			header('Location: ' . GeneralUtility::locationHeaderUrl($goodPath));
 			exit;
 		} elseif ($failureMode == 'ignore') {
@@ -1054,6 +1103,24 @@ class UrlDecoder extends EncodeDecoderBase {
 		} else {
 			$this->throw404('Segment "' . $postVarSetKey . '" was not a keyword for a postVarSet as expected on page with id=' . $pageId . '.');
 		}
+	}
+
+	/**
+	 * Checks if 'reqCHash` is present in the calling stack.
+	 *
+	 * @return bool
+	 */
+	protected function hasReqChashOnTheStack() {
+		$hasReqChashOnTheStack = false;
+
+		$stack = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+		array_walk($stack, function ($stackItem) use (&$hasReqChashOnTheStack) {
+			if (0 === strcasecmp('reqCHash', $stackItem['function'])) {
+				$hasReqChashOnTheStack = true;
+			}
+		});
+
+		return $hasReqChashOnTheStack;
 	}
 
 	/**
@@ -1075,14 +1142,54 @@ class UrlDecoder extends EncodeDecoderBase {
 	}
 
 	/**
+	 * Checks if cHash is possibly missing from the URL.
+	 *
+	 * @param UrlCacheEntry $cacheEntry
+	 * @return bool
+	 */
+	protected function isChashMissing(UrlCacheEntry $cacheEntry) {
+		$result = false;
+
+		$requestVariables = $cacheEntry->getRequestVariables();
+		if (!isset($requestVariables['cHash'])) {
+			if (!isset($requestVariables['id'])) {
+				// See https://typo3.org/teams/security/security-bulletins/typo3-core/typo3-core-sa-2016-022/
+				$requestVariables['id'] = $cacheEntry->getPageId();
+			}
+			$cacheHashCalculator = GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Page\\CacheHashCalculator');
+			/* @var \TYPO3\CMS\Frontend\Page\CacheHashCalculator $cacheHashCalculator */
+			$cHashParameters = $cacheHashCalculator->getRelevantParameters(GeneralUtility::implodeArrayForUrl('', $requestVariables));
+
+			// Can't use 'doParametersRequireCacheHash' here because that checks only required, not all parameters!
+
+			$result = count($cHashParameters) > 0;
+		}
+
+		return $result;
+	}
+
+	/**
 	 * Checks if the given segment is a name of the postVar.
 	 *
 	 * @param string $segment
+	 * @param int $pageId
 	 * @return bool
 	 */
-	protected function isPostVar($segment) {
-		$postVarNames = array_filter(array_keys((array)$this->configuration->get('postVarSets')));
-		return in_array($segment, $postVarNames);
+	protected function isPostVar($segment, $pageId = 0) {
+		$result = false;
+
+		$postVarSets = null;
+		if ($pageId > 0) {
+			$postVarSets = $this->configuration->get('postVarSets/' . $pageId);
+		}
+		if (!is_array($postVarSets)) {
+			$postVarSets = $this->configuration->get('postVarSets/_DEFAULT');
+		}
+		if (is_array($postVarSets)) {
+			$result = isset($postVarSets[$segment]);
+		}
+
+		return $result;
 	}
 
 	/**
@@ -1100,7 +1207,12 @@ class UrlDecoder extends EncodeDecoderBase {
 	 * @return bool
 	 */
 	protected function isSpeakingUrl() {
-		return $this->siteScript && substr($this->siteScript, 0, 9) !== 'index.php' && substr($this->siteScript, 0, 1) !== '?' && $this->siteScript !== 'favicon.ico';
+		return $this->siteScript &&
+			substr($this->siteScript, 0, 9) !== 'index.php' &&
+			substr($this->siteScript, 0, 1) !== '?' &&
+			$this->siteScript !== 'favicon.ico' &&
+			(!$this->configuration->get('init/respectSimulateStaticURLs') || !preg_match('/^[a-z0-9\-]+\.(\d+)(\.\d+)?\.html/i', $this->siteScript))
+		;
 	}
 
 	/**
@@ -1119,14 +1231,23 @@ class UrlDecoder extends EncodeDecoderBase {
 	}
 
 	/**
-	 * Merges $_GET from domains configuration if corresponding _GET parameter is
-	 * not set already.
+	 * Merges $_GET from domains configuration.
+	 *
+	 * @return void
 	 */
 	protected function mergeGetVarsFromDomainsConfiguration() {
-		foreach ($this->configuration->getGetVarsToSet() as $getVarName => $getVarValue) {
-			if (empty($_GET[$getVarName])) {
-				$_GET[$getVarName] = $getVarValue;
+		// Convert the configuration into an $_GET-"friendly" format
+		$getVarsToSet = $this->makeRealPhpArrayFromRequestVars($this->configuration->getGetVarsToSet());
+		if (count($getVarsToSet) > 0) {
+			// Overwrite with $_GET-params that $_GET-parmas have a "higher" priority
+			$getVars = GeneralUtility::_GET();
+			if (!is_array($getVars)) {
+				$getVars = array();
 			}
+			ArrayUtility::mergeRecursiveWithOverrule($getVars, $getVarsToSet, true, true, false);
+
+			// Store the "new" $_GET-params back
+			GeneralUtility::_GETset($getVars);
 		}
 	}
 
@@ -1139,7 +1260,7 @@ class UrlDecoder extends EncodeDecoderBase {
 	 */
 	protected function mergeWithExistingGetVars(array &$requestVariables) {
 		if (count($_GET) > 0) {
-			$flatGetArray = $this->parseQueryStringParameters($this->createQueryStringFromParameters($_GET));
+			$flatGetArray = $this->parseQueryStringParameters($this->createQueryStringFromParameters(GeneralUtility::_GET()));
 			ArrayUtility::mergeRecursiveWithOverrule($requestVariables, $flatGetArray);
 		}
 	}
@@ -1171,7 +1292,7 @@ class UrlDecoder extends EncodeDecoderBase {
 	 */
 	protected function putToPathCache(PathCacheEntry $newCacheEntry) {
 		$pagePath = $newCacheEntry->getPagePath();
-		$cacheEntry = $this->cache->getPathFromCacheByPagePath($this->rootPageId, $newCacheEntry->getMountPoint(), $pagePath);
+		$cacheEntry = $this->cache->getPathFromCacheByPagePath($this->rootPageId, $this->detectedLanguageId, $newCacheEntry->getMountPoint(), $pagePath);
 		if (!$cacheEntry) {
 			$cacheEntry = $newCacheEntry;
 			$cacheEntry->setRootPageId($this->rootPageId);
@@ -1185,49 +1306,25 @@ class UrlDecoder extends EncodeDecoderBase {
 	}
 
 	/**
-	 * Adds data to the url cache. This must run after $this->setRequestVariables().
-	 *
-	 * @param UrlCacheEntry $cacheEntry
-	 * @return void
-	 */
-	protected function putToUrlCache(UrlCacheEntry $cacheEntry) {
-		if (!$this->isExpiredPath) {
-			$requestVariables = $cacheEntry->getRequestVariables();
-			$requestVariables['id'] = $cacheEntry->getPageId();
-			$this->sortArrayDeep($requestVariables);
-
-			$originalUrl = $this->createQueryStringFromParameters($requestVariables);
-
-			if ($this->canCacheUrl($originalUrl)) {
-				$cacheEntry->setOriginalUrl($originalUrl);
-				$cacheEntry->setRequestVariables($requestVariables);
-				$cacheEntry->setRootPageId($this->rootPageId);
-				$cacheEntry->setSpeakingUrl($this->speakingUri);
-
-				$this->cache->putUrlToCache($cacheEntry);
-			}
-		}
-	}
-
-	/**
 	 * Contains the actual decoding logic after $this->speakingUri is set.
 	 *
 	 * @return void
 	 */
 	protected function runDecoding() {
-		$urlParts = $this->getUrlParts();
+		$urlPath = $this->getUrlPath();
 
 		$cacheEntry = $this->getFromUrlCache($this->speakingUri);
 		if (!$cacheEntry) {
-			$this->originalPath = $urlParts['path'];
-			$cacheEntry = $this->doDecoding($urlParts['path']);
+			$this->originalPath = $urlPath;
+			$cacheEntry = $this->doDecoding($urlPath);
+			// Note the newly created cache entry is not saved because it is unsafe!
+			// The user can suppy any number of free form parameters and those
+			// can get to the cache. On the other hand we cannot store URLs
+			// without parameters because those can be fully legal and entries
+			// without parameters will be useless.
 		}
+		$this->checkExpiration($cacheEntry);
 		$this->setRequestVariables($cacheEntry);
-
-		// If it is still not there (could have been added by other process!), than update
-		if (!$this->isExpiredPath && !$this->getFromUrlCache($this->speakingUri)) {
-			$this->putToUrlCache($cacheEntry);
-		}
 	}
 
 	/**
@@ -1266,7 +1363,7 @@ class UrlDecoder extends EncodeDecoderBase {
 	 * @param string $path
 	 * @return PathCacheEntry|null
 	 */
-	protected function searchForPathOverrideInPagesLanguageverlay($path) {
+	protected function searchForPathOverrideInPagesLanguageOverlay($path) {
 		$result = null;
 
 		$rows = $this->databaseConnection->exec_SELECTgetRows('pages.uid AS uid',
@@ -1334,8 +1431,9 @@ class UrlDecoder extends EncodeDecoderBase {
 		$result = null;
 
 		$path = implode('/', $possibleSegments);
-		if ($this->detectedLanguageId > 0) {
-			$result = $this->searchForPathOverrideInPagesLanguageverlay($path);
+		$languageExceptionUids = (string)$this->configuration->get('pagePath/languageExceptionUids');
+		if ($this->detectedLanguageId > 0 && (empty($languageExceptionUids) || !GeneralUtility::inList($languageExceptionUids, $this->detectedLanguageId))) {
+			$result = $this->searchForPathOverrideInPagesLanguageOverlay($path);
 		}
 		if (!$result) {
 			$result = $this->searchForPathOverrideInPages($path);
@@ -1360,7 +1458,7 @@ class UrlDecoder extends EncodeDecoderBase {
 		do {
 			$path = implode('/', $pathSegments);
 			// Since we know nothing about mount point at this stage, we exclude it from search by passing null as the second argument
-			$cacheEntry = $this->cache->getPathFromCacheByPagePath($this->rootPageId, null, $path);
+			$cacheEntry = $this->cache->getPathFromCacheByPagePath($this->rootPageId, $this->detectedLanguageId, null, $path);
 			if ($cacheEntry) {
 				if ((int)$cacheEntry->getExpiration() !== 0) {
 					$this->isExpiredPath = TRUE;
@@ -1388,7 +1486,10 @@ class UrlDecoder extends EncodeDecoderBase {
 	 * @return void
 	 */
 	protected function setLanguageFromQueryString() {
-		$this->detectedLanguageId = (int)GeneralUtility::_GP('L');
+		$language = GeneralUtility::_GP('L');
+		if (MathUtility::canBeInterpretedAsInteger($language)) {
+			$this->detectedLanguageId = (int)$language;
+		}
 	}
 
 	/**
@@ -1432,7 +1533,9 @@ class UrlDecoder extends EncodeDecoderBase {
 		// TODO Write to our own error log here
 
 		// Set language to allow localized error pages
-		$_GET['L'] = $this->detectedLanguageId;
+		if (MathUtility::canBeInterpretedAsInteger($this->detectedLanguageId)) {
+			$_GET['L'] = $this->detectedLanguageId;
+		}
 
 		$this->caller->pageNotFoundAndExit($errorMessage);
 	}
