@@ -1,6 +1,8 @@
 <?php
 namespace Gigabonus\Gbfemanager\Controller;
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 class ValidationController extends \In2code\Femanager\Controller\AbstractController {
     
@@ -14,37 +16,84 @@ class ValidationController extends \In2code\Femanager\Controller\AbstractControl
     
     /**
      * 
-     * @param string $dateOfBirth
+     * @param string $data
      * @return string
      */
-    public function validateAction($dateOfBirth = null) {
+    public function validateAction($data = null) {
+        
+        $settings = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_femanager.']['settings.']['edit.']['validation.'];
+        
+        $errorMessages = [];
+        $fieldsToValidate = json_decode($data);
         
         
-        $validation = 'date,required';
-        $field = 'dateOfBirth';
-        $additionalValue = null;
+        if (count($fieldsToValidate) == 0) {
+            return '{"validate":0}';
+        }
         
-        $result = $this->clientsideValidator
-            ->setValidationSettingsString($validation)
-            ->setValue($dateOfBirth)
-            ->validateField();
         
-        $this->view->assignMultiple(
-            [
-                'isValid' => $result,
-                'messages' => $this->clientsideValidator->getMessages(),
-                'validation' => $validation,
-                'value' => $value,
-                'fieldname' => $field,
-                'user' => $user
-            ]
-        );
-
-        $errorMessage = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($this->clientsideValidator->getMessages()[0], "femanager");
-        $response = '{"validate":0, "message": "' . $errorMessage . '"}';
-  #  \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($result);
-  # \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->clientsideValidator->getMessages());
+        foreach ($fieldsToValidate as $field => $value) {
+            
+           # \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($settings[$field . '.']);
+            
+            $validation = '';
+            switch ($field) {
+                case 'dateOfBirth':
+                    $validation = 'date,required';
+                    break;
+                case 'cityId':
+                    if ($value <= 0) {
+                        $errorMessages['cityId'] = array('Город не указан');
+                    }
+                    break;
+                case 'zip': 
+                    $validation = 'min(5),max(5),intOnly,required';
+                    break;
+                default:
+            }
+            
+            if ($validation !== '') {
+                
+                $clientsideValidator = $this->clientsideValidator;
+                
+                $result = $clientsideValidator
+                    ->setValidationSettingsString($validation)
+                    ->setValue($value)
+                    ->validateField();
+                
+                if (!$result) {
+                    $messages[$field . '_field'] = $this->clientsideValidator->getMessages();
+                    $this->clientsideValidator->setMessages(array());
+                }
+                
+            }
+        }
         
-return $response;        
+        
+        if (is_array($messages) && count($messages) > 0) {
+            foreach ($messages as $field => $fieldMessages) {
+                foreach ($fieldMessages as $fieldMessage) {
+                    $errorMessages[] = sprintf(LocalizationUtility::translate($fieldMessage, "femanager"), $field);
+                }
+            }
+        }
+        
+        
+       // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($errorMessages);
+        
+        
+        if (count($errorMessages) == 0) {
+            $response = '{"validate": 1}';
+        }
+        else {
+            $obj = array("validate" => 0,
+                        "messages" => $errorMessages
+            );
+            
+            $response = json_encode($obj);
+        }
+        
+        return $response;
+        
     }
 }

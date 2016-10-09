@@ -35,34 +35,47 @@ Gbfemanager = {
         
 
         form.submit(function(e){
-            if (!submitFormAllowed) {
-                $.ajax({
+            $('#femanager_field_submit').attr('disabled', 1);
+            if (!obj.submitFormAllowed) {
+                
+                sendData = {
+                    'dateOfBirth' : $('#femanager_field_dateOfBirth').val(),
+                    'cityId' : $('#femanager_field_city_id').val(),
+                    'zip' : $('#femanager_field_zip').val()
+                };
+                
+                $.getJSON({
                     url: '/?type=999',
-                    data: {
-                        'tx_gbfemanager_pi2[dateOfBirth]' : $('#femanager_field_dateOfBirth').val()
-                    },
+                    data: {'tx_gbfemanager_pi2[data]' : JSON.stringify(sendData)},
                     type: 'POST',
                     cache: false,
                     success: function(data) { // return values
                         if (data) {
                             try {
-                                    var json = $.parseJSON(data);
+                                    var json = data;
                                     if (!json.validate) {
-                                            // writeErrorMessage(element, json.message)
-                                            alert(json.message)
+                                        // writeErrorMessage(element, json.message)
+                                        for(message in json.messages) {
+                                            alert(json.messages[message])
+                                        }
+                                        obj.enableSubmitButton();    
                                     } else {
-                                        submitFormAllowed = true;
+                                        obj.submitFormAllowed = true;
                                         form.submit();        
                                         // cleanErrorMessage(element);
                                     }
-                            } catch(e) {
+                            } 
+                            catch(e) {
                             }
 
                         }
                         
-                },
+                        
+                        
+                    },
                     error: function() {
                             logAjaxError();
+                            obj.enableSubmitButton();
                     }
                 });
 
@@ -70,6 +83,14 @@ Gbfemanager = {
             }
         });
 
+    },
+    
+    disableSubmitButton: function() {
+        $('#femanager_field_submit').prop('disabled',  true);
+    },
+    
+    enableSubmitButton: function() {
+        $('#femanager_field_submit').prop('disabled', false);
     },
     
     initCitySuggest: function() {
@@ -97,10 +118,12 @@ Gbfemanager = {
             if (cityName !== $('#femanager_field_city').val().trim()) $('#femanager_field_city_id').val(0);
         })
         
+        /*
         $('#changeUserdataForm').submit(function(event) {
               if (!cityFound) return false;
               if ($('#femanager_field_city_id').val() == 0) return false;
         });
+        */
     }
     
 

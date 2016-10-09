@@ -39,6 +39,11 @@ plugin.tx_femanager {
                     mustInclude = number
                 }
 
+                cityId {
+                    mustInclude = number
+                    required = 1
+                }
+
                 dateOfBirth {
                     date = 1
                     required =1
@@ -97,7 +102,11 @@ Validation {
 	    xhtml_cleaning = none
 	    admPanel = 0
 	    metaCharset = utf-8
-	    additionalHeaders = Content-Type:text/html;charset=utf-8
+	    additionalHeaders {
+                10 {
+                    header = Content-Type:application/json;charset=utf-8                        
+                }
+            }
 	    disablePrefixComment = 1
 	    debug = 0
             no_cache = 1
