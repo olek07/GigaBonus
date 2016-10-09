@@ -48,12 +48,13 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
      * @return void
      */
-    public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
+    public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = NULL) {
         if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) ==  $user->getUid()) {
             parent::updateAction($user);
         }
         else {
             // Versuch die uid im FireBug oder Ähnlichem zu manipulieren 
+            throw new \Exception('');
             exit;
         }
         

@@ -7,6 +7,7 @@ class MainHelper {
     
     const CHANGEPASSWORDPAGEID = 8;
     const CHANGEUSERDATAPAGEID = 6;
+    const DELETEPROFILEPAGEID = 16;
 
     public static function redirect2Home() {
         $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
@@ -16,6 +17,16 @@ class MainHelper {
             )
         );
         HttpUtility::redirect($url);
+    }
+    
+    public static function redirect2DeleteProfilePage() {
+        $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
+            array(
+                'parameter' => self::DELETEPROFILEPAGEID,
+            )
+        );
+        HttpUtility::redirect($url);
+        
     }
     
 }

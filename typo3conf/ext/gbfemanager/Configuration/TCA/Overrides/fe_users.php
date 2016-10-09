@@ -21,6 +21,16 @@ $feUsersColumns = [
             ],
         ]
     ],
+    'city' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.city',
+            'config' => array(
+                'type' => 'input',
+                'size' => '20',
+                'eval' => 'trim',
+                'max' => '100'
+            )
+    ), 
     'city_id' => [
         'exclude' => 0,
         'label' => 'Cityid',

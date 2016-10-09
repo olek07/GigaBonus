@@ -27,6 +27,8 @@ plugin.tx_femanager {
         edit {
             validation {
 
+                _enable.client = 0
+
                 email.uniqueInDb = 1
                 // captcha.captcha = 1
                 password < plugin.tx_femanager.settings.new.validation.password
@@ -39,6 +41,7 @@ plugin.tx_femanager {
 
                 dateOfBirth {
                     date = 1
+                    required =1
                 }
             }
         }
@@ -82,4 +85,39 @@ plugin.tx_femanager {
         ua.tx_femanager_domain_model_user.dateOfBirth.placeholder = d.m.Y
     }
 
+}
+
+Validation = PAGE
+Validation {
+
+    typeNum = 999
+
+	config {
+	    disableAllHeaderCode = 1
+	    xhtml_cleaning = none
+	    admPanel = 0
+	    metaCharset = utf-8
+	    additionalHeaders = Content-Type:text/html;charset=utf-8
+	    disablePrefixComment = 1
+	    debug = 0
+            no_cache = 1
+	}
+
+    10 = USER_INT
+    10 {
+            userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+            extensionName = Gbfemanager
+            pluginName = Pi2
+            vendorName = Gigabonus
+            controller = Validation
+            action = validate
+            switchableControllerActions {
+                    Validation {
+                            1 = validate
+                    }
+            }
+            #view < plugin.tx_maramap.view
+            #persistence < plugin.tx_maramap.persistence
+            #settings < plugin.tx_maramap.settings
+    }
 }

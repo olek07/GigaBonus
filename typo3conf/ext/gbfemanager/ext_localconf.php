@@ -14,6 +14,15 @@ $signalSlotDispatcher->connect(
     'setUsernameEqualToEmail'                               // Slot name
 );
 
+$signalSlotDispatcher->connect(
+    \In2code\Femanager\Controller\NewController::class,     // Signal class name
+    'confirmCreateRequestActionBeforePersist',              // Signal name
+    \GigaBonus\Gbfemanager\Slots\BeforePersist::class,      // Slot class name
+    'confirmCreateRequestAction'                            // Slot name
+);
+
+
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'In2code.femanager',
     'Pi1',
@@ -37,6 +46,17 @@ $signalSlotDispatcher->connect(
     ]
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    // 'In2code.femanager',
+    'Gigabonus.gbfemanager',
+    'Pi2',
+    [
+        'Validation' => 'validate' 
+    ],
+    [
+        'Validation' => 'validate'
+    ]
+);
 
 
 

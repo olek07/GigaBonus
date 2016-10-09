@@ -4,6 +4,7 @@
 
 CREATE TABLE fe_users (
     language varchar(2) DEFAULT '' NOT NULL,
+    city varchar(100) DEFAULT '' NOT NULL,
     city_id int(11) unsigned DEFAULT '0' NOT NULL,
     tx_gbfemanager_telephonelastchanged int(11) unsigned DEFAULT '0' NOT NULL
 );
