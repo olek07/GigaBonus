@@ -45,7 +45,7 @@ Gbfemanager = {
                 };
                 
                 $.getJSON({
-                    url: '/?type=999',
+                    url: '/index.php?eID=gbfemanagerValidate&L=' + obj.lang,
                     data: {'tx_gbfemanager_pi2[data]' : JSON.stringify(sendData)},
                     type: 'POST',
                     cache: false,
@@ -74,7 +74,7 @@ Gbfemanager = {
                         
                     },
                     error: function() {
-                            logAjaxError();
+                            // logAjaxError();
                             obj.enableSubmitButton();
                     }
                 });

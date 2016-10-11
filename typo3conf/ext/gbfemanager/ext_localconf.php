@@ -79,3 +79,6 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:femanager/Resour
 
 
 $TYPO3_CONF_VARS['FE']['eID_include']['cities'] = 'EXT:gbfemanager/Classes/Cities.php';
+
+// eID for Field Validation (FE)
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['gbfemanagerValidate'] = 'EXT:gbfemanager/Classes/Eid/ValidateEid.php';
