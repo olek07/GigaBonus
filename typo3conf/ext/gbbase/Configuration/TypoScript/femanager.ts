@@ -46,7 +46,12 @@ plugin.tx_femanager {
 
                 dateOfBirth {
                     date = 1
-                    required =1
+                    required = 1
+                }
+
+                language {
+                    required = 1
+                    inList = ua,ru
                 }
             }
         }

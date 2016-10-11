@@ -3,6 +3,20 @@
 	<file source-language="ru" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbbase">
 		<header/>
 		<body>
+
+		            <trans-unit id="gbbase.day">
+                            <source>Число</source>
+                            <target>Число</target>
+                    </trans-unit>
+                    <trans-unit id="gbbase.month">
+                            <source>Месяц</source>
+                            <target>Місяць</target>
+                    </trans-unit>
+                    <trans-unit id="gbbase.year">
+                            <source>Год</source>
+                            <target>Рік</target>
+                    </trans-unit>
+
                     <trans-unit id="gbbase.month.name_1">
                             <source>Январь</source>
                             <target>Січень</target>
