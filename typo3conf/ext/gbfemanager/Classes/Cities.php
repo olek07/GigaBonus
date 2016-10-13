@@ -32,7 +32,7 @@ class Cities {
         }
         
         $this->term = trim(addslashes($term));
-        $this->term = preg_replace('~\s{1,}~' , ' ',  $this->term);
+        $this->term = mb_ereg_replace('~\s{1,}~' , ' ',  $this->term);
     }
 
     

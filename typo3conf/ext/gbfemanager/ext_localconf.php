@@ -67,6 +67,11 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['In2code\\Femanager\\Controller\\N
 );
 */
 
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']['In2code\\Femanager\\Domain\\Validator\\ServersideValidator'] = array(
+    'className' => 'Gigabonus\\Gbfemanager\\Domain\\Validator\\BirthdayValidator'
+);
+
+
 
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder

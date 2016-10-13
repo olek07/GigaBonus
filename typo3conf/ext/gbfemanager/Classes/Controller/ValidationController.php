@@ -38,6 +38,11 @@ class ValidationController extends \In2code\Femanager\Controller\AbstractControl
             
             $validation = '';
             switch ($field) {
+                case 'firstName':
+                case 'middlename':
+                case 'lastname':
+                    $validation = 'min(2),max(20),required';
+                    break;
                 case 'dateOfBirth':
                     $validation = 'date,required';
                     break;

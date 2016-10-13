@@ -12,11 +12,11 @@ $feUsersColumns = [
             'items' => [
                 [
                     'ru',
-                    'ru'
+                    '0'
                 ],
                 [
                     'ua',
-                    'ua'
+                    '1'
                 ]
             ],
         ]

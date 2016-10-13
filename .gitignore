@@ -5,4 +5,5 @@ typo3
 typo3_src
 uploads
 nbproject
-vandor
+vendor
+.idea
