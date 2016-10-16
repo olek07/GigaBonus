@@ -27,9 +27,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<th> </th>
 	</tr>
 
-	<f:for each="{partners}" as="partner">
+	<f:for each="{category.partners}" as="partner">
 		<tr>
-			<td><f:link.action action="show" arguments="{partner : partner}"> {partner.name}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{partner : partner, category:category.uid}"> {partner.name}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{partner : partner}"> {partner.teaser}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{partner : partner}"> {partner.description}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{partner : partner}"> {partner.image.originalResource.name}</f:link.action></td>

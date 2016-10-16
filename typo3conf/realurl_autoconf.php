@@ -43,20 +43,74 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
         ),
 
 		'fixedPostVars' => array(
-			'newsDetailConfiguration' => array(
+
+			'partnerListConfiguration' => array(
+				array(
+					'GETvar' => 'tx_gbpartner_categorylisting[action]',
+					'noMatch' => 'bypass'
+				),
+				array(
+					'GETvar' => 'tx_gbpartner_categorylisting[controller]',
+					'noMatch' => 'bypass'
+				),
+				array(
+					'GETvar' => 'tx_gbpartner_categorylisting[category]',
+					'lookUpTable' => array(
+						'table' => 'tx_gbpartner_domain_model_category',
+						'id_field' => 'uid',
+						'alias_field' => 'name',
+						'addWhereClause' => ' AND NOT deleted',
+						'useUniqueCache' => 1,
+						'useUniqueCache_conf' => array(
+							'strtolower' => 1,
+							'spaceCharacter' => '-'
+						),
+						'languageGetVar' => 'L',
+						'languageExceptionUids' => '',
+						'languageField' => 'sys_language_uid',
+						'transOrigPointerField' => 'l10n_parent',
+						'autoUpdate' => 1,
+						'expireDays' => 180,
+					)
+				),
+
+			),
+
+			'partnerDetailConfiguration' => array(
 				array(
 					'GETvar' => 'tx_gbpartner_partnerlisting[action]',
 					'valueMap' => array(
-						'detail' => '',
+
 					),
 					'noMatch' => 'bypass'
 				),
 				array(
 					'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
 					'valueMap' => array(
-						'News' => '',
+
 					),
 					'noMatch' => 'bypass'
+				),
+
+				array(
+					'GETvar' => 'tx_gbpartner_partnerlisting[category]',
+					'lookUpTable' => array(
+						'table' => 'tx_gbpartner_domain_model_category',
+						'id_field' => 'uid',
+						'alias_field' => 'name',
+						'addWhereClause' => ' AND NOT deleted',
+						'useUniqueCache' => 1,
+						'useUniqueCache_conf' => array(
+							'strtolower' => 1,
+							'spaceCharacter' => '-'
+						),
+						'languageGetVar' => 'L',
+						'languageExceptionUids' => '',
+						'languageField' => 'sys_language_uid',
+						'transOrigPointerField' => 'l10n_parent',
+						'autoUpdate' => 1,
+						'expireDays' => 180,
+					)
 				),
 
 
@@ -83,72 +137,13 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 
 			),
 
-			17 => 'newsDetailConfiguration'
+			12 => 'partnerListConfiguration',					// partner list configuration
+			17 => 'partnerDetailConfiguration'					// partner detail configuration
 
 		),
         'postVarSets' => array(
 
-			'17' => array (
-
-				'controller' => array(
-					array(
-						'GETvar' => 'tx_gbpartner_partnerlisting[action]',
-						'noMatch' => 'bypass'
-					),
-					array(
-						'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
-						'noMatch' => 'bypass'
-					),
-				),
-
-
-				/*
-				'partner' => array(
-					array(
-						'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
-
-					),
-
-					array(
-						'GETvar' => 'tx_gbpartner_partnerlisting[action]',
-					),
-
-					array(
-						'GETvar' => 'tx_gbpartner_partnerlisting[partner]',
-						'lookUpTable' => array(
-							'table' => 'tx_gbpartner_domain_model_partner',
-							'id_field' => 'uid',
-							'alias_field' => 'name',
-							'addWhereClause' => ' AND NOT deleted',
-							'useUniqueCache' => 1,
-							'useUniqueCache_conf' => array(
-								'strtolower' => 1,
-								'spaceCharacter' => '-',
-							),
-							'languageGetVar' => 'L',
-							'languageExceptionUids' => '',
-							'languageField' => 'sys_language_uid',
-							'transOrigPointerField' => 'l10n_parent',
-							'autoUpdate' => 1,
-							'expireDays' => 180,
-						),
-					),
-
-
-
-				),
-				*/
-
-			),
-
             '_DEFAULT' => array(
-
-
-
-
-
-
-
 
 /*
 				'addnew' => array(

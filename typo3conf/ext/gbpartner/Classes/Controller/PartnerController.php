@@ -25,6 +25,7 @@ namespace Gigabonus\Gbpartner\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * PartnerController
@@ -42,24 +43,35 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     
     /**
      * action list
+     *
+     * @param \Gigabonus\Gbpartner\Domain\Model\Category $category
      * 
      * @return void
      */
-    public function listAction()
+    public function listAction(\Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
-        $partners = $this->partnerRepository->findAll();
-        $this->view->assign('partners', $partners);
+
+        # $partners = $this->partnerRepository->findAll();
+        # $this->view->assign('partners', $partners);
+        
+        $this->view->assign('category', $category);
     }
     
     /**
      * action show
      * 
      * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     * @param \Gigabonus\Gbpartner\Domain\Model\Category $category
      * @return void
      */
-    public function showAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner)
+    public function showAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null, \Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
-        $this->view->assign('partner', $partner);
+        if ($partner == NULL) {
+            $this->forward('list', null, null, array('category' => $category));
+        }
+        else {
+            $this->view->assign('partner', $partner);
+        }
     }
 
 }
