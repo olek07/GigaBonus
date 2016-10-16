@@ -83,12 +83,12 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 
 			),
 
-			16 => 'newsDetailConfiguration'
+			17 => 'newsDetailConfiguration'
 
 		),
         'postVarSets' => array(
 
-			'16' => array (
+			'17' => array (
 
 				'controller' => array(
 					array(
