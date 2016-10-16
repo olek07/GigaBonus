@@ -4,6 +4,29 @@
  * Table configuration fe_users
  */
 $feUsersColumns = [
+    'gender' => [
+        'exclude' => 0,
+        'label' => 'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+            'tx_femanager_domain_model_user.gender',
+        'config' => [
+            'type' => 'radio',
+            'items' => [
+                [
+                    'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+                    'tx_femanager_domain_model_user.gender.item0',
+                    'm'
+                ],
+                [
+                    'LLL:EXT:femanager/Resources/Private/Language/locallang_db.xlf:' .
+                    'tx_femanager_domain_model_user.gender.item1',
+                    'w'
+                ]
+            ],
+        ]
+    ],
+
+
+
     'language' => [
         'exclude' => 0,
         'label' => 'Language',

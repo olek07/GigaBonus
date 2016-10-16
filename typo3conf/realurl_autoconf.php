@@ -42,9 +42,112 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
             'firstHitPathCache' => 1,
         ),
 
-		'fixedPostVars' => array(),
+		'fixedPostVars' => array(
+			'newsDetailConfiguration' => array(
+				array(
+					'GETvar' => 'tx_gbpartner_partnerlisting[action]',
+					'valueMap' => array(
+						'detail' => '',
+					),
+					'noMatch' => 'bypass'
+				),
+				array(
+					'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
+					'valueMap' => array(
+						'News' => '',
+					),
+					'noMatch' => 'bypass'
+				),
+
+
+				array(
+					'GETvar' => 'tx_gbpartner_partnerlisting[partner]',
+					'lookUpTable' => array(
+						'table' => 'tx_gbpartner_domain_model_partner',
+						'id_field' => 'uid',
+						'alias_field' => 'name',
+						'addWhereClause' => ' AND NOT deleted',
+						'useUniqueCache' => 1,
+						'useUniqueCache_conf' => array(
+							'strtolower' => 1,
+							'spaceCharacter' => '-'
+						),
+						'languageGetVar' => 'L',
+						'languageExceptionUids' => '',
+						'languageField' => 'sys_language_uid',
+						'transOrigPointerField' => 'l10n_parent',
+						'autoUpdate' => 1,
+						'expireDays' => 180,
+					)
+				)
+
+			),
+
+			16 => 'newsDetailConfiguration'
+
+		),
         'postVarSets' => array(
+
+			'16' => array (
+
+				'controller' => array(
+					array(
+						'GETvar' => 'tx_gbpartner_partnerlisting[action]',
+						'noMatch' => 'bypass'
+					),
+					array(
+						'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
+						'noMatch' => 'bypass'
+					),
+				),
+
+
+				/*
+				'partner' => array(
+					array(
+						'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
+
+					),
+
+					array(
+						'GETvar' => 'tx_gbpartner_partnerlisting[action]',
+					),
+
+					array(
+						'GETvar' => 'tx_gbpartner_partnerlisting[partner]',
+						'lookUpTable' => array(
+							'table' => 'tx_gbpartner_domain_model_partner',
+							'id_field' => 'uid',
+							'alias_field' => 'name',
+							'addWhereClause' => ' AND NOT deleted',
+							'useUniqueCache' => 1,
+							'useUniqueCache_conf' => array(
+								'strtolower' => 1,
+								'spaceCharacter' => '-',
+							),
+							'languageGetVar' => 'L',
+							'languageExceptionUids' => '',
+							'languageField' => 'sys_language_uid',
+							'transOrigPointerField' => 'l10n_parent',
+							'autoUpdate' => 1,
+							'expireDays' => 180,
+						),
+					),
+
+
+
+				),
+				*/
+
+			),
+
             '_DEFAULT' => array(
+
+
+
+
+
+
 
 
 /*

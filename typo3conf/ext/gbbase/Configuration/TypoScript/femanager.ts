@@ -33,10 +33,29 @@ plugin.tx_femanager {
                 // captcha.captcha = 1
                 password < plugin.tx_femanager.settings.new.validation.password
 
+                firstName {
+                    min = 2
+                    max = 20
+                    // required = 1
+                }
+
+                middleName {
+                    min = 2
+                    max = 20
+                    // required = 1
+                }
+
+                lastName {
+                    min = 2
+                    max = 20
+                    // required = 1
+                }
+
                 zip {
                     min = 5
                     max = 5
                     mustInclude = number
+                    // required = 1
                 }
 
                 cityId {
@@ -50,8 +69,13 @@ plugin.tx_femanager {
                 }
 
                 language {
-                    required = 1
-                    inList = ua,ru
+                    // required = 1
+                    inList = 0,1
+                }
+
+                gender {
+                    # required = 1
+                    inList = m,w
                 }
             }
         }

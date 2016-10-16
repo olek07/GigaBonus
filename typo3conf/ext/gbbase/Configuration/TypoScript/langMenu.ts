@@ -1,5 +1,6 @@
 lib.langMenu = HMENU
 lib.langMenu {
+        addQueryString = 1
         special = language
         special.value = 0,1
         special.normalWhenNoLanguage = 0

@@ -41,7 +41,8 @@ Gbfemanager = {
                 sendData = {
                     'dateOfBirth' : $('#femanager_field_dateOfBirth').val(),
                     'cityId' : $('#femanager_field_city_id').val(),
-                    'zip' : $('#femanager_field_zip').val()
+                    'zip' : $('#femanager_field_zip').val(),
+                    'gender' : $('#femanager_field_gender1').prop('checked') + $('#femanager_field_gender0').prop('checked')
                 };
                 
                 $.getJSON({

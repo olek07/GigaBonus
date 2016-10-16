@@ -4,6 +4,14 @@ namespace Gigabonus\Gbfemanager\Domain\Model;
 
 class User extends \In2code\Femanager\Domain\Model\User {
 
+
+    /**
+     * gender
+     *
+     * @var string
+     */
+    protected $gender;
+
     /**
      * language
      *

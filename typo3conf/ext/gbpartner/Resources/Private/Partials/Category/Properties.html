@@ -12,7 +12,9 @@
 
 			<f:for each="{category.partners}" as="match">
 
-				{match.name}<br>
+				<f:link.action pluginName="Partnerlisting" action="show" controller="Partner" pageUid="16" arguments="{partner : match.uid}">
+				{match.name} {match.uid}<br><br>
+				</f:link.action>
 				<f:for each="{match.image}" as="image" iteration="itemIteration">
 
 					<f:image src="{image.reference.uid}"  treatIdAsReference="1" />

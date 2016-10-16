@@ -51,8 +51,13 @@ class ValidationController extends \In2code\Femanager\Controller\AbstractControl
                         $errorMessages['cityId'] = array('Город не указан');
                     }
                     break;
-                case 'zip': 
+                case 'zip':
                     $validation = 'min(5),max(5),intOnly,required';
+                    break;
+                case 'gender':
+                    if ($value == 0) {
+                        $errorMessages['gender'] = array('Пол не указан');
+                    }
                     break;
                 default:
             }
