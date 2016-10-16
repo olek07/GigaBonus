@@ -1,5 +1,6 @@
 /fileadmin/
 /typo3temp/
+/typo3conf/deprecation*
 index.php
 typo3
 typo3_src
@@ -7,3 +8,6 @@ uploads
 nbproject
 vendor
 .idea
+dump.sql
+composer*
+gigabonus*.sql
