@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Partnerlisting',
 	array(
-		'Partner' => 'show,list',
+		'Partner' => 'list,show',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Partner' => 'show,list',
+		'Partner' => 'list,show',
 		
 	)
 );
@@ -21,12 +21,12 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Categorylisting',
 	array(
-		'Category' => 'list, show',
+		'Category' => 'list',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Category' => 'list, show',
+		'Category' => 'list',
 		
 	)
 );

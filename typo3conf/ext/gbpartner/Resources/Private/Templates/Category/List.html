@@ -15,23 +15,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 <h1>Listing for Category</h1>
 
-<f:flashMessages />
 
-<table  class="tx_gbpartner" >
-	<tr>
-		<th><f:translate key="tx_gbpartner_domain_model_category.name" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
+<ul class="side-nav">
 	<f:for each="{categories}" as="category">
-		<tr>
-			<td><f:link.action action="show" arguments="{category : category}"> {category.name} ({category.partners -> f:count()})</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{category : category}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{category : category}">Delete</f:link.action></td>
-		</tr>
+		<li class="active">
+			<f:link.page pageUid="17" additionalParams="{tx_gbpartner_partnerlisting: '{category : category}'}">{category.name} ({category.partners -> f:count()})</f:link.page>
+			<f:if condition="{currentCategory} == {category.uid}">active</f:if>
+		</li>
 	</f:for>
-</table>
+</ul>
 
-<f:link.action action="new">New Category</f:link.action>
 </f:section>

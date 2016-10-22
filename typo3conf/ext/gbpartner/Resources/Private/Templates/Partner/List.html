@@ -17,27 +17,24 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
+{category.name}
+
 <table  class="tx_gbpartner" >
 	<tr>
 		<th><f:translate key="tx_gbpartner_domain_model_partner.name" /></th>
 		<th><f:translate key="tx_gbpartner_domain_model_partner.teaser" /></th>
 		<th><f:translate key="tx_gbpartner_domain_model_partner.description" /></th>
 		<th><f:translate key="tx_gbpartner_domain_model_partner.image" /></th>
-		<th> </th>
-		<th> </th>
 	</tr>
 
 	<f:for each="{category.partners}" as="partner">
 		<tr>
-			<td><f:link.action action="show" arguments="{partner : partner, category:category.uid}"> {partner.name}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{partner : partner}"> {partner.teaser}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{partner : partner}"> {partner.description}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{partner : partner}"> {partner.image.originalResource.name}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{partner : partner}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{partner : partner}">Delete</f:link.action></td>
+			<td><f:link.action action="show" pageUid="17" arguments="{partner : partner, category:category.uid}"> {partner.name}</f:link.action></td>
+			<td>{partner.teaser}</td>
+			<td>{partner.description}</td>
+			<td>{partner.image.originalResource.name}</td>
 		</tr>
 	</f:for>
 </table>
 
-<f:link.action action="new">New Partner</f:link.action>
 </f:section>
