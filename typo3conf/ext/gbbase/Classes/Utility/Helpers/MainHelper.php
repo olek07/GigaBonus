@@ -8,6 +8,7 @@ class MainHelper {
     const CHANGEPASSWORDPAGEID = 8;
     const CHANGEUSERDATAPAGEID = 6;
     const DELETEPROFILEPAGEID = 16;
+    const PARTNERDETAILPAGEID = 17;
 
     public static function redirect2Home() {
         $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
