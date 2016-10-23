@@ -25,6 +25,7 @@ namespace Gigabonus\Gbpartner\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -53,8 +54,9 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         // $partners = $this->partnerRepository->findAll();
         // DebuggerUtility::var_dump($partners);
-        // $this->view->assign('partners', $partners);
+        // $this->view->assign('partners', $partners)
 
+        $this->view->assign('partnerDetailPageUid', MainHelper::PARTNERDETAILPAGEID);
         $this->view->assign('category', $category);
     }
     

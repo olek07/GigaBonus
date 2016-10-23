@@ -1,6 +1,7 @@
 <?php
 namespace Gigabonus\Gbpartner\Controller;
 
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /***************************************************************
@@ -60,6 +61,7 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         $categories = $this->categoryRepository->findAll();
 
         $this->view->assign('currentCategory', GeneralUtility::_GET('tx_gbpartner_partnerlisting')['category']);
+        $this->view->assign('partnerDetailPageUid', MainHelper::PARTNERDETAILPAGEID);
         $this->view->assign('categories', $categories);
     }
     

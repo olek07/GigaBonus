@@ -1,56 +1,31 @@
 
-plugin.tx_gbpartner_partnerlisting {
-	view {
-		templateRootPaths.0 = {$plugin.tx_gbpartner_partnerlisting.view.templateRootPath}
-		partialRootPaths.0 = {$plugin.tx_gbpartner_partnerlisting.view.partialRootPath}
-		layoutRootPaths.0 = {$plugin.tx_gbpartner_partnerlisting.view.layoutRootPath}
-	}
-	persistence {
-		storagePid = {$plugin.tx_gbpartner_partnerlisting.persistence.storagePid}
-	}
-}
-
 plugin.tx_gbpartner_categorylisting {
-	view {
-		templateRootPaths.0 = {$plugin.tx_gbpartner_categorylisting.view.templateRootPath}
-		partialRootPaths.0 = {$plugin.tx_gbpartner_categorylisting.view.partialRootPath}
-		layoutRootPaths.0 = {$plugin.tx_gbpartner_categorylisting.view.layoutRootPath}
-	}
+
 	persistence {
 		storagePid = {$plugin.tx_gbpartner_categorylisting.persistence.storagePid}
 	}
 }
 
-plugin.tx_gbpartner._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
+
+lib.categoryList = USER_INT
+lib.categoryList {
+	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+	extensionName = Gbpartner
+	pluginName = Categorylisting
+	vendorName = Gigabonus
+	controller = Category
+	action = list
+	switchableControllerActions {
+		Category {
+			1 = list
+		}
 	}
 
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
+	persistence < plugin.tx_gbpartner_categorylisting.persistence
 
-	.tx-gbpartner table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
+	#view < plugin.tx_maramap.view
+	#persistence < plugin.tx_maramap.persistence
+	#settings < plugin.tx_maramap.settings
+}
 
-	.tx-gbpartner table th {
-		font-weight:bold;
-	}
-
-	.tx-gbpartner table td {
-		vertical-align:top;
-	}
-
-	.typo3-messages .message-error {
-		color:red;
-	}
-
-	.typo3-messages .message-ok {
-		color:green;
-	}
-
-)
+page.20 < lib.categoryList
