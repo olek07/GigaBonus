@@ -69,6 +69,8 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function showAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null, \Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
+        // DebuggerUtility::var_dump($partner);
+        
         if ($partner == NULL) {
             $this->forward('list', null, null, array('category' => $category));
         }

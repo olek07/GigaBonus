@@ -5,6 +5,8 @@ return array(
 		'sortby' => 'crdate',
 		// 'label_userFunc' => 'Gigabonus\\Gbpartner\\Backend\Category->countOfPartners',
 		'label' => 'name',
+		'label_alt' => 'uid',
+        'label_alt_force' => 1,
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
