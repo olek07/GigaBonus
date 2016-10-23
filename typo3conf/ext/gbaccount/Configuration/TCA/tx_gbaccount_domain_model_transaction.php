@@ -33,7 +33,7 @@ return array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+/*	
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -48,6 +48,7 @@ return array(
 				),
 			),
 		),
+*/
 		'l10n_parent' => array(
 			'displayCond' => 'FIELD:sys_language_uid:>:0',
 			'exclude' => 1,
@@ -133,7 +134,7 @@ return array(
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_gbpartner_domain_model_partner',
-                                'foreign_table_where' => ' AND tx_gbpartner_domain_model_partner.sys_language_uid IN (-1, ###REC_FIELD_sys_language_uid###) ',
+                                'foreign_table_where' => ' AND tx_gbpartner_domain_model_partner.sys_language_uid IN (-1, 0) ',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),

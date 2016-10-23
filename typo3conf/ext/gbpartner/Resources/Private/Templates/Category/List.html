@@ -18,10 +18,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <ul class="side-nav">
 	<f:for each="{categories}" as="category">
+      <f:if condition="{category.partners -> f:count()} > 0">
 		<li class="active">
 			<f:link.page pageUid="{partnerDetailPageUid}" additionalParams="{tx_gbpartner_partnerlisting: '{category : category}'}">{category.name} ({category.partners -> f:count()})</f:link.page>
 			<f:if condition="{currentCategory} == {category.uid}">active</f:if>
 		</li>
+      </f:if>    
 	</f:for>
 </ul>
 
