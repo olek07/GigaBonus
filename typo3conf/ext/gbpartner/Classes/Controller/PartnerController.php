@@ -51,9 +51,10 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function listAction(\Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
 
-        # $partners = $this->partnerRepository->findAll();
-        # $this->view->assign('partners', $partners);
-        
+        // $partners = $this->partnerRepository->findAll();
+        // DebuggerUtility::var_dump($partners);
+        // $this->view->assign('partners', $partners);
+
         $this->view->assign('category', $category);
     }
     
@@ -70,6 +71,7 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $this->forward('list', null, null, array('category' => $category));
         }
         else {
+            $this->view->assign('category', $category);
             $this->view->assign('partner', $partner);
         }
     }

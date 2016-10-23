@@ -27,10 +27,6 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
                 'noMatch' => 'bypass',
             ),
 
-
-
-
-
         ),
         'pagePath' => array(
             'type' => 'user',
@@ -46,15 +42,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 
 			'partnerListConfiguration' => array(
 				array(
-					'GETvar' => 'tx_gbpartner_categorylisting[action]',
-					'noMatch' => 'bypass'
-				),
-				array(
-					'GETvar' => 'tx_gbpartner_categorylisting[controller]',
-					'noMatch' => 'bypass'
-				),
-				array(
-					'GETvar' => 'tx_gbpartner_categorylisting[category]',
+					'GETvar' => 'tx_gbpartner_partnerlisting[category]',
 					'lookUpTable' => array(
 						'table' => 'tx_gbpartner_domain_model_category',
 						'id_field' => 'uid',
@@ -137,7 +125,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 
 			),
 
-			12 => 'partnerListConfiguration',					// partner list configuration
+			// 12 => 'partnerListConfiguration',					// partner list configuration
 			17 => 'partnerDetailConfiguration'					// partner detail configuration
 
 		),
@@ -308,4 +296,4 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 	),
 );
 
-$TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars']['6'] = 'news';
+// $TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars']['6'] = 'news';

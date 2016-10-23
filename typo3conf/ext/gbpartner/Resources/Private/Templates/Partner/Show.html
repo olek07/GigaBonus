@@ -17,6 +17,5 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 <f:render partial="Partner/Properties" arguments="{partner:partner}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Partner</f:link.action>
+<f:link.action action="list" arguments="{category:category.uid}">Back to list</f:link.action><br />
 </f:section>
