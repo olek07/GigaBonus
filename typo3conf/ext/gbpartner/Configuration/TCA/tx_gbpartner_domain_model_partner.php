@@ -23,15 +23,15 @@ return array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,teaser,description,image,category,',
+		'searchFields' => 'name,teaser,description,website_url,image,category,',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gbpartner') . 'Resources/Public/Icons/tx_gbpartner_domain_model_partner.gif',
 		'thumbnail' => 'image',
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, image, category',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, image, category',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, teaser, description, image, category, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, teaser, description;;;richtext, website_url, incentive;;;richtext, image, category, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -200,6 +200,29 @@ return array(
 				*/
 			),
 		),
+
+		'website_url' => array(
+			'exclude' => 0,
+			'label' => 'Website',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
+
+		'incentive' => array(
+			'exclude' => 0,
+			'label' => 'incentive',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 2,
+				'eval' => 'trim'
+			),
+		),
+
+
 		'image' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:gbpartner/Resources/Private/Language/locallang_db.xlf:tx_gbpartner_domain_model_partner.image',

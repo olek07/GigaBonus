@@ -21,7 +21,7 @@
 			<f:translate key="tx_gbpartner_domain_model_partner.description" />
 		</td>
 		<td>
-		{partner.description}
+		<f:format.raw>{partner.description}</f:format.raw>
 		</td>
 	</tr>
 	<tr>
@@ -34,4 +34,18 @@
 			</f:comment>
 		</td>
 	</tr>
+        <tr>
+                <td> incentive
+                </td>
+                <td> {partner.incentive}
+                </td>
+
+        </tr>
+        <tr>
+                <td> Webiste
+                </td>
+                <td> {partner.websiteUrl}
+                </td>
+
+        </tr>
 </table>

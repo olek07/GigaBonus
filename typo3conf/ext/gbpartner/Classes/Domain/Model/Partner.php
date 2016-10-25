@@ -61,7 +61,23 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $image = null;
-    
+
+
+    /**
+     * websiteUrl
+     *
+     * @var string
+     */
+    protected $websiteUrl = '';
+
+
+    /**
+     * incentive
+     *
+     * @var string
+     */
+    protected $incentive = '';
+
     /**
      * category
      * 
@@ -140,7 +156,40 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->description = $description;
     }
-    
+
+
+    /**
+     * @return mixed
+     */
+    public function getWebsiteUrl()
+    {
+        return $this->websiteUrl;
+    }
+
+    /**
+     * @param mixed $websiteUrl
+     */
+    public function setWebsiteUrl($websiteUrl)
+    {
+        $this->websiteUrl = $websiteUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIncentive()
+    {
+        return $this->incentive;
+    }
+
+    /**
+     * @param string $incentive
+     */
+    public function setIncentive($incentive)
+    {
+        $this->incentive = $incentive;
+    }
+
 
     /**
      * Returns the image
