@@ -39,11 +39,20 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @validate NotEmpty
      */
     protected $amount = 0;
+
+    /**
+     * saldo
+     *
+     * @var int
+     * @validate NotEmpty
+     */
+    protected $saldo = 0;
     
     /**
      * partner
      * 
      * @var \Gigabonus\Gbpartner\Domain\Model\Partner
+     * @lazy
      */
     protected $partner = null;
     
@@ -67,6 +76,24 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->amount = $amount;
     }
+
+    /**
+     * @return int
+     */
+    public function getSaldo()
+    {
+        return $this->saldo;
+    }
+
+    /**
+     * @param int $saldo
+     */
+    public function setSaldo($saldo)
+    {
+        $this->saldo = $saldo;
+    }
+
+    
     
     /**
      * __construct

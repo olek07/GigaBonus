@@ -51,7 +51,20 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
     protected $partnerRepository = NULL;
 
 
-    
+    /**
+     * Override the method to avoid a calling of another action, if the get-parameter set, like
+     * tx_gbaccount_transactions[action]=new&tx_gbaccount_transactions[controller]=Transaction
+     * The typoscript setting callOnlyAction contains the action name to call
+     */
+    protected function callActionMethod()
+    {
+        if ($this->settings['callOnlyAction'] != '' && $this->settings['callOnlyAction'] . 'Action' != $this->actionMethodName) {
+            $this->actionMethodName = $this->settings['callOnlyAction'] . 'Action';
+        }
+        parent::callActionMethod(); 
+    }
+
+
     /**
      * action list
      * 
@@ -140,17 +153,19 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->redirect('list');
     }
     
-    /**
-     * action delete
-     * 
-     * @param \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction
-     * @return void
-     */
-    public function deleteAction(\Gigabonus\Gbaccount\Domain\Model\Transaction $transaction)
-    {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-        $this->transactionRepository->remove($transaction);
-        $this->redirect('list');
+
+
+    public function bonusBalanceAction() {
+        $query = $this->transactionRepository->createQuery();
+        $query->getQuerySettings()->setStoragePageIds([13]);
+        $result = $query->execute();
+
+        // $GLOBALS['TSFE']->fe_user->user['uid']
+        DebuggerUtility::var_dump($result);
+
+
+        return '';
     }
+
 
 }

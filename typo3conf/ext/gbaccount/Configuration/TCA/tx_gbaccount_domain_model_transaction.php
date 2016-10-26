@@ -27,10 +27,10 @@ return array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gbaccount') . 'Resources/Public/Icons/tx_gbaccount_domain_model_transaction.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, user, crdate, amount, partner',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, user, crdate, amount, saldo, partner',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, user, crdate, amount, partner, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, user, crdate, amount, saldo, partner, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -149,6 +149,17 @@ return array(
 				'eval' => 'int,required'
 			)
 		),
+
+		'saldo' => array(
+			'exclude' => 0,
+			'label' => 'Saldo',
+			'config' => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int,required'
+			)
+		),
+
 		'user' => array(
 			'exclude' => 0,
 			'label' => 'User',
