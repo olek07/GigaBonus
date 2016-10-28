@@ -25,6 +25,7 @@ namespace Gigabonus\Gbaccount\Domain\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * The repository for Transactions
@@ -38,5 +39,21 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     protected $defaultOrderings = array(
         'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     );
+
+    /**
+     * @param int $userId
+     * @return int
+     */
+    public function getBonusBalance($userId = 0) {
+        $result = 0;
+
+        $transactions = $this->findByUser($userId);
+
+        foreach ($transactions as $item) {
+            $result += $item->getAmount();
+        }
+
+        return $result;
+    }
 
 }

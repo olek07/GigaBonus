@@ -58,7 +58,10 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     protected function callActionMethod()
     {
-        if ($this->settings['callOnlyAction'] != '' && $this->settings['callOnlyAction'] . 'Action' != $this->actionMethodName) {
+        if (isset($this->settings['callOnlyAction'])
+            && $this->settings['callOnlyAction'] != ''
+            && $this->settings['callOnlyAction'] . 'Action' != $this->actionMethodName
+        ) {
             $this->actionMethodName = $this->settings['callOnlyAction'] . 'Action';
         }
         parent::callActionMethod(); 
@@ -72,7 +75,10 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function listAction()
     {
-        $transactions = $this->transactionRepository->findAll();
+        // $transactions = $this->transactionRepository->findAll();
+
+        $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+        $transactions = $this->transactionRepository->findByUser($userId);
         $this->view->assign('transactions', $transactions);
     }
     
@@ -156,15 +162,22 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
 
     public function bonusBalanceAction() {
+
+        $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+        if ($userId !== NULL) {
+            $bonusBalance = $this->transactionRepository->getBonusBalance($userId);
+        }
+
+        /*
         $query = $this->transactionRepository->createQuery();
         $query->getQuerySettings()->setStoragePageIds([13]);
         $result = $query->execute();
-
+*/
         // $GLOBALS['TSFE']->fe_user->user['uid']
-        DebuggerUtility::var_dump($result);
+        // DebuggerUtility::var_dump($result);
 
 
-        return '';
+        return 'Aktueller Stand: <b>' . $bonusBalance . '</b>';
     }
 
 

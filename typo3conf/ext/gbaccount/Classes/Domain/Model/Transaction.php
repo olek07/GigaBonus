@@ -55,7 +55,23 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $partner = null;
-    
+
+
+    /**
+     * user
+     *
+     * @var \Gigabonus\Gbfemanager\Domain\Model\User
+     * @lazy
+     */
+    protected $user = null;
+
+    /**
+     * crdate
+     *
+     * @var \DateTime
+     */
+    protected $crdate;
+
     /**
      * Returns the amount
      * 
@@ -75,6 +91,7 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setAmount($amount)
     {
         $this->amount = $amount;
+        // $this->setSaldo($this->getSaldo() + $amount);
     }
 
     /**
@@ -137,5 +154,39 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->partner = $partner;
     }
+
+
+    /**
+     * @return \Gigabonus\Gbfemanager\Domain\Model\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCrdate()
+    {
+        return $this->crdate;
+    }
+
+    /**
+     * @param \DateTime $crdate
+     */
+    public function setCrdate($crdate)
+    {
+        $this->crdate = $crdate;
+    }
+    
 
 }
