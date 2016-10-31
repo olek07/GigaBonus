@@ -14,7 +14,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
                 'GETvar' => 'L',
                 'valueMap' => array(
                     'ru' => '0',
-                    'ua' => '1',
+                    'uk' => '1',
                 ),
                 'valueDefault' => 'ru',
                 'noMatch' => 'bypass',

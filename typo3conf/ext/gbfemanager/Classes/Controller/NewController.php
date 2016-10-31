@@ -35,7 +35,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @return void
      */
     public function createAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
-        $user->setLanguage('ua');
+        $user->setLanguage('uk');
         parent::createAction($user);
     }
     

@@ -16,7 +16,7 @@ config{
 ### Ukrainian language ###
 [globalVar = GP:L=1]
     config.sys_language_uid = 1
-    config.language = ua
+    config.language = uk
     config.locale_all = uk_UA.UTF-8
-    config.htmlTag_setParams = lang="ua" class="nojs"
+    config.htmlTag_setParams = lang="uk" class="nojs"
 [global]

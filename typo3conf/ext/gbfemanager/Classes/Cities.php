@@ -20,7 +20,7 @@ class Cities {
      *
      * @var array
      */
-    protected $languages = array(0 => 'ru', 1 => 'ua');
+    protected $languages = array(0 => 'ru', 1 => 'uk');
     
 
     public function __construct($TYPO3_CONF_VARS, $term, $lang = 0) {

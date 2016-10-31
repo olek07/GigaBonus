@@ -102,7 +102,7 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
             case 'ru':
                 $fileName = 'datepicker-ru.js';
                 break;
-            case 'ua':
+            case 'uk':
                 $fileName = 'datepicker-uk.js';
                 break;
             default: $fileName = '';

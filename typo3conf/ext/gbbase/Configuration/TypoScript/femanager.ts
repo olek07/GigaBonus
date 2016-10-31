@@ -115,8 +115,8 @@ plugin.tx_femanager {
         ru.tx_femanager_domain_model_user.dateOfBirth.placeholder = d.m.Y
 
         # For DE
-        ua.tx_femanager_domain_model_user.dateFormat = d.m.Y
-        ua.tx_femanager_domain_model_user.dateOfBirth.placeholder = d.m.Y
+        uk.tx_femanager_domain_model_user.dateFormat = d.m.Y
+        uk.tx_femanager_domain_model_user.dateOfBirth.placeholder = d.m.Y
     }
 
 }

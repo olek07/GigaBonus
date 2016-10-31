@@ -38,7 +38,7 @@ $feUsersColumns = [
                     '0'
                 ],
                 [
-                    'ua',
+                    'uk',
                     '1'
                 ]
             ],
