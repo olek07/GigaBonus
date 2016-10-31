@@ -23,7 +23,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<input type="submit" value="Search" />
 	</form>
 
-<f:widget.paginate objects="{transactions}" as="paginatedTransactions" configuration="{itemsPerPage: 3, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 5}">
+    <f:widget.paginate objects="{transactions}" as="paginatedTransactions" configuration="{itemsPerPage: 3, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 5}">
 
 	<table class="tx_gbaccount" >
 	  <tr>
@@ -43,8 +43,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	  </f:for>
 	</table>
 
-</f:widget.paginate>
+    </f:widget.paginate>
 
-
-<f:link.action action="new" noCacheHash="1">New Transaction</f:link.action>
 </f:section>
