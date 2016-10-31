@@ -39,6 +39,12 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @validate NotEmpty
      */
     protected $amount = 0;
+    
+    /**
+     *
+     * @var boolean
+     */
+    protected $isOnHold = false;
 
     /**
      * saldo
@@ -92,6 +98,22 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->amount = $amount;
         // $this->setSaldo($this->getSaldo() + $amount);
+    }
+    
+    /**
+     * @return boolean
+     */
+    public function getIsOnHold() {
+        return $this->isOnHold;
+    }
+
+    /**
+     * 
+     * @param boolean $isOnHold
+     * @return void
+     */
+    public function setIsOnHold($isOnHold) {
+        $this->isOnHold = $isOnHold;
     }
 
     /**
