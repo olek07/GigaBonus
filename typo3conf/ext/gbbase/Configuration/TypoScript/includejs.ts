@@ -6,6 +6,7 @@ page.includeJSLibs {
 
 page.includeJS {
     gbfemanager = EXT:gbfemanager/Resources/Public/Javascript/gbfemanager.js    
+    gbtransactions = EXT:gbaccount/Resources/Public/js/transactions.js
 }
 
 page.includeJSFooterlibs {

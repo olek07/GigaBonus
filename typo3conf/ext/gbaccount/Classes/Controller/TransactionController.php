@@ -25,6 +25,8 @@ namespace Gigabonus\Gbaccount\Controller;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -69,16 +71,92 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
 
     /**
+     * @param $date
+     */
+    protected function dateToTimestamp($date) {
+        if (preg_match('/(\d\d)\.(\d\d)\.(\d\d\d\d)/', $date, $matches)) {
+            if (checkdate($matches[2], $matches[1], $matches[3])) {
+                return mktime(0, 0, 0, $matches[2], $matches[1], $matches[3]);
+            }
+        }
+
+        return null;
+    }
+
+
+    /**
      * action list
      * 
      * @return void
      */
     public function listAction()
     {
-        // $transactions = $this->transactionRepository->findAll();
+        /**
+         * @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer 
+         */
+        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+        
+        $isoLang = strtolower($GLOBALS['TSFE']->config['config']['language']);
+
+        switch ($isoLang) {
+            case 'ru':
+                $fileName = 'datepicker-ru.js';
+                break;
+            case 'ua':
+                $fileName = 'datepicker-uk.js';
+                break;
+            default: $fileName = '';
+        }
+
+        if ($fileName != '') {
+            $pageRenderer->addJsFile('/typo3conf/ext/gbbase/Resources/Public/Scripts/Libs/' . $fileName);
+        }
+
+        $pageRenderer->addJsFooterInlineCode('',
+            "jQuery(document).ready(function(){
+                    Gbtransactions.init();
+            });"
+        );
 
         $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
-        $transactions = $this->transactionRepository->findByUser($userId);
+
+        $startdateFormated = GeneralUtility::_GET('startdate');
+        $enddateFormated = GeneralUtility::_GET('enddate');
+
+        $startdate = $this->dateToTimestamp($startdateFormated);
+        $enddate = $this->dateToTimestamp($enddateFormated);
+
+
+        $query = $this->transactionRepository->createQuery();
+        $query->getQuerySettings()->setStoragePageIds([13]);
+
+        $constraints = array();
+
+        $constraints[] = $query->equals('user', $userId);
+
+        if ($startdate != NULL) {
+            $constraints[] = $query->greaterThanOrEqual('crdate', $startdate);
+        }
+        else {
+            // wenn das Datum nicht korrekt ist (URL manipuliert etc)
+            $startdateFormated = '';
+        }
+
+        if ($enddate != NULL) {
+            $constraints[] = $query->lessThanOrEqual('crdate', $enddate + 3600 * 24);
+        }
+        else {
+            $enddateFormated = '';
+        }
+
+        $query->matching(
+            $query->logicalAnd($constraints)
+        );
+
+        $transactions = $query->execute();
+
+        $this->view->assign('startdate', $startdateFormated);
+        $this->view->assign('enddate', $enddateFormated);
         $this->view->assign('transactions', $transactions);
     }
     

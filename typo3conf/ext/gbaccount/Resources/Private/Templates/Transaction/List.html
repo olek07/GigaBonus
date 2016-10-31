@@ -17,11 +17,18 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
-<f:widget.paginate objects="{transactions}" as="paginatedTransactions" configuration="{itemsPerPage: 3, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+	<form action="" method="get">
+		Start Date:  <input type="text" name="startdate" id="startdate" value="{startdate}" readonly/>
+		End Date: <input type="text" name="enddate" id="enddate" value="{enddate}" readonly/>
+		<input type="submit" value="Search" />
+	</form>
+
+<f:widget.paginate objects="{transactions}" as="paginatedTransactions" configuration="{itemsPerPage: 3, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 5}">
 
 	<table class="tx_gbaccount" >
 	  <tr>
 			<th><f:translate key="tx_gbaccount_domain_model_transaction.amount" /></th>
+			<th> </th>
 			<th> </th>
 			<th> </th>
 	  </tr>
@@ -29,7 +36,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	  <f:for each="{paginatedTransactions}" as="transaction">
 		<tr>
 			<td><f:link.action action="show" arguments="{transaction : transaction}">{transaction.amount}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{transaction : transaction}"><f:format.date format="d.m.Y">{transaction.crdate}</f:format.date></f:link.action></td>
+			<td><f:format.date format="d.m.Y">{transaction.crdate}</f:format.date></td>
+			<td>{transaction.partner.name}</td>
 			<td><f:link.action action="edit" arguments="{transaction : transaction}">Edit</f:link.action></td>
 		</tr>
 	  </f:for>
