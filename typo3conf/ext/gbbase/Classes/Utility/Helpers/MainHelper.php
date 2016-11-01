@@ -7,6 +7,7 @@ class MainHelper {
     
     const CHANGEPASSWORDPAGEID = 8;
     const CHANGEUSERDATAPAGEID = 6;
+    const TRANSACTIONLISTPAGEUID = 14;
     const DELETEPROFILEPAGEID = 16;
     const PARTNERDETAILPAGEID = 17;
 

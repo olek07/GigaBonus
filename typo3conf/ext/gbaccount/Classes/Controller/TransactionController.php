@@ -241,21 +241,18 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
     public function bonusBalanceAction() {
 
+        $bonusBalance = 0;
         $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+
         if ($userId !== NULL) {
             $bonusBalance = $this->transactionRepository->getBonusBalance($userId);
         }
 
-        /*
-        $query = $this->transactionRepository->createQuery();
-        $query->getQuerySettings()->setStoragePageIds([13]);
-        $result = $query->execute();
-*/
-        // $GLOBALS['TSFE']->fe_user->user['uid']
-        // DebuggerUtility::var_dump($result);
+        
+        $transactionListPageUid = MainHelper::TRANSACTIONLISTPAGEUID;
 
-
-        return 'Aktueller Stand: <b>' . $bonusBalance . '</b>';
+        $this->view->assign('transactionListPageUid', $transactionListPageUid);
+        $this->view->assign('bonusBalance', $bonusBalance);
     }
 
 
