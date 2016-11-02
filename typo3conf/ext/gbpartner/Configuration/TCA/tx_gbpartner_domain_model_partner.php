@@ -24,14 +24,14 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'name,teaser,description,website_url,image,category,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gbpartner') . 'Resources/Public/Icons/tx_gbpartner_domain_model_partner.gif',
+		'iconfile' => 'EXT:gbpartner/Resources/Public/Icons/tx_gbpartner_domain_model_partner.gif',
 		'thumbnail' => 'image',
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, image, category',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, teaser, description;;;richtext, website_url, incentive;;;richtext, image, category, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive,image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -165,7 +165,7 @@ return array(
 								'act' => 'wizard_rte.php'
 							)
 						),
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
+						'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE',
 						'type' => 'script'
 					)
 				)
@@ -193,7 +193,7 @@ return array(
 								'act' => 'wizard_rte.php'
 							)
 						),
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
+						'title' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext.W.RTE',
 						'type' => 'script'
 					)
 				)
@@ -230,7 +230,7 @@ return array(
 				'image',
 				array(
 					'appearance' => array(
-						'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
 					),
 					'foreign_types' => array(
 						'0' => array(
@@ -298,7 +298,7 @@ return array(
 						),
 						'type' => 'popup',
 						'title' => 'Edit',
-						'icon' => 'edit2.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
@@ -309,7 +309,7 @@ return array(
 						),
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'add.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
 						'params' => array(
 							'table' => 'tx_gbpartner_domain_model_category',
 							'pid' => '###CURRENT_PID###',

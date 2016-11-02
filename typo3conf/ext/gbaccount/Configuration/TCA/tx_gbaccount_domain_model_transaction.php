@@ -24,13 +24,13 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'amount, partner, user',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gbaccount') . 'Resources/Public/Icons/tx_gbaccount_domain_model_transaction.gif'
+		'iconfile' => 'EXT:gbaccount/Resources/Public/Icons/tx_gbaccount_domain_model_transaction.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, user, crdate, amount, saldo, partner, is_on_hold',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, user, crdate, amount, saldo, partner, is_on_hold, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,user,crdate,amount,saldo,partner,is_on_hold,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),

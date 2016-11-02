@@ -24,13 +24,13 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'name,partners',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gbpartner') . 'Resources/Public/Icons/tx_gbpartner_domain_model_category.gif'
+		'iconfile' => 'EXT:gbpartner/Resources/Public/Icons/tx_gbpartner_domain_model_category.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, partners',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, partners, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,partners,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -154,7 +154,7 @@ return array(
 						),
 						'type' => 'popup',
 						'title' => 'Edit',
-						'icon' => 'edit2.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
@@ -164,7 +164,7 @@ return array(
 						),
 						'type' => 'script',
 						'title' => 'Create new',
-						'icon' => 'add.gif',
+						'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
 						'params' => array(
 							'table' => 'tx_gbpartner_domain_model_partner',
 							'pid' => '###CURRENT_PID###',
