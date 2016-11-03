@@ -29,9 +29,10 @@
 			<f:translate key="tx_gbpartner_domain_model_partner.image" />
 		</td>
 		<td>
-			<f:comment>
-				<f:image src="{partner.image.originalResource.publicUrl}" width="200"/>
-			</f:comment>
+                        <f:for each="{partner.image}" as="image" iteration="itemIteration">
+					<f:image src="{image.reference.uid}" treatIdAsReference="1" />
+					<f:image src="fileadmin{image.original.identifier}"  />
+			</f:for>
 		</td>
 	</tr>
         <tr>

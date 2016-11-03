@@ -129,6 +129,8 @@ class PartnerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	/**
 	 * @test
 	 */
+
+	/*
 	public function getImageReturnsInitialValueForFileReference()
 	{
 		$this->assertEquals(
@@ -136,6 +138,8 @@ class PartnerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 			$this->subject->getImage()
 		);
 	}
+	*/
+
 
 	/**
 	 * @test
@@ -152,6 +156,7 @@ class PartnerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 		);
 	}
 
+
 	/**
 	 * @test
 	 */
@@ -163,6 +168,7 @@ class PartnerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 			$this->subject->getCategory()
 		);
 	}
+
 
 	/**
 	 * @test
@@ -181,6 +187,7 @@ class PartnerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 		);
 	}
 
+
 	/**
 	 * @test
 	 */
@@ -193,6 +200,7 @@ class PartnerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 
 		$this->subject->addCategory($category);
 	}
+
 
 	/**
 	 * @test

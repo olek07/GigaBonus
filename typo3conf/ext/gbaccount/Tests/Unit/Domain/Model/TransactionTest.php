@@ -40,9 +40,14 @@ class TransactionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 	 */
 	protected $subject = NULL;
 
+	private $fixture;
+
 	public function setUp()
 	{
 		$this->subject = new \Gigabonus\Gbaccount\Domain\Model\Transaction();
+
+		$this->fixture = new \Gigabonus\Gbaccount\Domain\Model\Transaction();
+		$this->fixture->setAmount(123);
 	}
 
 	public function tearDown()
@@ -50,27 +55,16 @@ class TransactionTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
 		unset($this->subject);
 	}
 
-	/**
-	 * @test
-	 */
-	public function getAmountReturnsInitialValueForInt()
-	{	}
 
 	/**
 	 * @test
 	 */
-	public function setAmountForIntSetsAmount()
-	{	}
+	public function testGetAmount() {
+		$this->assertEquals(
+			'123',
+			$this->fixture->getAmount()
+		);
+	}
 
-	/**
-	 * @test
-	 */
-	public function getPartnerReturnsInitialValueForPartner()
-	{	}
 
-	/**
-	 * @test
-	 */
-	public function setPartnerForPartnerSetsPartner()
-	{	}
 }
