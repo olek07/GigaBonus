@@ -211,32 +211,6 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->transactionRepository->add($newTransaction);
         $this->redirect('list');
     }
-    
-    /**
-     * action edit
-     * 
-     * @param \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction
-     * @ignorevalidation $transaction
-     * @return void
-     */
-    public function editAction(\Gigabonus\Gbaccount\Domain\Model\Transaction $transaction)
-    {
-        $this->view->assign('transaction', $transaction);
-    }
-    
-    /**
-     * action update
-     * 
-     * @param \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction
-     * @return void
-     */
-    public function updateAction(\Gigabonus\Gbaccount\Domain\Model\Transaction $transaction)
-    {
-        $this->addFlashMessage('The object was updated. Please be aware that this action is publicly accessible unless you implement an access check. See http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-        $this->transactionRepository->update($transaction);
-        $this->redirect('list');
-    }
-    
 
 
     public function bonusBalanceAction() {
