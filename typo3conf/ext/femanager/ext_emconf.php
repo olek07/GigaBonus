@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "femanager".
  *
- * Auto generated 30-08-2016 23:05
+ * Auto generated 04-11-2016 14:07
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -23,7 +23,7 @@ $EM_CONF[$_EXTKEY] = array (
   'uploadfolder' => false,
   'createDirs' => '',
   'clearCacheOnLoad' => 0,
-  'version' => '2.5.1',
+  'version' => '2.6.0',
   'constraints' => 
   array (
     'depends' => 
