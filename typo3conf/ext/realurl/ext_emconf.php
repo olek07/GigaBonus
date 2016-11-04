@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "realurl".
  *
- * Auto generated 05-10-2016 23:12
+ * Auto generated 04-11-2016 14:31
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = array (
   'title' => 'Speaking URLs for TYPO3',
   'description' => 'Makes TYPO3 URLs search engine friendly. Donations are welcome to dmitry.dulepov@gmail.com. They help to support the extension!',
   'category' => 'services',
-  'version' => '2.1.4',
+  'version' => '2.1.5',
   'state' => 'stable',
   'uploadfolder' => true,
   'createDirs' => '',
