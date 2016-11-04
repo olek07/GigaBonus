@@ -1,45 +1,34 @@
-
 plugin.tx_gbaccount_transactions {
+/*
 	view {
 		templateRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.templateRootPath}
 		partialRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.partialRootPath}
 		layoutRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.layoutRootPath}
 	}
+*/
 	persistence {
 		storagePid = {$plugin.tx_gbaccount_transactions.persistence.storagePid}
 	}
 }
 
-plugin.tx_gbaccount._CSS_DEFAULT_STYLE (
-	textarea.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
+page.15 = USER_INT
+page.15 {
+	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+	extensionName = Gbaccount
+	pluginName = Pi2
+	vendorName = Gigabonus
+	controller = Transaction
+	action = bonusBalance
+
+	switchableControllerActions {
+		Transaction {
+			1 = bonusBalance
+		}
 	}
 
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
+	settings.callOnlyAction < .action
+	persistence < plugin.tx_gbaccount_transactions.persistence
 
-	.tx-gbaccount table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-gbaccount table th {
-		font-weight:bold;
-	}
-
-	.tx-gbaccount table td {
-		vertical-align:top;
-	}
-
-	.typo3-messages .message-error {
-		color:red;
-	}
-
-	.typo3-messages .message-ok {
-		color:green;
-	}
-
-)
+	#view < plugin.tx_maramap.view
+	#settings < plugin.tx_maramap.settings
+}

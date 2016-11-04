@@ -1,0 +1,1 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbaccount/Configuration/TypoScript/setup.txt">

@@ -199,6 +199,7 @@ return array(
 				)
 				*/
 			),
+			'defaultExtras' => 'richtext[]'
 		),
 
 		'website_url' => array(
@@ -220,6 +221,7 @@ return array(
 				'rows' => 2,
 				'eval' => 'trim'
 			),
+			'defaultExtras' => 'richtext[]'
 		),
 
 
