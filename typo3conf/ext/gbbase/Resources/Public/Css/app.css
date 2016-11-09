@@ -3,3 +3,11 @@
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.error {
+    border: 2px solid red;
+}
+
+#error-messages {
+    color: red;
+}

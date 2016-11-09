@@ -9,7 +9,7 @@ use TYPO3\CMS\Frontend\Utility\EidUtility;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Alex Kellner <alexander.kellner@in2code.de>, in2code.de
+ *  (c) 2016 Alexander Averbuch <alav@gmx.net>
  *
  *  All rights reserved
  *
@@ -33,7 +33,7 @@ use TYPO3\CMS\Frontend\Utility\EidUtility;
 /**
  * This class could called with AJAX via eID
  *
- * @author Alex Kellner <alexander.kellner@in2code.de>, in2code.de
+ * @author Alexander Averbuch <alav@gmx.net>
  * @package TYPO3
  * @subpackage EidValidate
  */

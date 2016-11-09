@@ -26,15 +26,16 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      */
     public function editAction()
     {
-        if ($GLOBALS['TSFE']->id === MainHelper::CHANGEUSERDATAPAGEID) {
-            $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-            $lang = (int) \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('L');
-            $pageRenderer->addJsFooterInlineCode('', 
-                "jQuery(document).ready(function(){
-                    Gbfemanager.init($lang);
-                });"
-            );
-        }
+        $pageUid = $GLOBALS['TSFE']->id;
+
+        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+        $lang = (int) \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('L');
+        $pageRenderer->addJsFooterInlineCode('',
+            "jQuery(document).ready(function(){
+                Gbfemanager.init($lang, $pageUid);
+            });"
+        );
+
         parent::editAction();
     }
     

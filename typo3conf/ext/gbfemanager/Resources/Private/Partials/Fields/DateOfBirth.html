@@ -1,7 +1,7 @@
 {namespace femanager=In2code\Femanager\ViewHelpers}
 {namespace gbfemanager=Gigabonus\Gbfemanager\ViewHelpers}
 
-<div class="femanager_fieldset femanager_dateOfBirth control-group">
+<div class="femanager_fieldset femanager_dateOfBirth control-group" id="femanager_container_dateOfBirth">
 	<label for="femanager_field_dateOfBirth" class="control-label">
 		<f:translate key="tx_femanager_domain_model_user.dateOfBirth" />
 		<f:if condition="{femanager:Validation.IsRequiredField(fieldName:'dateOfBirth')}">
@@ -11,10 +11,6 @@
     <div class="birthday">
       <gbfemanager:birthday />  
     </div>  
-    
-    <f:comment>
-    <f:form.textfield id="femanager_field_dateOfBirth" property="dateOfBirth" value="{user.dateOfBirth -> f:format.date(format:'{f:translate(key:\'tx_femanager_domain_model_user.dateFormat\')}')}" />
-    </f:comment>
     
     
     <femanager:form.textfield

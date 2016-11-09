@@ -11,7 +11,7 @@ plugin.tx_femanager {
                 email.uniqueInDb = 1
                 password {
                     min = 6
-                    mustInclude = number,letter
+                    mustInclude = number
                 }
 
                 password_repeat {
@@ -36,30 +36,30 @@ plugin.tx_femanager {
                 firstName {
                     min = 2
                     max = 20
-                    // required = 1
+                    required = 1
                 }
 
                 middleName {
                     min = 2
                     max = 20
-                    // required = 1
+                    required = 1
                 }
 
                 lastName {
                     min = 2
                     max = 20
-                    // required = 1
+                    required = 1
                 }
 
                 zip {
                     min = 5
                     max = 5
-                    mustInclude = number
+                    intOnly = 1
                     // required = 1
                 }
 
                 cityId {
-                    mustInclude = number
+                    intOnly = 1
                     required = 1
                 }
 
@@ -159,3 +159,7 @@ Validation {
             #settings < plugin.tx_maramap.settings
     }
 }
+
+
+page.includeJSFooter.femanagerValidation >
+page.includeJSFooter.femanager >

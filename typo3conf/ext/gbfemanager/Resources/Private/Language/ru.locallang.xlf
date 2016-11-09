@@ -18,6 +18,11 @@
 			    <target>Регистрация успешно завершена</target>
                     </trans-unit>
 
+                    <trans-unit id="password_repeat_field_validationErrorSameAs">
+			    <target>Введённые пароли не совпадают</target>
+                    </trans-unit>
+
+
 
 	        </body>
 

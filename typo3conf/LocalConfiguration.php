@@ -40,6 +40,7 @@ return [
     'FE' => [
         'debug' => true,
         'loginSecurityLevel' => 'rsa',
+        'pageNotFound_handling' => '/404.html',
     ],
     'GFX' => [
         'colorspace' => 'sRGB',
