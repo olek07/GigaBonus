@@ -24,7 +24,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'name,teaser,description,website_url,image,category,',
-		'iconfile' => 'EXT:gbpartner/Resources/Public/Icons/tx_gbpartner_domain_model_partner.gif',
+		'iconfile' => 'EXT:gbpartner/Resources/Public/Icons/tx_gbpartner_domain_model_partner.png',
 		'thumbnail' => 'image',
 	),
 	'interface' => array(

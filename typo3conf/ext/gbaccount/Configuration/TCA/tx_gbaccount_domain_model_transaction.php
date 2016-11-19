@@ -24,7 +24,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'amount, partner, user',
-		'iconfile' => 'EXT:gbaccount/Resources/Public/Icons/tx_gbaccount_domain_model_transaction.gif'
+		'iconfile' => 'EXT:gbaccount/Resources/Public/Icons/tx_gbaccount_domain_model_transaction.png'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, user, crdate, amount, saldo, partner, is_on_hold',

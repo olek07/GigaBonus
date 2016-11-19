@@ -2,6 +2,12 @@
 namespace Gigabonus\Gbfemanager\Controller;
 
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use In2code\Femanager\Utility\ObjectUtility;
+use In2code\Femanager\Utility\LocalizationUtility;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+
+
 
 class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditController {
     
@@ -31,7 +37,9 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
                 $timeToPasswordChange = 300 - $t;
             }
         }
+        $timeToPasswordChange = 0;
         $this->view->assign('timeToPasswordChange', $timeToPasswordChange);
+
         parent::editAction();
     }
     
@@ -46,9 +54,27 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
      */
     public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null) {
         if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) ==  $user->getUid()) {
+
+            if (!ObjectUtility::isDirtyObject($user)) {
+                $this->addFlashMessage(LocalizationUtility::translate('noChanges'), '', FlashMessage::NOTICE);
+                $this->forward('edit');
+            }
+
             $telephonelastchanged = ObjectAccess::getProperty($user, 'txGbfemanagerTelephonelastchanged');
-            $user->setTxGbfemanagerTelephonelastchanged(time());
-            parent::updateAction($user);
+
+
+
+            $date = new \DateTime();
+            $date->setTimestamp(time());
+
+            $user->setTxGbfemanagerTelephonelastchanged($date);
+
+
+            $this->updateAllConfirmed($user);
+            $this->forward('edit');
+
+
+            # parent::updateAction($user);
         }
         else {
             // Versuch die uid im FireBug oder Ähnlichem zu manipulieren 

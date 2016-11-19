@@ -13,3 +13,11 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_gbaccount_domain_model_transaction', 'EXT:gbaccount/Resources/Private/Language/locallang_csh_tx_gbaccount_domain_model_transaction.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_gbaccount_domain_model_transaction');
+
+
+
+// allow to list Product table records in Page mode
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_gbaccount_domain_model_transaction'][0] = array(
+	'fList' => 'amount, user, partner, is_on_hold',
+	'icon' => TRUE
+);

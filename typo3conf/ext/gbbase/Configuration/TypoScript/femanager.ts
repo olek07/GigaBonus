@@ -1,4 +1,5 @@
 plugin.tx_femanager {
+    view.layoutRootPaths.10 = EXT:gbfemanager/Resources/Private/Layouts/
     view.partialRootPaths.10 = EXT:gbfemanager/Resources/Private/Partials/
     view.templateRootPaths.10 = EXT:gbfemanager/Resources/Private/Templates/
 
@@ -83,7 +84,7 @@ plugin.tx_femanager {
         changemobilenumber {
             validation {
                 # Enable clientside Formvalidation (JavaScript)
-                _enable.client = 1
+                _enable.client = 0
 
                 # Enable serverside Formvalidation (PHP)
                 _enable.server = 1
@@ -94,7 +95,9 @@ plugin.tx_femanager {
                     intOnly = 1
                     uniqueInDb = 1
                 }
-            }   
+            }
+
+            pageType = 109
         }
 
         restorepassword {
@@ -163,3 +166,17 @@ Validation {
 
 page.includeJSFooter.femanagerValidation >
 page.includeJSFooter.femanager >
+
+[globalVar = TSFE:id = 6, TSFE:type = 106]
+    plugin.tx_femanager.settings.edit.pageType = 106
+[global]
+
+[globalVar = TSFE:id = 8, TSFE:type = 108]
+    plugin.tx_femanager.settings.edit.pageType = 108
+[global]
+
+/*
+[globalVar = TSFE:id = 9, TSFE:type = 109]
+    plugin.tx_femanager.settings.changemobilenumber.pageType = 109
+[global]
+*/

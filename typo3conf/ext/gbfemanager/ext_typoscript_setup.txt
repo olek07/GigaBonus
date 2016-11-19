@@ -23,3 +23,5 @@ config.tx_extbase{
                 In2code\Femanager\Controller\SendConfirmMailController.className = Gigabonus\Gbfemanager\Controller\SendConfirmMailController
         }
 }
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbfemanager/Configuration/TypoScript/setup.txt">

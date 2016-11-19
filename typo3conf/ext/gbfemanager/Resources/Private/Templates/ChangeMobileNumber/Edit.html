@@ -14,14 +14,14 @@
                 <div class="femanager_new">
 			<f:if condition="{user}">
 				<f:then>
-					<f:form name="user" object="{user}" action="update" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
+					<f:form name="user" id="changeUserdataForm" object="{user}" action="update" pageUid="1" pageType="{settings.changemobilenumber.pageType}" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
 						<fieldset>
 							<legend>
 								<f:translate key="titleUpdateProfile" />
 							</legend>
 
 
-                                                                   <f:for each="{femanager:misc.explode(string:'{settings.changemobilenumber.fields}')}" as="field">
+                                   <f:for each="{femanager:misc.explode(string:'{settings.changemobilenumber.fields}')}" as="field">
 										<f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
 								   </f:for>
                                                                    
