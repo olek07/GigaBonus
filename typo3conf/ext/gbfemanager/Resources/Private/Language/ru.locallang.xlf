@@ -4,24 +4,32 @@
 		<header/>
 		<body>
                     <trans-unit id="tx_femanager_domain_model_user.city" approved="yes">
-			<target state="translated">Город, село, населённый пункт</target>
+			            <target state="translated">Город, село, населённый пункт</target>
                     </trans-unit>
 
                     <trans-unit id="tx_femanager_domain_model_user.zip">
-                            <target>Почтовый индекс</target>
-                    </trans-unit> 
+                        <target>Почтовый индекс</target>
+                    </trans-unit>
+
                     <trans-unit id="tx_femanager_domain_model_user.language">
-                            <target>Язык</target>
+                        <target>Язык</target>
                     </trans-unit>
 
                     <trans-unit id="create">
-			    <target>Регистрация успешно завершена</target>
+			            <target>Регистрация успешно завершена</target>
                     </trans-unit>
 
                     <trans-unit id="password_repeat_field_validationErrorSameAs">
-			    <target>Введённые пароли не совпадают</target>
+			            <target>Введённые пароли не совпадают</target>
                     </trans-unit>
 
+                    <trans-unit id="language_russian">
+			            <target>Русский</target>
+                    </trans-unit>
+
+                    <trans-unit id="language_ukrainian">
+			            <target>Українська</target>
+                    </trans-unit>
 
 
 	        </body>

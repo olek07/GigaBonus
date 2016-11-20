@@ -4,11 +4,9 @@
 	  <f:translate key="tx_femanager_domain_model_user.language" />
 	</label>
 	<div class="controls">
-
 		<f:form.select property="language"
-					   options="{1:'Українська', 0:'Русский'}"
+					   options="{1: '{f:translate(key: \'language_ukrainian\')}', 0: '{f:translate(key: \'language_russian\')}' }"
 					   id="femanager_field_language"
-					   additionalAttributes="{femanager:Validation.FormValidationData(settings:settings,fieldName:'language')}"
 		/>
 
 	</div>

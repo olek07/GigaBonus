@@ -114,7 +114,9 @@ Gbfemanager = {
 
     showFormResponse : function(responseText, statusText, xhr, $form) {
         $('.tx-femanager').replaceWith(responseText);
+        $(document).trigger(Layout.EVENT_STOP_LOADING);
         $(document).trigger(Layout.EVENT_INIT_FORMS);
+
     },
 
     prepareFormRequest: function(){
@@ -126,6 +128,7 @@ Gbfemanager = {
     scrollToMessage: function(){
         var obj = this;
         var elMessage = $('.tx-femanager');
+        var elMessage = $('body');
         if (elMessage.length > 0){
             Layout.scrollToOffset($(elMessage[0]).offset().top - 50);
         }

@@ -24,7 +24,24 @@ var Layout = {
     },
 
     loadingStart : function (evt, message) {
+        // var modal = $('<div>').addClass('modal-container');
+        var modal = $('<div>').addClass('reveal-overlay').css('display', 'block');
+        $('body').prepend(modal);
 
+        $('body').addClass('is-reveal-open');
+
+        // $('html').css('overflow-y', 'hidden');
+        // $('body').css('overflow-y', 'scroll');
+    },
+    
+    loadingStop : function (evt, message) {
+        // $('html').removeProp("overflow-y");
+        // $('body').removeProp("overflow-y");
+
+        $('.reveal-overlay').remove();
+        $('body').removeClass('is-reveal-open');
+
+        // $('.modal-container').remove();
     }
 
 };
