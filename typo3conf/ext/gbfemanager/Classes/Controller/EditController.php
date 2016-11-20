@@ -52,26 +52,18 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      * @return void
      */
     public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = NULL) {
-        if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) ==  $user->getUid()) {
 
+
+        if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) == $user->getUid()) {
             // $this->redirectIfDirtyObject($user);
-            $user = FrontendUtility::forceValues($user, $this->config['edit.']['forceValues.']['beforeAnyConfirmation.']);
-            $this->emailForUsername($user);
-            UserUtility::convertPassword($user, $this->settings['edit']['misc']['passwordSave']);
-            $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__ . 'BeforePersist', [$user, $this]);
-            if (!empty($this->settings['edit']['confirmByAdmin'])) {
-                $this->updateRequest($user);
-            } else {
-                $this->updateAllConfirmed($user);
-            }
+            $this->updateAllConfirmed($user);
             $this->forward('edit');
 
-
             // parent::updateAction($user);
-        }
-        else {
-            // Versuch die uid im FireBug oder Ähnlichem zu manipulieren 
+        } else {
+            // Versuch die uid im FireBug oder Ähnlichem zu manipulieren
             throw new \Exception('');
+
         }
     }
 

@@ -1,19 +1,30 @@
 Gbfemanager = {
 
-    lang : 1,
+    lang : 0,
+    form : null,
 
     init: function(){
 
         var obj = this;
-        var form = $('#changeUserdataForm');
 
+        obj.form = $('#changeUserdataForm');
+
+        obj.initLanguage();
         obj.initBirthday();
         obj.initCitySuggest();
         obj.initForm();
         obj.scrollToMessage();
 
     },
-    
+
+    initLanguage : function(){
+        var obj = this;
+        var lang = $(obj.form).data('languageid');
+        if (typeof lang !== 'undefined') {
+            obj.lang = lang
+        }
+        console.log(obj.lang)
+    },
 
     initCitySuggest: function() {
         var cityField = $('#femanager_field_city');

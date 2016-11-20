@@ -37,7 +37,7 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
                 $timeToPasswordChange = 300 - $t;
             }
         }
-        $timeToPasswordChange = 0;
+        // $timeToPasswordChange = 0;
         $this->view->assign('timeToPasswordChange', $timeToPasswordChange);
 
         parent::editAction();

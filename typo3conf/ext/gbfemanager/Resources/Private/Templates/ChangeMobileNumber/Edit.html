@@ -11,37 +11,43 @@
 		<f:render partial="Misc/FlashMessages" arguments="{_all}" />
 		<f:render partial="Misc/FormErrors" arguments="{object:User}" />
 
-                <div class="femanager_new">
-			<f:if condition="{user}">
-				<f:then>
-					<f:form name="user" id="changeUserdataForm" object="{user}" action="update" pageUid="1" pageType="{settings.changemobilenumber.pageType}" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
-						<fieldset>
-							<legend>
-								<f:translate key="titleUpdateProfile" />
-							</legend>
+
+		<f:if condition="{timeToPasswordChange} != 0">
+			<f:then>
+				Пароль можно поменять через {timeToPasswordChange}
+			</f:then>
+			<f:else>
+				<div class="femanager_new">
+				<f:if condition="{user}">
+					<f:then>
+						<f:form name="user" id="changeUserdataForm" object="{user}" action="update" pageUid="1" pageType="{settings.changemobilenumber.pageType}" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
+							<fieldset>
+								<legend>
+									<f:translate key="titleUpdateProfile" />
+								</legend>
 
 
-                                   <f:for each="{femanager:misc.explode(string:'{settings.changemobilenumber.fields}')}" as="field">
-										<f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
-								   </f:for>
-                                                                   
-
-								   <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+									   <f:for each="{femanager:misc.explode(string:'{settings.changemobilenumber.fields}')}" as="field">
+											<f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+									   </f:for>
 
 
-						</fieldset>
+									   <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
 
-						<f:render partial="Misc/DeleteLink" arguments="{_all}" />
-					</f:form>
-				</f:then>
-				<f:else>
-					<div class="femanager_note">
-						<f:translate key="notLoggedIn" />
-					</div>
-				</f:else>
-			</f:if>
-		</div>
 
+							</fieldset>
+
+						</f:form>
+					</f:then>
+					<f:else>
+						<div class="femanager_note">
+							<f:translate key="notLoggedIn" />
+						</div>
+					</f:else>
+				</f:if>
+				</div>
+			</f:else>
+		</f:if>
 
 
 
