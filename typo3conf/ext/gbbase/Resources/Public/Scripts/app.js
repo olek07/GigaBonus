@@ -28,7 +28,11 @@ var Layout = {
         var modal = $('<div>').addClass('reveal-overlay').css('display', 'block');
         $('body').prepend(modal);
 
-        $('body').addClass('is-reveal-open');
+        // $('body').addClass('is-reveal-open');
+        $('body').addClass('modal-open');
+        // $('html').addClass('modal-open-html');
+
+
 
         // $('html').css('overflow-y', 'hidden');
         // $('body').css('overflow-y', 'scroll');
@@ -39,7 +43,11 @@ var Layout = {
         // $('body').removeProp("overflow-y");
 
         $('.reveal-overlay').remove();
-        $('body').removeClass('is-reveal-open');
+
+        // $('body').removeClass('is-reveal-open');
+
+        // $('html').removeClass('modal-open-html');
+        $('body').removeClass('modal-open');
 
         // $('.modal-container').remove();
     }

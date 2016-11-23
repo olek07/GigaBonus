@@ -26,3 +26,13 @@
 .is-reveal-open {
 
 }
+
+.modal-open {
+    overflow-y: hidden;
+    margin-right:20px;
+}
+
+.modal-open-html {
+    overflow-y: hidden;
+}
+
