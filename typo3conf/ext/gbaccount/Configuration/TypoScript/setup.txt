@@ -1,11 +1,14 @@
 plugin.tx_gbaccount_transactions {
-/*
 	view {
-		templateRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.templateRootPath}
-		partialRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.partialRootPath}
-		layoutRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.layoutRootPath}
+		// templateRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.templateRootPath}
+		// partialRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.partialRootPath}
+		// layoutRootPaths.0 = {$plugin.tx_gbaccount_transactions.view.layoutRootPath}
+
+		widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
+			templateRootPath = EXT:gbaccount/Resources/Private/Templates/
+		}
 	}
-*/
+
 	persistence {
 		storagePid = {$plugin.tx_gbaccount_transactions.persistence.storagePid}
 	}

@@ -39,6 +39,7 @@ return [
     ],
     'FE' => [
         'debug' => true,
+        'lifetime' => '31536000',
         'loginSecurityLevel' => 'rsa',
         'pageNotFound_handling' => '/404.html',
     ],
