@@ -4,7 +4,7 @@ config{
     sys_language_uid = 0
     language = ru
     locale_all = ru_RU.UTF-8
-    htmlTag_setParams = lang="ru" class="nojs"
+    htmlTag_setParams = lang="ru-UA" class="nojs"
     defaultGetVars.L  = 0
     linkVars = L(0-1)
     tx_realurl_enable = 1

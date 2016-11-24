@@ -12,6 +12,8 @@ lib.fluidContent.layoutRootPaths.30 = EXT:gbbase/Resources/Private/Layouts/fluid
 page = PAGE
 page.typeNum = 0
 
+page.meta.viewport = initial-scale=1, minimum-scale=1, maximum-scale=1
+
 page.10 < lib.langMenu
 
 page.30 = FLUIDTEMPLATE
