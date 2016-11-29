@@ -124,45 +124,6 @@ plugin.tx_femanager {
 
 }
 
-Validation = PAGE
-Validation {
-
-    typeNum = 999
-
-	config {
-	    disableAllHeaderCode = 1
-	    xhtml_cleaning = none
-	    admPanel = 0
-	    metaCharset = utf-8
-	    additionalHeaders {
-                10 {
-                    header = Content-Type:application/json;charset=utf-8                        
-                }
-            }
-	    disablePrefixComment = 1
-	    debug = 0
-            no_cache = 1
-	}
-
-    10 = USER_INT
-    10 {
-            userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-            extensionName = Gbfemanager
-            pluginName = Pi2
-            vendorName = Gigabonus
-            controller = Validation
-            action = validate
-            switchableControllerActions {
-                    Validation {
-                            1 = validate
-                    }
-            }
-            #view < plugin.tx_maramap.view
-            #persistence < plugin.tx_maramap.persistence
-            #settings < plugin.tx_maramap.settings
-    }
-}
-
 
 page.includeJSFooter.femanagerValidation >
 page.includeJSFooter.femanager >
