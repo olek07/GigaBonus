@@ -39,23 +39,6 @@ class LinkViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Widget\LinkViewHelper
 {
 
     /**
-     * Render the link.
-     *
-     * @param string $action Target action
-     * @param array $arguments Arguments
-     * @param string $section The anchor to be added to the URI
-     * @param string $format The requested format, e.g. ".html
-     * @param bool $ajax TRUE if the URI should be to an AJAX widget, FALSE otherwise.
-     * @param bool $noCacheHash set this to suppress the cHash query parameter created by TypoLink.
-     * @return string The rendered link
-     * @api
-     */
-    public function render($action = null, $arguments = [], $section = '', $format = '', $ajax = false, $noCacheHash = false)
-    {
-        return parent::render($action, $arguments, $section, $format, $ajax);
-    }
-
-    /**
      * Get the URI for a non-AJAX Request.
      *
      * @return string the Widget URI
@@ -79,7 +62,7 @@ class LinkViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Widget\LinkViewHelper
             ->setAddQueryStringMethod($this->arguments['addQueryStringMethod'])
             ->setArgumentsToBeExcludedFromQueryString([$argumentPrefix, 'cHash', 'type'])
             ->setFormat($this->arguments['format'])
-            ->setUseCacheHash($this->arguments['useCacheHash'])
+            ->setUseCacheHash(false)
             ->build();
     }
 }

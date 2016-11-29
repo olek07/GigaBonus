@@ -28,10 +28,10 @@ return array(
 		'thumbnail' => 'image',
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, image, category',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, tags, image, category',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive,image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive, tags, image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -222,6 +222,16 @@ return array(
 				'eval' => 'trim'
 			),
 			'defaultExtras' => 'richtext[]'
+		),
+
+		'tags' => array(
+			'exclude' => 0,
+			'label' => 'Tags',
+			'config' => array(
+				'type' => 'input',
+				'size' => 60,
+				'eval' => 'trim'
+			),
 		),
 
 

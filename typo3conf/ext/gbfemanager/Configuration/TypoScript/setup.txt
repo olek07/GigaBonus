@@ -9,7 +9,12 @@ GbfemanagerChangeUserData {
         xhtml_cleaning = none
         admPanel = 0
         metaCharset = utf-8
-        additionalHeaders = Content-Type:text/html;charset=utf-8
+        additionalHeaders {
+            10 {
+                header = Content-Type:text/html;charset=utf-8
+            }
+        }
+
         disablePrefixComment = 1
         debug = 0
         no_cache = 1
@@ -34,7 +39,11 @@ GbfemanagerChangePassword {
         xhtml_cleaning = none
         admPanel = 0
         metaCharset = utf-8
-        additionalHeaders = Content-Type:text/html;charset=utf-8
+        additionalHeaders {
+            10 {
+                header = Content-Type:text/html;charset=utf-8
+            }
+        }
         disablePrefixComment = 1
         debug = 0
         no_cache = 1
@@ -58,7 +67,11 @@ GbfemanagerChangeMobileNumber {
         xhtml_cleaning = none
         admPanel = 0
         metaCharset = utf-8
-        additionalHeaders = Content-Type:text/html;charset=utf-8
+        additionalHeaders {
+            10 {
+                header = Content-Type:text/html;charset=utf-8
+            }
+        }
         disablePrefixComment = 1
         debug = 0
         no_cache = 1

@@ -18,17 +18,17 @@
 			<li class="previous">
 				<f:if condition="{pagination.previousPage} > 1">
 					<f:then>
-						<gb:link arguments="{currentPage: pagination.previousPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}" noCacheHash="1"><f:translate key="widget.pagination.previous" /></gb:link>
+						<gb:link arguments="{currentPage: pagination.previousPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}"><f:translate key="widget.pagination.previous" /></gb:link>
 					</f:then>
 					<f:else>
-						<gb:link addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}" noCacheHash="1"><f:translate key="widget.pagination.previous" /></gb:link>
+						<gb:link addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}"><f:translate key="widget.pagination.previous" /></gb:link>
 					</f:else>
 				</f:if>
 			</li>
 		</f:if>
 		<f:if condition="{pagination.displayRangeStart} > 1">
 			<li class="first">
-				<gb:link addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}" noCacheHash="1">1</gb:link>
+				<gb:link addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">1</gb:link>
 			</li>
 		</f:if>
 		<f:if condition="{pagination.hasLessPages}">
@@ -45,10 +45,10 @@
 					<li>
 						<f:if condition="{page.number} > 1">
 							<f:then>
-								<gb:link arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}" noCacheHash="1">{page.number}</gb:link>
+								<gb:link arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">{page.number}</gb:link>
 							</f:then>
 							<f:else>
-								<gb:link addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}" noCacheHash="1">{page.number}</gb:link>
+								<gb:link addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">{page.number}</gb:link>
 							</f:else>
 						</f:if>
 					</li>
@@ -60,12 +60,12 @@
 		</f:if>
 		<f:if condition="{pagination.displayRangeEnd} < {pagination.numberOfPages}">
 			<li class="last">
-				<gb:link arguments="{currentPage: pagination.numberOfPages}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}" noCacheHash="1">{pagination.numberOfPages}</gb:link>
+				<gb:link arguments="{currentPage: pagination.numberOfPages}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}">{pagination.numberOfPages}</gb:link>
 			</li>
 		</f:if>
 		<f:if condition="{pagination.nextPage}">
 			<li class="next">
-				<gb:link arguments="{currentPage: pagination.nextPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}" noCacheHash="1"><f:translate key="widget.pagination.next" /></gb:link>
+				<gb:link arguments="{currentPage: pagination.nextPage}" addQueryStringMethod="{configuration.addQueryStringMethod}" section="{configuration.section}"><f:translate key="widget.pagination.next" /></gb:link>
 			</li>
 		</f:if>
 	</ul>
