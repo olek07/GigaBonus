@@ -74,6 +74,7 @@ CREATE TABLE tx_gbpartner_domain_model_category (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+        sorting int(11) DEFAULT '0' NOT NULL,
 
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,

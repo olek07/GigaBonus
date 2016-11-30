@@ -17,6 +17,8 @@ return array(
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
+                'sortby' => 'sorting',
+                // 'default_sortby' => 'ORDER BY crdate DESC',
 		'delete' => 'deleted',
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
