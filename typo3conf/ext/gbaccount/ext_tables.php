@@ -16,7 +16,7 @@ if (!defined('TYPO3_MODE')) {
 
 
 
-// allow to list Product table records in Page mode
+// allow to list Transaction table records in Page mode
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_gbaccount_domain_model_transaction'][0] = array(
 	'fList' => 'amount, user, partner, is_on_hold',
 	'icon' => TRUE

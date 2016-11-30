@@ -19,6 +19,7 @@ switch(true) {
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_version_5'] = 'gm';
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['image_processing'] = 1;
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality'] = '85';
+        $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file'] = 'C:/projects/gigabonus/typo3conf/mail';
 
 
         // $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_pages']['options']['compression'] = false;

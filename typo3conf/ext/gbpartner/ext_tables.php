@@ -22,3 +22,10 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_gbpartner_domain_model_category', 'EXT:gbpartner/Resources/Private/Language/locallang_csh_tx_gbpartner_domain_model_category.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_gbpartner_domain_model_category');
+
+
+$GLOBALS['TCA']['tx_gbpartner_domain_model_partner']['columns']['api_key']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_gbpartner_domain_model_partner']['columns']['class_name']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_gbpartner_domain_model_partner']['columns']['website_url']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_gbpartner_domain_model_partner']['columns']['category']['l10n_mode'] = 'exclude';
+

@@ -93,6 +93,11 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $typo3FALRepository;
 
 
+    /**
+     * @var string
+     */
+    protected $apiKey = '';
+
 
     /**
      * Returns the name
@@ -220,7 +225,26 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->image = $image;
     }
+
+    /**
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->apiKey;
+    }
+
+    /**
+     * @param string $apiKey
+     */
+    public function setApiKey($apiKey)
+    {
+        $this->apiKey = $apiKey;
+    }
+
+
     
+
     /**
      * __construct
      */

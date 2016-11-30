@@ -31,7 +31,7 @@ return array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, tags, image, category',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive, tags, image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive, tags, image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime,--div--;API,api_key,class_name'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -329,6 +329,26 @@ return array(
 						),
 					),
 				),
+			),
+		),
+
+		'api_key' => array(
+			'exclude' => 0,
+			'label' => 'API key',
+			'config' => array(
+				'type' => 'input',
+				'size' => 50,
+				'eval' => 'trim'
+			),
+		),
+
+		'class_name' => array(
+			'exclude' => 0,
+			'label' => 'Class name',
+			'config' => array(
+				'type' => 'input',
+				'size' => 50,
+				'eval' => 'trim'
 			),
 		),
 		

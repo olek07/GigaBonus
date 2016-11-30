@@ -1,6 +1,7 @@
 /fileadmin/
 /typo3temp/
 /typo3conf/deprecation*
+/typo3conf/mail
 index.php
 typo3
 typo3_src
