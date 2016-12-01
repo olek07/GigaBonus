@@ -29,3 +29,5 @@ $GLOBALS['TCA']['tx_gbpartner_domain_model_partner']['columns']['class_name']['l
 $GLOBALS['TCA']['tx_gbpartner_domain_model_partner']['columns']['website_url']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['tx_gbpartner_domain_model_partner']['columns']['category']['l10n_mode'] = 'exclude';
 
+$GLOBALS['TCA']['tx_gbpartner_domain_model_category']['columns']['sorting']['l10n_mode'] = 'exclude';
+

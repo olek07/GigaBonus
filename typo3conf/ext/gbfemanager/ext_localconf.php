@@ -10,14 +10,14 @@ $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TY
 $signalSlotDispatcher->connect(
     \In2code\Femanager\Controller\EditController::class,  // Signal class name
     'updateActionBeforePersist',                                  // Signal name
-    \GigaBonus\Gbfemanager\Slots\BeforePersist::class,        // Slot class name
+    \Gigabonus\Gbfemanager\Slots\BeforePersist::class,        // Slot class name
     'setUsernameEqualToEmail'                               // Slot name
 );
 
 $signalSlotDispatcher->connect(
     \In2code\Femanager\Controller\NewController::class,     // Signal class name
     'confirmCreateRequestActionBeforePersist',              // Signal name
-    \GigaBonus\Gbfemanager\Slots\BeforePersist::class,      // Slot class name
+    \Gigabonus\Gbfemanager\Slots\BeforePersist::class,      // Slot class name
     'confirmCreateRequestAction'                            // Slot name
 );
 

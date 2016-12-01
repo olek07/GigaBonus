@@ -172,7 +172,7 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
      * @return void
      */
-    public function setPartner(\Gigabonus\Gbpartner\Domain\Model\Partner $partner)
+    public function setPartner($partner)
     {
         $this->partner = $partner;
     }

@@ -92,11 +92,15 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $typo3FALRepository;
 
-
     /**
      * @var string
      */
     protected $apiKey = '';
+
+    /**
+     * @var string
+     */
+    protected $className = '';
 
 
     /**
@@ -242,7 +246,24 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->apiKey = $apiKey;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getClassName()
+    {
+        return $this->className;
+    }
 
+    /**
+     * @param mixed $className
+     */
+    public function setClassName($className)
+    {
+        $this->className = $className;
+    }
+
+
+    
     
 
     /**

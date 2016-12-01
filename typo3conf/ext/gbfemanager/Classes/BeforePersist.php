@@ -1,5 +1,5 @@
 <?php
-namespace GigaBonus\Gbfemanager\Slots;
+namespace Gigabonus\Gbfemanager\Slots;
 
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 

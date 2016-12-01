@@ -284,6 +284,12 @@ return [
             'packagePath' => 'typo3conf/ext/gbfelogin/',
             'suggestions' => [],
         ],
+        'gborderapi' => [
+            'composerName' => 'gborderapi',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/gborderapi/',
+            'suggestions' => [],
+        ],
         'gbpartner' => [
             'composerName' => 'gbpartner',
             'state' => 'active',

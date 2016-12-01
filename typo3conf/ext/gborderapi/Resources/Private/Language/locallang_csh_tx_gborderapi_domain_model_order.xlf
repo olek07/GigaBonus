@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-11-30T15:54:06Z" product-name="gborderapi">
+		<header/>
+		<body>
+			<trans-unit id="partner_id.description">
+				<source>partnerId</source>
+			</trans-unit>
+			<trans-unit id="orderid.description">
+				<source>orderid</source>
+			</trans-unit>
+			<trans-unit id="amount.description">
+				<source>amount</source>
+			</trans-unit>
+			<trans-unit id="fee.description">
+				<source>fee</source>
+			</trans-unit>
+			<trans-unit id="status.description">
+				<source>status</source>
+			</trans-unit>
+			<trans-unit id="user_id.description">
+				<source>userId</source>
+			</trans-unit>
+			<trans-unit id="currency.description">
+				<source>currency</source>
+			</trans-unit>
+			<trans-unit id="data.description">
+				<source>data</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
