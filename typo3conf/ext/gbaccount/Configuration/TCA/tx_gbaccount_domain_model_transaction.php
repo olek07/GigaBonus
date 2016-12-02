@@ -153,6 +153,16 @@ return array(
 			)
 		),
 
+		'order_id' => array(
+			'exclude' => 0,
+			'label' => 'Order Id',
+			'config' => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int,required'
+			)
+		),
+
 		'saldo' => array(
 			'exclude' => 0,
 			'label' => 'Saldo',
@@ -181,13 +191,13 @@ return array(
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_gbpartner_domain_model_partner',
-                                'foreign_table_where' => ' AND tx_gbpartner_domain_model_partner.sys_language_uid IN (-1, 0) ',
+                'foreign_table_where' => ' AND tx_gbpartner_domain_model_partner.sys_language_uid IN (-1, 0) ',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
 		),
             
-                'is_on_hold' => array(
+        'is_on_hold' => array(
 			'exclude' => 0,
 			'label' => 'On hold?',
 			'config' => array(

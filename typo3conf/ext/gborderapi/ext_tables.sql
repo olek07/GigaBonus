@@ -7,7 +7,8 @@ CREATE TABLE tx_gborderapi_domain_model_order (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	partner_id int(11) DEFAULT '0' NOT NULL,
-	orderid varchar(255) DEFAULT '' NOT NULL,
+        partner int(11) unsigned DEFAULT '0',
+	order_id varchar(255) DEFAULT '' NOT NULL,
 	amount double(11,2) DEFAULT '0.00' NOT NULL,
 	fee double(11,2) DEFAULT '0.00' NOT NULL,
 	status int(11) DEFAULT '0' NOT NULL,

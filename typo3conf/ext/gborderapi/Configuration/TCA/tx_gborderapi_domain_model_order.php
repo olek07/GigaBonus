@@ -7,7 +7,8 @@ return array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'sortby' => 'sorting',
+		// 'sortby' => 'sorting',
+		'default_sortby' => 'ORDER BY crdate DESC',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
 
@@ -19,14 +20,14 @@ return array(
 			'disabled' => 'hidden',
 
 		),
-		'searchFields' => 'partner_id,orderid,amount,fee,status,user_id,currency,data,',
+		'searchFields' => 'partner, partner_id,order_id,amount,fee,status,user_id,currency,data,',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gborderapi') . 'Resources/Public/Icons/tx_gborderapi_domain_model_order.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, partner_id, orderid, amount, fee, status, user_id, currency, data',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, partner_id, partner, order_id, amount, fee, status, user_id, currency, data',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, partner_id, orderid, amount, fee, status, user_id, currency, data, '),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, partner_id, partner, order_id, amount, fee, status, user_id, currency, data'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -93,11 +94,26 @@ return array(
 				'eval' => 'int,required'
 			)
 		),
-		'orderid' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:gborderapi/Resources/Private/Language/locallang_db.xlf:tx_gborderapi_domain_model_order.orderid',
+
+		'partner' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:gbaccount/Resources/Private/Language/locallang_db.xlf:tx_gbaccount_domain_model_transaction.partner',
 			'config' => array(
-				'type' => 'input',
+				'type' => 'select',
+				'renderType' => 'selectSingle',
+				'foreign_table' => 'tx_gbpartner_domain_model_partner',
+				'foreign_table_where' => ' AND tx_gbpartner_domain_model_partner.sys_language_uid IN (-1, 0) ',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
+
+
+		'order_id' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:gborderapi/Resources/Private/Language/locallang_db.xlf:tx_gborderapi_domain_model_order.order_id',
+			'config' => array(
+				'type' => 'none',
 				'size' => 30,
 				'eval' => 'trim,required'
 			),
@@ -147,6 +163,22 @@ return array(
 				'eval' => 'trim,required'
 			),
 		),
+
+		'crdate' => array(
+			'exclude' => 1,
+			'l10n_mode' => 'mergeIfNotBlank',
+			'label' => 'Created',
+			'config' => array(
+				'type' => 'input',
+				'size' => 13,
+				'max' => 20,
+				'eval' => 'datetime',
+				'checkbox' => 0,
+				'default' => 0,
+			),
+
+		),
+
 		'data' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:gborderapi/Resources/Private/Language/locallang_db.xlf:tx_gborderapi_domain_model_order.data',
@@ -156,6 +188,6 @@ return array(
 				'eval' => 'trim'
 			),
 		),
-		
+
 	),
 );

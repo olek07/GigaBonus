@@ -85,7 +85,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $order = $this->objectManager->get('Gigabonus\\Gborderapi\\Domain\\Model\\Order');
 
         $partnerId = GeneralUtility::_GET('partnerId');
-        $orderId = GeneralUtility::_GET('orderid');
+        $orderId = GeneralUtility::_GET('orderId');
         $amount = GeneralUtility::_GET('amount');
         $status = GeneralUtility::_GET('status');
         $userId = GeneralUtility::_GET('userId');
@@ -100,7 +100,8 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         if ($apiKey == $token) {
             $order->setPartnerId($partnerId);
-            $order->setOrderid($orderId);
+            $order->setPartner($partner);
+            $order->setOrderId($orderId);
             $order->setAmount($amount);
             $order->setStatus($status);
             $order->setUserId($userId);
@@ -124,7 +125,16 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             # DebuggerUtility::var_dump($amount . ' ' . $bonus . ' бонусов ');
             
             $order->setFee($fee);
+
+            DebuggerUtility::var_dump($order);
+
             $this->orderRepository->add($order);
+
+
+
+            /*
+             * Create a transaction
+             */
 
             /** @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction */
             $transaction = $this->objectManager->get('Gigabonus\\Gbaccount\\Domain\\Model\\Transaction');
@@ -132,6 +142,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $transaction->setAmount($bonus);
             $transaction->setPartner($partnerId);
             $transaction->setUser($userId);
+            $transaction->setOrderId($orderId);
             $transaction->setIsOnHold(true);
 
             $this->transactionRepository->add($transaction);
@@ -139,8 +150,8 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         }
 
 
-        DebuggerUtility::var_dump($partner);
-        DebuggerUtility::var_dump(GeneralUtility::_GET());
+        // DebuggerUtility::var_dump($partner);
+        //DebuggerUtility::var_dump(GeneralUtility::_GET());
         return '';
 
         # $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);

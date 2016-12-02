@@ -46,6 +46,14 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $isOnHold = false;
 
+
+    /**
+     * orderId
+     *
+     * @var int
+     */
+    protected $orderId = 0;
+
     /**
      * saldo
      *
@@ -130,6 +138,22 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSaldo($saldo)
     {
         $this->saldo = $saldo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrderId()
+    {
+        return $this->orderId;
+    }
+
+    /**
+     * @param mixed $orderId
+     */
+    public function setOrderId($orderId)
+    {
+        $this->orderId = $orderId;
     }
 
     

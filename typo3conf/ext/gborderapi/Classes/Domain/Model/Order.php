@@ -39,14 +39,24 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @validate NotEmpty
      */
     protected $partnerId = 0;
+
+
+    /**
+     * partner
+     *
+     * @var \Gigabonus\Gbpartner\Domain\Model\Partner
+     * @lazy
+     */
+    protected $partner = null;
+
     
     /**
-     * orderid
+     * orderId
      * 
      * @var string
      * @validate NotEmpty
      */
-    protected $orderid = '';
+    protected $orderId = '';
     
     /**
      * amount
@@ -114,26 +124,50 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->partnerId = $partnerId;
     }
+
+
+    /**
+     * Returns the partner
+     *
+     * @return \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     */
+    public function getPartner()
+    {
+        return $this->partner;
+    }
+
+    /**
+     * Sets the partner
+     *
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     * @return void
+     */
+    public function setPartner($partner)
+    {
+        $this->partner = $partner;
+    }
+
+    
     
     /**
-     * Returns the orderid
+     * Returns the orderId
      * 
-     * @return string $orderid
+     * @return string $orderId
      */
-    public function getOrderid()
+    public function getOrderId()
     {
-        return $this->orderid;
+        return $this->orderId;
     }
     
     /**
-     * Sets the orderid
+     * Sets the orderId
      * 
-     * @param string $orderid
+     * @param string $orderId
      * @return void
      */
-    public function setOrderid($orderid)
+    public function setOrderId($orderId)
     {
-        $this->orderid = $orderid;
+        $this->orderId = $orderId;
     }
     
     /**

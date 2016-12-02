@@ -8,9 +8,10 @@ CREATE TABLE tx_gbaccount_domain_model_transaction (
 
 	amount int(11) DEFAULT '0' NOT NULL,
 	saldo  int(11) DEFAULT '0' NOT NULL,
-        user int(11) unsigned DEFAULT '0',
+  user int(11) unsigned DEFAULT '0',
 	partner int(11) unsigned DEFAULT '0',
-        is_on_hold int(1) unsigned DEFAULT '0',
+  is_on_hold int(1) unsigned DEFAULT '0',
+	order_id int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
