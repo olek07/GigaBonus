@@ -31,6 +31,10 @@
 			            <target>Українська</target>
                     </trans-unit>
 
+                    <trans-unit id="submitEdit">
+                        <target>Сохранить</target>
+                    </trans-unit>
+
 
 	        </body>
 

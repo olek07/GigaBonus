@@ -57,6 +57,25 @@
                         <target>Українська</target>
                     </trans-unit>
 
+                    <trans-unit id="tx_femanager_domain_model_user.gender.item0" approved="yes">
+			            <target state="translated">Чоловіча</target>
+                    </trans-unit>
+
+                    <trans-unit id="tx_femanager_domain_model_user.gender.item1" approved="yes">
+                        <target state="translated">Жіноча</target>
+                    </trans-unit>
+
+                    <trans-unit id="tx_femanager_domain_model_user.password" approved="yes">
+			            <target state="translated">Пароль</target>
+                    </trans-unit>
+
+		            <trans-unit id="tx_femanager_domain_model_user.password_repeat" approved="yes">
+		                <target state="translated">Повторення паролю</target>
+                    </trans-unit>
+
+                    <trans-unit id="submitEdit">
+                        <target>Зберегти</target>
+                    </trans-unit>
 
                     
 	        </body>

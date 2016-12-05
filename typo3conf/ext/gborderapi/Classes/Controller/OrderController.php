@@ -128,12 +128,16 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
             DebuggerUtility::var_dump($order);
 
+            /**
+             * @todo check, if the order already exists in the DB. All orders and transactions must be unique 
+             */
+            
             $this->orderRepository->add($order);
 
 
 
             /*
-             * Create a transaction
+             * Create a new transaction
              */
 
             /** @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction */
@@ -145,18 +149,15 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $transaction->setOrderId($orderId);
             $transaction->setIsOnHold(true);
 
+            /**
+             * @todo check, if the transaction already exists in the DB. All orders and transactions must be unique
+             */
+            
             $this->transactionRepository->add($transaction);
 
         }
 
-
-        // DebuggerUtility::var_dump($partner);
-        //DebuggerUtility::var_dump(GeneralUtility::_GET());
         return '';
-
-        # $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-        # $this->orderRepository->add($newOrder);
-        # $this->redirect('list');
     }
 
 }

@@ -11,4 +11,14 @@ class DevDetskijMir extends AbstractPartner {
         $fee = $amount * 0.17;
         return $fee;
     }
+
+
+    /**
+     * @param float $amount
+     * @return int
+     */
+    public function calculateBonus($amount) {
+        $bonus = floor($amount * 1.5);
+        return $bonus;
+    }
 }

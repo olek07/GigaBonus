@@ -21,13 +21,13 @@ return array(
 
 		),
 		'searchFields' => 'partner, partner_id,order_id,amount,fee,status,user_id,currency,data,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gborderapi') . 'Resources/Public/Icons/tx_gborderapi_domain_model_order.gif'
+		'iconfile' => 'EXT:gborderapi/Resources/Public/Icons/tx_gborderapi_domain_model_order.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, partner_id, partner, order_id, amount, fee, status, user_id, currency, data',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, partner_id, partner, order_id, amount, fee, status, user_id, currency, data'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,partner_id,partner,order_id,amount,fee,status,user_id,currency,data'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -183,7 +183,7 @@ return array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:gborderapi/Resources/Private/Language/locallang_db.xlf:tx_gborderapi_domain_model_order.data',
 			'config' => array(
-				'type' => 'input',
+				'type' => 'text',
 				'size' => 30,
 				'eval' => 'trim'
 			),

@@ -45,7 +45,7 @@ class EditController extends \In2code\Femanager\Controller\EditController {
     /**
      * action update
      *
-     * @param User $user
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
      * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
      * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator

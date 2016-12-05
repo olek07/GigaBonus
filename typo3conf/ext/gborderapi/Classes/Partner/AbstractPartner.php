@@ -6,22 +6,21 @@ namespace Gigabonus\Gborderapi\Partner;
 abstract class AbstractPartner {
 
     /**
+     * calculates our fee (Provision), that we receive from partner
+     *
      * @param float $amount
      * @return float
      */
-    public function calculateFee($amount) {
-        $fee = $amount * 0.1;
-        return $fee;
-    }
+    abstract function calculateFee($amount);
 
     /**
+     * calculates bonus (points), that the user receives from us
+     *
+     *
      * @param float $amount
      * @return int
      */
-    public function calculateBonus($amount) {
-        $bonus = floor($amount * 1.5);
-        return $bonus;
-    }
+    abstract function calculateBonus($amount);
     
 }
 
