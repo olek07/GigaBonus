@@ -5,6 +5,10 @@ if (!defined('TYPO3_MODE')) {
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['sessionTimeout'] = '86400';
 
+$GLOBALS['TYPO3_CONF_VARS']['FE']['pageNotFound_handling_redirectPageID'] = 18;     // 404-page. attention: this parameter is not provided by TYPO3, but needed for page-not-found-userfunction
+$GLOBALS['TYPO3_CONF_VARS']['FE']['accessRestrictedPages_handling_statheader'] = 'HTTP/1.0 403 Forbidden'; // attention: this parameter is not provided by TYPO3, but needed for page-not-found-userfunction
+$GLOBALS['TYPO3_CONF_VARS']['FE']['accessRestrictedPages_handling_redirectPageID'] = 3; // Login-page. attention: this parameter is not provided by TYPO3, but needed for page-not-found-userfunction
+
 switch(true) {
     // Computer with Windows
     case ($_SERVER['DevelopComputer'] == 1):

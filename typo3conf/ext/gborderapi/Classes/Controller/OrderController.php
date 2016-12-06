@@ -60,6 +60,12 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     protected $transactionRepository = NULL;
 
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
+     * @inject
+     */
+    protected $persistenceManager;
+
     
     /**
      * action new
@@ -85,7 +91,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $order = $this->objectManager->get('Gigabonus\\Gborderapi\\Domain\\Model\\Order');
 
         $partnerId = GeneralUtility::_GET('partnerId');
-        $orderId = GeneralUtility::_GET('orderId');
+        $shopOrderId = GeneralUtility::_GET('orderId');
         $amount = GeneralUtility::_GET('amount');
         $status = GeneralUtility::_GET('status');
         $userId = GeneralUtility::_GET('userId');
@@ -101,7 +107,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         if ($apiKey == $token) {
             $order->setPartnerId($partnerId);
             $order->setPartner($partner);
-            $order->setOrderId($orderId);
+            $order->setShopOrderId($shopOrderId);
             $order->setAmount($amount);
             $order->setStatus($status);
             $order->setUserId($userId);
@@ -126,15 +132,16 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             
             $order->setFee($fee);
 
-            DebuggerUtility::var_dump($order);
+
 
             /**
              * @todo check, if the order already exists in the DB. All orders and transactions must be unique 
              */
             
             $this->orderRepository->add($order);
+            $this->persistenceManager->persistAll();
 
-
+            DebuggerUtility::var_dump($order);
 
             /*
              * Create a new transaction
@@ -146,7 +153,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $transaction->setAmount($bonus);
             $transaction->setPartner($partnerId);
             $transaction->setUser($userId);
-            $transaction->setOrderId($orderId);
+            $transaction->setOrderId($order->getUid());             // NOT the shop order id, but uid in tx_gborderapi_domain_model_order
             $transaction->setIsOnHold(true);
 
             /**

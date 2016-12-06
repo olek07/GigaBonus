@@ -20,14 +20,14 @@ return array(
 			'disabled' => 'hidden',
 
 		),
-		'searchFields' => 'partner, partner_id,order_id,amount,fee,status,user_id,currency,data,',
+		'searchFields' => 'partner, partner_id,shop_order_id,amount,fee,status,user_id,currency,data,',
 		'iconfile' => 'EXT:gborderapi/Resources/Public/Icons/tx_gborderapi_domain_model_order.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, partner_id, partner, order_id, amount, fee, status, user_id, currency, data',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, partner_id, partner, shop_order_id, amount, fee, status, user_id, currency, data',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,partner_id,partner,order_id,amount,fee,status,user_id,currency,data'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,partner_id,partner,shop_order_id,amount,fee,status,user_id,currency,data'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -109,9 +109,9 @@ return array(
 		),
 
 
-		'order_id' => array(
+		'shop_order_id' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:gborderapi/Resources/Private/Language/locallang_db.xlf:tx_gborderapi_domain_model_order.order_id',
+			'label' => 'LLL:EXT:gborderapi/Resources/Private/Language/locallang_db.xlf:tx_gborderapi_domain_model_order.shop_order_id',
 			'config' => array(
 				'type' => 'none',
 				'size' => 30,

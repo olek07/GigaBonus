@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" target-language="ru" datatype="plaintext" original="messages" date="2016-12-06T01:11:51Z" product-name="felogin">
+		<header/>
+		<body>
+			<trans-unit id="felogin_forgotHash" approved="yes">
+				<source>Forgot hash</source>
+				<target state="translated">Забыл хэш</target>
+			</trans-unit>
+			<trans-unit id="felogin_redirectPid" approved="yes">
+				<source>Redirect at Login to Page (felogin)</source>
+				<target state="translated">При авторизации перенаправлять на страницу (felogin)</target>
+			</trans-unit>
+			<trans-unit id="tt_content.CType_pi1" approved="yes">
+				<source>Website User Login</source>
+				<target state="translated">Авторизация пользователей сайта</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.error_header" approved="yes">
+				<source>Login Error Header</source>
+				<target state="translated">Заголовок сообщения об ошибке авторизации</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.error_message" approved="yes">
+				<source>Login Error Message</source>
+				<target state="translated">Сообщение об ошибке авторизации</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.field_manualOrder" approved="yes">
+				<source>Using fieldlists below:</source>
+				<target state="translated">Используя список полей внизу:</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.field_orderDetails" approved="yes">
+				<source>User Fields/details:</source>
+				<target state="translated">Поля в режиме деталей пользователя:</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.field_orderList" approved="yes">
+				<source>User Fields/list:</source>
+				<target state="translated">Поля в режиме списка пользователей:</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.forgot_header" approved="yes">
+				<source>Forgot Password Header</source>
+				<target state="translated">Заголовок сообщения о забытом пароле</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.forgot_message" approved="yes">
+				<source>Forgot Password Message</source>
+				<target state="translated">Сообщение о забытом пароле</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.general_header" approved="yes">
+				<source>General Header</source>
+				<target state="translated">Общий заголовок</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.general_message" approved="yes">
+				<source>General Message</source>
+				<target state="translated">Общее сообщение</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.groupSelection" approved="yes">
+				<source>FE group selection:</source>
+				<target state="translated">FE группа выбор:</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.groupSelection_noGroup" approved="yes">
+				<source>no group</source>
+				<target state="translated">без группы</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.groupSelectmode" approved="yes">
+				<source>FE group select mode:</source>
+				<target state="translated">Режим выбора группы FE:</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.groupSelectmode_DontShowSelected" approved="yes">
+				<source>Dont show selected</source>
+				<target state="translated">Не показывать выбранное</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.groupSelectmode_FromTS" approved="yes">
+				<source>(from Typoscript)</source>
+				<target state="translated">(определено в Typoscript)</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.groupSelectmode_showAll" approved="yes">
+				<source>Show all</source>
+				<target state="translated">Показать всё</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.groupSelectmode_showSelected" approved="yes">
+				<source>Show selected</source>
+				<target state="translated">Показать выбранное</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.logout_header" approved="yes">
+				<source>Logout Header</source>
+				<target state="translated">Заголовок сообщения при выходе</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.logout_message" approved="yes">
+				<source>Logout Message</source>
+				<target state="translated">Сообщение при выходе</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectDisable" approved="yes">
+				<source>Disable Redirect</source>
+				<target state="translated">Включить переадресацию</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectFirstMethod" approved="yes">
+				<source>Use First Supported Mode from Selection</source>
+				<target state="translated">Использовать первый найденный режим из выбранного</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirect_header" approved="yes">
+				<source>Redirect Header</source>
+				<target state="translated">Заголовок сообщения при переадресации</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirect_message" approved="yes">
+				<source>Redirect Message</source>
+				<target state="translated">Сообщение при переадресации</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode" approved="yes">
+				<source>Redirect Mode</source>
+				<target state="translated">Режим перенаправления</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.0" approved="yes">
+				<source>Defined by Usergroup Record</source>
+				<target state="translated">Определено в записи группы пользователя</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.1" approved="yes">
+				<source>Defined by User Record</source>
+				<target state="translated">Определено в записи пользователя</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.2" approved="yes">
+				<source>After Login (TS or Flexform)</source>
+				<target state="translated">После авторизации (TS или форма)</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.3" approved="yes">
+				<source>After Logout (TS or Flexform)</source>
+				<target state="translated">После выхода (TS или форма)</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.4" approved="yes">
+				<source>After Login Error (TS or Flexform)</source>
+				<target state="translated">После ошибки авторизации (TS или форма)</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.5" approved="yes">
+				<source>Defined by GET/POST Parameters</source>
+				<target state="translated">Определяется в переменных GET/POST</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.6" approved="yes">
+				<source>Defined by Referrer</source>
+				<target state="translated">Определяется реферрером</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectMode.I.7" approved="yes">
+				<source>Defined by Domain Entries</source>
+				<target state="translated">Определяется доменом</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectPageLogin" approved="yes">
+				<source>After Successful Login Redirect to Page</source>
+				<target state="translated">После успешной авторизации перенаправлять на страницу</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectPageLoginError" approved="yes">
+				<source>After Failed Login Redirect to Page</source>
+				<target state="translated">При ошибке авторизации перенаправлять на страницу</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.redirectPageLogout" approved="yes">
+				<source>After Logout Redirect to Page</source>
+				<target state="translated">После выхода перенаправлять на страницу</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.sheet_general" approved="yes">
+				<source>General</source>
+				<target state="translated">Общие</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.sheet_messages" approved="yes">
+				<source>Messages</source>
+				<target state="translated">Сообщения</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.sheet_redirect" approved="yes">
+				<source>Redirects</source>
+				<target state="translated">Переадресация</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.show_forgot_password" approved="yes">
+				<source>Display Password Recovery Link</source>
+				<target state="translated">Показать ссылку для восстановления пароля</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.show_logoutFormAfterLogin" approved="yes">
+				<source>Disable redirect after successful login, but display logout-form</source>
+				<target state="translated">Отключить перенаправление после успешного входа в систему, но отображать форму выхода</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.show_permalogin" approved="yes">
+				<source>Display Remember Login Option</source>
+				<target state="translated">Показать параметр о запоминании авторизации</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.status_header" approved="yes">
+				<source>Status Display Header</source>
+				<target state="translated">Заголовок сообщения о статусе пользователя</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.status_message" approved="yes">
+				<source>Status Display Message</source>
+				<target state="translated">Сообщение о статусе пользователя</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.success_header" approved="yes">
+				<source>Login Success Header</source>
+				<target state="translated">Заголовок сообщения об успешной авторизации</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.success_message" approved="yes">
+				<source>Login Success Message</source>
+				<target state="translated">Сообщение об успешной авторизации</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.template_file" approved="yes">
+				<source>Template File</source>
+				<target state="translated">Файл шаблона</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.user_storage" approved="yes">
+				<source>User Storage Page</source>
+				<target state="translated">Страница хранилище пользователей</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.welcome_header" approved="yes">
+				<source>Welcome Header</source>
+				<target state="translated">Заголовок приветствия</target>
+			</trans-unit>
+			<trans-unit id="tt_content.pi_flexform.welcome_message" approved="yes">
+				<source>Welcome Message</source>
+				<target state="translated">Приветствие</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

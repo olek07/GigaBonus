@@ -51,12 +51,12 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     
     /**
-     * orderId
+     * shopOrderId
      * 
      * @var string
      * @validate NotEmpty
      */
-    protected $orderId = '';
+    protected $shopOrderId = '';
     
     /**
      * amount
@@ -148,26 +148,25 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     
-    
     /**
-     * Returns the orderId
+     * Returns the shopOrderId
      * 
-     * @return string $orderId
+     * @return string
      */
-    public function getOrderId()
+    public function getShopOrderId()
     {
-        return $this->orderId;
+        return $this->shopOrderId;
     }
     
     /**
-     * Sets the orderId
+     * Sets the shopOrderId
      * 
-     * @param string $orderId
+     * @param string $shopOrderId
      * @return void
      */
-    public function setOrderId($orderId)
+    public function setShopOrderId($shopOrderId)
     {
-        $this->orderId = $orderId;
+        $this->shopOrderId = $shopOrderId;
     }
     
     /**

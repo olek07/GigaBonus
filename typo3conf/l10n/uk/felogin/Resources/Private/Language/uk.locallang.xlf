@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" target-language="uk" datatype="plaintext" original="messages" date="2016-12-06T01:11:58Z" product-name="felogin">
+		<header/>
+		<body>
+			<trans-unit id="change_password" approved="yes">
+				<source>Change your password</source>
+				<target state="translated">Змінити ваш пароль</target>
+			</trans-unit>
+			<trans-unit id="cookie_warning" approved="yes">
+				<source>Warning: There is a possibility that cookies are not enabled in your web browser! If your login disappears on your next click that is the case and you should enable cookies (or accept cookies from this website) immediately!</source>
+				<target state="translated">Увага! Можливо в вашому браузері не ввімкнені cookies. Якщо ваш віхд систему пропаде на наступній сторінці, то вам треба ввімкнути cookies (або прийняти cookies цього вебсайту) у вашом бразурі якнайшвидше.</target>
+			</trans-unit>
+			<trans-unit id="ll_change_password_done_message" approved="yes">
+				<source>Your password has been saved. You can now login with your new password.</source>
+				<target state="translated">Ваш пароль було збережено. Тепер ви можете увійти в систему з новим паролем.</target>
+			</trans-unit>
+			<trans-unit id="ll_change_password_header" approved="yes">
+				<source>Change your password</source>
+				<target state="translated">Змінити ваш пароль</target>
+			</trans-unit>
+			<trans-unit id="ll_change_password_message" approved="yes">
+				<source>Please enter your new password twice. Password needs a minimum length of %s chars.</source>
+				<target state="translated">Будь-ласка, введіть ваш новий пароль двічі. Пароль має складатися з більш ніж %s символів.</target>
+			</trans-unit>
+			<trans-unit id="ll_change_password_nolinkprefix_message">
+				<source>Error: there is no prefix for the link. Please set one of the following in your typoscript template: plugin.tx_felogin_pi1.feloginBaseURL = http://yourdomain/, config.baseURL = http://yourdomain/, config.absRefPrefix = /</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_change_password_notequal_message" approved="yes">
+				<source>The passwords are not equal, please enter your new password twice. Password needs a minimum length of %s chars.</source>
+				<target state="translated">Паролі не сходяться. Будь-ласка, введіть ваш новий пароль двічі. Пароль має складатися з більш ніж %s символів.</target>
+			</trans-unit>
+			<trans-unit id="ll_change_password_notvalid_message" approved="no">
+				<source>The link you clicked is not valid. Please repeat the forgot password procedure.</source>
+				<target state="needs-translation">Посилання, на яке ви натиснули, неправильне. Будь-ласка, повторіть процедуру з відновленню паролю.</target>
+			</trans-unit>
+			<trans-unit id="ll_change_password_tooshort_message" approved="yes">
+				<source>The password length is too short. Please enter your new password twice. Password needs a minimum length of %s chars.</source>
+				<target state="translated">Введений вами пароль занадто короткий. Пароль має складатися з більш ніж %s символів.</target>
+			</trans-unit>
+			<trans-unit id="ll_enter_your_data" approved="yes">
+				<source>Username or email address:</source>
+				<target state="translated">Ім'я користувача або пароль</target>
+			</trans-unit>
+			<trans-unit id="ll_error_header" approved="yes">
+				<source>Login failure</source>
+				<target state="translated">Вхід до системи неуспішний</target>
+			</trans-unit>
+			<trans-unit id="ll_error_message" xml:space="preserve" approved="yes">
+				<source>An error occurred during login. Most likely you didn't enter the username or password correctly.
+Be certain that you enter them precisely as they are, including upper/lower case.
+Another possibility is that cookies might be disabled in your web browser.</source>
+			<target state="translated">Помилка виникла під час входу в систему. Набільш вірогідно, що ви ввели неправильно ваше ім'я користувача або пароль. Будь-ласка, впевніться, що ви ввели їх такими, як вони є, враховуючи верхній/нижній регістр. Також можливо, що cookies відключені в вашому браузері.</target><alt-trans xml:space="preserve" origin="Buch"><target>Помилка виникла під час входу в систему. Набільш вірогідно, що ви ввели неправильно ваше ім'я користувача або пароль.
+Будь-ласка, впевніться, що ви ввели їх такими, як вони є, враховуючи верхній/нижній регістр.
+Також можливо, що cookies відключені в вашому браузері.</target></alt-trans></trans-unit>
+			<trans-unit id="ll_forgot_email_nopassword" xml:space="preserve" approved="yes">
+				<source>Your password
+Hi %s
+
+We couldn't find a username for this email address and so cannot send the password to you. Probably you misspelled the email address (upper/lower case makes a difference) or maybe you even didn't register yet?</source>
+			<target state="translated">Ваш пароль Здраствуйте, %s Ми не змогли знайти ваше ім'я користувача до цієї email адреси, і тому не можемо вислати вам новий пароль. Мабуть, ви вказали неправильну адресу (верхній/нижній регістр відрізняються) або, можливо, ви ще не реєструвалися?</target><alt-trans xml:space="preserve" origin="Buch"><target>Ваш пароль
+Привіт, %s
+
+Ми не змогли знайти ваше ім'я користувача до цієї email адреси, і тому не можемо вислати вам новий пароль. Мабуть, ви вказали неправильну адресу (верхній/нижній регістр відрізняються) або, можливо, ви ще не реєструвались?</target></alt-trans></trans-unit>
+			<trans-unit id="ll_forgot_email_password" xml:space="preserve" approved="yes">
+				<source>Your password
+Hi %s
+
+Your username is "%s"
+Your password is "%s"</source>
+			<target state="translated">Ваш пароль Здраствуйте, %s Ваше ім'я користувача: "%s" Ваш пароль: "%s"</target><alt-trans xml:space="preserve" origin="Buch"><target>Ваш пароль
+Здраствуйте %s
+Ваше ім'я користувача: "%s"
+Ваш пароль: "%s"</target></alt-trans><alt-trans xml:space="preserve" origin="Buch"><target>Ваш пароль
+Здраствуйте, %s
+Ваше ім'я користувача: "%s"
+Ваш пароль: "%s"</target></alt-trans></trans-unit>
+			<trans-unit id="ll_forgot_header" approved="yes">
+				<source>Forgot your password?</source>
+				<target state="translated">Забули ваш пароль?</target>
+			</trans-unit>
+			<trans-unit id="ll_forgot_header_backToLogin" approved="yes">
+				<source>Return to login form</source>
+				<target state="translated">Повернутися до форми входу у систему</target>
+			</trans-unit>
+			<trans-unit id="ll_forgot_message" approved="yes">
+				<source>Please enter the email address by which you registered your user account. Then press "Send password" and your password will immediately be emailed to you. Make sure to spell your email address correctly.</source>
+				<target state="translated">Будь ласка, введіть email адресу за допомогую якої ви реєструвалися. Тоді натисніть на "Надіслати пароль" і ваш пароль буде миттєво висланий на вашу email адресу. Впевніться, що ви ввели правильну email адресу.</target>
+			</trans-unit>
+			<trans-unit id="ll_forgot_message_emailSent" approved="yes">
+				<source>Your password has now been sent to the email address %s</source>
+				<target state="translated">Ваш пароль був висланий на вашу email адресу %s</target>
+			</trans-unit>
+			<trans-unit id="ll_forgot_reset_message">
+				<source>Please enter your username or email address. Instructions for resetting the password will be immediately emailed to you.</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_forgot_reset_message_emailSent">
+				<source>An email has been sent to the address stored in your account and contains a link to reset your password. If you do not receive an email, your account or email address was not found.</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_forgot_reset_message_error">
+				<source>Your account or email address does not exist.</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="ll_forgot_validate_reset_password" xml:space="preserve">
+				<source>Your new password
+Dear %s,
+
+This email was sent in response to your request to reset your password. Please click on the link below.
+%s
+
+For security reasons, this link is only active until %s. If you do not visit the link before then, you will need to repeat the password reset steps.</source>
+			<target/></trans-unit>
+			<trans-unit id="ll_logout_header" approved="yes">
+				<source>You have logged out.</source>
+				<target state="translated">Ви вийшли з системи</target>
+			</trans-unit>
+			<trans-unit id="ll_logout_message" approved="yes">
+				<source>You just logged out from your user session on this website. You can login again or as another user by the form below.</source>
+				<target state="translated">Ви тільки-но вийшли з цього вебсайту. Ви можете зайти під тим самим чи іншим користувачем, заповнивши форму нижче.</target>
+			</trans-unit>
+			<trans-unit id="ll_status_header" approved="yes">
+				<source>Current status</source>
+				<target state="translated">Теперішній статус</target>
+			</trans-unit>
+			<trans-unit id="ll_status_message" approved="yes">
+				<source>This is your current status:</source>
+				<target state="translated">Це ваш теперішній статус:</target>
+			</trans-unit>
+			<trans-unit id="ll_success_header" approved="yes">
+				<source>Login successful</source>
+				<target state="translated">Вхід успішний!</target>
+			</trans-unit>
+			<trans-unit id="ll_success_message" approved="yes">
+				<source>You are now logged in as '###USER###'</source>
+				<target state="translated">Ви ввійшли в систему як '###USER###'</target>
+			</trans-unit>
+			<trans-unit id="ll_welcome_header" approved="yes">
+				<source>User login</source>
+				<target state="translated">Увійти в систему</target>
+			</trans-unit>
+			<trans-unit id="ll_welcome_message" approved="yes">
+				<source>Enter your username and password here in order to log in on the website:</source>
+				<target state="translated">Введіть ім'я користувача і пароль для входу в систему</target>
+			</trans-unit>
+			<trans-unit id="login" approved="yes">
+				<source>Login</source>
+				<target state="translated">Вхід в систему</target>
+			</trans-unit>
+			<trans-unit id="logout" approved="yes">
+				<source>Logout</source>
+				<target state="translated">Вийти з системи</target>
+			</trans-unit>
+			<trans-unit id="newpassword_label1" approved="yes">
+				<source>Enter new password</source>
+				<target state="translated">Введіть ваш пароль</target>
+			</trans-unit>
+			<trans-unit id="newpassword_label2" approved="yes">
+				<source>Repeat new password</source>
+				<target state="translated">Повторіть ваш пароль</target>
+			</trans-unit>
+			<trans-unit id="noValidRedirectUrl">
+				<source>Url "%s" for redirect was not accepted!</source>
+				<target/>
+			</trans-unit>
+			<trans-unit id="password" approved="yes">
+				<source>Password:</source>
+				<target state="translated">Пароль:</target>
+			</trans-unit>
+			<trans-unit id="permalogin" approved="yes">
+				<source>Stay logged in:</source>
+				<target state="translated">Запам'ятати мене:</target>
+			</trans-unit>
+			<trans-unit id="reset_password" approved="yes">
+				<source>Reset Password</source>
+				<target state="translated">Скидання паролю</target>
+			</trans-unit>
+			<trans-unit id="send_password" approved="yes">
+				<source>Send password</source>
+				<target state="translated">Надіслати пароль</target>
+			</trans-unit>
+			<trans-unit id="username" approved="yes">
+				<source>Username:</source>
+				<target state="translated">Ім'я користувача:</target>
+			</trans-unit>
+			<trans-unit id="xssAttackDetected">
+				<source>Url "%s" contained an XSS attack and was cleaned!</source>
+				<target/>
+				<note from="developer">This label is deprecated (not used anymore) since TYPO3v8</note>
+			</trans-unit>
+			<trans-unit id="your_email" approved="yes">
+				<source>Your email:</source>
+				<target state="translated">Ваш еmail:</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

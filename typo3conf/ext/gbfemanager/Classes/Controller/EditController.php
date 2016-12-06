@@ -12,15 +12,6 @@ class EditController extends \In2code\Femanager\Controller\EditController {
     
 
     /**
-    * initialize create action
-    *
-    * @return void
-    */
-    public function initializeUpdateAction() {
-
-    }
-    
-    /**
      * action edit
      *
      * @return void
@@ -52,19 +43,10 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      * @return void
      */
     public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = NULL) {
-
-
-        if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) == $user->getUid()) {
             // $this->redirectIfDirtyObject($user);
             $this->updateAllConfirmed($user);
             $this->forward('edit');
-
             // parent::updateAction($user);
-        } else {
-            // Versuch die uid im FireBug oder Ähnlichem zu manipulieren
-            throw new \Exception('');
-
-        }
     }
 
 }

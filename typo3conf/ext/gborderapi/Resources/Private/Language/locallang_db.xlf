@@ -9,8 +9,8 @@
 			<trans-unit id="tx_gborderapi_domain_model_order.partner_id">
 				<source>Partner Id</source>
 			</trans-unit>
-			<trans-unit id="tx_gborderapi_domain_model_order.order_id">
-				<source>Order Id</source>
+			<trans-unit id="tx_gborderapi_domain_model_order.shop_order_id">
+				<source>Shop Order Id</source>
 			</trans-unit>
 			<trans-unit id="tx_gborderapi_domain_model_order.amount">
 				<source>Amount</source>
