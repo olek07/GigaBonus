@@ -91,7 +91,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $order = $this->objectManager->get('Gigabonus\\Gborderapi\\Domain\\Model\\Order');
 
         $partnerId = GeneralUtility::_GET('partnerId');
-        $shopOrderId = GeneralUtility::_GET('orderId');
+        $shopOrderId = GeneralUtility::_GET('orderId');             // rename to partner_order_id
         $amount = GeneralUtility::_GET('amount');
         $status = GeneralUtility::_GET('status');
         $userId = GeneralUtility::_GET('userId');
@@ -128,20 +128,18 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $fee = $partnerClassObj->calculateFee($amount);
             $bonus = $partnerClassObj->calculateBonus($amount);
 
-            # DebuggerUtility::var_dump($amount . ' ' . $bonus . ' бонусов ');
-            
+
             $order->setFee($fee);
 
 
+            if ($this->orderRepository->checkUniqueDb($partnerId, $shopOrderId)) {
+                return 'not unique';
+            }
 
-            /**
-             * @todo check, if the order already exists in the DB. All orders and transactions must be unique 
-             */
-            
             $this->orderRepository->add($order);
             $this->persistenceManager->persistAll();
 
-            DebuggerUtility::var_dump($order);
+
 
             /*
              * Create a new transaction
@@ -163,8 +161,11 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $this->transactionRepository->add($transaction);
 
         }
+        else {
+            throw new \Exception('Token is wrong');
+        }
 
-        return '';
+        return 'ok';
     }
 
 }

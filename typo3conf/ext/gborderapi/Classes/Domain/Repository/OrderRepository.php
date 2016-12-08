@@ -25,6 +25,8 @@ namespace Gigabonus\Gborderapi\Domain\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use Gigabonus\Gborderapi\Domain\Model\Order;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * The repository for Orders
@@ -38,5 +40,33 @@ class OrderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     protected $defaultOrderings = array(
         'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     );
+
+
+    /**
+     * Check if there is already an entry in the table
+     *
+     * @param $partnerId
+     * @param $partnerOrderId
+     * @return Order
+     */
+    public function checkUniqueDb($partnerId, $partnerOrderId)
+    {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectStoragePage(true);
+        // $query->getQuerySettings()->setIgnoreEnableFields(true);
+
+        $and = [
+            $query->equals('partner_id', $partnerId),
+            $query->equals('shop_order_id', $partnerOrderId)
+        ];
+
+        $constraint = $query->logicalAnd($and);
+
+        $query->matching($constraint);
+
+        $order = $query->execute()->getFirst();
+        return $order;
+    }
+
 
 }

@@ -25,6 +25,7 @@ namespace Gigabonus\Gbaccount\Domain\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use Gigabonus\Gbaccount\Domain\Model\Transaction;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -55,5 +56,40 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         return $result;
     }
+
+
+    /**
+     * Check if there is already an entry in the table
+     *
+     * @param $partnerId
+     * @param $partnerOrderId
+     * @return Transaction
+     */
+    public function checkUniqueDb($orderId)
+    {
+        $transaction = $this->findByOrderId($orderId);
+        DebuggerUtility::var_dump($transaction);
+        exit;
+
+
+        /*
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectStoragePage(true);
+        // $query->getQuerySettings()->setIgnoreEnableFields(true);
+
+        $and = [
+            $query->equals('partner_id', $partnerId),
+            $query->equals('shop_order_id', $partnerOrderId)
+        ];
+
+        $constraint = $query->logicalAnd($and);
+
+        $query->matching($constraint);
+
+        $order = $query->execute()->getFirst();
+        return $order;
+        */
+    }
+
 
 }
