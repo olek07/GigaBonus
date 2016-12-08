@@ -17,6 +17,6 @@ if (!defined('TYPO3_MODE')) {
 
 // allow to list Order table records in Page mode
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_gborderapi_domain_model_order'][0] = array(
-	'fList' => 'amount, fee, partner, user_id, shop_order_id, currency, crdate',
+	'fList' => 'amount, fee, partner, user_id, partner_order_id, currency, crdate',
 	'icon' => TRUE
 );

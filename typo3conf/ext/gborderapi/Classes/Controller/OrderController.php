@@ -91,7 +91,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $order = $this->objectManager->get('Gigabonus\\Gborderapi\\Domain\\Model\\Order');
 
         $partnerId = GeneralUtility::_GET('partnerId');
-        $shopOrderId = GeneralUtility::_GET('orderId');             // rename to partner_order_id
+        $partnerOrderId = GeneralUtility::_GET('orderId');             // rename to partner_order_id
         $amount = GeneralUtility::_GET('amount');
         $status = GeneralUtility::_GET('status');
         $userId = GeneralUtility::_GET('userId');
@@ -107,7 +107,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         if ($apiKey == $token) {
             $order->setPartnerId($partnerId);
             $order->setPartner($partner);
-            $order->setShopOrderId($shopOrderId);
+            $order->setPartnerOrderId($partnerOrderId);
             $order->setAmount($amount);
             $order->setStatus($status);
             $order->setUserId($userId);
@@ -132,7 +132,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $order->setFee($fee);
 
 
-            if ($this->orderRepository->checkUniqueDb($partnerId, $shopOrderId)) {
+            if ($this->orderRepository->checkUniqueDb($partnerId, $partnerOrderId)) {
                 return 'not unique';
             }
 
@@ -151,7 +151,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $transaction->setAmount($bonus);
             $transaction->setPartner($partnerId);
             $transaction->setUser($userId);
-            $transaction->setOrderId($order->getUid());             // NOT the shop order id, but uid in tx_gborderapi_domain_model_order
+            $transaction->setOrderId($order->getUid());             // NOT the partner order id, but uid in tx_gborderapi_domain_model_order
             $transaction->setIsOnHold(true);
 
             /**

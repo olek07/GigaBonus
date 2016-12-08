@@ -57,7 +57,7 @@ class OrderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         $and = [
             $query->equals('partner_id', $partnerId),
-            $query->equals('shop_order_id', $partnerOrderId)
+            $query->equals('partner_order_id', $partnerOrderId)
         ];
 
         $constraint = $query->logicalAnd($and);

@@ -51,12 +51,12 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     
     /**
-     * shopOrderId
+     * partnerOrderId
      * 
      * @var string
      * @validate NotEmpty
      */
-    protected $shopOrderId = '';
+    protected $partnerOrderId = '';
     
     /**
      * amount
@@ -149,24 +149,24 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     
     /**
-     * Returns the shopOrderId
+     * Returns the partnerOrderId
      * 
      * @return string
      */
-    public function getShopOrderId()
+    public function getPartnerOrderId()
     {
-        return $this->shopOrderId;
+        return $this->partnerOrderId;
     }
     
     /**
-     * Sets the shopOrderId
+     * Sets the partnerOrderId
      * 
-     * @param string $shopOrderId
+     * @param string $partnerOrderId
      * @return void
      */
-    public function setShopOrderId($shopOrderId)
+    public function setPartnerOrderId($partnerOrderId)
     {
-        $this->shopOrderId = $shopOrderId;
+        $this->partnerOrderId = $partnerOrderId;
     }
     
     /**
