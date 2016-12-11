@@ -13,7 +13,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
     /**
      * Render registration form
      *
-     * @param User $user
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @return void
      */
     public function newAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null)
@@ -23,6 +23,21 @@ class NewController extends \In2code\Femanager\Controller\NewController {
             MainHelper::redirect2Home();
             exit;
         }
+
+
+        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+
+        $pageRenderer->addJsFooterInlineCode('',"
+            $(document).ready(function(){
+                $(document).on(Layout.EVENT_INIT_FORMS, function() {
+                    GbfemanagerNew.init();
+                });
+                $(document).trigger(Layout.EVENT_INIT_FORMS);
+            });
+            "
+        );
+
+
         parent::newAction($user);
     }
     
@@ -68,7 +83,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
     /**
      * Some additional actions after profile creation
      *
-     * @param User $user
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @param string $action
      * @param string $redirectByActionName Action to redirect
      * @param bool $login Login after creation
@@ -104,7 +119,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      /**
      * Prefix method to createAction(): Create must be confirmed by Admin or User
      *
-     * @param User $user
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @return void
      */
     public function createRequest(\Gigabonus\Gbfemanager\Domain\Model\User $user)

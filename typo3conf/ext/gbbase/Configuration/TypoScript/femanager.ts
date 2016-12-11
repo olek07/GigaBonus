@@ -13,15 +13,16 @@ plugin.tx_femanager {
                 password {
                     min = 6
                     mustInclude = number
+                    required = 1
                 }
 
                 password_repeat {
-                  required = 0
-
+                    sameAs = password
+                    required = 1
                 }
-
-                
             }
+
+            pageType = 104
             // email.createUserConfirmation.sender = vinslave@mail.ru
         }
     
@@ -33,6 +34,7 @@ plugin.tx_femanager {
                 email.uniqueInDb = 1
                 // captcha.captcha = 1
                 password < plugin.tx_femanager.settings.new.validation.password
+                password_repeat < plugin.tx_femanager.settings.new.validation.password_repeat
 
                 firstName {
                     min = 2
@@ -79,6 +81,9 @@ plugin.tx_femanager {
                     inList = m,w
                 }
             }
+
+            misc.keepPasswordIfEmpty = 0
+
         }
 
         changemobilenumber {

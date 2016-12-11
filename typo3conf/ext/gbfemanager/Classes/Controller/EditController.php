@@ -18,17 +18,19 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      */
     public function editAction()
     {
-        $pageUid = $GLOBALS['TSFE']->id;
 
         $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-        $lang = (int) \TYPO3\CMS\Core\Utility\GeneralUtility::_GET('L');
-        /*
-        $pageRenderer->addJsFooterInlineCode('',
-            "jQuery(document).ready(function(){
-                Gbfemanager.init($lang, $pageUid);
-            });"
+
+        $pageRenderer->addJsFooterInlineCode('',"
+            $(document).ready(function(){
+                $(document).on(Layout.EVENT_INIT_FORMS, function() {
+                    GbfemanagerEdit.init();
+                });
+                $(document).trigger(Layout.EVENT_INIT_FORMS);
+            });
+            "
         );
-*/
+
         parent::editAction();
     }
 

@@ -1,0 +1,28 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:layout name="Default" />
+
+	User / New
+		Available variables:
+			{user}
+			{allUserGroups}
+
+<f:section name="main">
+	<f:render partial="Misc/FlashMessages" arguments="{_all}" />
+	<f:render partial="Misc/FormErrors" arguments="{object:User}" />
+
+	<div class="femanager_new">
+		<f:form name="user" id="newUserForm" object="{user}" action="create" pageUid="1" pageType="{settings.new.pageType}" noCacheHash="1" class="form-horizontal {f:if(condition:'{settings.new.validation._enable.client}',then:'feManagerValidation',else:'')}">
+			<fieldset>
+				<legend>
+					<f:translate key="titleCreateProfile" />
+				</legend>
+
+				<f:for each="{femanager:misc.explode(string:'{settings.new.fields}')}" as="field">
+				    <f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+				</f:for>
+				<f:render partial="Fields/SubmitCreate" arguments="{_all}" />
+
+			</fieldset>
+		</f:form>
+	</div>
+</f:section>

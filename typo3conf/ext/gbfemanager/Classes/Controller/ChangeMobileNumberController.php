@@ -37,6 +37,23 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
                 $timeToPasswordChange = 300 - $t;
             }
         }
+
+
+        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+
+        $pageRenderer->addJsFooterInlineCode('',"
+            $(document).ready(function(){
+                $(document).on(Layout.EVENT_INIT_FORMS, function() {
+                    GbfemanagerEdit.init();
+                });
+                $(document).trigger(Layout.EVENT_INIT_FORMS);
+            });
+            "
+        );
+
+
+
+
         // $timeToPasswordChange = 0;
         $this->view->assign('timeToPasswordChange', $timeToPasswordChange);
 
