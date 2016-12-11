@@ -146,6 +146,7 @@ return array(
 
 		'partners' => array(
 			'exclude' => 1,
+                        'l10n_mode' => 'exclude',
 			'label' => 'Partners',
 			'config' => array(
 				'type' => 'select',

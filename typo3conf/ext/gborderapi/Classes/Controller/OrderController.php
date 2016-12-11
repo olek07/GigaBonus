@@ -154,9 +154,6 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $transaction->setOrderId($order->getUid());             // NOT the partner order id, but uid in tx_gborderapi_domain_model_order
             $transaction->setIsOnHold(true);
 
-            /**
-             * @todo check, if the transaction already exists in the DB. All orders and transactions must be unique
-             */
             
             $this->transactionRepository->add($transaction);
 

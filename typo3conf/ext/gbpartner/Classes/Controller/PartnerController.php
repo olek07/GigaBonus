@@ -56,6 +56,8 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         // DebuggerUtility::var_dump($partners);
         // $this->view->assign('partners', $partners)
 
+        $GLOBALS['TSFE']->page['title'] = $category->getName();
+
         $this->view->assign('partnerDetailPageUid', MainHelper::PARTNERDETAILPAGEID);
         $this->view->assign('category', $category);
     }

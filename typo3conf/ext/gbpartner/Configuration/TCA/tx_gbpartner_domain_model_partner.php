@@ -6,7 +6,7 @@ return array(
 		// 'label_userFunc' => 'Gigabonus\\Gbpartner\\Backend\Category->countOfPartners',
 		'label' => 'name',
 		'label_alt' => 'uid',
-        'label_alt_force' => 1,
+        	'label_alt_force' => 1,
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -283,6 +283,7 @@ return array(
 		),
 		'category' => array(
 			'exclude' => 1,
+                        'l10n_mode' => 'exclude',
 			'label' => 'Partner categories',
 			'config' => array(
 				'type' => 'select',
