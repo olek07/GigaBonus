@@ -59,6 +59,16 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @validate NotEmpty
      */
     protected $name = '';
+
+
+    /**
+     * description
+     *
+     * @var string
+     */
+    protected $description = '';
+
+
     
     /**
      * Returns the name
@@ -80,6 +90,29 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->name = $name;
     }
+
+
+    /**
+     * Returns the description
+     *
+     * @return string $description
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Sets the description
+     *
+     * @param string $description
+     * @return void
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
 
     /**
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
