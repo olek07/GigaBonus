@@ -6,7 +6,9 @@ use In2code\Femanager\Utility\LogUtility;
 use In2code\Femanager\Utility\LocalizationUtility;
 use In2code\Femanager\Utility\StringUtility;
 use In2code\Femanager\Utility\HashUtility;
+use In2code\Femanager\Utility\UserUtility;
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
+
 
 class NewController extends \In2code\Femanager\Controller\NewController {
     
@@ -18,12 +20,11 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      */
     public function newAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null)
     {
-        // wenn angemeldet, redirect auf die Startseite 
+        // wenn angemeldet, redirect auf die Startseite
         if ($GLOBALS['TSFE']->fe_user->user) {
             MainHelper::redirect2Home();
             exit;
         }
-
 
         $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
 
@@ -53,11 +54,17 @@ class NewController extends \In2code\Femanager\Controller\NewController {
         $user->setLanguage('uk');
         parent::createAction($user);
     }
+
+
+    public function registeredAction() {
+        $this->controllerContext->getFlashMessageQueue()->clear();
+    }
+
     
     /**
      * Send email to user for confirmation
      *
-     * @param User $user
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @return void
      * @throws UnsupportedRequestTypeException
      */
@@ -111,8 +118,11 @@ class NewController extends \In2code\Femanager\Controller\NewController {
         }
         $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__ . 'AfterPersist', [$user, $action, $this]);
         $this->finisherRunner->callFinishers($user, $this->actionMethodName, $this->settings, $this->contentObject);
-        $this->redirectByAction($action, ($status ? $status . 'Redirect' : 'redirect'));
-        $this->redirect($redirectByActionName);
+
+        $this->forward('registered');
+
+        // $this->redirectByAction($action, ($status ? $status . 'Redirect' : 'redirect'));
+        // $this->redirect($redirectByActionName);
     }
     
     
@@ -136,4 +146,25 @@ class NewController extends \In2code\Femanager\Controller\NewController {
         $this->finalCreate($user, 'new', 'createStatus');
 
     }
+
+    /**
+     * Log user in
+     *
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
+     * @param $login
+     * @throws IllegalObjectTypeException
+     */
+    protected function loginPreflight(\Gigabonus\Gbfemanager\Domain\Model\User $user, $login)
+    {
+        if ($login) {
+            // persist user (otherwise login may not be possible)
+            $this->userRepository->update($user);
+            $this->persistenceManager->persistAll();
+            if ($this->config['new.']['login'] === '1') {
+                UserUtility::login($user, $this->allConfig['persistence']['storagePid']);
+            }
+        }
+    }
+
+
 }

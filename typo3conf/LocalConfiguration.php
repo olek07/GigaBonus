@@ -23,6 +23,7 @@ return [
             'gbfemanager' => 'a:0:{}',
             'gborderapi' => 'a:0:{}',
             'gbpartner' => 'a:0:{}',
+            'gbredirect' => 'a:0:{}',
             'realurl' => 'a:5:{s:10:"configFile";s:26:"typo3conf/realurl_conf.php";s:14:"enableAutoConf";s:1:"1";s:14:"autoConfFormat";s:1:"0";s:12:"enableDevLog";s:1:"0";s:10:"moduleIcon";s:1:"0";}',
             'rsaauth' => 'a:1:{s:18:"temporaryDirectory";s:0:"";}',
             'saltedpasswords' => 'a:2:{s:3:"BE.";a:4:{s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\PhpassSalt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}s:3:"FE.";a:5:{s:7:"enabled";i:1;s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\PhpassSalt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}}',
@@ -42,7 +43,7 @@ return [
         'debug' => true,
         'lifetime' => '31536000',
         'loginSecurityLevel' => 'rsa',
-        'pageNotFound_handling' => '/404.html',
+        'pageNotFound_handling' => 'REDIRECT:/404.html',
     ],
     'GFX' => [
         'colorspace' => 'sRGB',

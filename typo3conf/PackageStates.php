@@ -266,6 +266,12 @@ return [
             'packagePath' => 'typo3conf/ext/gbfemanager/',
             'suggestions' => [],
         ],
+        'gbredirect' => [
+            'composerName' => 'gbredirect',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/gbredirect/',
+            'suggestions' => [],
+        ],
         'gbaccount' => [
             'composerName' => 'gbaccount',
             'state' => 'active',

@@ -217,15 +217,20 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
         $bonusBalance = 0;
         $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+        $userEmail = $GLOBALS['TSFE']->fe_user->user['email'];
 
         if ($userId !== NULL) {
             $bonusBalance = $this->transactionRepository->getBonusBalance($userId);
         }
 
+        $links = array(
+            'transactionListPageUid' => MainHelper::TRANSACTIONLISTPAGEUID,
+            'changedUserDataPageId' => MainHelper::CHANGEUSERDATAPAGEID
+        );
         
-        $transactionListPageUid = MainHelper::TRANSACTIONLISTPAGEUID;
 
-        $this->view->assign('transactionListPageUid', $transactionListPageUid);
+        $this->view->assign('links', $links);
+        $this->view->assign('userEmail', $userEmail);
         $this->view->assign('bonusBalance', $bonusBalance);
     }
 

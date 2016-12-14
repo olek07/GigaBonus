@@ -23,15 +23,15 @@ return array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'name,teaser,description,website_url,image,category,',
+		'searchFields' => 'name,teaser,description,website_url,image,category,delivery_conditions',
 		'iconfile' => 'EXT:gbpartner/Resources/Public/Icons/tx_gbpartner_domain_model_partner.png',
 		'thumbnail' => 'image',
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, tags, image, category',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, tags, image, category, delivery_conditions',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive, tags, image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime,--div--;API,api_key,class_name'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive, tags, image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime,--div--;API,api_key,class_name,--div--;Delivery,delivery_conditions'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -352,6 +352,19 @@ return array(
 				'eval' => 'trim'
 			),
 		),
+
+		'delivery_conditions' => array(
+			'exclude' => 0,
+			'label' => 'Delivery conditions',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 20,
+				'eval' => 'trim'
+			),
+			'defaultExtras' => 'richtext[]'
+		),
+
 		
 	),
 );
