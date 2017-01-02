@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+
+Disallow: /typo3temp/
+Disallow: /typo3conf/
+Disallow: /typo3/
+Disallow: /fileadmin/
+Disallow: /maintenance/
+Disallow: /uploads/
+
+Disallow: /*type=*
+Disallow: /*eID=*
+Disallow: /*?id=*

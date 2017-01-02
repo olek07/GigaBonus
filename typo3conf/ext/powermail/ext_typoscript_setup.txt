@@ -1,0 +1,48 @@
+config.tx_extbase {
+	persistence {
+		classes {
+			In2code\Powermail\Domain\Model\User {
+				mapping {
+					tableName = fe_users
+				}
+			}
+			In2code\Powermail\Domain\Model\UserGroup {
+				mapping {
+					tableName = fe_groups
+				}
+			}
+		}
+	}
+}
+
+# ParseFunc Configuration for using FAL links in receiver and sender mail
+lib.parseFunc_powermail < lib.parseFunc_RTE
+lib.parseFunc_powermail.tags.link.typolink.forceAbsoluteUrl = 1
+
+
+
+
+#################
+# Backend Module
+#################
+module.tx_powermail {
+	view {
+		templateRootPaths.0 = EXT:powermail/Resources/Private/Templates/
+		partialRootPaths.0 = EXT:powermail/Resources/Private/Partials/
+		layoutRootPaths.0 = EXT:powermail/Resources/Private/Layouts/
+	}
+	settings {
+		# crdate, sender_name, sender_email, subject, receiver_mail, feuser, time
+		sortby = crdate
+		order = desc
+		perPage = 25
+		export {
+			filenameXls = powermail.xls
+			filenameCsv = powermail.csv
+		}
+		uploadPath = {$plugin.tx_powermail.settings.misc.uploadFolder}
+
+		# Don't touch this (this is just to let the extension know, that there is TypoScript included)
+		staticTemplate = 1
+	}
+}

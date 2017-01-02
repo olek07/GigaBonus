@@ -1,0 +1,73 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+{namespace core=TYPO3\CMS\Core\ViewHelpers}
+
+<f:if condition="{formProperties}">
+	<f:then>
+		<f:render section="content" arguments="{_all}" />
+	</f:then>
+	<f:else>
+		<f:render section="error" arguments="{_all}" />
+	</f:else>
+</f:if>
+
+
+
+<f:section name="content">
+
+	<table class="table">
+		<thead>
+			<tr>
+				<td>{labels.formname}</td>
+				<td>{labels.storedinpage}</td>
+				<td>{labels.pages}</td>
+				<td>{labels.fields}</td>
+				<td>&nbsp;</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<a title="id={formProperties.uid}" href="{uriEditForm}">{formProperties.title}</a>
+				</td>
+				<td>
+					<a title="id={formProperties.pid}" onclick="top.loadEditId({formProperties.pid},&quot;&amp;SET[language]=0&quot;); return false;" href="#">
+						{storagePageProperties.title}
+					</a>
+				</td>
+				<td>
+					<span title="{vh:String.ImplodeField(objects:relatedPages, separator:', ')}">
+						<f:count>{relatedPages}</f:count>
+					</span>
+				</td>
+				<td>
+					<span title="{vh:String.ImplodeField(objects:relatedFields, separator:', ')}">
+						<f:count>{relatedFields}</f:count>
+					</span>
+				</td>
+				<td style="width: 2%; white-space: nowrap;">
+					<a title="{labels.edit}" href="{uriEditForm}">
+						<core:Icon identifier="actions-open" />
+					</a>
+					<a title="{labels.new}" href="{uriNewForm}">
+						<core:Icon identifier="actions-add" />
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</f:section>
+
+
+
+<f:section name="error">
+	<table class="table">
+		<tr>
+			<td>{labels.noform}</td>
+			<td style="width: 2%">
+				<a title="{labels.new}" href="{uriNewForm}">
+					<core:Icon identifier="actions-add" />
+				</a>
+			</td>
+		</tr>
+	</table>
+</f:section>

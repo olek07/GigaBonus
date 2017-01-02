@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-05-02T12:00:00Z" product-name="powermail">
+		<header/>
+		<body>
+			<trans-unit id="tabs.access">
+				<source>Access</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail">
+				<source>Mails</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.palette1">
+				<source>Sender</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.sender_mail">
+				<source>Senders Email</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.sender_name">
+				<source>Senders Name</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.subject">
+				<source>Mail Subject</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.body">
+				<source>Email Body</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.receiver_mail">
+				<source>Receivers Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.form">
+				<source>Related Form</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.answers">
+				<source>Answers</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.feuser">
+				<source>FE_User</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.spam_factor">
+				<source>Spam Factor</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.time">
+				<source>Time for submitting form (in seconds)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.sender_ip">
+				<source>Senders IP address</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.user_agent">
+				<source>Senders User Agent</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.crdate">
+				<source>Creation Date</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.marketing_referer_domain">
+				<source>Referer Domain</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.marketing_referer">
+				<source>Referer URI</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.marketing_country">
+				<source>Visitors Country</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.marketing_mobile_device">
+				<source>Visitor uses a Mobile Device</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.marketing_frontend_language">
+				<source>Website Language</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.marketing_browser_language">
+				<source>Browser Language</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_mail.marketing_page_funnel">
+				<source>Page Funnel which leads to this mail</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form">
+				<source>Forms</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.note.1">
+				<source>Note:</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.note.2">
+				<source>There are no fields marked as sender-email or sender-name</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.note.3">
+				<source>Do not show this note again for this form</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.note.4">
+				<source>Note hidden</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.error.1">
+				<source>Error: Non-Unique or empty marker names in the fields of this form detected</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.error.2">
+				<source>This should not happen in powermail. The problem should be solved if you save the form again. If not, please check marker names of all fields to this form and fix it manually.</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.css">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.css.1">
+				<source>Layout1</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.css.2">
+				<source>Layout2</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.css.3">
+				<source>Layout3</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.css.4">
+				<source>Hide label</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_form.pages">
+				<source>Pages</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page">
+				<source>Pages</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.css">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.css.1">
+				<source>Layout1</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.css.2">
+				<source>Layout2</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.css.3">
+				<source>Layout3</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.css.4">
+				<source>Hide label</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.fields">
+				<source>Fields</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.forms">
+				<source>Related Form</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field">
+				<source>Fields</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.spacer1">
+				<source>Standard</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.spacer2">
+				<source>Extra</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.spacer3">
+				<source>Extensions</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.0">
+				<source>Textfield (Input)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.1">
+				<source>Textfield with more Rows (Textarea)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.2">
+				<source>Selectfield</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.3">
+				<source>Checkboxes</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.4">
+				<source>Radiobuttons</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.5">
+				<source>Submit</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.6">
+				<source>Captcha Field</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.7">
+				<source>Reset</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.8">
+				<source>Show some Text</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.9">
+				<source>Content Element</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.10">
+				<source>Show HTML</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.11">
+				<source>Password Field</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.12">
+				<source>File Upload</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.13">
+				<source>Hidden Field</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.14">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.15">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.16">
+				<source>TypoScript</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.type.17">
+				<source>Country Selection</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.settings">
+				<source>Options</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.path">
+				<source>TypoScript Path (e.g. lib.test)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.content_element">
+				<source>Select Content Element</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.text">
+				<source>Add some text</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation_title">
+				<source>Validation</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.mandatory">
+				<source>Mandatory Field</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation">
+				<source>Validation</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.1">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.2">
+				<source>URL</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.3">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.4">
+				<source>Numbers Only</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.5">
+				<source>Letters Only</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.6">
+				<source>Min Number</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.7">
+				<source>Max Number</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.8">
+				<source>Range</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.9">
+				<source>Length</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validation.10">
+				<source>Pattern (RegEx)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.validationConfiguration">
+				<source>Validation Configuration</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.css">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.css.1">
+				<source>Layout 1</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.css.2">
+				<source>Layout 2</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.css.3">
+				<source>Layout 3</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.css.4">
+				<source>Hide label</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.multiselect">
+				<source>Multiselect</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.datepicker_settings">
+				<source>Datepicker Mode</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.datepicker_settings.1">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.datepicker_settings.2">
+				<source>Date and Time</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.datepicker_settings.3">
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.prefill_title">
+				<source>Prefill Field</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.prefill_value">
+				<source>With Value</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.placeholder">
+				<source>Placeholder</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.create_from_typoscript">
+				<source>Create from TypoScript (e.g. lib.fieldvalues)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value">
+				<source>Value from logged in Frontent User</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.fax">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.zip">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.www">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.feuser_value.company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.sender_email">
+				<source>This field contains the Email of the sender</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.sender_name">
+				<source>This field contains the Name of the sender</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.marker_title">
+				<source>Variables</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.own_marker">
+				<source>Enter your own Variable Name</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.auto_marker">
+				<source>Individual Fieldname to use as Variable (automaticly wrapped with {})</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.own_marker_select">
+				<source>Add my own Variable Name</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.pages">
+				<source>Related Page</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.sheet1">
+				<source>Extended</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.sheet2">
+				<source>Marketing</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.palette1">
+				<source>Email or Name</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer">
+				<source>Answers</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.value">
+				<source>The transferred value</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.value_type">
+				<source>Data Type</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.value_type.0">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.value_type.1">
+				<source>Multi Text (Array)</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.value_type.2">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.value_type.3">
+				<source>Upload</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.mail">
+				<source>Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_answer.field">
+				<source>Field</source>
+			</trans-unit>
+			<trans-unit id="pleaseChoose">
+				<source>Please choose...</source>
+			</trans-unit>
+			<trans-unit id="flexform.main">
+				<source>Main Settings</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.form">
+				<source>Choose a Powermail Form</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.formnote.noform">
+				<source>Please select a form</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.formnote.new">
+				<source>Add a new form</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.formnote.edit">
+				<source>Manage the current form</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.formnote.formname">
+				<source>Form Name</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.formnote.storedinpage">
+				<source>Stored in Page</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.formnote.pages">
+				<source>Pages</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.formnote.fields">
+				<source>Fields</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.pid">
+				<source>Where to save Mails (empty = same page)</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.optin">
+				<source>Mail must be confirmed (Double Opt-In)</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.confirmation">
+				<source>Do you want a confirmation page?</source>
+			</trans-unit>
+			<trans-unit id="flexform.main.moresteps">
+				<source>Do you want to split each page (step by step)?</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver">
+				<source>Mail to Receiver</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.name">
+				<source>Receivers Name</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.type">
+				<source>Receiver type</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.type.0">
+				<source>Email addresses</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.type.1">
+				<source>Frontend user group</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.type.2">
+				<source>Predefined receivers</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.type.3">
+				<source>Backend user group</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.email">
+				<source>Receivers Email</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.fe_group">
+				<source>Send Email to Frontend User Group</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.predefinedemail">
+				<source>Predefined receivers</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.be_group">
+				<source>Send Email to Backend User Group</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.predefinedemail.1">
+				<source>Example receivers 1</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.subject">
+				<source>Subject for Email to Receiver (Empty subject disables mail)</source>
+			</trans-unit>
+			<trans-unit id="flexform.receiver.body">
+				<source>Bodytext for Email to Receiver</source>
+			</trans-unit>
+			<trans-unit id="flexform.sender">
+				<source>Mail to User</source>
+			</trans-unit>
+			<trans-unit id="flexform.sender.email">
+				<source>Sender Email (For Confirmation Mail to User)</source>
+			</trans-unit>
+			<trans-unit id="flexform.sender.name">
+				<source>Sender Name (For Confirmation Mail to User)</source>
+			</trans-unit>
+			<trans-unit id="flexform.sender.subject">
+				<source>Subject for Email to Sender (Empty subject disables mail)</source>
+			</trans-unit>
+			<trans-unit id="flexform.sender.body">
+				<source>Bodytext for Email to Sender</source>
+			</trans-unit>
+			<trans-unit id="flexform.thx">
+				<source>Submit Page</source>
+			</trans-unit>
+			<trans-unit id="flexform.thx.body">
+				<source>Text on submit page</source>
+			</trans-unit>
+			<trans-unit id="flexform.thx.redirect">
+				<source>Redirect to any other Page after submit</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.updateNote">
+				<source>ATTENTION: Please select a form in Settings before!</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main">
+				<source>Main Settings</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main.switchableControllerActions">
+				<source>Choose your view</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main.switchableControllerActions.0">
+				<source>List or Detail View</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main.switchableControllerActions.1">
+				<source>Detail View</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main.switchableControllerActions.2">
+				<source>Edit View</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main.switchableControllerActions.3">
+				<source>All Views</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main.form">
+				<source>Choose a form</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.main.pid">
+				<source>Select a page with mails (optional)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list">
+				<source>Listview</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.fields">
+				<source>Choose Fields to show (Empty: All Fields)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.delta">
+				<source>Show entries of the last X Seconds (Empty: Function disabled)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.limit">
+				<source>Show max. X entries (Empty: No Limit)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.pid">
+				<source>Page with Plugin for list view (Empty: Same page)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.showownonly">
+				<source>Own entries</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.showownonly.0">
+				<source>Show only entries from logged in Frontend-User</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.export">
+				<source>Export Formats</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.export.0">
+				<source>XLS Export</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.export.1">
+				<source>CSV Export</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.list.export.2">
+				<source>RSS Feed</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.single">
+				<source>Detailview</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.single.fields">
+				<source>Choose Fields to show (Empty: All Fields)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.single.activateLink">
+				<source>Link to detail view</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.single.activateLink.0">
+				<source>active</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.single.pid">
+				<source>Page with Plugin for detail view (Empty: Same page)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search">
+				<source>Searchsettings</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search.fields">
+				<source>Add searchfield</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search.fields.all">
+				<source>[Fulltext Search]</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search.operator">
+				<source>search fields operator (AND / OR)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search.operator.0">
+				<source>OR (Find keyword in Field1 OR Field2)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search.operator.1">
+				<source>AND (Find keyword in Field1 AND Field2)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search.abc">
+				<source>Add ABC filter</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.search.abc.off">
+				<source>[Deactivated]</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.edit">
+				<source>Editview</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.edit.fields">
+				<source>Choose Fields to edit (Empty: All fields)</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.edit.feuser">
+				<source>Choose one or more Frontend-Users with permission to change</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.edit.feuser.owner">
+				<source>[Owner]</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.edit.fegroup">
+				<source>Choose one or more Frontend-Groups with permission to change</source>
+			</trans-unit>
+			<trans-unit id="flexform_pi2.edit.pid">
+				<source>Page with Plugin for edit view (Empty: Same page)</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.receiverEmail">
+				<source>Receiver email address</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.receiverName">
+				<source>Receiver name</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.subject">
+				<source>Mail subject</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.form">
+				<source>Form title</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.savePid">
+				<source>Storage Location for Mails</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.confirmationPage">
+				<source>Confirmation page activated</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.optin">
+				<source>Double-opt-in activated</source>
+			</trans-unit>
+			<trans-unit id="pluginInfo.more">
+				<source>More ...</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

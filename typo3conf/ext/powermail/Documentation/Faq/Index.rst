@@ -1,0 +1,453 @@
+.. include:: ../Includes.txt
+.. include:: Images.txt
+
+.. _faq:
+
+FAQ
+===
+
+.. _caniuseoldforms:
+
+Can I use old forms from powermail 2.x in powermail 3.x?
+--------------------------------------------------------
+
+Yes. But old tables must be converted (..forms => ..form, ..fields => ..field, etc...).
+You can simply open the converter script in the Extension Manager.
+Note: New tables must be empty or non-existing.
+
+.. _caniuseoldmails:
+
+Can I use old mails from powermail 2.x  in powermail 3.x?
+---------------------------------------------------------
+
+Yes. But old tables must be converted (..mails => ..mail, ..answers => ..answer, etc...).
+You can simply open the converter script in the Extension Manager.
+Note: New tables must be empty or non-existing.
+
+
+.. _howcaniusebootstrapcss:
+
+How can I use bootstrap CSS for powermail forms?
+------------------------------------------------
+
+You have to add the related static template and a bootstrap.css
+
+See :ref:`addBootstrapClassesAndCssToPowermail`
+
+
+.. _howtosolvespf:
+
+How to solve SPF defiance?
+--------------------------
+
+More and more email providers turn on SPF for their mailboxes
+(see https://en.wikipedia.org/wiki/Sender_Policy_Framework for details).
+Web forms should not send mails with the visitors email address as sender email address but with a server email address.
+Nevertheless powermail uses automatic reply email address from the sender.
+
+To set a sender email address for the main email (to receiver), you could use this TypoScript:
+
+::
+
+	plugin.tx_powermail.settings.setup.receiver.overwrite.senderEmail = TEXT
+	plugin.tx_powermail.settings.setup.receiver.overwrite.senderEmail.value = server@domain.org
+	plugin.tx_powermail.settings.setup.receiver.overwrite.senderName = TEXT
+	plugin.tx_powermail.settings.setup.receiver.overwrite.senderName.value = Server from domain.org
+
+To set a sender email address for the confirmation email (to sender), you could use this TypoScript:
+
+::
+
+	plugin.tx_powermail.settings.setup.sender.overwrite.senderEmail = TEXT
+	plugin.tx_powermail.settings.setup.sender.overwrite.senderEmail.value = server@domain.org
+	plugin.tx_powermail.settings.setup.sender.overwrite.senderName = TEXT
+	plugin.tx_powermail.settings.setup.sender.overwrite.senderName.value = Server from domain.org
+
+Please ask your server administrator for a valid email address.
+
+
+.. _canisueanothercaptcha:
+
+Can I use another Captcha Extension than the integrated calculating captcha?
+----------------------------------------------------------------------------
+
+Yes. At the moment we support a build-in calculating captcha in the powermail core and the extension **captcha**.
+
+
+.. _canisavetoothertables:
+
+Can I save values to tt_address, fe_users, tt_news, etc...?
+-----------------------------------------------------------
+
+Yes. It's very easy to save values to a third-party-table – see manual part
+
+For Administrators / Best Practice / Saving Values to Third Party Table :ref:`savingvaluestothirdpartytables`
+
+
+.. _caniwritemyownvalidator:
+
+Can I write my own javascript/php validator?
+--------------------------------------------
+
+Yes. Write your own validator – see manual part
+For Developers / Write own JavaScript Validator and For Developers / Write own PHP Validation :ref:`newvalidators`
+
+
+
+.. _caniattachfilestoanymail:
+
+Can I attach files to any mail?
+-------------------------------
+
+Yes. You can simply add some files to any mail via TypoScript cObject – see TypoScript Main Template for details.
+
+Short example:
+
+.. code-block:: text
+
+	plugin.tx_powermail.settings.setup.sender {
+		addAttachment = TEXT
+		addAttachment.value = fileadmin/file.pdf
+	}
+
+
+.. _howadminconfirmdoubleoptinmail:
+
+How can the admin confirm a mail from Double-Opt-In?
+----------------------------------------------------
+
+Yes. Per default the confirmation Email (if Double-Opt-In is enabled) will be
+sent to the sender.
+
+You can overwrite it via TypoScript. See TypoScript Main Template for details.
+
+Short example:
+
+.. code-block:: text
+
+	plugin.tx_powermail.settings.setup.optin {
+		overwrite {
+			email = TEXT
+			email.value = admin@domain.org
+		}
+	}
+
+
+
+.. _howtopreventspam:
+
+How to prevent Spam or to change the Spam-Prevention-Settings?
+--------------------------------------------------------------
+
+Yes. Powermail in version 2 and higher comes with a lot of spam-prevention-methods along.
+You can use the integrated spamshield (configuration via constants and typoscript), write your
+own spam prevention methods or simply use a captcha. See :ref:`spamprevention`
+
+
+
+.. _howtosetadvancedemailsettings:
+
+How can I set some advanced mail settings (like priority or returnPath, etc...)?
+--------------------------------------------------------------------------------
+
+You can change following settings for the mail to the receiver and to
+the sender completely via TypoScript. See :ref:`mainTypoScript` for
+details.
+
+- email
+- name
+- senderName
+- senderEmail
+- subject
+- cc Receivers
+- bcc Receivers
+- returnPath
+- reply to email
+- reply to name
+- priority
+
+
+How to change the style selector with my own values (In Forms, Pages or Fields)?
+--------------------------------------------------------------------------------
+
+.. code-block:: html
+
+	<select>
+		<option value=”layout1”>Layout1</option>
+		<option value=”layout2”>Layout2</option>
+		<option value=”layout3”>Layout3</option>
+	</select>
+
+
+
+Changing values via page tsconfig
+'''''''''''''''''''''''''''''''''
+
+.. code-block:: text
+
+	TCEFORM {
+		tx_powermail_domain_model_form {
+			css {
+				removeItems = layout1, layout2, layout3
+				addItems {
+					formgrey = Form grey
+					form2cols = Form with 2 columns
+					default = Default Form
+				}
+			}
+		}
+		tx_powermail_domain_model_page < .tx_powermail_domain_model_form
+		tx_powermail_domain_model_field < .tx_powermail_domain_model_form
+	}
+
+
+
+
+This configuration produces this output:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: html
+
+	<select>
+		<option value=”formgrey”>Form grey</option>
+		<option value=”form2cols”>Form with 2 columns</option>
+		<option value=”default”>Default Form</option>
+	</select>
+
+And adds the class “formgrey”, "form2cols" or “default” to all forms, pages and fields in
+the Frontend.
+
+|faq_style|
+
+
+.. _howtohidefieldsforeditors:
+
+How to hide fields for editors?
+-------------------------------
+
+Hiding field from tables form, page or field
+''''''''''''''''''''''''''''''''''''''''''''
+
+For editors (not administrators) fields can be disabled in the right management of TYPO3 (see TYPO3 documentation how to show or hide fields for editors).
+
+Another way is to hide fields for editors (and administrators) via Page TSConfig:
+
+.. code-block:: text
+
+	TCEFORM {
+		tx_powermail_domain_model_form {
+			css.disabled = 1
+		}
+		tx_powermail_domain_model_page {
+			css.disabled = 1
+		}
+		tx_powermail_domain_model_field {
+			css.disabled = 1
+			feuser_value.disabled = 1
+			placeholder.disabled = 1
+		}
+	}
+	
+You may also restrict this and other settings to non-admin users with a TypoScript condition (see https://docs.typo3.org/typo3cms/TSconfigReference/Conditions/Index.html).
+
+Hiding fields from FlexForm
+'''''''''''''''''''''''''''
+
+If you add a powermail plugin, you will see some options in FlexForm. If you want to hide some of these
+fields (for editors and administrators), you can also do it via Page TSConfig:
+
+.. code-block:: text
+
+	TCEFORM {
+		tt_content {
+			pi_flexform {
+				powermail_pi1 {
+					main {
+						settings\.flexform\.main\.moresteps.disabled = 1
+						settings\.flexform\.main\.optin.disabled = 1
+						settings\.flexform\.main\.confirmation.disabled = 1
+						settings\.flexform\.main\.pid.disabled = 1
+					}
+
+					receiver {
+						settings\.flexform\.receiver\.fe_group.disabled = 1
+					}
+
+					thx {
+						settings\.flexform\.thx\.redirect.disabled = 1
+					}
+				}
+			}
+		}
+	}
+
+
+.. _howtoremovefieldtypes:
+
+How to remove field types?
+--------------------------
+
+If you want to completely remove fieldtypes (e.g. if you do not need a captcha field or other types),
+you can do this with a simple line of Page TSConfig:
+
+.. code-block:: text
+
+	TCEFORM.tx_powermail_domain_model_field.type.removeItems = captcha,location,typoscript
+
+
+
+.. _howtoprefillfields:
+
+How to prefill a field in the powermail form?
+---------------------------------------------
+
+Prefilling or preselecting of fields is very easy - see :ref:`prefillOrPreselectAField`
+With this possibility you can fill a hidden or a visible field with a value or you can
+preselect a select, radio or checkbox.
+
+
+.. _howdonotincludejquery:
+
+How can I include jQuery?
+-------------------------
+
+You have to enable this feature via Constants:
+
+.. code-block:: text
+
+	plugin.tx_powermail.settings {
+		javascript {
+			addJQueryFromGoogle = 1
+			powermailJQuery = //ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js
+		}
+	}
+
+
+.. _howcaniuset3jquery:
+
+Can I use t3jquery?
+-------------------
+
+No.
+
+.. _javascriptvalidationdoesnotwork:
+
+JavaScript validation does not work – what's wrong?
+---------------------------------------------------
+
+Powermail loads jQuery (if you activated it with TypoScript) from googleapis.com.
+You can change that behaviour with constants or typoscript.
+
+It's importand to have the correct ordering of the JavaScript files.
+First you need the libraries (jQuery, Datepicker, Parsley) and after that your JavaScript.
+
+Check the correct including of your JavaScript in the HTML source –
+example Footer could be:
+
+.. code-block:: html
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+	<script src="typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/jquery.datetimepicker.min.js?1400758352" type="text/javascript"></script>
+	<script src="typo3conf/ext/powermail/Resources/Public/JavaScripts/Libraries/parsley.min.js?1400758352" type="text/javascript"></script>
+	<script src="typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Tabs.min.js?1400758352" type="text/javascript"></script>
+	<script src="typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Form.min.js?1400758352" type="text/javascript"></script>
+	<script src="typo3conf/ext/powermail/Resources/Public/JavaScripts/Powermail/Marketing.min.js?1400758352" type="text/javascript"></script>
+
+.. _datetimepickernotworking:
+
+The datetimepicker is not working – what's wrong?
+-------------------------------------------------
+
+First of all, check if there are all JavaScript loaded correctly (see :ref:`javascriptvalidationdoesnotwork`).
+In addition the datetimepicker needs some CSS to get shown in frontend. You can try to add the demo.css in Static TypoScript Template section.
+
+If you want to get more information to the used datetimepicker (JavaScript, CSS, examples, etc...) see:
+
+* http://xdsoft.net/jqplugins/datetimepicker
+* https://github.com/xdan/datetimepicker
+
+*Note:* There is a check, if the browser supports fields like input[type="date"] (e.g. Chrome).
+Per default the datetimepicker is disabled in this case.
+If you want to enforce datetimepicker for all browsers, you can enable this via TypoScript Constants.
+
+.. _marketinginformationnotworking:
+
+Marketing Information are not working – what's wrong?
+-----------------------------------------------------
+
+Did you include the marketing static template on the root page of your
+domain?
+
+.. _addnewfieldtype:
+
+I want to add a new Field Type to powermail – how can I do this
+---------------------------------------------------------------
+
+Yes, you can add a new Fieldtype (in record tx_powermail_domain_model_field) with some Page TSConfig.
+
+See following example to add a new fieldtype with Partial Newfield.html
+(also see Documentation/ForDevelopers/NewField for an advanced example)
+
+.. code-block:: text
+
+	tx_powermail.flexForm.type.addFieldOptions.newfield = New Field Name
+
+.. _additionalAttributesInFieldPartials:
+
+I want to use additionalAttributes in a field partial, but it's already in use
+------------------------------------------------------------------------------
+
+All Field partials are original stored under EXT:powermail/Resources/Private/Partials/Form/Field/*
+Most of them are already using the parameter additionalAttributes to set data-attributes for clientside validation, etc...
+In some case you need to set your own additionalAttributes - see following code examples.
+
+.. code-block:: text
+
+	<!-- Original textfield example -->
+	<f:form.textfield
+		...
+		additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field)}"
+		... />
+
+	<!-- Modified textfield example -->
+	<f:form.textfield
+		...
+		additionalAttributes="{vh:Validation.ValidationDataAttribute(field:field, additionalAttributes:'{autocomplete:\'off\',data-something:\'true\'}')}"
+		... />
+
+.. _whitepageafterupgrade:
+
+I upgraded powermail and a white page comes up
+----------------------------------------------
+
+See explanation in part "For Administrators" and "Upgrade". If you make an upgrade, only deleting the cache
+files in typo3temp may not help.
+Please clean all caches in the install tool and try again.
+
+.. _powermailwithnews:
+
+I want to use powermail on a news-detail-page, but the error **Reason: No news entry found.** comes up
+------------------------------------------------------------------------------------------------------
+
+If you want to send a newstitle or something with powermail on a newsdetailpage, a form submit leads
+to a pagereload. But per default, powermail does not send the params &tx_news_pi1[news] again which
+leads to an error from the extension news.
+
+This is easy to handle, just add this line of TypoScript to your **Constants**:
+
+.. code-block:: text
+
+	plugin.tx_powermail.settings.misc.addQueryString = 1
+
+.. _ihaveaproblem:
+
+I have a problem, what can I do?
+--------------------------------
+
+- Did you read the manual?
+- Turning on the Debug Output in Powermail (via TypoScript) can help you to find a solution (please use extension devlog to look into the debug arrays)
+- Try to get free help from the slack channel https://typo3.slack.com/messages/ext-powermail/
+- Try to get free help from a TYPO3 Forum like (forum.typo3.org, typo3.net or typo3forum.net)
+- Do you need payed support? Please write to http://www.in2code.de
+- Did you find a bug? Report it to http://forge.typo3.org/projects/extension-powermail/issues
+- Did you miss a feature? Feel free to write it down also to forge http://forge.typo3.org/projects/extension-powermail/issues
