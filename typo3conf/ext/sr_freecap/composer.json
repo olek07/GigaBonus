@@ -1,7 +1,7 @@
 {
-  "name": "sjbr/sr_freecap",
+  "name": "sjbr/sr-freecap",
   "description": "A TYPO3 integration of freeCap CAPTCHA.",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "type": "typo3-cms-extension",
   "license": "GPL-2.0+",
   "authors": [
@@ -10,12 +10,17 @@
       "role": "Developer"
     }
   ],
+  "homepage": "https://forge.typo3.org/projects/extension-sr_freecap",
+  "support": {
+	"issues": "https://forge.typo3.org/projects/extension-sr_freecap/issues"
+  },
   "replace": {
     "sr_freecap": "self.version",
-	"typo3-ter/sr_freecap": "self.version"
+    "sjbr/sr_freecap": "self.version",
+	"typo3-ter/sr-freecap": "self.version"
   },
   "require": {
-  	  "typo3/cms-core": ">=6.2,<8.0"
+  	  "typo3/cms-core": ">=7.6,<9.0"
   },
   "autoload": {
     "psr-4": {

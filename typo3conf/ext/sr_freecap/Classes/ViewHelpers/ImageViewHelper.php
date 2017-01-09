@@ -4,7 +4,7 @@ namespace SJBR\SrFreecap\ViewHelpers;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2016 Stanislas Rolland <typo3(arobas)sjbr.ca>
+ *  (c) 2013-2017 Stanislas Rolland <typo3(arobas)sjbr.ca>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -26,12 +26,14 @@ namespace SJBR\SrFreecap\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use SJBR\SrFreecap\ViewHelpers\TranslateViewHelper;
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
-class ImageViewHelper extends AbstractViewHelper
+class ImageViewHelper extends AbstractTagBasedViewHelper
 {
 	/**
 	 * @var string Name of the extension this view helper belongs to
@@ -73,7 +75,8 @@ class ImageViewHelper extends AbstractViewHelper
 		$value = '';
 
 		// Include the required JavaScript
-		$GLOBALS['TSFE']->additionalHeaderData[$this->extensionKey . '_freeCap'] = '<script type="text/javascript" src="' . GeneralUtility::createVersionNumberedFilename(ExtensionManagementUtility::siteRelPath($this->extensionKey) . 'Resources/Public/JavaScript/freeCap.js') . '"></script>';
+		$pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+		$pageRenderer->addJsFooterFile(ExtensionManagementUtility::siteRelPath($this->extensionKey) . 'Resources/Public/JavaScript/freeCap.js');
 
 		// Disable caching
 		$GLOBALS['TSFE']->no_cache = 1;
@@ -82,8 +85,7 @@ class ImageViewHelper extends AbstractViewHelper
 		$settings = $this->configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS, $this->extensionName);
 
 		// Get the translation view helper
-		$objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-		$translator = $objectManager->get('SJBR\\SrFreecap\\ViewHelpers\\TranslateViewHelper');
+		$translator = GeneralUtility::makeInstance(TranslateViewHelper::class);
 		$translator->injectConfigurationManager($this->configurationManager);
 
 		// Generate the image url
