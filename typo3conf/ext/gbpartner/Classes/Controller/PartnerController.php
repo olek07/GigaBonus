@@ -51,12 +51,16 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction(\Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
+        /**
+         * @todo show all partners if the url is /ru/partner/
+         */
 
-        // $partners = $this->partnerRepository->findAll();
-        // DebuggerUtility::var_dump($partners);
-        // $this->view->assign('partners', $partners)
-
-        $GLOBALS['TSFE']->page['title'] = $category->getName();
+        if ($category !== NULL) {
+            $GLOBALS['TSFE']->page['title'] = $category->getName();
+        }
+        else {
+            $GLOBALS['TSFE']->page['title'] = 'Партнёры';
+        }
 
         $this->view->assign('partnerDetailPageUid', MainHelper::PARTNERDETAILPAGEID);
         $this->view->assign('category', $category);

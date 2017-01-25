@@ -247,7 +247,7 @@ return [
             'suggestions' => [],
         ],
         'sr_freecap' => [
-            'composerName' => 'sjbr/sr_freecap',
+            'composerName' => 'sjbr/sr-freecap',
             'state' => 'active',
             'packagePath' => 'typo3conf/ext/sr_freecap/',
             'suggestions' => [],
@@ -300,6 +300,12 @@ return [
             'composerName' => 'gbpartner',
             'state' => 'active',
             'packagePath' => 'typo3conf/ext/gbpartner/',
+            'suggestions' => [],
+        ],
+        'powermail' => [
+            'composerName' => 'in2code/powermail',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/powermail/',
             'suggestions' => [],
         ],
         'realurl' => [

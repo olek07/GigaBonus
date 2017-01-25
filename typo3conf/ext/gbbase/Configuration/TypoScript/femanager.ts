@@ -39,31 +39,31 @@ plugin.tx_femanager {
                 firstName {
                     min = 2
                     max = 20
-                    required = 1
+#                    required = 1
                 }
 
                 middleName {
                     min = 2
                     max = 20
-                    required = 1
+#                    required = 1
                 }
 
                 lastName {
                     min = 2
                     max = 20
-                    required = 1
+#                    required = 1
                 }
 
                 zip {
                     min = 5
                     max = 5
                     intOnly = 1
-                    // required = 1
+#                    required = 1
                 }
 
                 cityId {
                     intOnly = 1
-                    required = 1
+#                    required = 1
                 }
 
                 dateOfBirth {
@@ -72,13 +72,13 @@ plugin.tx_femanager {
                 }
 
                 language {
-                    // required = 1
+#                    required = 1
                     inList = 0,1
                 }
 
                 gender {
-                    # required = 1
-                    inList = m,w
+                    required = 1
+                    inList = m,w,0
                 }
             }
 

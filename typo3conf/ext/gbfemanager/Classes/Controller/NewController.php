@@ -80,11 +80,12 @@ class NewController extends \In2code\Femanager\Controller\NewController {
             'Confirm your profile creation request',
             [
                 'user' => $user,
-                'hash' => HashUtility::createHashForUser($user)
+                'hash' => HashUtility::createHashForUser($user),
+                'registrationPageId' => 4,
+                
             ],
             $this->config['new.']['email.']['createUserConfirmation.']
         );
-        
     }
     
     /**

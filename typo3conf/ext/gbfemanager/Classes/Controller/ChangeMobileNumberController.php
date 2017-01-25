@@ -12,17 +12,8 @@ use TYPO3\CMS\Core\Messaging\FlashMessage;
 class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditController {
     
     
-    /**
-    * initialize create action
-    *
-    * @return void
-    */
-    public function initializeUpdateAction() {
-        
-
-    }
     
-        /**
+    /**
      * action edit
      *
      * @return void

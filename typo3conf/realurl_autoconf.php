@@ -40,6 +40,38 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 
 		'fixedPostVars' => array(
 
+			'confirmemail' => array(
+				array(
+					'GETvar' => 'tx_femanager_pi1[action]',
+				),
+				array(
+					'GETvar' => 'tx_femanager_pi1[user]',
+				),
+				array(
+					'GETvar' => 'tx_femanager_pi1[hash]',
+				),
+				array(
+					'GETvar' => 'tx_femanager_pi1[status]',
+					/*
+					'valueMap' => array(
+
+					),
+					*/
+					'noMatch' => 'bypass'
+				),
+				array(
+					'GETvar' => 'tx_femanager_pi1[controller]',
+					/*
+					'valueMap' => array(
+
+					),
+					*/
+					'noMatch' => 'bypass'
+				),
+
+
+			),
+
 			'partnerListConfiguration' => array(
 				array(
 					'GETvar' => 'tx_gbpartner_partnerlisting[category]',
@@ -129,7 +161,8 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 			),
 
 			// 12 => 'partnerListConfiguration',					// partner list configuration
-			17 => 'partnerDetailConfiguration'					// partner detail configuration
+			17 => 'partnerDetailConfiguration',					    // registration confirmation E-Mail 
+			4 => 'confirmemail',
 
 		),
         'postVarSets' => array(

@@ -10,9 +10,10 @@ class BeforePersist {
 
     // This function is not in use now
     public function confirmCreateRequestAction($user, $hash, $status, $obj) {
-        if ($user->getTxFemanagerConfirmedbyuser()) {
-            MainHelper::redirect2DeleteProfilePage();
+        if ($user !== NULL) {
+            if ($user->getTxFemanagerConfirmedbyuser()) {
+                MainHelper::redirect2DeleteProfilePage();
+            }
         }
-
     }
 }

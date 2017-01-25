@@ -5,7 +5,7 @@ use In2code\Femanager\Utility\StringUtility;
 use In2code\Femanager\Utility\HashUtility;
 
 
-class SendConfirmMailController extends \In2code\Femanager\Controller\EditController {
+class SendConfirmMailController extends \Gigabonus\Gbfemanager\Controller\NewController {
 
     public function sendAction() {
        
@@ -33,7 +33,7 @@ class SendConfirmMailController extends \In2code\Femanager\Controller\EditContro
      * @return void
      * @throws UnsupportedRequestTypeException
      */
-    protected function createUserConfirmationRequest(\Gigabonus\Gbfemanager\Domain\Model\User $user)
+    protected function ___createUserConfirmationRequest(\Gigabonus\Gbfemanager\Domain\Model\User $user)
     {
         $this->sendMailService->send(
             'createUserConfirmation',
