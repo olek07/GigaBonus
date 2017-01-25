@@ -1,6 +1,5 @@
 {user.firstname}
 <f:debug>{_all}</f:debug>
-
 <f:if condition="{changePasswordNotvalid}">
   <f:then>
     @todo: change_password_notvalid_message
@@ -8,7 +7,7 @@
   <f:else>
     <f:render partial="Misc/FlashMessages" arguments="{_all}" />
     <f:render partial="Misc/FormErrors" arguments="{object:User}" />
-    <f:form name="user" object="{user}" action="save" arguments="{forgothash:forgothash}"  additionalParams="{L:'1'}" noCacheHash="1" >
+    <f:form name="user" object="{user}" action="save" arguments="{forgothash:forgothash}" noCacheHash="1" >
       <f:render partial="Fields/Password" arguments="{_all}" />
       <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
     </f:form>

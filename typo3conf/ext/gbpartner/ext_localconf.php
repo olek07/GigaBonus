@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Partnerlisting',
 	array(
-		'Partner' => 'show,list',
+		'Partner' => 'show,list,gotoPartner',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Partner' => 'list,show',
+		'Partner' => 'list,show,gotoPartner',
 		
 	)
 );

@@ -76,7 +76,7 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function showAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null, \Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
         // DebuggerUtility::var_dump($partner);
-        
+
         if ($partner == NULL) {
             $this->forward('list', null, null, array('category' => $category));
         }
@@ -85,5 +85,26 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $this->view->assign('partner', $partner);
         }
     }
+
+    /**
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner|null $partner
+     */
+    public function gotoPartnerAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null) {
+
+        $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+        $visitingTime = time();
+        $token = md5($userId . $visitingTime . $partner->getApiKey());
+
+        $queryString = '/go.php?visitingTime=' . $visitingTime . '&token=' . $token . ($userId != NULL ? ('&userId=' . $userId) : '');
+
+        echo 'http://' . $partner->getWebsiteUrl() . $queryString;
+
+        echo '<br>';
+        echo $partner->getApiKey();
+        # DebuggerUtility::var_dump($partner);
+        exit;
+
+    }
+
 
 }

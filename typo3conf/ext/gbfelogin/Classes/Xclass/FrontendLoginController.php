@@ -3,6 +3,7 @@ namespace Gigabonus\Gbfelogin\Xclass;
 
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Mail\MailMessage;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLoginController {
     
@@ -24,7 +25,6 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
     {
         $hours = (int)$this->conf['forgotLinkHashValidTime'] > 0 ? (int)$this->conf['forgotLinkHashValidTime'] : 24;
         $validEnd = time() + 3600 * $hours;
-        $validEndString = date($this->conf['dateFormat'], $validEnd);
         $hash = md5(GeneralUtility::generateRandomBytes(64));
         $randHash = $validEnd . '|' . $hash;
         $randHashDB = $validEnd . '|' . md5($hash);
@@ -61,9 +61,24 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
             return $this->pi_getLL('ll_change_password_nolinkprefix_message');
         }
 
-        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($user);
+        $firstName = '';
+
+        // read the user's firstname
+        $res = $this->databaseConnection->exec_SELECTquery(
+            'first_name',
+            'fe_users',
+            'email="' . $user['email'] . '"'
+        );
+        if ($this->databaseConnection->sql_num_rows($res)) {
+            $row = $this->databaseConnection->sql_fetch_assoc($res);
+            if (isset($row['first_name'])) {
+                $firstName = $row['first_name'];
+            }
+        }
+
+        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($row);exit;
                 
-        $this->sendTemplateEmail([$user['email']], ['sashaost@mail.ru'], 'Test subject', 'emailtemplate', ['name' => 'Mila', 'link' => $link]);
+        $this->sendTemplateEmail([$user['email']], ['sashaost@mail.ru'], 'Test subject', 'emailtemplate', ['name' => $firstName, 'link' => $link, 'hours' => $hours]);
 
         return '';
     }
@@ -81,36 +96,36 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
         
         $this->objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
         
-	/** @var \TYPO3\CMS\Fluid\View\StandaloneView $emailView */
-	$emailView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
+        /** @var \TYPO3\CMS\Fluid\View\StandaloneView $emailView */
+        $emailView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
 
-	$templatePathAndFilename =  'typo3conf/ext/gbfelogin/Resources/Private/Templates/Email/' . $templateName . '.html';
-        
-	$emailView->setTemplatePathAndFilename($templatePathAndFilename);
-	$emailView->assignMultiple($variables);
-	$emailBody = $emailView->render();
-        
-        // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($emailBody);
+        $templatePathAndFilename =  'typo3conf/ext/gbfelogin/Resources/Private/Templates/Email/' . $templateName . '.html';
 
-	/** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
-	$message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
-	$message->setTo($recipient)
-		  ->setFrom($sender)
-		  ->setSubject($subject);
+        $emailView->setTemplatePathAndFilename($templatePathAndFilename);
+        $emailView->assignMultiple($variables);
+        $emailBody = $emailView->render();
 
-	// Possible attachments here
-	//foreach ($attachments as $attachment) {
-	//	$message->attach(\Swift_Attachment::fromPath($attachment));
-	//}
+            // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($emailBody);
 
-	// Plain text example
-	// $message->setBody('plain text', 'text/plain');
+        /** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
+        $message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
+        $message->setTo($recipient)
+              ->setFrom($sender)
+              ->setSubject($subject);
 
-	// HTML Email
-	$message->setBody($emailBody, 'text/html');
+        // Possible attachments here
+        //foreach ($attachments as $attachment) {
+        //	$message->attach(\Swift_Attachment::fromPath($attachment));
+        //}
 
-	$message->send();
-	return $message->isSent();
+        // Plain text example
+        // $message->setBody('plain text', 'text/plain');
+
+        // HTML Email
+        $message->setBody($emailBody, 'text/html');
+
+        $message->send();
+        return $message->isSent();
     }
 
 }
