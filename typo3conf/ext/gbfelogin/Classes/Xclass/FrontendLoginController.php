@@ -78,7 +78,7 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
 
         // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($row);exit;
                 
-        $this->sendTemplateEmail([$user['email']], ['sashaost@mail.ru'], 'Test subject', 'emailtemplate', ['name' => $firstName, 'link' => $link, 'hours' => $hours]);
+            $this->sendTemplateEmail([$user['email']], ['samoglavny@mail.ru'], 'GigaBonus.ua Восстановление пароля', 'ResetPassword', ['name' => $firstName, 'link' => $link, 'hours' => $hours]);
 
         return '';
     }
