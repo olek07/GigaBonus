@@ -1,5 +1,6 @@
 <f:layout name="Email" />
 
+
 	Email / CreateUserConfirmation
 
 	This mail will be send to the user, to confirm his new profile.
@@ -10,21 +11,20 @@
 		{hash} Hash to ensure authentication of link
 
 <f:section name="main">
-	<p><f:translate key="emailCreateUserConfirmationSalutation" />,</p>
-	<p>
-Спасибо за регистрацию на сервисе
-		<f:translate key="emailCreateUserConfirmationText1" />
-		<br>
 
-                Для завершения процесса регистрации на сервисе, необходимо подтвердить свою учётную запись, перейдя по ссылке ниже.
-		<f:link.action pageUid="{registrationPageId}" action="confirmCreateRequest" lang="1" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
-		    <f:translate key="emailCreateUserConfirmationLinkConfirm" />
-		</f:link.action>
-	</p>
+	<img src="{embedImages.0}" alt="Peppa">
 
+
+	Уважаемый пользователь,<br>
+	<br>
+	Благодарим за регистрацию в системе GigaBonus. Для завершения процесса регистрации, пожалуйста, перейдите по ссылке:
+
+	<f:link.action pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
+      <f:uri.action  pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}" />
+	</f:link.action>
 
 	<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
 
-Хороших покупок и высоких кэшбэков!
+	<p>Желаем Вам удачных покупок и много бонусов!</p>
 
 </f:section>

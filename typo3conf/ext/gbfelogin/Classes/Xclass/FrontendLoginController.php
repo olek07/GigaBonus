@@ -78,7 +78,7 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
 
         // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($row);exit;
                 
-            $this->sendTemplateEmail([$user['email']], ['samoglavny@mail.ru'], 'GigaBonus.ua Восстановление пароля', 'ResetPassword', ['name' => $firstName, 'link' => $link, 'hours' => $hours]);
+            $this->sendTemplateEmail([$user['email']], ['samoglavny@mail.ru'], 'GigaBonus.ua | Восстановление пароля', 'ResetPassword', ['name' => $firstName, 'link' => $link, 'hours' => $hours]);
 
         return '';
     }
@@ -93,7 +93,7 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
     * @return boolean TRUE on success, otherwise false
     */
     protected function sendTemplateEmail(array $recipient, array $sender, $subject, $templateName, array $variables = array()) {
-        
+
         $this->objectManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
         
         /** @var \TYPO3\CMS\Fluid\View\StandaloneView $emailView */
@@ -103,7 +103,7 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
 
         $emailView->setTemplatePathAndFilename($templatePathAndFilename);
         $emailView->assignMultiple($variables);
-        $emailBody = $emailView->render();
+
 
             // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($emailBody);
 
@@ -113,10 +113,17 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
               ->setFrom($sender)
               ->setSubject($subject);
 
+        $cid = $message->embed(\Swift_Image::fromPath('c:\\tmp\\rubl.gif'));
+
         // Possible attachments here
         //foreach ($attachments as $attachment) {
-        //	$message->attach(\Swift_Attachment::fromPath($attachment));
+        	// $message->attach(\Swift_Attachment::fromPath('c:\\tmp\\rubl.gif'));
         //}
+
+
+        $emailView->assign('cid', $cid);
+        
+        $emailBody = $emailView->render();
 
         // Plain text example
         // $message->setBody('plain text', 'text/plain');

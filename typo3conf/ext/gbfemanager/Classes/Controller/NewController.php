@@ -8,6 +8,8 @@ use In2code\Femanager\Utility\StringUtility;
 use In2code\Femanager\Utility\HashUtility;
 use In2code\Femanager\Utility\UserUtility;
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 
 class NewController extends \In2code\Femanager\Controller\NewController {
@@ -20,6 +22,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      */
     public function newAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null)
     {
+
         // wenn angemeldet, redirect auf die Startseite
         if ($GLOBALS['TSFE']->fe_user->user) {
             MainHelper::redirect2Home();
@@ -51,7 +54,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @return void
      */
     public function createAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
-        $user->setLanguage('uk');
+        // $user->setLanguage('uk');
         parent::createAction($user);
     }
 
@@ -59,6 +62,44 @@ class NewController extends \In2code\Femanager\Controller\NewController {
     public function registeredAction() {
         $this->controllerContext->getFlashMessageQueue()->clear();
     }
+
+
+    /**
+     * Dispatcher action for every confirmation request
+     *
+     * @param int $user User UID (user could be hidden)
+     * @param string $hash Given hash
+     * @param string $status
+     *            "userConfirmation", "userConfirmationRefused", "adminConfirmation",
+     *            "adminConfirmationRefused", "adminConfirmationRefusedSilent"
+     * @return void
+     */
+    public function confirmCreateRequestAction($user, $hash) {
+        $user = $this->userRepository->findByUid($user);
+
+        if ($user === null) {
+            $this->addFlashMessage(LocalizationUtility::translate('missingUserInDatabase'), '', FlashMessage::ERROR);
+            return;
+        }
+
+
+        if (HashUtility::validHash($hash, $user)) {
+            if ($user->getTxFemanagerConfirmedbyuser()) {
+                $this->addFlashMessage(LocalizationUtility::translate('userAlreadyConfirmed'), '', FlashMessage::ERROR);
+            }
+            else {
+                $user->setTxFemanagerConfirmedbyuser(true);
+                $this->userRepository->update($user);
+                $this->persistenceManager->persistAll();
+                $this->addFlashMessage(LocalizationUtility::translate('userSuccessfulConfirmed'), '', FlashMessage::OK);
+                LogUtility::log(Log::STATUS_REGISTRATIONCONFIRMEDUSER, $user);
+            }
+
+        } else {
+            $this->addFlashMessage('Вы используете неправильную ссылку для подтверждения регистрации', '', FlashMessage::ERROR);
+        }
+    }
+
 
     
     /**
@@ -70,18 +111,20 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      */
     protected function createUserConfirmationRequest(\Gigabonus\Gbfemanager\Domain\Model\User $user)
     {
+
+
         $this->sendMailService->send(
             'createUserConfirmation',
             StringUtility::makeEmailArray($user->getEmail(), $user->getUsername()),
             [
-                $this->settings['new']['email']['createUserConfirmation']['sender']['email']['value'] =>
-                    $this->settings['settings']['new']['email']['createUserConfirmation']['sender']['name']['value']
+                $this->settings['new']['email']['createUserConfirmation']['sender']['email']['value'] => $this->settings['new']['email']['createUserConfirmation']['sender']['name']['value']
             ],
-            'Confirm your profile creation request',
+            LocalizationUtility::translate('emailCreateUserConfirmationSubject'),
             [
                 'user' => $user,
                 'hash' => HashUtility::createHashForUser($user),
                 'registrationPageId' => 4,
+                'language' => $GLOBALS['TSFE']->sys_language_uid
                 
             ],
             $this->config['new.']['email.']['createUserConfirmation.']

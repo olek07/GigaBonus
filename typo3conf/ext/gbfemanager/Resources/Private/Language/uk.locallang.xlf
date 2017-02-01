@@ -77,6 +77,35 @@
                         <target>Зберегти</target>
                     </trans-unit>
 
+                    <trans-unit id="emailCreateUserConfirmationSubject">
+                        <target>GigaBonus | Реєстрація в системі</target>
+                    </trans-unit>
+
+                    <trans-unit id="emailCreateUserConfirmationSignature">
+                        <target>
+                            <![CDATA[
+                            З повагою,<br>
+                            <br>
+                            Адміністрація системи GigaBonus
+                            ]]>
+                        </target>
+                    </trans-unit>
+
+
+
+                    <trans-unit id="userAlreadyConfirmed">
+                        <target>Ваша реєстрація вже була успішно підтверджена. Бажаємо Вам приємної роботи</target>
+                    </trans-unit>
+
+                    <trans-unit id="userSuccessfulConfirmed">
+                        <target>Ваша реєстрація була успішно підтверджена. Бажаємо Вам приємної роботи</target>
+                    </trans-unit>
+
+                    <trans-unit id="missingUserInDatabase">
+                        <target>Посилання недійсне. Можливо, профіль був видалений</target>
+                    </trans-unit>
+
+
                     
 	        </body>
 

@@ -23,6 +23,36 @@ plugin.tx_femanager {
             }
 
             pageType = 104
+
+            email {
+                createUserConfirmation {
+                    # Add Embed Images (separate each with comma) - can be used in mail with <img src="{embedImages.0}" /> and so on...
+                    embedImage = COA
+                    embedImage {
+                        10 = IMG_RESOURCE
+                        10 {
+                            file = fileadmin/user_upload/peppa.jpg
+                            file.maxW = 100
+							file.maxH = 100
+                        }
+
+#						10 = IMG_RESOURCE
+#						10 {
+#							wrap = |,
+#							file.import = uploads/pics/
+#							file.import.field = image
+#							file.import.listNum = 0
+#							file.maxW = 120
+#							file.maxH = 120
+#						}
+
+                        # 20 = TEXT
+                        # 20.value = fileadmin/user_upload/peppa.jpg
+                    }
+
+                }
+            }
+
             // email.createUserConfirmation.sender = vinslave@mail.ru
         }
     
