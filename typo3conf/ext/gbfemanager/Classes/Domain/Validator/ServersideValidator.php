@@ -4,7 +4,12 @@ namespace Gigabonus\Gbfemanager\Domain\Validator;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-class BirthdayValidator extends \In2code\Femanager\Domain\Validator\ServersideValidator {
+class ServersideValidator extends \In2code\Femanager\Domain\Validator\ServersideValidator {
+
+    /**
+     * @param $user
+     * @return bool
+     */
     public function isValid($user) {
 
         $txFemanagerPi1 = GeneralUtility::_GP('tx_femanager_pi1');
@@ -17,6 +22,13 @@ class BirthdayValidator extends \In2code\Femanager\Domain\Validator\ServersideVa
             }
         else {
                 $user->setDateOfBirth(null);
+            }
+        }
+
+        // allowed values of gender are: w,m
+        if (isset($txFemanagerPi1['user']['gender'])) {
+            if (!in_array($txFemanagerPi1['user']['gender'], array('m', 'w'))) {
+                $user->setGender(null);
             }
         }
 

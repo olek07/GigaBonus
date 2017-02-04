@@ -79,25 +79,30 @@ class NewController extends \In2code\Femanager\Controller\NewController {
 
         if ($user === null) {
             $this->addFlashMessage(LocalizationUtility::translate('missingUserInDatabase'), '', FlashMessage::ERROR);
-            return;
+            $text = 'missingUserInDatabase';
         }
 
-
-        if (HashUtility::validHash($hash, $user)) {
+        elseif (HashUtility::validHash($hash, $user)) {
             if ($user->getTxFemanagerConfirmedbyuser()) {
                 $this->addFlashMessage(LocalizationUtility::translate('userAlreadyConfirmed'), '', FlashMessage::ERROR);
+                $text = 'userAlreadyConfirmed';
             }
             else {
                 $user->setTxFemanagerConfirmedbyuser(true);
                 $this->userRepository->update($user);
                 $this->persistenceManager->persistAll();
                 $this->addFlashMessage(LocalizationUtility::translate('userSuccessfulConfirmed'), '', FlashMessage::OK);
+                $text = 'userSuccessfulConfirmed';
                 LogUtility::log(Log::STATUS_REGISTRATIONCONFIRMEDUSER, $user);
             }
 
         } else {
-            $this->addFlashMessage('Вы используете неправильную ссылку для подтверждения регистрации', '', FlashMessage::ERROR);
+            $text = 'wrongConfirmLink';
+            $this->addFlashMessage(LocalizationUtility::translate($text), '', FlashMessage::ERROR);
         }
+
+        $this->view->assign('text', $text);
+
     }
 
 

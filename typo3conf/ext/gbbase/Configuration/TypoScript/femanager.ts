@@ -93,7 +93,7 @@ plugin.tx_femanager {
 
                 cityId {
                     intOnly = 1
-#                    required = 1
+                    required = 1
                 }
 
                 dateOfBirth {
@@ -108,7 +108,7 @@ plugin.tx_femanager {
 
                 gender {
                     required = 1
-                    inList = m,w,0
+                    # inList = m,w,0
                 }
             }
 

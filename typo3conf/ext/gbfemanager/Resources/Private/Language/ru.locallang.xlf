@@ -58,10 +58,17 @@
                     </trans-unit>
 
                     <trans-unit id="missingUserInDatabase">
-                        <target>Ссылка недействительна. Возможно, профиль был удалён</target>
+                        <target>Ссылка недействительна. Возможно, профиль был удалён.</target>
+                    </trans-unit>
+
+                    <trans-unit id="wrongConfirmLink">
+                        <target>Вы используете неправильную ссылку для подтверждения регистрации</target>
                     </trans-unit>
 
 
+                    <trans-unit id="confirmCreateRequest_missingUserInDatabase">
+                        <target>Если Вы считаете это сообщение ошибкой, свяжитесь с администрацией системы</target>
+                    </trans-unit>
 
 
 
