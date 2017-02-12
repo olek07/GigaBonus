@@ -1,4 +1,5 @@
 {namespace femanager=In2code\Femanager\ViewHelpers}
+{namespace gbfemanager=Gigabonus\Gbfemanager\ViewHelpers}
 <div class="femanager_fieldset femanager_gender control-group">
 	<label class="control-label">
 		<f:translate key="tx_femanager_domain_model_user.gender" />
@@ -6,7 +7,7 @@
 			<span>*</span>
 		</f:if>
 	</label>
-	<div class="controls" id="femanager_field_gender">
+	<div id="femanager_field_gender" class="controls {gbfemanager:highlightErrorField(fieldName:'gender', validationResults:validationResults.flattenedErrors.user)}">
 		<label class="radio">
 			<f:form.radio
 					id="femanager_field_gender1"

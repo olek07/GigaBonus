@@ -1,0 +1,18 @@
+
+<f:layout name="Default" />
+
+<f:section name="main">
+<h1>Search</h1>
+<table  class="tx_gbpartner" >
+    <f:for each="{partners}" as="partner">
+        <tr>
+            <td><f:link.action action="show" controller="Partner" extensionName="gbpartner" pluginName="Partnerlisting" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:partner.category.0.uid}"> {partner.name}</f:link.action></td>
+            <td>{partner.teaser}</td>
+            <td>{partner.description}</td>
+            <td>{partner.image.originalResource.name}</td>
+        </tr>
+    </f:for>
+</table>
+
+
+</f:section>

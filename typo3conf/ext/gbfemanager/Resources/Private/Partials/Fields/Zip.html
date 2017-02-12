@@ -1,4 +1,5 @@
 {namespace femanager=In2code\Femanager\ViewHelpers}
+{namespace gbfemanager=Gigabonus\Gbfemanager\ViewHelpers}
 <div class="femanager_fieldset femanager_zip control-group">
 	<label for="femanager_field_zip" class="control-label">
 		<f:translate key="tx_femanager_domain_model_user.zip" />
@@ -7,11 +8,13 @@
 			<span>*</span>
 		</f:if>
 	</label>
+
 	<div class="controls"> 
 		<femanager:form.textfield
 				id="femanager_field_zip"
 				property="zip"
-				class="input-block-level"
+				maxlength="{settings.edit.validation.zip.max}"
+				class="input-block-level {gbfemanager:highlightErrorField(fieldName:'zip', validationResults:validationResults.flattenedErrors.user)}"
 		 />
 	</div>
 </div>

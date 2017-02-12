@@ -1,4 +1,5 @@
 {namespace femanager=In2code\Femanager\ViewHelpers}
+{namespace gbfemanager=Gigabonus\Gbfemanager\ViewHelpers}
 <div class="femanager_fieldset femanager_firstname control-group">
 	<label for="femanager_field_firstName" class="control-label">
 		<f:translate key="tx_femanager_domain_model_user.firstName" />
@@ -10,7 +11,9 @@
 		<femanager:form.textfield
 				id="femanager_field_firstName"
 				property="firstName"
-				class="input-block-level"
+				class="input-block-level {gbfemanager:highlightErrorField(fieldName:'firstName', validationResults:validationResults.flattenedErrors.user)}"
 		/>
+
+
 	</div>
 </div>

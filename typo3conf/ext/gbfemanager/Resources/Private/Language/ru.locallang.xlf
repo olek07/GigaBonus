@@ -4,7 +4,7 @@
 		<header/>
 		<body>
                     <trans-unit id="tx_femanager_domain_model_user.city" approved="yes">
-			            <target state="translated">Город, село, населённый пункт</target>
+			            <target state="translated">Город, село, населённый пункт (введите первые буквы названия, и выберите из списка)</target>
                     </trans-unit>
 
                     <trans-unit id="tx_femanager_domain_model_user.zip">
@@ -69,6 +69,45 @@
                     <trans-unit id="confirmCreateRequest_missingUserInDatabase">
                         <target>Если Вы считаете это сообщение ошибкой, свяжитесь с администрацией системы</target>
                     </trans-unit>
+
+                    <trans-unit id="validationErrorRequired" approved="yes">
+                        <source>Field %s is required</source>
+                        <target state="translated">Пожалуйста, укажите %s</target>
+                    </trans-unit>
+
+                    <trans-unit id="gender_validationErrorRequired" approved="yes">
+                        <target state="translated">Пожалуйста, укажите Ваш пол</target>
+                    </trans-unit>
+
+                    <trans-unit id="firstName_validationErrorMin" approved="yes">
+                        <target state="translated">Вы ввели слишком короткое имя. Пожалуйста, укажите больше символов</target>
+                    </trans-unit>
+
+                    <trans-unit id="middleName_validationErrorMin" approved="yes">
+                        <target state="translated">Вы ввели слишком короткое отчество. Пожалуйста, укажите больше символов</target>
+                    </trans-unit>
+
+                    <trans-unit id="lastName_validationErrorMin" approved="yes">
+                        <target state="translated">Вы ввели слишком короткую фамилию. Пожалуйста, укажите больше символов</target>
+                    </trans-unit>
+
+                    <trans-unit id="dateOfBirth_validationErrorRequired" approved="yes">
+                        <target state="translated">Вы указали неправильную дату. Пожалуйста, укажите правильную дату</target>
+                    </trans-unit>
+
+                    <trans-unit id="cityId_validationErrorRequired" approved="yes">
+                        <target state="translated">Введенное Вами название населённого пункта не существует. Пожалуйста, исправьте название</target>
+                    </trans-unit>
+
+                    <trans-unit id="zip_validationErrorInt" approved="yes">
+                        <target state="translated">Пожалуйста, вводите только цифры</target>
+                    </trans-unit>
+
+
+                    <trans-unit id="zip_validationErrorMin" approved="yes">
+                        <target state="translated">Пожалуйста, укажите большее символов</target>
+                    </trans-unit>
+
 
 
 

@@ -302,6 +302,12 @@ return [
             'packagePath' => 'typo3conf/ext/gbpartner/',
             'suggestions' => [],
         ],
+        'gbsearch' => [
+            'composerName' => 'gbsearch',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/gbsearch/',
+            'suggestions' => [],
+        ],
         'powermail' => [
             'composerName' => 'in2code/powermail',
             'state' => 'active',
