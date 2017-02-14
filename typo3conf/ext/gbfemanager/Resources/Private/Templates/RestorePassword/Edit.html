@@ -1,15 +1,25 @@
-{user.firstname}
-<f:debug>{_all}</f:debug>
 <f:if condition="{changePasswordNotvalid}">
   <f:then>
-    @todo: change_password_notvalid_message
+    <f:translate key="change_password_notvalid_message"
+                 arguments="{0: \"{f:uri.action(pageUid: settings.restorepassword.loginPageUid, absolute: 1, extensionName: 'felogin', controller: '', noCacheHash:1, arguments:{forgot:1})}\"}">
+      [change_password_notvalid_message]
+    </f:translate>
+
+
   </f:then>
   <f:else>
     <f:render partial="Misc/FlashMessages" arguments="{_all}" />
-    <f:render partial="Misc/FormErrors" arguments="{object:User}" />
     <f:form name="user" object="{user}" action="save" arguments="{forgothash:forgothash}" noCacheHash="1" >
-      <f:render partial="Fields/Password" arguments="{_all}" />
-      <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+      <f:form.validationResults for="{object}">
+          <f:render partial="Fields/Password" arguments="{_all}" />
+
+          <f:for each="{validationResults.flattenedErrors.user}" as="error">
+             <f:translate key="password_{error.message}">[password_{error.message}]</f:translate>
+             <br>
+          </f:for>
+
+          <f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+      </f:form.validationResults>
     </f:form>
   </f:else>
 </f:if>

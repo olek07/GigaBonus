@@ -48,11 +48,13 @@
 											<f:for each="{validationResults.flattenedErrors.user}" as="error">
 												<f:if condition="{error.code} == {field}">
 													<f:translate key="{field}_{error.message}">[{field}_{error.message}]</f:translate>
+													<br>
 												</f:if>
 
 												<f:if condition="{error.code} == 'cityId'">
 													<f:if condition="{field} == 'city'">
 														<f:translate key="cityId_validationErrorRequired">[cityId_validationErrorRequired]</f:translate>
+														<br>
 													</f:if>
 												</f:if>
 

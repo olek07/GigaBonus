@@ -108,6 +108,32 @@
                         <target state="translated">Пожалуйста, укажите большее символов</target>
                     </trans-unit>
 
+                    <trans-unit id="password_validationErrorPasswordRepeat" approved="yes">
+                        <target state="translated">Введенные пароли не совпадают</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_validationErrorMustInclude" approved="yes">
+                        <target state="translated">Пароль обязательно должен содержать цифры</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_validationErrorRequired" approved="yes">
+                        <target state="translated">Пожалуйста, введите новый пароль</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_validationErrorMin" approved="yes">
+                        <target state="translated">Пароль слишком короткий. Минимальная длина пароля 6 символов</target>
+                    </trans-unit>
+
+                    <trans-unit id="change_password_notvalid_message" approved="yes">
+                        <target state="translated">
+                        <![CDATA[
+                        Ссылка восстановления пароля недействительна. Возможно, Вы используете устаревшую ссылку.
+                        Пожалуйста, перейдите на <a href="%s">страницу восстановления пароля</a> для получения новой ссылки.
+                        <br>
+                        Если эта проблема возникла повторно, пожалуйста, свяжитесь с администрацией системы.
+                        ]]>
+                        </target>
+                    </trans-unit>
 
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbfelogin">
+	<header/>
+	<body>
+
+   	        <trans-unit id="ll_forgot_reset_message_emailSent">
+ 		    <source>An email has been sent to the address stored in your account and contains a link to reset your password. If you do not receive an email, your account or email address was not found.</source>
+                    <target>
+                    <![CDATA[
+                        На указанный Вами адрес электронной почты была отправленна ссылка для восстановления пароля.
+                        Если Вы её не получили, возможно, Вы ввели неправильный адрес электронной почты. <br><br>
+                        В случае дальнейших проблем с восстановлением пароля, пожалуйста свяжитесь с администрацией системы.
+                    ]]>
+                    </target>
+		</trans-unit>
+
+
+	</body>
+
+	</file>
+</xliff>

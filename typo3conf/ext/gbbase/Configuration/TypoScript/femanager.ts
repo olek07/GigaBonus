@@ -143,6 +143,8 @@ plugin.tx_femanager {
                 password < plugin.tx_femanager.settings.new.validation.password
 
             }
+
+            loginPageUid = 3
         }
 
     }
