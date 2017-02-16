@@ -105,7 +105,7 @@
 
 
                     <trans-unit id="zip_validationErrorMin" approved="yes">
-                        <target state="translated">Пожалуйста, укажите большее символов</target>
+                        <target state="translated">Пожалуйста, введите больше символов</target>
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorPasswordRepeat" approved="yes">

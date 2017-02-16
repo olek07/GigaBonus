@@ -104,6 +104,11 @@
                         <target>Посилання недійсне. Можливо, профіль був видалений</target>
                     </trans-unit>
 
+                    <trans-unit id="zip_validationErrorMin" approved="yes">
+                        <target state="translated">Будь ласка, введіть більше символів</target>
+                    </trans-unit>
+
+
 
                     <trans-unit id="change_password_notvalid_message" approved="yes">
                         <target state="translated">

@@ -98,7 +98,7 @@ plugin.tx_femanager {
 
                 dateOfBirth {
                     date = 1
-                    required = 1
+#                    required = 1
                 }
 
                 language {
@@ -107,8 +107,8 @@ plugin.tx_femanager {
                 }
 
                 gender {
-                    required = 1
-                    # inList = m,w,0
+#                    required = 1
+#                    inList = m,w,0
                 }
             }
 
@@ -167,6 +167,8 @@ page.includeJSFooter.femanager >
 
 [globalVar = TSFE:id = 6, TSFE:type = 106]
     plugin.tx_femanager.settings.edit.pageType = 106
+    plugin.tx_femanager.settings.edit.validation.gender.required = 1
+    plugin.tx_femanager.settings.edit.validation.dateOfBirth.required = 1
 [global]
 
 [globalVar = TSFE:id = 8, TSFE:type = 108]
