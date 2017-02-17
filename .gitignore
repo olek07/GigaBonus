@@ -10,5 +10,5 @@ nbproject
 vendor
 .idea
 dump.sql
-composer*
+/composer*
 gigabonus*.sql

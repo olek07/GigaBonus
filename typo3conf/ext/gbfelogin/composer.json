@@ -1,0 +1,22 @@
+{
+  "name": "gigabonus/gbfelogin",
+  "description": "felogin extended",
+  "keywords": ["typo3"],
+  "homepage": "",
+  "authors": [
+    {
+      "name": "Alexander Averbuch",
+      "email": "alav@gmx.net"
+    }
+  ],
+  "type": "typo3-cms-extension",
+  "license": "GPL-3.0",
+  "require": {
+    "typo3/cms-felogin": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gigabonus\\Gbfelogin\\": "Classes/"
+    }
+  }
+}
