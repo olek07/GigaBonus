@@ -2,6 +2,7 @@
 namespace Gigabonus\Gbfemanager\Controller;
 
 use \In2code\Femanager\Utility\UserUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 
 class RestorePasswordController extends \In2code\Femanager\Controller\AbstractController {
@@ -47,13 +48,13 @@ class RestorePasswordController extends \In2code\Femanager\Controller\AbstractCo
      * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
      * @return void
      */
-    public function saveAction(\Gigabonus\Gbfemanager\Domain\Model\User $user, $forgothash = null) {
+    public function saveAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null, $forgothash = null) {
         $compareHash = $this->getCompareHash($forgothash);
-        
+
         if ($compareHash === NULL) {
             exit;
         }
-        if ($compareHash[0] < time()) {
+        if ($compareHash[0] < time() || $user === NULL) {
             /**
              * @todo: change_password_notvalid_message
              */
@@ -70,12 +71,16 @@ class RestorePasswordController extends \In2code\Femanager\Controller\AbstractCo
             );
 
             $count = $GLOBALS['TYPO3_DB']->sql_affected_rows();
-                    
+
             // $this->userRepository->update($user);
             // $this->persistenceManager->persistAll();
             if ($count > 0) {
                 $this->addFlashMessage('Password changed');
             }
+
+            /**
+             * @todo: what to do, if the page was reloaded after password saving?
+             */
             
         }
        // $this->redirectToUri('/ru/my-account/login/');

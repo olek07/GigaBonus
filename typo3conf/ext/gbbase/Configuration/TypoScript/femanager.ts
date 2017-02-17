@@ -144,7 +144,7 @@ plugin.tx_femanager {
 
             }
 
-            loginPageUid = 3
+            loginPageUid = {$pages.loginPageUid}
         }
 
     }
@@ -165,13 +165,15 @@ plugin.tx_femanager {
 page.includeJSFooter.femanagerValidation >
 page.includeJSFooter.femanager >
 
-[globalVar = TSFE:id = 6, TSFE:type = 106]
+### Change data of FE User
+[globalVar = TSFE:id = {$pages.changeUserDataPageUid}, TSFE:type = 106]
     plugin.tx_femanager.settings.edit.pageType = 106
     plugin.tx_femanager.settings.edit.validation.gender.required = 1
     plugin.tx_femanager.settings.edit.validation.dateOfBirth.required = 1
 [global]
 
-[globalVar = TSFE:id = 8, TSFE:type = 108]
+### Change password of FE User
+[globalVar = TSFE:id = {$pages.changeUserPasswordPageUid}, TSFE:type = 108]
     plugin.tx_femanager.settings.edit.pageType = 108
 [global]
 

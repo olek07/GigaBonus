@@ -124,6 +124,11 @@
                         <target state="translated">Пароль слишком короткий. Минимальная длина пароля 6 символов</target>
                     </trans-unit>
 
+                    <trans-unit id="password_changed_ok" approved="yes">
+                        <target state="translated">Ваш новый пароль был успешно сохранён</target>
+                    </trans-unit>
+
+
                     <trans-unit id="change_password_notvalid_message" approved="yes">
                         <target state="translated">
                         <![CDATA[

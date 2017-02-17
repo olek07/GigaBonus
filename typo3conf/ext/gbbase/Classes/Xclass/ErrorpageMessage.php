@@ -31,7 +31,10 @@ class ErrorpageMessage extends \TYPO3\CMS\Core\Messaging\ErrorpageMessage {
         # $markers = array_merge($this->getDefaultMarkers(), $this->markers);
         # $content = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl('maintenance/errorpage-message.html');
         # $content = \TYPO3\CMS\Core\Html\HtmlParser::substituteMarkerArray($content, $markers, '', FALSE, TRUE);
-        $content = "<h1>Eigener Content der Error-Seite</h1><p>Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später nochmal. Entschuldigen Sie die Unannehmlichkeiten.</p>";
+        $content = "<h1>Eigener Content der Error-Seite</h1><p>Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später nochmal. Entschuldigen Sie die Unannehmlichkeiten.<br>
+                    SetEnv TYPO3_CONTEXT Development<br>
+                    Debug Settings: Live
+                   </p>";
         return $content;
     }
 

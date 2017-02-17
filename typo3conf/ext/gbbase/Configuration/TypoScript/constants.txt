@@ -1,0 +1,13 @@
+pages {
+    restorePasswordPageUid = 10
+    changeUserDataPageUid = 6
+    changeUserPasswordPageUid = 8
+    loginPageUid = 3
+}
+
+elements {
+    createNewUser = 1
+    changeUserData = 3
+    changeUserPassword = 12
+    changeUserMobileNumber = 13
+}

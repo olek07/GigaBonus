@@ -1,3 +1,5 @@
+
+### Create new FE User
 GbfemanagerNewUser = PAGE
 GbfemanagerNewUser {
 
@@ -22,13 +24,13 @@ GbfemanagerNewUser {
     10 = RECORDS
     10 {
         tables = tt_content
-        source = 1
+        source = {$elements.createNewUser}
         dontCheckPid = 1
     }
 }
 
 
-
+### Change data of FE User
 GbfemanagerChangeUserData = PAGE
 GbfemanagerChangeUserData {
 
@@ -53,12 +55,12 @@ GbfemanagerChangeUserData {
     10 = RECORDS
     10 {
         tables = tt_content
-        source = 3
+        source = {$elements.changeUserData}
         dontCheckPid = 1
     }
 }
 
-
+### Change password of FE User
 GbfemanagerChangePassword = PAGE
 GbfemanagerChangePassword {
 
@@ -95,11 +97,12 @@ GbfemanagerChangePassword {
     10 = RECORDS
     10 {
         tables = tt_content
-        source = 12
+        source = {$elements.changeUserPassword}
         dontCheckPid = 1
     }
 }
 
+### Change Mobile Number of FE User
 GbfemanagerChangeMobileNumber = PAGE
 GbfemanagerChangeMobileNumber {
 
@@ -123,7 +126,7 @@ GbfemanagerChangeMobileNumber {
     10 = RECORDS
     10 {
         tables = tt_content
-        source = 13
+        source = {$elements.changeUserMobileNumber}
         dontCheckPid = 1
     }
 }
