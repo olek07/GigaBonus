@@ -266,6 +266,18 @@ return [
             'packagePath' => 'typo3conf/ext/gbfemanager/',
             'suggestions' => [],
         ],
+        'realurl' => [
+            'composerName' => 'dmitryd/typo3-realurl',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/realurl/',
+            'suggestions' => [],
+        ],
+        'gblanguages' => [
+            'composerName' => 'gigabonus/gblanguages',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/gblanguages/',
+            'suggestions' => [],
+        ],
         'gbredirect' => [
             'composerName' => 'gbredirect',
             'state' => 'active',
@@ -285,7 +297,7 @@ return [
             'suggestions' => [],
         ],
         'gbfelogin' => [
-            'composerName' => 'gbfelogin',
+            'composerName' => 'gigabonus/gbfelogin',
             'state' => 'active',
             'packagePath' => 'typo3conf/ext/gbfelogin/',
             'suggestions' => [],
@@ -312,12 +324,6 @@ return [
             'composerName' => 'in2code/powermail',
             'state' => 'active',
             'packagePath' => 'typo3conf/ext/powermail/',
-            'suggestions' => [],
-        ],
-        'realurl' => [
-            'composerName' => 'dmitryd/typo3-realurl',
-            'state' => 'active',
-            'packagePath' => 'typo3conf/ext/realurl/',
             'suggestions' => [],
         ],
         'adodb' => [

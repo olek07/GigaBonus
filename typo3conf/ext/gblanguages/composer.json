@@ -1,0 +1,22 @@
+{
+  "name": "gigabonus/gblanguages",
+  "description": "Languages switch menu",
+  "keywords": ["typo3"],
+  "homepage": "",
+  "authors": [
+    {
+      "name": "Alexander Averbuch",
+      "email": "alav@gmx.net"
+    }
+  ],
+  "type": "typo3-cms-extension",
+  "license": "GPL-3.0",
+  "require": {
+    "dmitryd/typo3-realurl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gigabonus\\Gblanguages\\": "Classes/"
+    }
+  }
+}

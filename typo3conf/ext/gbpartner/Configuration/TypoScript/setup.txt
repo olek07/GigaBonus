@@ -7,7 +7,7 @@ plugin.tx_gbpartner_categorylisting {
 }
 
 
-lib.categoryList = USER_INT
+lib.categoryList = USER
 lib.categoryList {
 	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
 	extensionName = Gbpartner

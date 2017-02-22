@@ -1,6 +1,9 @@
 <?php
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 	'_DEFAULT' => array(
+		'cache' => array(
+			'banUrlsRegExp' => '/startdate|enddate|tx_femanager_pi1/',
+    	),
 		'init' => array(
 			'enableCHashCache' => 1,
 			'appendMissingSlash' => 'ifNotFile',

@@ -1,6 +1,7 @@
 <?php
 namespace Gigabonus\Gbfemanager\Controller;
 
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use \In2code\Femanager\Utility\UserUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -16,6 +17,7 @@ class RestorePasswordController extends \In2code\Femanager\Controller\AbstractCo
         $compareHash = $this->getCompareHash($forgothash);
         
         if ($compareHash === NULL) {
+            MainHelper::redirect2Home();
             exit;
         }
         

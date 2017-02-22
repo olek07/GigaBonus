@@ -12,7 +12,7 @@ if (!defined('TYPO3_MODE')) {
 	),
 	// non-cacheable actions
 	array(
-		'Partner' => 'list,show,gotoPartner',
+		'Partner' => 'gotoPartner',
 		
 	)
 );
@@ -26,7 +26,7 @@ if (!defined('TYPO3_MODE')) {
 	),
 	// non-cacheable actions
 	array(
-		'Category' => 'list',
+		'Category' => '',
 		
 	)
 );

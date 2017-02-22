@@ -21,6 +21,7 @@ return [
             'gbbase' => 'a:0:{}',
             'gbfelogin' => 'a:0:{}',
             'gbfemanager' => 'a:0:{}',
+            'gblanguages' => 'a:0:{}',
             'gborderapi' => 'a:0:{}',
             'gbpartner' => 'a:0:{}',
             'gbredirect' => 'a:0:{}',

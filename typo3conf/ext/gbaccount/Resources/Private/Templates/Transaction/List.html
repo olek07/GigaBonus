@@ -35,7 +35,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 	  <f:for each="{paginatedTransactions}" as="transaction">
 		<tr>
-		  <td><f:link.action action="show" arguments="{transaction : transaction}">{transaction.amount}<f:if condition="{transaction.isOnHold}">*</f:if></f:link.action></td>
+		  <td><f:link.action action="show" arguments="{transaction : transaction}" noCacheHash="1">{transaction.amount}<f:if condition="{transaction.isOnHold}">*</f:if></f:link.action></td>
 		  <td><f:format.date format="d.m.Y">{transaction.crdate}</f:format.date></td>
 		  <td>{transaction.partner.name}</td>
 		</tr>

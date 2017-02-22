@@ -20,6 +20,8 @@ namespace Gigabonus\Gbaccount\ViewHelpers;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 /**
  * A view helper for creating Links to extbase actions within widets.
  *
@@ -55,10 +57,24 @@ class LinkViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\Widget\LinkViewHelper
             $arguments['format'] = $this->arguments['format'];
         }
 
+
+        $startdate = GeneralUtility::_GET('startdate');
+        $enddate = GeneralUtility::_GET('enddate');
+
+        $allowedParams = array();
+
+        if ($startdate != NULL) {
+            $allowedParams['startdate'] = $startdate;
+        }
+
+        if ($enddate != NULL) {
+            $allowedParams['enddate'] = $enddate;
+        }
+
         return $uriBuilder->reset()
-            ->setArguments([$argumentPrefix => $arguments])
+            ->setArguments([$argumentPrefix => $arguments, $allowedParams])
             ->setSection($this->arguments['section'])
-            ->setAddQueryString(true)
+            ->setAddQueryString(false)
             ->setAddQueryStringMethod($this->arguments['addQueryStringMethod'])
             ->setArgumentsToBeExcludedFromQueryString([$argumentPrefix, 'cHash', 'type'])
             ->setFormat($this->arguments['format'])

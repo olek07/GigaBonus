@@ -1,5 +1,5 @@
 config{
-    no_cache = 1
+   # no_cache = 1
     doctype = html5
     sys_language_uid = 0
     language = ru
