@@ -108,6 +108,9 @@
                         <target state="translated">Будь ласка, введіть більше символів</target>
                     </trans-unit>
 
+                    <trans-unit id="tx_femanager_domain_model_user.email" approved="yes">
+                        <target state="translated">E-Mail</target>
+                    </trans-unit>
 
 
                     <trans-unit id="change_password_notvalid_message" approved="yes">

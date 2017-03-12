@@ -6,13 +6,19 @@ plugin.tx_femanager {
     settings {
         new {
             validation {
+
+                _enable.client = 0
+
                 // to use email as login, because username is by default required 
                 username.required = 0
                 // captcha.captcha = 1
-                email.uniqueInDb = 1
+                email {
+                    uniqueInDb = 1
+                    required = 1
+                }
                 password {
                     min = 6
-                    mustInclude = number
+                    mustInclude = number,letter
                     required = 1
                 }
 

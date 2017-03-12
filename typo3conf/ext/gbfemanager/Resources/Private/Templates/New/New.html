@@ -8,10 +8,9 @@
 
 <f:section name="main">
 	<f:render partial="Misc/FlashMessages" arguments="{_all}" />
-	<f:render partial="Misc/FormErrors" arguments="{object:User}" />
-
-	<div class="femanager_new">
+	<div class="large-4 columns">
 		<f:form name="user" id="newUserForm" object="{user}" action="create" pageUid="1" pageType="{settings.new.pageType}" noCacheHash="1" class="form-horizontal {f:if(condition:'{settings.new.validation._enable.client}',then:'feManagerValidation',else:'')}">
+			<f:form.validationResults for="{object}">
 			<fieldset>
 				<legend>
 					<f:translate key="titleCreateProfile" />
@@ -19,10 +18,19 @@
 
 				<f:for each="{femanager:misc.explode(string:'{settings.new.fields}')}" as="field">
 				    <f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+
+					<f:for each="{validationResults.flattenedErrors.user}" as="error">
+						<f:if condition="{error.code} == {field}">
+							<div><f:translate key="{field}_new_{error.message}">[{field}_new_{error.message}]</f:translate></div>
+
+						</f:if>
+					</f:for>
+
 				</f:for>
 				<f:render partial="Fields/SubmitCreate" arguments="{_all}" />
 
 			</fieldset>
+			</f:form.validationResults>
 		</f:form>
 	</div>
 </f:section>

@@ -17,7 +17,7 @@
 				Пароль можно поменять через {timeToPasswordChange}
 			</f:then>
 			<f:else>
-				<div class="femanager_new">
+				<div class="femanager_edit">
 				<f:if condition="{user}">
 					<f:then>
 						<f:form name="user" id="changeUserdataForm" object="{user}" action="update" pageUid="1" pageType="{settings.changemobilenumber.pageType}" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">

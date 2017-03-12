@@ -43,6 +43,7 @@ return [
         ],
     ],
     'FE' => [
+        'cHashIncludePageId' => '1',
         'debug' => true,
         'lifetime' => '31536000',
         'loginSecurityLevel' => 'rsa',

@@ -16,9 +16,9 @@ page.meta.viewport = initial-scale=1, minimum-scale=1, maximum-scale=1
 
 ### page.10 < lib.langMenu
 
-page.10 < tt_content.list.20.gblanguages_languagemenu
-page.10 = USER
-page.10 {
+temp.languageSwitch < tt_content.list.20.gblanguages_languagemenu
+temp.languageSwitch = USER
+temp.languageSwitch {
 
 }
 
@@ -28,4 +28,9 @@ page.30 {
     file = EXT:gbbase/Resources/Private/Templates/Page/Layouts/MainTemplate.html
     partialRootPath = EXT:gbbase/Resources/Private/Templates/Page/Partials/
     # layoutRootPath = typo3conf/ext/gbbase/Resources/Private/Templates/Page/Layouts/
+
+    variables {
+        languageSwitch < temp.languageSwitch
+    }
+
 }
