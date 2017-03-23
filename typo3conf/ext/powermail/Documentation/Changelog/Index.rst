@@ -18,6 +18,27 @@ All changes are documented on `http://forge.typo3.org/projects/extension-powerma
       Release Description
 
  - :Version:
+      3.15.0
+   :Date:
+      2017-03-20
+   :Changes:
+
+      * Feature: Allow field prefilling for cached forms if no_cache=1
+      * Feature: Add css bootstrap classes also for submit and the create view
+      * Bugfix: Can not edit a form with a fluid viewhelper in a field title
+      * Bugfix: Field parent pointer of translation overridden in TYPO3 CMS 8
+
+ - :Version:
+      3.14.0
+   :Date:
+      2017-03-13
+   :Changes:
+
+      * Task: Finally allow upload fields in Pi2
+      * Bugfix: Make localized forms without parent selectable in backend
+      * Bugfix: AjaxFormSubmit in IE was possibly broken
+
+ - :Version:
       3.13.0
    :Date:
       2017-03-02
