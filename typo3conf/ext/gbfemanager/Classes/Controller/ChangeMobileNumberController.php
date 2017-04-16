@@ -55,12 +55,13 @@ class ChangeMobileNumberController extends \In2code\Femanager\Controller\EditCon
     /**
      * action update
      *
-     * @param User $user
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @validate $user In2code\Femanager\Domain\Validator\ServersideValidator
      * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
      * @return void
      */
-    public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null) {
+    public function updateAction(\In2code\Femanager\Domain\Model\User $user = null) {
+        
         if (($user !== NULL) && ($GLOBALS['TSFE']->fe_user->user['uid']) ==  $user->getUid()) {
 
             if (!ObjectUtility::isDirtyObject($user)) {
