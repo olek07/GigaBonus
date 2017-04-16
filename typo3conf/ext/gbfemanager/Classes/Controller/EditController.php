@@ -44,12 +44,11 @@ class EditController extends \In2code\Femanager\Controller\EditController {
      * @validate $user In2code\Femanager\Domain\Validator\CaptchaValidator
      * @return void
      */
-    public function updateAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = NULL) {
-            // $this->redirectIfDirtyObject($user);
-            UserUtility::convertPassword($user, $this->settings['edit']['misc']['passwordSave']);
-            $this->updateAllConfirmed($user);
-            $this->forward('edit');
-            // parent::updateAction($user);
+    public function updateAction(\In2code\Femanager\Domain\Model\User $user = NULL) {
+        // $this->redirectIfDirtyObject($user);
+        UserUtility::convertPassword($user, $this->settings['edit']['misc']['passwordSave']);
+        $this->updateAllConfirmed($user);
+        $this->forward('edit');
     }
 
 }

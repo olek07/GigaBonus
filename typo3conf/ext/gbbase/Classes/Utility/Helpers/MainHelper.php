@@ -30,5 +30,14 @@ class MainHelper {
         HttpUtility::redirect($url);
         
     }
-    
+
+
+    /* ARRAY ID TO LANGUAGES WITH 2 LETTERS */
+
+    public static $langIds = array(
+        0   => 'ru',
+        1   => 'uk',
+    );
+
+
 }

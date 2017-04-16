@@ -3,7 +3,7 @@ config.tx_extbase{
                 classes{
                         In2code\Femanager\Domain\Model\User {
                                 subclasses {
-                                        0 = Gigabonus\Gbfemanager\Domain\Model\User
+                                       // 0 = Gigabonus\Gbfemanager\Domain\Model\User
                                 }
                         }
                         Gigabonus\Gbfemanager\Domain\Model\User {
@@ -21,6 +21,9 @@ config.tx_extbase{
                 In2code\Femanager\Controller\ChangeMobileNumberController.className = Gigabonus\Gbfemanager\Controller\ChangeMobileNumberController
                 In2code\Femanager\Controller\RestorePasswordController.className = Gigabonus\Gbfemanager\Controller\RestorePasswordController
                 In2code\Femanager\Controller\SendConfirmMailController.className = Gigabonus\Gbfemanager\Controller\SendConfirmMailController
+
+                In2code\Femanager\Domain\Model\User.className = Gigabonus\Gbfemanager\Domain\Model\User
+
         }
 }
 

@@ -9,7 +9,7 @@ use In2code\Femanager\Utility\HashUtility;
 use In2code\Femanager\Utility\UserUtility;
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 
 class NewController extends \In2code\Femanager\Controller\NewController {
@@ -20,7 +20,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @return void
      */
-    public function newAction(\Gigabonus\Gbfemanager\Domain\Model\User $user = null)
+    public function newAction(\In2code\Femanager\Domain\Model\User $user = null)
     {
 
         // wenn angemeldet, redirect auf die Startseite
@@ -29,7 +29,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
             exit;
         }
 
-        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+        $pageRenderer = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
 
         $pageRenderer->addJsFooterInlineCode('',"
             $(document).ready(function(){
@@ -53,7 +53,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
      * @return void
      */
-    public function createAction(\Gigabonus\Gbfemanager\Domain\Model\User $user) {
+    public function createAction(\In2code\Femanager\Domain\Model\User $user) {
         // $user->setLanguage('uk');
         parent::createAction($user);
     }
@@ -74,7 +74,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      *            "adminConfirmationRefused", "adminConfirmationRefusedSilent"
      * @return void
      */
-    public function confirmCreateRequestAction($user, $hash) {
+    public function confirmCreateRequestAction($user, $hash, $status = 'adminConfirmation') {
         $user = $this->userRepository->findByUid($user);
 
         if ($user === null) {
@@ -114,7 +114,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @return void
      * @throws UnsupportedRequestTypeException
      */
-    protected function createUserConfirmationRequest(\Gigabonus\Gbfemanager\Domain\Model\User $user)
+    protected function createUserConfirmationRequest(\In2code\Femanager\Domain\Model\User $user)
     {
 
 
@@ -181,7 +181,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
      * @return void
      */
-    public function createRequest(\Gigabonus\Gbfemanager\Domain\Model\User $user)
+    public function createRequest(\In2code\Femanager\Domain\Model\User $user)
     {
         $this->userRepository->add($user);
         $this->persistenceManager->persistAll();
@@ -203,7 +203,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @param $login
      * @throws IllegalObjectTypeException
      */
-    protected function loginPreflight(\Gigabonus\Gbfemanager\Domain\Model\User $user, $login)
+    protected function loginPreflight(\In2code\Femanager\Domain\Model\User $user, $login)
     {
         if ($login) {
             // persist user (otherwise login may not be possible)
