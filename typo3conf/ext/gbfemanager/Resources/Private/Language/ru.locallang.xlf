@@ -76,27 +76,27 @@
                     </trans-unit>
 
                     <trans-unit id="gender_validationErrorRequired" approved="yes">
-                        <target state="translated">Пожалуйста, укажите Ваш пол</target>
+                        <target state="translated">Пожалуйста, укажите Ваш пол.</target>
                     </trans-unit>
 
                     <trans-unit id="firstName_validationErrorMin" approved="yes">
-                        <target state="translated">Вы ввели слишком короткое имя. Пожалуйста, укажите больше символов</target>
+                        <target state="translated">Вы ввели слишком короткое имя. Пожалуйста, укажите больше символов.</target>
                     </trans-unit>
 
                     <trans-unit id="middleName_validationErrorMin" approved="yes">
-                        <target state="translated">Вы ввели слишком короткое отчество. Пожалуйста, укажите больше символов</target>
+                        <target state="translated">Вы ввели слишком короткое отчество. Пожалуйста, укажите больше символов.</target>
                     </trans-unit>
 
                     <trans-unit id="lastName_validationErrorMin" approved="yes">
-                        <target state="translated">Вы ввели слишком короткую фамилию. Пожалуйста, укажите больше символов</target>
+                        <target state="translated">Вы ввели слишком короткую фамилию. Пожалуйста, укажите больше символов.</target>
                     </trans-unit>
 
                     <trans-unit id="dateOfBirth_validationErrorRequired" approved="yes">
-                        <target state="translated">Вы указали неправильную дату. Пожалуйста, укажите правильную дату</target>
+                        <target state="translated">Вы указали неправильную дату рождения. Пожалуйста, укажите правильную дату.</target>
                     </trans-unit>
 
                     <trans-unit id="cityId_validationErrorRequired" approved="yes">
-                        <target state="translated">Введенное Вами название населённого пункта не существует. Пожалуйста, исправьте название</target>
+                        <target state="translated">Вы не ввели название населённого пункта, или введенное Вами название не существует. Пожалуйста, введите название и воспользуйтесь выпадающим списком для выбора населённого пункта</target>
                     </trans-unit>
 
                     <trans-unit id="zip_validationErrorInt" approved="yes">
@@ -105,23 +105,23 @@
 
 
                     <trans-unit id="zip_validationErrorMin" approved="yes">
-                        <target state="translated">Пожалуйста, введите больше символов</target>
+                        <target state="translated">Пожалуйста, введите больше символов.</target>
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorPasswordRepeat" approved="yes">
-                        <target state="translated">Введенные пароли не совпадают</target>
+                        <target state="translated">Введенные пароли не совпадают.</target>
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorMustInclude" approved="yes">
-                        <target state="translated">Пароль обязательно должен содержать буквы и цифры</target>
+                        <target state="translated">Пароль обязательно должен содержать буквы и цифры.</target>
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorRequired" approved="yes">
-                        <target state="translated">Пожалуйста, введите новый пароль</target>
+                        <target state="translated">Пожалуйста, введите новый пароль.</target>
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorMin" approved="yes">
-                        <target state="translated">Пароль слишком короткий. Минимальная длина пароля 6 символов</target>
+                        <target state="translated">Пароль слишком короткий. Минимальная длина пароля 6 символов.</target>
                     </trans-unit>
 
                     <trans-unit id="password_changed_ok" approved="yes">

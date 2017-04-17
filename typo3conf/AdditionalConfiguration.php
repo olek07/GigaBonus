@@ -33,18 +33,7 @@ switch(true) {
     // Ubuntu 16.0.4 VM
     case ($_SERVER['UbuntuVM'] == 1):
 
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['colorspace'] = 'RGB';
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png'] = '1';
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['im'] = 1;
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_mask_temp_ext_gif'] = 1;
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path'] = 'C:/Program Files/GraphicsMagick-1.3.22-Q8/';
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path_lzw'] = 'C:/Program Files/GraphicsMagick-1.3.22-Q8/';
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_v5effects'] = -1;
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_version_5'] = 'gm';
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['image_processing'] = 1;
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality'] = '85';
-
-
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['image_processing'] = '1';
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['colorspace'] = 'RGB';
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['im'] = 1;
@@ -53,11 +42,11 @@ switch(true) {
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path_lzw'] = '/usr/bin/';
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_v5effects'] = -1;
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_version_5'] = 'gm';
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality'] = '80';
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality'] = '85';
 
 
 
-        // $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file'] = 'C:/projects/gigabonus/typo3conf/mail';
+        $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file'] = '/var/www/vhosts/gigabonus/typo3conf/mail';
  
         $GLOBALS['TYPO3_CONF_VARS']['DB']['database'] = 'gigabonus';
         $GLOBALS['TYPO3_CONF_VARS']['DB']['host'] = 'localhost';

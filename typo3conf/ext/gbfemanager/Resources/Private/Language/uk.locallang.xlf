@@ -37,9 +37,50 @@
                     </trans-unit>
 
                     <trans-unit id="tx_femanager_domain_model_user.dateOfBirth" approved="yes">
-			            <target state="translated">Дата народження</target>
+		                <target state="translated">Дата народження</target>
                     </trans-unit>
 
+                    <trans-unit id="gender_validationErrorRequired" approved="yes">
+                        <target state="translated">Будь ласка, вкажіть Вашу стать.</target>
+                    </trans-unit>
+
+                    <trans-unit id="firstName_validationErrorMin" approved="yes">
+                        <target state="translated">Ви ввели занадто коротке ім'я. Будь ласка, вкажіть більше символів.</target>
+                    </trans-unit>
+
+                    <trans-unit id="middleName_validationErrorMin" approved="yes">
+                        <target state="translated">Ви ввели занадто коротке по-батькові. Будь ласка, вкажіть більше символів.</target>
+                    </trans-unit>
+
+                    <trans-unit id="lastName_validationErrorMin" approved="yes">
+                        <target state="translated">Ви ввели занадто коротке прізвище. Будь ласка, вкажіть більше символів.</target>
+                    </trans-unit>
+
+
+                    <trans-unit id="dateOfBirth_validationErrorRequired" approved="yes">
+                        <target state="translated">Ви вказали неправильну дату народження. Будь ласка, вкажіть правильну дату.</target>
+                    </trans-unit>
+
+
+                    <trans-unit id="cityId_validationErrorRequired" approved="yes">
+                        <target state="translated">Ви не ввели назву населеного пункту, або введена Вами назва не існує. Будь ласка, введіть назву і скористайтеся списком для вибору населеного пункту.</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_validationErrorRequired" approved="yes">
+                        <target state="translated">Будь ласка, введіть новий пароль.</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_validationErrorMin" approved="yes">
+                        <target state="translated">Пароль занадто короткий. Мінімальна довжина пароля 6 символів.</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_validationErrorMustInclude" approved="yes">
+                        <target state="translated">Пароль обов'язково повинен містити букви і цифри.</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_validationErrorPasswordRepeat" approved="yes">
+                        <target state="translated">Введені паролі не співпадають.</target>
+                    </trans-unit>
 
                     <trans-unit id="tx_femanager_domain_model_user.language">
                             <target>Мова</target>
