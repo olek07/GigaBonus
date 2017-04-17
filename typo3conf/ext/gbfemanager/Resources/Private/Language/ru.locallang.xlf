@@ -100,7 +100,7 @@
                     </trans-unit>
 
                     <trans-unit id="zip_validationErrorInt" approved="yes">
-                        <target state="translated">Пожалуйста, вводите только цифры</target>
+                        <target state="translated">Пожалуйста, вводите только цифры.</target>
                     </trans-unit>
 
 

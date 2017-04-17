@@ -36,6 +36,11 @@
                         <target>Поштовий індекс</target>
                     </trans-unit>
 
+                    <trans-unit id="zip_validationErrorInt" approved="yes">
+                        <target state="translated">Будь ласка, введіть лише цифри.</target>
+                    </trans-unit>
+
+
                     <trans-unit id="tx_femanager_domain_model_user.dateOfBirth" approved="yes">
 		                <target state="translated">Дата народження</target>
                     </trans-unit>

@@ -99,7 +99,7 @@ plugin.tx_femanager {
 
                 cityId {
                     intOnly = 1
-                    required = 1
+#                    required = 1
                 }
 
                 dateOfBirth {
@@ -176,6 +176,7 @@ page.includeJSFooter.femanager >
     plugin.tx_femanager.settings.edit.pageType = 106
     plugin.tx_femanager.settings.edit.validation.gender.required = 1
     plugin.tx_femanager.settings.edit.validation.dateOfBirth.required = 1
+    plugin.tx_femanager.settings.edit.validation.cityId.required = 1
 [global]
 
 ### Change password of FE User
