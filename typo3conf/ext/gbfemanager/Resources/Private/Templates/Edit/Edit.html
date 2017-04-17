@@ -9,7 +9,9 @@
 
 	<f:section name="main">
             <f:link.page pageUid="3" additionalParams="{logintype:'logout'}">Abmelden</f:link.page><br>
-            <f:link.action pageUid="15" controller="" noCacheHash="1">Send confirm again</f:link.action>
+
+			<f:translate key="you_have_not_confirmed_registration">[you_have_not_confirmed_registration]</f:translate>
+			<f:link.action pageUid="15" controller="SendConfirmMail" noCacheHash="1"><f:translate key="on_this_link" /></f:link.action>
             
            	<br>
 

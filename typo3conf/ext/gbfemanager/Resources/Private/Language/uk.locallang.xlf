@@ -171,6 +171,15 @@
                     </trans-unit>
 
 
+                    <trans-unit id="you_have_not_confirmed_registration" approved="yes">
+                        <target state="translated">Ви ще не підтвердили реєстрацію в системі. Щоб підтвердити реєстрацію, перейдіть, будь ласка, </target>
+                    </trans-unit>
+
+                    <trans-unit id="on_this_link" approved="yes">
+                        <target state="translated">за цим посиланням.</target>
+                    </trans-unit>
+
+
                     
 	        </body>
 

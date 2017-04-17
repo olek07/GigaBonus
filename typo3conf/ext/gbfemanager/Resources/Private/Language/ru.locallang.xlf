@@ -169,6 +169,17 @@
                         </target>
                     </trans-unit>
 
+                    <trans-unit id="you_have_not_confirmed_registration" approved="yes">
+                        <target state="translated">Вы ещё не подтвердили регистрацию в системе. Чтобы подтвердить регистрацию, перейдите, пожалуйста,</target>
+                    </trans-unit>
+
+                    <trans-unit id="on_this_link" approved="yes">
+                        <target state="translated">по этой ссылке</target>
+                    </trans-unit>
+
+
+
+
 
 
 	        </body>
