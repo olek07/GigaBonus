@@ -3,9 +3,8 @@
 namespace Gigabonus\Gbredirect\Hooks;
 
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
-use In2code\Femanager\Utility\StringUtility;
+use TYPO3\CMS\Core\Utility\StringUtility;
 use TYPO3\CMS\Core\Utility\HttpUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class TyposcriptFrontendConrollerHook  {
 
