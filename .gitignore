@@ -12,3 +12,5 @@ vendor
 dump.sql
 /composer*
 gigabonus*.sql
+
+mnogosearch\.php
