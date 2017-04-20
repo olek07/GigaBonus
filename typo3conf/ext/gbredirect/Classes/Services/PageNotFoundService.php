@@ -33,18 +33,17 @@ class PageNotFoundService {
             $headerArr[] = 'Cookie: ' . $curl_COOKIE;
         }
 
+        $linkConf = array(
+            'parameter' => 18,
+            'additionalParams' => '&L=' . GeneralUtility::_GET('L'),
+        );
 
-        $res = GeneralUtility::getUrl('http://gigabonus.dev/uk/404/', 0, $headerArr);
 
-        // Header and content are separated by an empty line
-        list($header, $content) = explode(CRLF . CRLF, $res, 2);
-        // There can be multiple header blocks when using a proxy with cURL
-        while (substr($content, 0, 4) === 'HTTP') {
-            list($header, $content) = explode(CRLF . CRLF, $content, 2);
-        }
-        $content .= CRLF;
-
-        echo $res;
-
+        // Link to the 404-page (uid = 18)
+        $url = 'http://' . $_SERVER["HTTP_HOST"] . '/index.php?id=18&L=' . GeneralUtility::_GET('L');
+        $content= GeneralUtility::getUrl($url, 0, $headerArr);
+        echo $content;
+        exit;
     }
+
 }
