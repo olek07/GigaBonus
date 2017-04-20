@@ -12,3 +12,5 @@ vendor
 dump.sql
 /composer*
 gigabonus*.sql
+
+typo3conf/ENABLE_INSTALL_TOOL
