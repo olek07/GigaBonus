@@ -46,8 +46,9 @@ return [
         'cHashIncludePageId' => '1',
         'debug' => true,
         'lifetime' => '31536000',
+        'lockIP' => '0',
         'loginSecurityLevel' => 'rsa',
-        'pageNotFound_handling' => 'REDIRECT:/404.html',
+        'pageNotFound_handling' => 'USER_FUNCTION:EXT:gbredirect/Classes/Services/PageNotFoundService.php:Gigabonus\\Gbredirect\\Services\\PageNotFoundService->pageNotFound',
     ],
     'GFX' => [
         'colorspace' => 'sRGB',
@@ -59,6 +60,9 @@ return [
         'im_version_5' => 'im6',
         'image_processing' => 1,
         'jpg_quality' => '80',
+    ],
+    'HTTP' => [
+        'adapter' => 'curl',
     ],
     'INSTALL' => [
         'wizardDone' => [
@@ -108,6 +112,7 @@ return [
             ],
         ],
         'clearCacheSystem' => true,
+        'curlUse' => '1',
         'devIPmask' => '*',
         'displayErrors' => 1,
         'enableDeprecationLog' => 'file',
