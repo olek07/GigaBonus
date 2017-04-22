@@ -41,7 +41,10 @@ class MenuController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function showAction()
     {
+
+        // pids and get-parameters to add to the link in the language switch
         $enabledParameters = array(
+            3  => array('tx_felogin_pi1|forgot', 'tx_felogin_pi1|controller'),
             17 => array('tx_gbpartner_partnerlisting|category', 'tx_gbpartner_partnerlisting|partner'),
         );
 
