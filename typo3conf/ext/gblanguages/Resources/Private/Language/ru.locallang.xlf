@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-27T10:56:27Z" product-name="gblanguages">
+		<header/>
+		<body>
+			<trans-unit id="language_label_0">
+				<target>Русский</target>
+			</trans-unit>
+
+			<trans-unit id="language_label_1">
+				<target>Українська</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

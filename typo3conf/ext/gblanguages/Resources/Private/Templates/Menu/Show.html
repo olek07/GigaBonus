@@ -1,8 +1,15 @@
+<f:layout name="Default" />
 
-<f:for each="{languagesLinks}" as="languagesLink" key="languageUid">
-    <a href="{languagesLink}">{languageUid}</a>
-    <br>
-</f:for>
+<f:section name="main">
+
+    <f:for each="{languagesLinks}" as="languagesLink" key="languageUid">
+        <a href="{languagesLink}" {f:if(condition: '{languageUid} == {currentLanguage}', then: 'class="active"' )} >
+            <f:translate key="language_label_{languageUid}" />
+        </a>
+        <br>
+    </f:for>
+
+</f:section>
 
 
 
