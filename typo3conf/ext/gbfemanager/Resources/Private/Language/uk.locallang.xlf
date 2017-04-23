@@ -3,7 +3,11 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-04T10:20:10Z" product-name="gbbase">
 		<header/>
 		<body>
-                    
+
+                    <trans-unit id="submitNew">
+                        <target>Зареєструватися</target>
+                    </trans-unit>
+
                     <trans-unit id="tx_femanager_domain_model_user.firstName">
                         <source>Имя</source>
                         <target>Ім'я</target>
@@ -183,6 +187,26 @@
                         <target state="translated">Під час збереження даних сталася помилка. Можливо, Ви не заповнили всі необхідні поля, або введені Вами дані є некоректними.</target>
                     </trans-unit>
 
+                    <trans-unit id="email_new_validationErrorRequired" approved="yes">
+                        <target state="translated">Будь ласка, введіть Вашу адресу електронної пошти (E-Mail).</target>
+                    </trans-unit>
+
+
+                    <trans-unit id="password_new_validationErrorRequired" approved="yes">
+                        <target state="translated">Будь ласка, введіть пароль.</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_new_validationErrorPasswordRepeat" approved="yes">
+                        <target state="translated">Введені паролі не співпадають.</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_new_validationErrorMustInclude" approved="yes">
+                        <target state="translated">Пароль обов'язково повинен містити букви і цифри.</target>
+                    </trans-unit>
+
+                    <trans-unit id="password_new_validationErrorMin" approved="yes">
+                        <target state="translated">Пароль занадто короткий. Мінімальна довжина пароля 6 символів.</target>
+                    </trans-unit>
 
 
                     

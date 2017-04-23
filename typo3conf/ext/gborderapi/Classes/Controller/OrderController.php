@@ -131,7 +131,6 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $fee = $partnerClassObj->calculateFee($amount);
             $bonus = $partnerClassObj->calculateBonus($amount);
 
-
             $order->setFee($fee);
 
 
@@ -139,26 +138,14 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 return 'not unique';
             }
 
-            $this->orderRepository->add($order);
-            $this->persistenceManager->persistAll();
+
+            /* save order */
+            $this->saveOrder($order);
 
 
+            /* Create a new transaction */
 
-            /*
-             * Create a new transaction
-             */
-
-            /** @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction */
-            $transaction = $this->objectManager->get('Gigabonus\\Gbaccount\\Domain\\Model\\Transaction');
-
-            $transaction->setAmount($bonus);
-            $transaction->setPartner($partnerId);
-            $transaction->setUser($userId);
-            $transaction->setOrderId($order->getUid());             // NOT the partner order id, but the uid in tx_gborderapi_domain_model_order
-            $transaction->setIsOnHold(true);
-
-            
-            $this->transactionRepository->add($transaction);
+            $this->createTransaction($bonus, $order);
 
         }
         else {
@@ -167,5 +154,34 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         return 'ok';
     }
+
+
+    /**
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $order
+     */
+    protected function saveOrder(\Gigabonus\Gborderapi\Domain\Model\Order $order) {
+        $this->orderRepository->add($order);
+        $this->persistenceManager->persistAll();
+    }
+
+    /**
+     * @param integer $bonus
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $order
+     */
+    protected function createTransaction($bonus, \Gigabonus\Gborderapi\Domain\Model\Order $order) {
+
+        /** @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction */
+        $transaction = $this->objectManager->get('Gigabonus\\Gbaccount\\Domain\\Model\\Transaction');
+
+        $transaction->setAmount($bonus);
+        $transaction->setPartner($order->getPartnerId());
+        $transaction->setUser($order->getUserId());
+        $transaction->setOrderId($order->getUid());             // NOT the partner order id, but the uid in tx_gborderapi_domain_model_order
+        $transaction->setIsOnHold(true);
+
+
+        $this->transactionRepository->add($transaction);
+    }
+
 
 }

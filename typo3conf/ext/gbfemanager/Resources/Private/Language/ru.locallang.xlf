@@ -39,6 +39,10 @@
                         <target>GigaBonus.ua | Регистрация в системе</target>
                     </trans-unit>
 
+                    <trans-unit id="submitNew">
+                        <target>Зарегистрироваться</target>
+                    </trans-unit>
+
                     <trans-unit id="emailCreateUserConfirmationSignature">
                         <target>
                             <![CDATA[
@@ -130,7 +134,7 @@
 
 
                     <trans-unit id="email_new_validationErrorRequired" approved="yes">
-                        <target state="translated">Пожалуйста, введите Ваш E-Mail</target>
+                        <target state="translated">Пожалуйста, введите Ваш адрес электронной почты (E-Mail).</target>
                     </trans-unit>
 
                     <trans-unit id="email_new_validationErrorEmail" approved="yes">
