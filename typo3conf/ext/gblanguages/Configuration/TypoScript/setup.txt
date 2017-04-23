@@ -1,0 +1,7 @@
+plugin.tx_gblanguages {
+    settings {
+
+    }
+
+    availableLanguages = 0,1
+}

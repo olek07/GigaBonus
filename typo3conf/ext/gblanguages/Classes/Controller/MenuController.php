@@ -35,12 +35,23 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class MenuController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
+
+    /**
+     * pageRepository
+     *
+     * @var \TYPO3\CMS\Frontend\Page\PageRepository
+     * @inject
+     */
+    protected $pageRepository;
+
     /**
      * action show
-     * 
+     * @return void
      */
-    public function showAction()
-    {
+    public function showAction() {
+
+
+        $languageItems = GeneralUtility::intExplode(',', $GLOBALS['TSFE']->tmpl->setup['plugin.']['tx_gblanguages.']['availableLanguages']);
 
         // pids and get-parameters to add to the link in the language switch
         $enabledParameters = array(
@@ -75,7 +86,20 @@ class MenuController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $languagesLinks = array();
 
-        for ($i=0; $i<2; $i++) {
+        if (!is_array($languageItems)) {
+           return;
+        }
+
+        foreach ($languageItems as $i) {
+
+            if ($i != 0) {
+                // Wenn keine Lokalisierung für die Seite existiert oder auf hidden gesetzt, kein Link generieren
+                $pageOverlay = $this->pageRepository->getPageOverlay($GLOBALS['TSFE']->page['uid'], 1);
+                if (is_array($pageOverlay) && count($pageOverlay) == 0) {
+                    break;
+                }
+            }
+            
             $languagesLinks[$i] = $GLOBALS['TSFE']->cObj->typolink_url(
                 array(
                     'parameter' => $GLOBALS['TSFE']->page['uid'],
