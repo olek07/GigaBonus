@@ -178,6 +178,9 @@
                     </trans-unit>
 
 
+                    <trans-unit id="profile_save_error" approved="yes">
+                        <target state="translated">Во время сохранения данных произошла ошибка. Возможно, Вы не заполнили все необходимые поля, или введённые Вами данные некорректны.</target>
+                    </trans-unit>
 
 
 

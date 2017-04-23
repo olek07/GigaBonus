@@ -179,6 +179,11 @@
                         <target state="translated">за цим посиланням.</target>
                     </trans-unit>
 
+                    <trans-unit id="profile_save_error" approved="yes">
+                        <target state="translated">Під час збереження даних сталася помилка. Можливо, Ви не заповнили всі необхідні поля, або введені Вами дані є некоректними.</target>
+                    </trans-unit>
+
+
 
                     
 	        </body>
