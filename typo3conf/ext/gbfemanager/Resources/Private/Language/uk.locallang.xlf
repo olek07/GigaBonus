@@ -84,7 +84,7 @@
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorMustInclude" approved="yes">
-                        <target state="translated">Пароль обов'язково повинен містити букви і цифри.</target>
+                        <target state="translated">Пароль обов'язково повинен містити латинські букви та цифри.</target>
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorPasswordRepeat" approved="yes">
@@ -169,7 +169,7 @@
                         Посилання відновлення пароля недійсне. Можливо, Ви використовуєте застаріле посилання.
                         Будь ласка, перейдіть на <a href="%s">сторінку відновлення пароля</a> для отримання нового посилання.
                         <br>
-                        Якщо ця проблема виникла повторно, будь ласка, зв'яжіться з адміністрацією системи.
+                        Якщо ця проблема виникла повторно, будь ласка, зв'яжіться з адміністрацією сайту.
                         ]]>
                         </target>
                     </trans-unit>

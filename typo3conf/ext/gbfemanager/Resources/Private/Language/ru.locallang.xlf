@@ -71,7 +71,7 @@
 
 
                     <trans-unit id="confirmCreateRequest_missingUserInDatabase">
-                        <target>Если Вы считаете это сообщение ошибкой, свяжитесь с администрацией системы</target>
+                        <target>Если Вы считаете это сообщение ошибкой, свяжитесь с администрацией сайта</target>
                     </trans-unit>
 
                     <trans-unit id="validationErrorRequired" approved="yes">
@@ -117,7 +117,7 @@
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorMustInclude" approved="yes">
-                        <target state="translated">Пароль обязательно должен содержать буквы и цифры.</target>
+                        <target state="translated">Пароль обязательно должен содержать латинские буквы и цифры.</target>
                     </trans-unit>
 
                     <trans-unit id="password_validationErrorRequired" approved="yes">

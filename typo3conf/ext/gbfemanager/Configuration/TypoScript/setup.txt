@@ -150,6 +150,8 @@ plugin.tx_femanager {
 
             }
 
+            pageType = 110
+
             loginPageUid = {$pages.loginPageUid}
         }
 
@@ -171,6 +173,8 @@ plugin.tx_femanager {
 page.includeJSFooter.femanagerValidation >
 page.includeJSFooter.femanager >
 
+### Same page (uid=6) is used for the changing of user data and password. Because of that here the definition of pageType
+
 ### Change data of FE User
 [globalVar = TSFE:id = {$pages.changeUserDataPageUid}, TSFE:type = 106]
     plugin.tx_femanager.settings.edit.pageType = 106
@@ -187,6 +191,14 @@ page.includeJSFooter.femanager >
 /*
 [globalVar = TSFE:id = 9, TSFE:type = 109]
 plugin.tx_femanager.settings.changemobilenumber.pageType = 109
+[global]
+*/
+
+
+### Restore Password
+/*
+[globalVar = TSFE:id = {$pages.restorePasswordPageUid}, TSFE:type = 110]
+    # plugin.tx_femanager.settings.restorepassword.pageType = 110
 [global]
 */
 
@@ -320,6 +332,36 @@ GbfemanagerChangeMobileNumber {
     10 {
         tables = tt_content
         source = {$elements.changeUserMobileNumber}
+        dontCheckPid = 1
+    }
+}
+
+
+### Restore Password. Link http://gigabonus.dev/uk/restore-password/forgothash/1493105099%7C7a6fadacba688d009ca80dfc3fbb2431/
+GbfemanagerRestorePassword = PAGE
+GbfemanagerRestorePassword {
+
+    typeNum = 110
+
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = none
+        admPanel = 0
+        metaCharset = utf-8
+        additionalHeaders {
+            10 {
+                header = Content-Type:text/html;charset=utf-8
+            }
+        }
+        disablePrefixComment = 1
+        debug = 0
+        no_cache = 1
+    }
+
+    10 = RECORDS
+    10 {
+        tables = tt_content
+        source = 17
         dontCheckPid = 1
     }
 }

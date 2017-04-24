@@ -200,3 +200,64 @@ GbfemanagerNew = {
         }
     }
 };
+
+GbfemanagerRestorePassword = {
+
+    form : null,
+
+    init: function(){
+
+        var obj = this;
+
+        obj.form = $('#restorePasswordForm');
+
+        obj.initForm();
+        obj.scrollToMessage();
+
+    },
+
+
+    initForm: function() {
+        var obj = this;
+
+        var options = {
+            // target:        '.tx-femanager',      // target element(s) to be updated with server response
+            beforeSubmit:  obj.prepareFormRequest,  // pre-submit callback
+            success:       obj.showFormResponse,    // post-submit callback
+
+            // other available options:
+            //url:       url         // override for form's 'action' attribute
+            //type:      type        // 'get' or 'post', override for form's 'method' attribute
+            dataType:  'html'        // 'xml', 'script', or 'json' (expected server response type)
+            //clearForm: true        // clear all form fields after successful submit
+            //resetForm: true        // reset the form after successful submit
+
+            // $.ajax options can be used here too, for example:
+            //timeout:   3000
+        };
+
+        // bind form using 'ajaxForm'
+        $(obj.form).ajaxForm(options);
+    },
+
+    showFormResponse : function(responseText, statusText, xhr, $form) {
+        $('.tx-femanager').replaceWith(responseText);
+        $(document).trigger(Layout.EVENT_STOP_LOADING);
+        $(document).trigger(Layout.EVENT_INIT_FORMS);
+
+    },
+
+    prepareFormRequest: function(){
+        $(document).trigger(Layout.EVENT_START_LOADING);
+    },
+
+    scrollToMessage: function(){
+        var obj = this;
+        var elMessage = $('.tx-femanager');
+        var elMessage = $('body');
+        if (elMessage.length > 0){
+            Layout.scrollToOffset($(elMessage[0]).offset().top - 50);
+        }
+    }
+};
+

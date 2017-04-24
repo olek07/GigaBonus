@@ -15,6 +15,12 @@
                     </target>
 		</trans-unit>
 
+		<trans-unit id="ll_enter_your_data" approved="yes">
+			<source>Username or email address:</source>
+			<target state="translated">Адреса електронної пошти (E-Mail)</target>
+		</trans-unit>
+
+
 
 	</body>
 

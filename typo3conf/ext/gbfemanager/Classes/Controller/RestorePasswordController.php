@@ -33,6 +33,20 @@ class RestorePasswordController extends \In2code\Femanager\Controller\AbstractCo
             if ($user !== NULL) {
                 $this->view->assign('user', $user);
                 $this->view->assign('forgothash', $forgothash);
+
+
+                $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+
+                $pageRenderer->addJsFooterInlineCode('',"
+                    $(document).ready(function(){
+                        $(document).on(Layout.EVENT_INIT_FORMS, function() {
+                            GbfemanagerRestorePassword.init();
+                        });
+                        $(document).trigger(Layout.EVENT_INIT_FORMS);
+                    });
+                    "
+                );
+
             }
             else {
                 $this->view->assign('changePasswordNotvalid', TRUE);

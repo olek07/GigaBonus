@@ -113,7 +113,7 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
               ->setFrom($sender)
               ->setSubject($subject);
 
-        $cid = $message->embed(\Swift_Image::fromPath('c:\\tmp\\rubl.gif'));
+        // $cid = $message->embed(\Swift_Image::fromPath('c:\\tmp\\rubl.gif'));
 
         // Possible attachments here
         //foreach ($attachments as $attachment) {
