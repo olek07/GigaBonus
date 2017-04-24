@@ -95,6 +95,10 @@ GbfemanagerEdit = {
             // target:        '.tx-femanager',      // target element(s) to be updated with server response
             beforeSubmit:  obj.prepareFormRequest,  // pre-submit callback
             success:       obj.showFormResponse,    // post-submit callback
+            error: function(data) {
+                // alert(123);
+                $(document).trigger(Layout.EVENT_STOP_LOADING);
+            },
 
             // other available options:
             //url:       url         // override for form's 'action' attribute
