@@ -11,3 +11,18 @@ elements {
     changeUserPassword = 12
     changeUserMobileNumber = 13
 }
+
+plugin.tx_femanager.settings.adminEmail = samoglavny@mail.ru
+plugin.tx_femanager.persistence.storagePid = 0
+plugin.tx_femanager.settings.fineuploader = 0
+plugin.tx_powermail.settings.main.pid = 0
+plugin.tx_powermail.settings.main.confirmation = 0
+plugin.tx_powermail.settings.main.optin = 0
+plugin.tx_powermail.settings.main.moresteps = 0
+plugin.tx_powermail.settings.validation.client = 0
+plugin.tx_powermail.settings.validation.native = 0
+
+plugin.tx_powermail.settings.misc.ajaxSubmit = 0
+plugin.tx_femanager.settings.adminName = GigaBonus
+styles.content.loginform.pid = 0
+styles.content.loginform.templateFile = EXT:gbfelogin/Resources/Private/Templates/FrontendLogin.html

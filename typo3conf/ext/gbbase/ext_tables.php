@@ -4,6 +4,6 @@ if (!defined('TYPO3_MODE')) {
 }
 
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'GiGaBonus TypoScript');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'GigaBonus TypoScript');
 
 $GLOBALS['TCA']['tx_powermail_domain_model_field']['columns']['feuser_value']['config']['items'][] = array('Firstname', 'first_name');

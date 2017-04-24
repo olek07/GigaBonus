@@ -22,9 +22,6 @@
 					<f:then>
 						<f:form name="user" id="changeUserdataForm" object="{user}" action="update" pageUid="1" pageType="{settings.changemobilenumber.pageType}" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}">
 							<fieldset>
-								<legend>
-									<f:translate key="titleUpdateProfile" />
-								</legend>
 
 
 									   <f:for each="{femanager:misc.explode(string:'{settings.changemobilenumber.fields}')}" as="field">

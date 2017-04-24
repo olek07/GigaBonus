@@ -27,4 +27,4 @@ config.tx_extbase{
         }
 }
 
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbfemanager/Configuration/TypoScript/setup.txt">
+# <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbfemanager/Configuration/TypoScript/setup.txt">
