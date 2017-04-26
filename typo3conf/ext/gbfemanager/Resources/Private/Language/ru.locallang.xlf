@@ -186,6 +186,9 @@
                         <target state="translated">Во время сохранения данных произошла ошибка. Возможно, Вы не заполнили все необходимые поля, или введённые Вами данные некорректны.</target>
                     </trans-unit>
 
+                    <trans-unit id="profile_aready_confirmed" approved="yes">
+                        <target state="translated">Вы уже подтвердили регистрацию в системе.</target>
+                    </trans-unit>
 
 
 

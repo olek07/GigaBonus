@@ -208,6 +208,10 @@
                         <target state="translated">Пароль занадто короткий. Мінімальна довжина пароля 6 символів.</target>
                     </trans-unit>
 
+                    <trans-unit id="profile_aready_confirmed" approved="yes">
+                        <target state="translated">Ви вже підтвердили реєстрацію в системі.</target>
+                    </trans-unit>
+
 
                     
 	        </body>

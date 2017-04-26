@@ -1,10 +1,27 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"	xmlns:f="http://typo3.org/ns/fluid/ViewHelpers" >
+    <f:layout name="Default" />
 
+    <f:section name="main">
+        <f:if condition="{alreadyConfimed}">
+            <f:then>
+                <f:translate key="profile_aready_confirmed" />
+            </f:then>
+            <f:else>
+                <f:if condition="{limitReached}">
+                    <f:then>
+                        Для подтверждения регистрации, пожалуйста,
+                    </f:then>
+                    <f:else>
+                        На Ваш электронный адрес {user.email} был отправлен E-Mail с инструцкией и ссылкой для подтверждения регистрации.<br>
+                        Если Вы не получили E-Mail, пожалуйста,
+                    </f:else>
+                </f:if>
 
-<f:if condition="{alreadyConfimed}">
-  <f:then>
-     Профиль уже подтверждён
-  </f:then>
-  <f:else>
-     E-Mail выслан
-  </f:else>
-</f:if>
+                <f:link.page pageUid="{contactPageUid}" additionalParams="{tx_powermail_pi1: '{field : {marker_03 : 1}}'}">
+                  свяжитесь с администрацией сайта
+                </f:link.page>.
+          </f:else>
+        </f:if>
+    </f:section>
+    
+</div>

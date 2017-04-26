@@ -2,6 +2,7 @@ pages {
     restorePasswordPageUid = 10
     changeUserDataPageUid = 6
     changeUserPasswordPageUid = 8
+    transactionListPageUid = 14
     loginPageUid = 3
 }
 

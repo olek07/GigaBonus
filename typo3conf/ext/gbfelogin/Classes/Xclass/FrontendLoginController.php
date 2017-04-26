@@ -1,6 +1,7 @@
 <?php
 namespace Gigabonus\Gbfelogin\Xclass;
 
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -13,6 +14,19 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
      * @var \TYPO3\CMS\Extbase\Object\ObjectManagerInterface
      */
     protected $objectManager;
+
+    /**
+     * Shows the forgot password form
+     *
+     * @return string Content
+     */
+    protected function showForgot() {
+        if ($GLOBALS['TSFE']->fe_user->user !== NULL) {
+            MainHelper::redirect2ChangePasswordPage();
+            exit;
+        }
+        return parent::showForgot();
+    }
 
 
     /**

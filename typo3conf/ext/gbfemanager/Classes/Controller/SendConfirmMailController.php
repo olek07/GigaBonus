@@ -1,11 +1,29 @@
 <?php
 namespace Gigabonus\Gbfemanager\Controller;
 
+use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use In2code\Femanager\Utility\StringUtility;
 use In2code\Femanager\Utility\HashUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 
 class SendConfirmMailController extends \Gigabonus\Gbfemanager\Controller\NewController {
+
+    /**
+     * userRepository
+     * 
+     * @var \In2code\Femanager\Domain\Repository\UserRepository
+     * @inject
+     */
+    protected $userRepository = NULL;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
+     * @inject
+     */
+    protected $persistenceManager;
+
+
 
     public function sendAction() {
        
@@ -21,7 +39,29 @@ class SendConfirmMailController extends \Gigabonus\Gbfemanager\Controller\NewCon
             $this->view->assign('alreadyConfimed', TRUE);
         }
         else {
-            $this->createUserConfirmationRequest($this->user);
+
+            /**
+             * @var \Gigabonus\Gbfemanager\Domain\Model\User $user
+             */
+            $user = $this->user;
+            
+            $this->createUserConfirmationRequest($user);
+
+            $confirmmailSentCount = $user->getTxGbfemanagerConfirmmailSentCount();
+
+            if ($confirmmailSentCount < 5) {
+                $user->setTxGbfemanagerConfirmmailSentCount(++$confirmmailSentCount);
+                $this->userRepository->update($user);
+                $this->view->assign('limitReached', FALSE);
+            }
+            else {
+                $this->view->assign('limitReached', TRUE);
+            }
+
+
+            $this->view->assign('contactPageUid', MainHelper::CONTACTPAGEID);
+            $this->view->assign('alreadyConfimed', FALSE);
+            $this->view->assign('user', $user);
         }
     }
     

@@ -32,6 +32,11 @@ class User extends \In2code\Femanager\Domain\Model\User {
     protected $txGbfemanagerTelephonelastchanged;
 
     /**
+     * @var int
+     */
+    protected $txGbfemanagerConfirmmailSentCount;
+
+    /**
      * Sets the language
      *
      * @param string $language
@@ -91,5 +96,23 @@ class User extends \In2code\Femanager\Domain\Model\User {
     public function getTxGbfemanagerTelephonelastchanged() {
         return $this->txGbfemanagerTelephonelastchanged;
     }
+
+    /**
+     * @return int
+     */
+    public function getTxGbfemanagerConfirmmailSentCount()
+    {
+        return $this->txGbfemanagerConfirmmailSentCount;
+    }
+
+    /**
+     * @param int $txGbfemanagerConfirmmailSentCount
+     */
+    public function setTxGbfemanagerConfirmmailSentCount($txGbfemanagerConfirmmailSentCount)
+    {
+        $this->txGbfemanagerConfirmmailSentCount = $txGbfemanagerConfirmmailSentCount;
+    }
+
     
+
 }

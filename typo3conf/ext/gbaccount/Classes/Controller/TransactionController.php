@@ -91,6 +91,11 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
      */
     public function listAction()
     {
+
+        if ($GLOBALS['TSFE']->fe_user->user === NULL) {
+            exit;
+        }
+
         /**
          * @var $pageRenderer \TYPO3\CMS\Core\Page\PageRenderer 
          */

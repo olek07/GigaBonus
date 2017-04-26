@@ -81,6 +81,14 @@ $feUsersColumns = [
             'type' => 'input',
             'eval' => 'datetime',
         ]
+    ],
+
+    'tx_gbfemanager_confirmmail_sent_count' => [
+        'exclude' => 0,
+        'label' => 'Confirm mail sent count',
+        'config' => [
+            'type' => 'input',
+        ]
     ]
 ];
 

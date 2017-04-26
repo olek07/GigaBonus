@@ -7,7 +7,8 @@ CREATE TABLE fe_users (
     language int(1) DEFAULT '0' NOT NULL,
     city varchar(100) DEFAULT '' NOT NULL,
     city_id int(11) unsigned DEFAULT '0' NOT NULL,
-    tx_gbfemanager_telephonelastchanged int(11) unsigned DEFAULT '0' NOT NULL
+    tx_gbfemanager_telephonelastchanged int(11) unsigned DEFAULT '0' NOT NULL,
+    tx_gbfemanager_confirmmail_sent_count int(11) unsigned DEFAULT '1' NOT NULL
 );
 
 

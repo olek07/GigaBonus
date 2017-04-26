@@ -10,6 +10,7 @@ class MainHelper {
     const TRANSACTIONLISTPAGEUID = 14;
     const DELETEPROFILEPAGEID = 16;
     const PARTNERDETAILPAGEID = 17;
+    const CONTACTPAGEID = 24;
 
     public static function redirect2Home() {
         $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
@@ -31,6 +32,18 @@ class MainHelper {
         
     }
 
+    public static function redirect2ChangePasswordPage() {
+        self::redirect2Page(self::CHANGEPASSWORDPAGEID);
+    }
+
+    public static function redirect2Page($pageId) {
+        $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
+            array(
+                'parameter' => $pageId,
+            )
+        );
+        HttpUtility::redirect($url);
+    }
 
     /* ARRAY ID TO LANGUAGES WITH 2 LETTERS */
 
