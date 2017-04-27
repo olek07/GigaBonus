@@ -155,6 +155,9 @@ plugin.tx_femanager {
             loginPageUid = {$pages.loginPageUid}
         }
 
+        ### Max count to send confirmmail to user
+        confirmmailSendLimit = 5
+
     }
 
     _LOCAL_LANG {

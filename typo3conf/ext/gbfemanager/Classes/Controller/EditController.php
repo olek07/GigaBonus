@@ -30,7 +30,9 @@ class EditController extends \In2code\Femanager\Controller\EditController {
             });
             "
         );
-
+        
+        $this->view->assign('contactPageUid', MainHelper::CONTACTPAGEID);
+        
         parent::editAction();
     }
 

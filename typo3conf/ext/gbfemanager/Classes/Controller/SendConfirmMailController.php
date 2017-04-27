@@ -48,8 +48,8 @@ class SendConfirmMailController extends \Gigabonus\Gbfemanager\Controller\NewCon
             $this->createUserConfirmationRequest($user);
 
             $confirmmailSentCount = $user->getTxGbfemanagerConfirmmailSentCount();
-
-            if ($confirmmailSentCount < 5) {
+            
+            if ($confirmmailSentCount < $this->settings['confirmmailSendLimit']) {
                 $user->setTxGbfemanagerConfirmmailSentCount(++$confirmmailSentCount);
                 $this->userRepository->update($user);
                 $this->view->assign('limitReached', FALSE);

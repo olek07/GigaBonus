@@ -10,8 +10,19 @@
 	<f:section name="main">
             <f:link.page pageUid="3" additionalParams="{logintype:'logout'}">Abmelden</f:link.page><br>
 
-			<f:translate key="you_have_not_confirmed_registration">[you_have_not_confirmed_registration]</f:translate>
-			<f:link.action pageUid="15" controller="SendConfirmMail" noCacheHash="1"><f:translate key="on_this_link" /></f:link.action>
+			<f:if condition="{user.txGbfemanagerConfirmmailSentCount} < {settings.confirmmailSendLimit}">
+				<f:then>
+			  		<f:translate key="you_have_not_confirmed_registration">[you_have_not_confirmed_registration]</f:translate>
+					<f:link.action pageUid="15" controller="SendConfirmMail" noCacheHash="1"><f:translate key="on_this_link" /></f:link.action>
+				</f:then>
+				<f:else>
+					Для подтверждения регистрации, пожалуйста,
+					<f:link.page pageUid="{contactPageUid}" additionalParams="{tx_powermail_pi1: '{field : {marker_03 : 1}}'}">
+						свяжитесь с администрацией сайта
+					</f:link.page>.
+				</f:else>
+			</f:if>
+
             
            	<br>
 
