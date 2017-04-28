@@ -3,6 +3,7 @@ pages {
     changeUserDataPageUid = 6
     changeUserPasswordPageUid = 8
     transactionListPageUid = 14
+    payOutPageUid = 30
     loginPageUid = 3
 }
 

@@ -209,7 +209,7 @@ plugin.tx_femanager.settings.changemobilenumber.pageType = 109
 page.25 = HMENU
 page.25 {
     special = list
-    special.value = {$pages.changeUserDataPageUid},{$pages.changeUserPasswordPageUid},{$pages.transactionListPageUid}
+    special.value = {$pages.changeUserDataPageUid},{$pages.changeUserPasswordPageUid},{$pages.transactionListPageUid}, {$pages.payOutPageUid}
     1 = TMENU
     1 {
         NO = 1
