@@ -5,15 +5,15 @@
 
     <f:section name="Header">
         <div class="row">
-            <div class="large-4 columns">
+            <div class="small-2 columns">
                 Logo
             </div>
 
-            <div class="large-4 columns">
+            <div class="small-8 columns">
                 <input type="text" />
             </div>
-            <div class="large-4 columns">
-                <f:format.raw>{languageSwitch}</f:format.raw>
+            <div class="small-2 columns">
+                <f:cObject typoscriptObjectPath="lib.languageSwitch" />
             </div>
         </div>
     </f:section>

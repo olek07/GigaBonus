@@ -4,6 +4,11 @@
 		<header/>
 		<body>
 
+                    <trans-unit id="email_new_validationErrorEmail" approved="yes">
+                        <target state="translated">Ви ввели некоректну адресу електронної пошти (E-Mail)</target>
+                    </trans-unit>
+
+
                     <trans-unit id="submitNew">
                         <target>Зареєструватися</target>
                     </trans-unit>

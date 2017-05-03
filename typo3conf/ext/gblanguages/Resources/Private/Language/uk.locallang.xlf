@@ -3,6 +3,10 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-09-27T10:56:27Z" product-name="gblanguages">
 		<header/>
 		<body>
+		    <trans-unit id="language_label">
+                <target>Мова</target>
+            </trans-unit>
+
 			<trans-unit id="language_label_0">
 				<target>Русский</target>
 			</trans-unit>

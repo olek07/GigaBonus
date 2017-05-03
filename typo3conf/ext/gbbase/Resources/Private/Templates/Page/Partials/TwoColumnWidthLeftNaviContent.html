@@ -2,11 +2,14 @@
      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
      xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
 
-	<f:section name="MainContentarea">
+	<f:section name="TwoColumnWidthLeftNaviContent">
 
             <div class="row">
+                <div class="large-3 show-for-large columns">
+                    <f:cObject typoscriptObjectPath="lib.categoryList" />
+                </div>
 
-                <div class="small-12 columns">
+                <div class="large-9 columns">
 	                <f:format.raw>
                         <f:cObject typoscriptObjectPath="lib.contentDefaultTemplate" />
                     </f:format.raw>

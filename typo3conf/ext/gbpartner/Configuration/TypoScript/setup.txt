@@ -28,4 +28,4 @@ lib.categoryList {
 	#settings < plugin.tx_maramap.settings
 }
 
-page.20 < lib.categoryList
+## page.20 < lib.categoryList

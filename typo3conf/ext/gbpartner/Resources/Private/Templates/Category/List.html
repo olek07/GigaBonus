@@ -13,15 +13,14 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Category</h1>
+<div>Listing for Category</div>
 
 
-<ul class="side-nav">
+<ul class="menu vertical simple">
 	<f:for each="{categories}" as="category">
       <f:if condition="{category.partners -> f:count()} > 0">
-		<li class="active">
+		<li <f:if condition="{currentCategory} == {category.uid}">class="active"</f:if> >
 			<f:link.page pageUid="{partnerDetailPageUid}" additionalParams="{tx_gbpartner_partnerlisting: '{category : category}'}">{category.name} ({category.partners -> f:count()})</f:link.page>
-			<f:if condition="{currentCategory} == {category.uid}">active</f:if>
 		</li>
       </f:if>    
 	</f:for>

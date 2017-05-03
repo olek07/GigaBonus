@@ -138,7 +138,7 @@
                     </trans-unit>
 
                     <trans-unit id="email_new_validationErrorEmail" approved="yes">
-                        <target state="translated">Вы ввели некорректный E-Mail</target>
+                        <target state="translated">Вы ввели некорректный адрес электронной почты (E-Mail)</target>
                     </trans-unit>
 
 

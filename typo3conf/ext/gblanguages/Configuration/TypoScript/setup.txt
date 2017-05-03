@@ -5,3 +5,5 @@ plugin.tx_gblanguages {
 
     availableLanguages = 0,1
 }
+
+lib.languageSwitch < tt_content.list.20.gblanguages_languagemenu

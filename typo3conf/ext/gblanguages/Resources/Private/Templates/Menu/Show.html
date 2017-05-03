@@ -2,12 +2,25 @@
 
 <f:section name="main">
 
-    <f:for each="{languagesLinks}" as="languagesLink" key="languageUid">
-        <a href="{languagesLink}" {f:if(condition: '{languageUid} == {currentLanguage}', then: 'class="active"' )} >
-            <f:translate key="language_label_{languageUid}" />
-        </a>
-        <br>
-    </f:for>
+    <ul class="dropdown menu" data-dropdown-menu>
+        <li class="has-submenu">
+            <a href="#0"><f:translate key="language_label" /></a>
+
+            <ul class="submenu menu vertical" data-submenu>
+
+                <f:for each="{languagesLinks}" as="languagesLink" key="languageUid">
+                    <li>
+                        <a href="{languagesLink}" {f:if(condition: '{languageUid} == {currentLanguage}', then: 'class="active"' )} ><f:translate key="language_label_{languageUid}" /> </a>
+                    </li>
+                </f:for>
+
+            </ul>
+
+        </li>
+    </ul>
+
+
+
 
 </f:section>
 
