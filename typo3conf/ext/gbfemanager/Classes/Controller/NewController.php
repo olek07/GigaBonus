@@ -44,7 +44,17 @@ class NewController extends \In2code\Femanager\Controller\NewController {
 
         parent::newAction($user);
     }
-    
+
+    /**
+     * Render the ajax registration form
+     *
+     *
+     */
+    public function newAjaxAction() {
+        $this->view->assign('fields', array('email', 'password'));
+    }
+
+   
     /**
      * action create
      *
@@ -215,5 +225,24 @@ class NewController extends \In2code\Femanager\Controller\NewController {
         }
     }
 
+
+    /**
+     * Overwritten the method \In2code\Femanager\Controller\createAllConfirmed
+     *
+     *
+     * @param  \Gigabonus\Gbfemanager\Domain\Model\User $user
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     */
+
+/*
+    public function createAllConfirmed(\In2code\Femanager\Domain\Model\User $user)
+    {
+        $this->userRepository->add($user);
+        $this->persistenceManager->persistAll();
+        $this->addFlashMessage(LocalizationUtility::translate('create'));
+        LogUtility::log(Log::STATUS_NEWREGISTRATION, $user);
+        $this->finalCreate($user, 'new', 'createStatus');
+    }
+*/
 
 }

@@ -1,0 +1,14 @@
+{namespace femanager=In2code\Femanager\ViewHelpers}
+<f:form name="user" object="{user}" action="create" pageUid="1" pageType="111" noCacheHash="1" class="">
+    <f:form.validationResults for="{object}">
+                <f:for each="{fields}" as="field">
+                    <f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+                    <f:for each="{validationResults.flattenedErrors.user}" as="error">
+                        <f:if condition="{error.code} == {field}">
+                            <div><f:translate key="{field}_new_{error.message}">[{field}_new_{error.message}]</f:translate></div>
+                        </f:if>
+                    </f:for>
+                </f:for>
+                <f:render partial="Fields/SubmitCreate" arguments="{_all}" />
+    </f:form.validationResults>
+</f:form>

@@ -28,7 +28,7 @@ $signalSlotDispatcher->connect(
     'Pi1',
     [
         'User' => 'list, show, fileUpload, fileDelete, validate, loginAs',
-        'New' => 'create, new, confirmCreateRequest, createStatus',
+        'New' => 'create, new, confirmCreateRequest, createStatus, newAjax',
         'Edit' => 'edit, update, delete, confirmUpdateRequest',
         'ChangeMobileNumber' => 'edit, update',
         'Invitation' => 'new, create, edit, update, delete, status',
@@ -37,7 +37,7 @@ $signalSlotDispatcher->connect(
     ],
     [
         'User' => 'list, fileUpload, fileDelete, validate, loginAs',
-        'New' => 'create, new, confirmCreateRequest, createStatus',
+        'New' => 'create, new, confirmCreateRequest, createStatus, newAjax',
         'Edit' => 'edit, update, delete, confirmUpdateRequest',
         'ChangeMobileNumber' => 'edit, update',
         'Invitation' => 'new, create, edit, update, delete',
@@ -45,6 +45,20 @@ $signalSlotDispatcher->connect(
         'SendConfirmMail' => 'send'
     ]
 );
+
+/*
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+// 'In2code.femanager',
+    'In2code.femanager',
+    'Ajaxregistrationform',
+    [
+        'New' => 'newAjax, createAjax'
+    ],
+    [
+        'New' => 'newAjax, createAjax'
+    ]
+);
+*/
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     // 'In2code.femanager',

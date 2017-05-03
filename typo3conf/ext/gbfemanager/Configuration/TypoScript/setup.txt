@@ -386,3 +386,36 @@ GbfemanagerRestorePassword {
         dontCheckPid = 1
     }
 }
+
+
+
+### Change password of FE User
+GbfemanagerNewAjaxUser = PAGE
+GbfemanagerNewAjaxUser {
+
+    typeNum = 111
+
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = none
+        admPanel = 0
+        metaCharset = utf-8
+        additionalHeaders {
+            10 {
+                header = Content-Type:text/html;charset=utf-8
+            }
+        }
+        disablePrefixComment = 1
+        debug = 0
+        no_cache = 1
+    }
+
+
+    10 = RECORDS
+    10 {
+        tables = tt_content
+        source = {$elements.createNewUser}
+        dontCheckPid = 1
+    }
+
+}
