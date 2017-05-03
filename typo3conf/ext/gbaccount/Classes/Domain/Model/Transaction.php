@@ -50,9 +50,9 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * orderId
      *
-     * @var int
+     * @var \Gigabonus\Gborderapi\Domain\Model\Order
      */
-    protected $orderId = 0;
+    protected $orderId = null;
 
     /**
      * saldo
