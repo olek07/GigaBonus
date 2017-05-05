@@ -5,9 +5,12 @@
 {namespace femanager=In2code\Femanager\ViewHelpers}
 <f:form.validationResults for="{object}">
 	<f:if condition="{validationResults.flattenedErrors}">
-	<div class="femanager_error">
-		<f:translate key="profile_save_error" />
-	</div>
-
-        </f:if>
+		<div data-closable="" class="callout alert-callout-border alert">
+			<f:translate key="profile_save_error" />
+			<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+    </f:if>
 </f:form.validationResults>
+

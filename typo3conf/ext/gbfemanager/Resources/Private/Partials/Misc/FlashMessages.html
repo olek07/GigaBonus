@@ -1,0 +1,23 @@
+<f:flashMessages as="flashMessages">
+	<f:for each="{flashMessages}" as="flashMessage">
+
+		<f:if condition="{flashMessage.severity} == 0">
+			<div data-closable="" class="callout alert-box success">
+				{flashMessage.message}
+				<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</f:if>
+
+		<f:if condition="{flashMessage.severity} == 1">
+			<div data-closable="" class="callout alert-callout-border alert">
+				{flashMessage.message}
+				<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</f:if>
+
+	</f:for>
+</f:flashMessages>

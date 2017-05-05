@@ -47,32 +47,28 @@
 			<f:if condition="{user}">
 				<f:then>
 
-
 					<f:form name="user" id="changeUserdataForm" object="{user}" action="update" pageUid="1" additionalAttributes="{data-languageid : '{languageUid}'}" pageType="{settings.edit.pageType}" class="form-horizontal {f:if(condition:'{settings.edit.validation._enable.client}',then:'feManagerValidation',else:'')}" noCacheHash="1">
-
 
 							<f:form.validationResults for="{object}">
 							<fieldset>
-										<f:for each="{femanager:misc.explode(string:'{settings.edit.fields}')}" as="field">
-											<f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
+								<f:for each="{femanager:misc.explode(string:'{settings.edit.fields}')}" as="field">
+									<f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />
 
-											<f:for each="{validationResults.flattenedErrors.user}" as="error">
-												<f:if condition="{error.code} == {field}">
-													<f:translate key="{field}_{error.message}">[{field}_{error.message}]</f:translate>
-													<br>
-												</f:if>
+									<f:for each="{validationResults.flattenedErrors.user}" as="error">
+										<f:if condition="{error.code} == {field}">
+											<span class="form-error is-visible"><f:translate key="{field}_{error.message}">[{field}_{error.message}]</f:translate></span>
+										</f:if>
 
-												<f:if condition="{error.code} == 'cityId'">
-													<f:if condition="{field} == 'city'">
-														<f:translate key="cityId_validationErrorRequired">[cityId_validationErrorRequired]</f:translate>
-														<br>
-													</f:if>
-												</f:if>
+										<f:if condition="{error.code} == 'cityId'">
+											<f:if condition="{field} == 'city'">
+												<span class="form-error is-visible"><f:translate key="cityId_validationErrorRequired">[cityId_validationErrorRequired]</f:translate></span>
+											</f:if>
+										</f:if>
 
-											</f:for>
+									</f:for>
 
-										</f:for>
-										<f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
+								</f:for>
+								<f:render partial="Fields/SubmitUpdate" arguments="{_all}" />
 
 							</fieldset>
 

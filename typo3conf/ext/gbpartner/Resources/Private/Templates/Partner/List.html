@@ -23,7 +23,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 				<f:link.action action="show" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:category.uid}">
 					<div style="position:relative; overflow-y: hidden;height:200px">
 						<f:if condition="{partner.image}">
-							<f:image src="{partner.image.0.reference.uid}" maxWidth="100" treatIdAsReference="1" style="width:100%" />
+							<f:image src="{partner.image.0.reference.uid}" width="269" treatIdAsReference="1" style="width:100%" />
 						</f:if>
 						<div style="position:absolute;bottom:70px;color:black;">
 						  {partner.name}

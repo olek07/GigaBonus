@@ -164,7 +164,7 @@
                     </trans-unit>
 
                     <trans-unit id="tx_femanager_domain_model_user.email" approved="yes">
-                        <target state="translated">E-Mail</target>
+                        <target state="translated">Адреса електронної пошти (E-Mail)</target>
                     </trans-unit>
 
 
@@ -178,6 +178,10 @@
                         ]]>
                         </target>
                     </trans-unit>
+
+       		    <trans-unit id="update">
+			<target>Дані були успішно збережені</target>
+		    </trans-unit>
 
 
                     <trans-unit id="you_have_not_confirmed_registration" approved="yes">

@@ -43,6 +43,11 @@
                         <target>Зарегистрироваться</target>
                     </trans-unit>
 
+       		    <trans-unit id="update">
+			<target>Данные были успешно сохранены</target>
+		    </trans-unit>
+
+
                     <trans-unit id="emailCreateUserConfirmationSignature">
                         <target>
                             <![CDATA[
@@ -159,7 +164,7 @@
                     </trans-unit>
 
                     <trans-unit id="tx_femanager_domain_model_user.email" approved="yes">
-                        <target state="translated">E-Mail</target>
+                        <target state="translated">Адрес электронной почты (E-Mail)</target>
                     </trans-unit>
 
                     <trans-unit id="change_password_notvalid_message" approved="yes">
