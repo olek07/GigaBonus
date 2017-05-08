@@ -20,6 +20,37 @@
 			<target state="translated">Адрес электронной почты (E-Mail)</target>
 		</trans-unit>
 
+		<trans-unit id="ll_welcome_message" approved="yes">
+			<source>Enter your username and password here in order to log in on the website:</source>
+			<target state="translated">Пожалуйста, введите Ваш адрес электронной почты (E-Mail) и пароль для входа в систему:</target>
+		</trans-unit>
+
+   		<trans-unit id="username" approved="yes">
+			<source>Username:</source>
+			<target state="translated">Адрес электронной почты (E-Mail)</target>
+		</trans-unit>
+
+        <trans-unit id="password" approved="yes">
+				<source>Password:</source>
+				<target state="translated">Пароль</target>
+		</trans-unit>
+
+        <trans-unit id="ll_error_message">
+                <target>Произошла ошибка при входе в систему. Вероятно, адрес электронной почты (E-Mail) или пароль не верные.
+                Проверьте, правильно ли введены данные, был ли использован правильный язык, заглавные или прописные буквы.
+                Удостоверьтесь также, допускает ли Ваш браузер Cookies.
+                </target>
+        </trans-unit>
+
+        <trans-unit id="ll_forgot_reset_message" approved="yes">
+            <source>Please enter your username or email address. Instructions for resetting the password will be immediately emailed to you.</source>
+            <target state="translated">Пожалуйста, введите Ваш адрес электронной почты (E-Mail). Инструкция по восстановлению пароля будет отправлена по введенному адресу.</target>
+        </trans-unit>
+
+        <trans-unit id="reset_password" approved="yes">
+            <source>Reset Password</source>
+            <target state="translated">Восстановить пароль</target>
+        </trans-unit>
 
 
 	        </body>

@@ -15,7 +15,43 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
      */
     protected $objectManager;
 
+
     /**
+     * The main method of the plugin
+     *
+     * @param string $content The PlugIn content
+     * @param array $conf The PlugIn configuration
+     * @return string The content that is displayed on the website
+     */
+    public function main($content, $conf)
+    {
+        $content = parent::main($content, $conf);
+
+        // if login box is called via AJAX
+        if ($_GET['type'] == 103) {
+
+            $jsonObj = new \stdClass();
+
+            if ($GLOBALS['TSFE']->fe_user->user !== NULL) {
+                $jsonObj->loggedIn = true;
+            }
+            else {
+                $jsonObj->loggedIn = false;
+            }
+
+            $jsonObj->content = $content;
+
+            $jsonObj->dashboardUrl = MainHelper::getDashboardPageUrl();
+
+            $content = json_encode($jsonObj);
+            // $content = '{' . $loggedIn . ', "content" : ' . json_encode($content) . '}';
+        }
+
+        return $content;
+    }
+
+
+        /**
      * Shows the forgot password form
      *
      * @return string Content

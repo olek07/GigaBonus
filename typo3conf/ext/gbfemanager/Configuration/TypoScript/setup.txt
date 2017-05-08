@@ -389,7 +389,7 @@ GbfemanagerRestorePassword {
 
 
 
-### Change password of FE User
+### Registration form
 GbfemanagerNewAjaxUser = PAGE
 GbfemanagerNewAjaxUser {
 

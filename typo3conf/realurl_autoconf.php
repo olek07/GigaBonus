@@ -217,11 +217,6 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 						'type' => 102,
 					),
 				),
-				'atom.xml' => array(
-					'keyValues' => array(
-						'type' => 103,
-					),
-				),
 			),
 		),
 	),

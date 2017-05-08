@@ -11,6 +11,7 @@ class MainHelper {
     const DELETEPROFILEPAGEID = 16;
     const PARTNERDETAILPAGEID = 17;
     const CONTACTPAGEID = 24;
+    const DASHBOARDPAGEID = 23;
 
     public static function redirect2Home() {
         $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
@@ -36,6 +37,17 @@ class MainHelper {
         self::redirect2Page(self::CHANGEPASSWORDPAGEID);
     }
 
+    
+    public static function getDashboardPageUrl() {
+        $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
+            array(
+                'parameter' => self::DASHBOARDPAGEID,
+            )
+        );
+        
+        return $url;
+    }
+    
     public static function redirect2Page($pageId) {
         $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
             array(

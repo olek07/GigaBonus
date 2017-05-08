@@ -44,26 +44,27 @@
 
 <!--###TEMPLATE_LOGIN###-->
 
+<div id="modalLoginForm">
 ###STATUS_HEADER###
 ###STATUS_MESSAGE###
 <br>
+
 <!-- ###LOGIN_FORM### -->
-<form action="###ACTION_URI###" target="_top" method="post" onsubmit="###ON_SUBMIT###">
-	<fieldset>
+<form action="###ACTION_URI###"  target="_top" method="post" onsubmit="###ON_SUBMIT###">
 	<div>
 		<label for="user">###USERNAME_LABEL###</label>
-		<input type="text" id="user" name="user" value="" />
+		<input type="text" name="user" value="" />
 	</div>
 	<div>
 		<label for="pass">###PASSWORD_LABEL###</label>
-		<input type="password" id="pass" name="pass" value="" data-rsa-encryption="" />
+		<input type="password" name="pass" value="" data-rsa-encryption="" />
 	</div>
 
 	<!--###PERMALOGIN_VALID###-->
 		<div>
 			<label for="permalogin">###PERMALOGIN###</label>
-			<input name="permalogin" value="0" type="hidden" ###PERMALOGIN_HIDDENFIELD_ATTRIBUTES### id="permaloginHiddenField" />
-			<input name="permalogin" value="1" type="checkbox" ###PERMALOGIN_CHECKBOX_ATTRIBUTES### id="permalogin"  onclick="document.getElementById('permaloginHiddenField').disabled = this.checked;" />
+			<input name="permalogin" value="0" type="hidden" ###PERMALOGIN_HIDDENFIELD_ATTRIBUTES### id="permaloginHiddenField1" />
+			<input name="permalogin" value="1" type="checkbox" ###PERMALOGIN_CHECKBOX_ATTRIBUTES### onclick="document.getElementById('permaloginHiddenField1').disabled = this.checked;" />
 		</div>
 	<!--###PERMALOGIN_VALID###-->
 
@@ -78,7 +79,6 @@
 		<input type="hidden" name="###PREFIXID###[noredirect]" value="###NOREDIRECT###" />
 		###EXTRA_HIDDEN###
 	</div>
-	</fieldset>
 </form>
 
 <!--###FORGOTP_VALID###-->
@@ -86,11 +86,13 @@
 <!--###FORGOTP_VALID###-->
 
 <!-- ###LOGIN_FORM### -->
+</div>
+
 
 <!--###TEMPLATE_LOGIN###-->
 
 <!--###TEMPLATE_LOGOUT###-->
-
+<div id="modalLoginForm">
 ###STATUS_HEADER###
 ###STATUS_MESSAGE###
 
@@ -114,7 +116,7 @@
 </form>
 
 <!--###TEMPLATE_LOGOUT###-->
-
+</div>
 <!--###TEMPLATE_FORGOT###-->
 
 ###STATUS_HEADER###
@@ -139,30 +141,3 @@
 <p>###BACKLINK_LOGIN###&nbsp;</p>
 <!--###TEMPLATE_FORGOT###-->
 
-<!--###TEMPLATE_CHANGEPASSWORD###-->
-
-###STATUS_HEADER###
-###STATUS_MESSAGE###
-
-
-<!-- ###CHANGEPASSWORD_FORM### -->
-<form action="###ACTION_URI###" method="post">
-	<fieldset>
-		<legend>###LEGEND###</legend>
-		<div>
-			<label for="tx_felogin_pi1-newpassword1">###NEWPASSWORD1_LABEL###</label>
-			<input type="password" name="###NEWPASSWORD1###" id="tx_felogin_pi1-newpassword1" />
-		</div>
-		<div>
-			<label for="tx_felogin_pi1-newpassword2">###NEWPASSWORD2_LABEL###</label>
-			<input type="password" name="###NEWPASSWORD2###" id="tx_felogin_pi1-newpassword2" />
-		</div>
-		<div>
-			<input type="submit" name="tx_felogin_pi1[changepasswordsubmit]" value="###SEND_PASSWORD###" />
-		 </div>
-	</fieldset>
-
-</form>
-<!-- ###CHANGEPASSWORD_FORM### -->
-###BACKLINK_LOGIN###
-<!--###TEMPLATE_CHANGEPASSWORD###-->

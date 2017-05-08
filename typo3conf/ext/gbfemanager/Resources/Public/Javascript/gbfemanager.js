@@ -261,3 +261,54 @@ GbfemanagerRestorePassword = {
     }
 };
 
+
+GbfemanagerModalRegistrationForm = {
+
+    form : null,
+
+
+    init: function(){
+
+        var obj = this;
+
+        obj.form = $('#modalRegistrationForm');
+
+
+        $('[data-signin-button]').click(function(){
+
+            var $modal = $('#modalWindow');
+
+            $.ajax('/?L=1&type=104&tx_femanager_pi1[action]=newAjax&tx_femanager_pi1[controller]=New')
+                .done(function(resp){
+                    $modal.html(resp).foundation('open');
+                    obj.initForm();
+                });
+        });
+
+        $(document).on(Layout.EVENT_INIT_FORMS, function() {
+            obj.initForm();
+        });
+
+    },
+
+    initForm: function() {
+        var obj = this;
+
+        var options = {
+            success:       obj.showFormResponse,    // post-submit callback
+            error: function(data) {
+                $(document).trigger(Layout.EVENT_STOP_LOADING);
+            },
+
+            dataType:  'html'        // 'xml', 'script', or 'json' (expected server response type)
+        };
+
+        $('#modalRegistrationForm').ajaxForm(options);
+    },
+
+    showFormResponse : function(responseText, statusText, xhr, form) {
+        $('#modalRegistrationForm').replaceWith(responseText);
+        $(document).trigger(Layout.EVENT_INIT_FORMS);
+    }
+
+}
