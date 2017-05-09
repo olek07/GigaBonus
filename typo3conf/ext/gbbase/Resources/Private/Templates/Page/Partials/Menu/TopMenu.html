@@ -1,9 +1,7 @@
 <f:section name="main">
 
-<div class="reveal" id="modalWindow" data-reveal>
-
-</div>
-
+<div class="reveal" id="modal-window" data-reveal data-options="closeOnClick:false;closeOnEsc:true;animationIn:true" data-animation-out="fade-out"></div>
+<!--  data-options="closeOnClick:false;closeOnEsc:true;" -->
 
 <div class="row">
     <div class="top-bar">
@@ -27,10 +25,10 @@
 
         <div class="top-bar-right">
             <ul class="dropdown menu" data-dropdown-menu>
-                <li><a data-signin-button>Регистрация</a></li>
+                <li><a data-signup-button>Регистрация</a></li>
 
-                <li><a id="login-button">Вход</a>
-
+                <li><a data-login-button>Вход</a>
+               <!--
                     <ul class="menu vertical">
                         <li class="active">
                             <a href="/ru/change-userdata/">Мои личные данные</a>
@@ -48,7 +46,7 @@
                             <a href="">Выход</a>
                         </li>
                     </ul>
-
+               -->
                 </li>
             </ul>
         </div>

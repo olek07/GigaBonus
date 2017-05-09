@@ -1,7 +1,9 @@
 $(document).foundation()
 
-
 var Layout = {
+
+
+    modalCloseButtonHtml : '<button class="close-button" data-close aria-label="Close reveal" type="button"><span aria-hidden="true">&times;<\/span><\/button>',
 
     init : function () {
         $(document).on(this.EVENT_START_LOADING, this.loadingStart);
@@ -68,13 +70,14 @@ GbfloginLogin = {
 
         // $('[data-signin-button]').click(function(){
 
-        $('#login-button').click(function(){
+        $('[data-login-button]').click(function(){
 
-            var $modal = $('#modalWindow');
+            var $modal = $('#modal-window');
+            
 
             $.getJSON('/?L=1&type=103')
                 .done(function(resp){
-                    $modal.html(resp.content).foundation('open');
+                    $modal.html(resp.content + Layout.modalCloseButtonHtml).foundation('open');
                     obj.initForm();
                 });
 
@@ -116,7 +119,9 @@ GbfloginLogin = {
             location.href = responseText.dashboardUrl;
             return;
         }
-        $('#modalLoginForm').replaceWith(responseText.content);
+
+
+        $('#modalLoginForm').replaceWith(responseText.content + Layout.modalCloseButtonHtml);
         $(document).trigger(Layout.EVENT_INIT_FORMS);
     }
 }

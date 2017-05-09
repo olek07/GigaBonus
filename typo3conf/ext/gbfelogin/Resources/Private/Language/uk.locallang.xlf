@@ -20,6 +20,31 @@
 			<target state="translated">Адреса електронної пошти (E-Mail)</target>
 		</trans-unit>
 
+		<trans-unit id="ll_forgot_header" approved="yes">
+			<source>Forgot your password?</source>
+			<target state="translated">Забули пароль?</target>
+		</trans-unit>
+
+                <trans-unit id="ll_forgot_reset_message" approved="yes">
+                    <source>Please enter your username or email address. Instructions for resetting the password will be immediately emailed to you.</source>
+        	    <target state="translated">Будь ласка, введіть Вашу адресу електронної пошти (E-Mail). Інструкція по відновленню пароля буде вислана Вам на введену адресу.</target>
+	        </trans-unit>
+
+                <trans-unit id="reset_password" approved="yes">
+	            <source>Reset Password</source>
+        	    <target state="translated">Відновити пароль</target>
+	        </trans-unit>
+ 
+       	        <trans-unit id="ll_forgot_reset_message_emailSent">
+ 		    <source>An email has been sent to the address stored in your account and contains a link to reset your password. If you do not receive an email, your account or email address was not found.</source>
+                    <target>
+                    <![CDATA[
+                        На вказану вами адресу електронної пошти було відправлено посилання для відновлення пароля. Якщо Ви його не отримали, можливо, Ви ввели неправильну адресу електронної пошти.
+                        <br><br>
+                        У разі виникнення подальших проблем з відновленням пароля, будь ласка, зв'яжіться з адміністрацією системи.
+                    ]]>
+                    </target>
+		</trans-unit>
 
 
 	</body>

@@ -5,6 +5,7 @@ use TYPO3\CMS\Core\Utility\HttpUtility;
 
 class MainHelper {
     
+    const LOGINPAGEID = 3;
     const CHANGEPASSWORDPAGEID = 8;
     const CHANGEUSERDATAPAGEID = 6;
     const TRANSACTIONLISTPAGEUID = 14;

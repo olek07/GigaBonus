@@ -25,10 +25,23 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
      */
     public function main($content, $conf)
     {
+
         $content = parent::main($content, $conf);
+
+        $content = str_replace('###ENTERED_EMAIL###', htmlspecialchars(GeneralUtility::_GP('user'), ENT_COMPAT, 'UTF-8', FALSE), $content);
+
 
         // if login box is called via AJAX
         if ($_GET['type'] == 103) {
+
+            $linkConf = array(
+                'parameter' => MainHelper::LOGINPAGEID,
+                'additionalParams' => '&L=' . $GLOBALS['TSFE']->sys_language_uid . '&' .$this->prefixId . '[forgot]=1',
+                # 'returnLast' => 'url'
+            );
+
+            $content = str_replace('###LINK_FORGOT_PASSWORD###', $this->cObj->typoLink($this->pi_getLL('ll_forgot_header', '', true), $linkConf), $content);
+
 
             $jsonObj = new \stdClass();
 
@@ -44,14 +57,13 @@ class FrontendLoginController extends \TYPO3\CMS\Felogin\Controller\FrontendLogi
             $jsonObj->dashboardUrl = MainHelper::getDashboardPageUrl();
 
             $content = json_encode($jsonObj);
-            // $content = '{' . $loggedIn . ', "content" : ' . json_encode($content) . '}';
         }
 
         return $content;
     }
 
 
-        /**
+    /**
      * Shows the forgot password form
      *
      * @return string Content

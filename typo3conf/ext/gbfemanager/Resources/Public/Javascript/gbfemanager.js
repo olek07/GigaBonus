@@ -274,13 +274,13 @@ GbfemanagerModalRegistrationForm = {
         obj.form = $('#modalRegistrationForm');
 
 
-        $('[data-signin-button]').click(function(){
+        $('[data-signup-button]').click(function(){
 
-            var $modal = $('#modalWindow');
-
+            var $modal = $('#modal-window');
             $.ajax('/?L=1&type=104&tx_femanager_pi1[action]=newAjax&tx_femanager_pi1[controller]=New')
                 .done(function(resp){
-                    $modal.html(resp).foundation('open');
+                    $modal.html(resp + Layout.modalCloseButtonHtml).foundation('open');
+                    $('#modal-window').html(resp + Layout.modalCloseButtonHtml);
                     obj.initForm();
                 });
         });
@@ -295,7 +295,7 @@ GbfemanagerModalRegistrationForm = {
         var obj = this;
 
         var options = {
-            success:       obj.showFormResponse,    // post-submit callback
+            success: obj.showFormResponse,    // post-submit callback
             error: function(data) {
                 $(document).trigger(Layout.EVENT_STOP_LOADING);
             },
@@ -307,7 +307,7 @@ GbfemanagerModalRegistrationForm = {
     },
 
     showFormResponse : function(responseText, statusText, xhr, form) {
-        $('#modalRegistrationForm').replaceWith(responseText);
+        $('#modalRegistrationForm').replaceWith(responseText + Layout.modalCloseButtonHtml);
         $(document).trigger(Layout.EVENT_INIT_FORMS);
     }
 
