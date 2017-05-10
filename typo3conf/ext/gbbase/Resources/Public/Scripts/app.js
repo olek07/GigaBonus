@@ -4,15 +4,25 @@ var Layout = {
 
 
     modalCloseButtonHtml : '<button class="close-button" data-close aria-label="Close reveal" type="button"><span aria-hidden="true">&times;<\/span><\/button>',
+    currentLanguage : 0,
 
     init : function () {
         $(document).on(this.EVENT_START_LOADING, this.loadingStart);
         $(document).on(this.EVENT_STOP_LOADING, this.loadingStop);
 
-        GbfemanagerModalRegistrationForm.init();
+        this.initLanguage();
 
+        GbfemanagerModalRegistrationForm.init();
         GbfloginLogin.init();
         
+    },
+
+    initLanguage : function(){
+        var obj = this;
+        var lang = $('ul.language-menu').data('current-language');
+        if (typeof lang !== 'undefined') {
+            obj.currentLanguage = lang
+        }
     },
 
     scrollToOffset : function (offset, hash) {
@@ -75,7 +85,7 @@ GbfloginLogin = {
             var $modal = $('#modal-window');
             
 
-            $.getJSON('/?L=1&type=103')
+            $.getJSON('/?type=103&L=' + Layout.currentLanguage)
                 .done(function(resp){
                     $modal.html(resp.content + Layout.modalCloseButtonHtml).foundation('open');
                     obj.initForm();

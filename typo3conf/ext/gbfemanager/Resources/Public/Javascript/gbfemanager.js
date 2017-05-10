@@ -9,20 +9,11 @@ GbfemanagerEdit = {
 
         obj.form = $('#changeUserdataForm');
 
-        obj.initLanguage();
         obj.initBirthday();
         obj.initCitySuggest();
         obj.initForm();
         obj.scrollToMessage();
 
-    },
-
-    initLanguage : function(){
-        var obj = this;
-        var lang = $(obj.form).data('languageid');
-        if (typeof lang !== 'undefined') {
-            obj.lang = lang
-        }
     },
 
     initCitySuggest: function() {
@@ -34,7 +25,7 @@ GbfemanagerEdit = {
         var cityName = cityField.val();
 
         cityField.autocomplete({
-            source      : '/index.php?eID=cities&L=' + obj.lang,
+            source      : '/index.php?eID=cities&L=' + Layout.currentLanguage,
             minLength   : 3,
             delay       : 500,
             html        : true,
@@ -96,7 +87,6 @@ GbfemanagerEdit = {
             beforeSubmit:  obj.prepareFormRequest,  // pre-submit callback
             success:       obj.showFormResponse,    // post-submit callback
             error: function(data) {
-                // alert(123);
                 $(document).trigger(Layout.EVENT_STOP_LOADING);
             },
 
@@ -129,8 +119,8 @@ GbfemanagerEdit = {
     },
 
     scrollToMessage: function(){
-        var obj = this;
-        var elMessage = $('.tx-femanager');
+        // var obj = this;
+        // var elMessage = $('.tx-femanager');
         var elMessage = $('body');
         if (elMessage.length > 0){
             Layout.scrollToOffset($(elMessage[0]).offset().top - 50);
@@ -192,8 +182,8 @@ GbfemanagerNew = {
     },
 
     scrollToMessage: function(){
-        var obj = this;
-        var elMessage = $('.tx-femanager');
+        // var obj = this;
+        // var elMessage = $('.tx-femanager');
         var elMessage = $('body');
         if (elMessage.length > 0){
             Layout.scrollToOffset($(elMessage[0]).offset().top - 50);
@@ -252,8 +242,8 @@ GbfemanagerRestorePassword = {
     },
 
     scrollToMessage: function(){
-        var obj = this;
-        var elMessage = $('.tx-femanager');
+        // var obj = this;
+        // var elMessage = $('.tx-femanager');
         var elMessage = $('body');
         if (elMessage.length > 0){
             Layout.scrollToOffset($(elMessage[0]).offset().top - 50);
@@ -277,7 +267,7 @@ GbfemanagerModalRegistrationForm = {
         $('[data-signup-button]').click(function(){
 
             var $modal = $('#modal-window');
-            $.ajax('/?L=1&type=104&tx_femanager_pi1[action]=newAjax&tx_femanager_pi1[controller]=New')
+            $.ajax('/?type=104&tx_femanager_pi1[action]=newAjax&tx_femanager_pi1[controller]=New&L=' + Layout.currentLanguage)
                 .done(function(resp){
                     $modal.html(resp + Layout.modalCloseButtonHtml).foundation('open');
                     $('#modal-window').html(resp + Layout.modalCloseButtonHtml);
