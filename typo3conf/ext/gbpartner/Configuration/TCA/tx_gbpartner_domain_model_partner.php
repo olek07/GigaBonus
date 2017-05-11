@@ -28,10 +28,10 @@ return array(
 		'thumbnail' => 'image',
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, tags, image, category, delivery_conditions',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, teaser, description, website_url, incentive, tags, image, category, delivery_conditions, main_category',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive, tags, image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime,--div--;API,api_key,class_name,--div--;Delivery,delivery_conditions'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,name,teaser,description,website_url,incentive, tags, image,category,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime,--div--;API,api_key,class_name,--div--;Delivery,delivery_conditions,--div--;SEO,main_category'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -283,7 +283,7 @@ return array(
 		),
 		'category' => array(
 			'exclude' => 1,
-                        'l10n_mode' => 'exclude',
+            'l10n_mode' => 'exclude',
 			'label' => 'Partner categories',
 			'config' => array(
 				'type' => 'select',
@@ -363,6 +363,23 @@ return array(
 				'eval' => 'trim'
 			),
 			'defaultExtras' => 'richtext[]'
+		),
+
+        'main_category' => array(
+			'exclude' => 0,
+			'l10n_mode' => 'exclude',
+			'label' => 'Main category',
+			'config' => array(
+				'type' => 'select',
+				// 'items' => [['0', 0], ['----------', -1]],
+				'itemsProcFunc' => 'Gigabonus\Gbpartner\Utility\Tcahelper->getListOfCategories',
+				'renderType' => 'selectSingleBox',
+				/*
+				'foreign_table' => 'tx_gbpartner_domain_model_category',
+				'foreign_table_where' => ' AND (tx_gbpartner_domain_model_category.sys_language_uid = 0 OR tx_gbpartner_domain_model_category.l10n_parent = 0) 
+										   AND tx_gbpartner_domain_model_category.uid IN (SELECT uid_foreign FROM tx_gbpartner_partner_category_mm WHERE uid_local=###THIS_UID###) ORDER BY tx_gbpartner_domain_model_category.uid',
+				*/
+			),
 		),
 
 		

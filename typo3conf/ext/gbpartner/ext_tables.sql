@@ -14,6 +14,7 @@ CREATE TABLE tx_gbpartner_domain_model_partner (
 	tags varchar(255) DEFAULT '' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
 	category int(11) unsigned DEFAULT '0' NOT NULL,
+	main_category int(11) unsigned DEFAULT '0' NOT NULL,
 	api_key varchar(50) DEFAULT '' NOT NULL,
 	class_name varchar(50) DEFAULT '' NOT NULL,
 	delivery_conditions text NOT NULL,
