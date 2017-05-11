@@ -85,6 +85,14 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @cascade remove
      */
     protected $category = null;
+    
+    /**
+     * mainCategory
+     * 
+     * @var int
+     * 
+     */
+    protected $mainCategory = 0;
 
     /**
      * @var \TYPO3\CMS\Core\Resource\FileRepository
@@ -331,6 +339,30 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->category = $category;
     }
 
+    
+    /**
+     * Returns the mainCategory
+     * 
+     * @return int
+     */
+    public function getMainCategory()
+    {
+        return $this->mainCategory;
+    }
+    
+    
+    /**
+     * Sets the mainCategory
+     * 
+     * @param int $mainCategory
+     * @return void
+     */
+    public function setMainCategory($mainCategory)
+    {
+        $this->mainCategory = $mainCategory;
+    }
+    
+    
 
     protected function findImageByRelation($uid, $fieldname){
 

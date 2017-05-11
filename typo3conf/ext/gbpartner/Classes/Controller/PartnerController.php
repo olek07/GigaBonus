@@ -81,6 +81,17 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $this->forward('list', null, null, array('category' => $category));
         }
         else {
+            DebuggerUtility::var_dump($partner->getMainCategory());
+            
+            $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
+                array(
+                    'parameter' => 17,
+                    'additionalParams' => '&tx_gbpartner_partnerlisting[action]=show&tx_gbpartner_partnerlisting[category]=' . $partner->getMainCategory() . '&tx_gbpartner_partnerlisting[controller]=Partner&tx_gbpartner_partnerlisting[partner]=' . $partner->getUid()
+                )
+            );
+            
+            DebuggerUtility::var_dump($url,111);
+            
             $this->view->assign('category', $category);
             $this->view->assign('partner', $partner);
         }
