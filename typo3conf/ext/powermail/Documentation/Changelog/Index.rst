@@ -18,6 +18,27 @@ All changes are documented on `http://forge.typo3.org/projects/extension-powerma
       Release Description
 
  - :Version:
+      3.18.0
+   :Date:
+      2017-04-23
+   :Changes:
+
+      * Task: Make extension fit for new TYPO3 8.7 LTS testparcours
+      * Task: Don't use GeneralUtility::removeXSS by default
+      * Bugfix: Captcha image resource fix
+
+ - :Version:
+      3.17.0
+   :Date:
+      2017-04-01
+   :Changes:
+
+      * Feature: Add TypoScript condition that checks if a powermail plugin is on the current page
+      * Task: Improve handling of routes in backend
+      * Task: Update CSS classes in backend module for some tests
+      * Bugfix: Show form icon in backend overview forms module
+
+ - :Version:
       3.16.0
    :Date:
       2017-03-26
