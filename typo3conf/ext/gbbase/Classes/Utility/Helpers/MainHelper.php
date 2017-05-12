@@ -58,11 +58,21 @@ class MainHelper {
         HttpUtility::redirect($url);
     }
 
+    public static function setTitleTag($title) {
+        $GLOBALS['TSFE']->page['title'] = $title . ' - ' . self::$titleSuffix[$GLOBALS['TSFE']->lang];
+    }
+
+
     /* ARRAY ID TO LANGUAGES WITH 2 LETTERS */
 
     public static $langIds = array(
         0   => 'ru',
         1   => 'uk',
+    );
+
+    public static $titleSuffix = array(
+        'ru' => 'Бонусная система GigaBonus',
+        'uk' => 'Бонусна система GigaBonus'
     );
 
 

@@ -26,6 +26,7 @@ namespace Gigabonus\Gbpartner\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -56,7 +57,7 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
          */
 
         if ($category !== NULL) {
-            $GLOBALS['TSFE']->page['title'] = $category->getName();
+            MainHelper::setTitleTag($category->getName());
         }
         else {
             $GLOBALS['TSFE']->page['title'] = 'Партнёры';
@@ -75,23 +76,14 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function showAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null, \Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
-        // DebuggerUtility::var_dump($partner);
 
         if ($partner == NULL) {
             $this->forward('list', null, null, array('category' => $category));
         }
         else {
-            DebuggerUtility::var_dump($partner->getMainCategory());
-            
-            $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
-                array(
-                    'parameter' => 17,
-                    'additionalParams' => '&tx_gbpartner_partnerlisting[action]=show&tx_gbpartner_partnerlisting[category]=' . $partner->getMainCategory() . '&tx_gbpartner_partnerlisting[controller]=Partner&tx_gbpartner_partnerlisting[partner]=' . $partner->getUid()
-                )
-            );
-            
-            DebuggerUtility::var_dump($url,111);
-            
+
+            MainHelper::setTitleTag($partner->getName());
+            $this->generateCanonicalTag($partner);
             $this->view->assign('category', $category);
             $this->view->assign('partner', $partner);
         }
@@ -117,5 +109,38 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
     }
 
+
+    /**
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     * @param \Gigabonus\Gbpartner\Domain\Model\Category $category
+     */
+    protected function generateCanonicalTag(\Gigabonus\Gbpartner\Domain\Model\Partner $partner) {
+
+        // if no main category defined, take the first category as main category
+        $mainCategory = $partner->getMainCategory();
+        if ($mainCategory == 0) {
+            /**
+             * @var \Gigabonus\Gbpartner\Domain\Model\Category $category
+             */
+            $category = $partner->getCategory()->toArray()[0];
+            $mainCategory = $category->getUid();
+        }
+
+        $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
+            array(
+                'parameter' => 17,
+                'additionalParams' => '&tx_gbpartner_partnerlisting[action]=show&tx_gbpartner_partnerlisting[category]='
+                                      . $mainCategory . '&tx_gbpartner_partnerlisting[controller]=Partner&tx_gbpartner_partnerlisting[partner]='
+                                      . $partner->getUid()
+            )
+        );
+
+        /**
+         * @var \TYPO3\CMS\Extbase\Mvc\Web\Response $response
+         */
+        $response = $this->response;
+        $response->addAdditionalHeaderData('<link rel="canonical" href="https://' . $GLOBALS['SERVER_ENVIRONMENT']['GBDOMAIN'] . $url . '">');
+
+    }
 
 }

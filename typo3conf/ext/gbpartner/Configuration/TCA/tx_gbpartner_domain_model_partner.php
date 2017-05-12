@@ -368,13 +368,13 @@ return array(
         'main_category' => array(
 			'exclude' => 0,
 			'l10n_mode' => 'exclude',
-			'label' => 'Main category',
+			'label' => 'Main category for canonical tag',
 			'config' => array(
 				'type' => 'select',
-				// 'items' => [['0', 0], ['----------', -1]],
+				'renderType' => 'selectSingle',
 				'itemsProcFunc' => 'Gigabonus\Gbpartner\Utility\Tcahelper->getListOfCategories',
-				'renderType' => 'selectSingleBox',
 				/*
+				'items' => [['0', 0], ['----------', -1]],
 				'foreign_table' => 'tx_gbpartner_domain_model_category',
 				'foreign_table_where' => ' AND (tx_gbpartner_domain_model_category.sys_language_uid = 0 OR tx_gbpartner_domain_model_category.l10n_parent = 0) 
 										   AND tx_gbpartner_domain_model_category.uid IN (SELECT uid_foreign FROM tx_gbpartner_partner_category_mm WHERE uid_local=###THIS_UID###) ORDER BY tx_gbpartner_domain_model_category.uid',
