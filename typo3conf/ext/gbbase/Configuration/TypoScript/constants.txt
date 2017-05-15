@@ -5,6 +5,8 @@ pages {
     transactionListPageUid = 14
     payOutPageUid = 30
     loginPageUid = 3
+    footerNaviUid = 31
+
 }
 
 elements {

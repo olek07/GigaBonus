@@ -36,4 +36,23 @@ class ServersideValidator extends \In2code\Femanager\Domain\Validator\Serverside
         return parent::isValid($user);
 
     }
+
+
+    /**
+     * Validation for Minimum of characters
+     * Overrides the original method or femanager, because strlen doesn't correctly check utf-8 strings. See https://forge.typo3.org/issues/78882
+     *
+     * @param string $value
+     * @param string $validationSetting
+     * @return \bool
+     */
+    protected function validateMin($value, $validationSetting)
+    {
+        if (mb_strlen($value) < $validationSetting) {
+            return false;
+        }
+        return true;
+    }
+
+
 }

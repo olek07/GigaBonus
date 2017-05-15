@@ -71,8 +71,8 @@ class MainHelper {
     );
 
     public static $titleSuffix = array(
-        'ru' => 'Бонусная система GigaBonus',
-        'uk' => 'Бонусна система GigaBonus'
+        'ru' => 'Кэшбэк система GigaBonus',
+        'uk' => 'Кешбек система GigaBonus'
     );
 
 
