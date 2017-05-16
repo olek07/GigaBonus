@@ -12,19 +12,37 @@
 
 <f:section name="main">
 
-	<img src="{embedImages.0}" alt="Peppa">
+    <img src="{embedImages.0}" alt="Peppa"><br>
 
 
-	Уважаемый пользователь,<br>
-	<br>
-	Благодарим за регистрацию в системе GigaBonus. Для завершения процесса регистрации, пожалуйста, перейдите по ссылке:
+	<f:switch expression="{language}">
+		<f:case value="0">
+			Уважаемый пользователь,<br>
+			<br>
+			Благодарим за регистрацию в системе GigaBonus. Для завершения процесса регистрации, пожалуйста, перейдите по ссылке:
 
-	<f:link.action pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
-      <f:uri.action  pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}" />
-	</f:link.action>
+			<f:link.action pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
+				  <f:uri.action  pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}" />
+			</f:link.action>
 
-	<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
+			<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
 
-	<p>Желаем Вам удачных покупок и много бонусов!</p>
+			<p>Желаем Вам удачных покупок и много бонусов!</p>
+		</f:case>
+
+		<f:case value="1">
+			Шановний користувач, <br>
+			<br>
+			Дякуємо за реєстрацію в системі GigaBonus. Для завершення процесу реєстрації, будь ласка, перейдіть за посиланням:
+
+			<f:link.action pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}">
+			  <f:uri.action  pageUid="{registrationPageId}" action="confirmCreateRequest" noCacheHash="1" controller="New" absolute="1" arguments="{user:user, hash:hash, status:'userConfirmation'}" />
+			</f:link.action>
+
+			<p><f:translate key="emailCreateUserConfirmationSignature" /></p>
+
+			<p>Бажаємо Вам вдалих покупок та багато бонусів!</p>
+		</f:case>
+	</f:switch>
 
 </f:section>

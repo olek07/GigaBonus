@@ -1,4 +1,4 @@
-config{
+config {
    # no_cache = 1
     doctype = html5
     sys_language_uid = 0
@@ -10,6 +10,7 @@ config{
     tx_realurl_enable = 1
     absRefPrefix = /
     simulateStaticDocuments = 0
+    pageTitleSeparator = - Кэшбэк-система
 }
 
 
@@ -19,4 +20,5 @@ config{
     config.language = uk
     config.locale_all = uk_UA.UTF-8
     config.htmlTag_setParams = lang="uk" class="nojs"
+    config.pageTitleSeparator = - Кешбек-система
 [global]

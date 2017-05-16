@@ -138,7 +138,7 @@ class NewController extends \In2code\Femanager\Controller\NewController {
             [
                 'user' => $user,
                 'hash' => HashUtility::createHashForUser($user),
-                'registrationPageId' => 4,
+                'registrationPageId' => MainHelper::REGISTRATIONPAGEUID,
                 'language' => $GLOBALS['TSFE']->sys_language_uid
                 
             ],

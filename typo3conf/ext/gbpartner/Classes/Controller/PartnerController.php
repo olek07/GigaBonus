@@ -60,7 +60,7 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             MainHelper::setTitleTag($category->getName());
         }
         else {
-            $GLOBALS['TSFE']->page['title'] = 'Партнёры';
+            MainHelper::setTitleTag('Партнёры');
         }
 
         $this->view->assign('partnerDetailPageUid', MainHelper::PARTNERDETAILPAGEID);

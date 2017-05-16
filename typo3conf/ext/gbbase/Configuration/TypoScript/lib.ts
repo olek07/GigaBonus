@@ -12,6 +12,13 @@ lib.footerNavi {
 
 }
 
+lib.socialNetworks = TEXT
+lib.socialNetworks.value (
+Facebook<br>
+Twitter<br>
+YouTube
+)
+
 
 # render main content colPos 0
 lib.contentDefaultTemplate < styles.content.get

@@ -6,6 +6,7 @@ use TYPO3\CMS\Core\Utility\HttpUtility;
 class MainHelper {
     
     const LOGINPAGEID = 3;
+    const REGISTRATIONPAGEUID = 4;
     const CHANGEPASSWORDPAGEID = 8;
     const CHANGEUSERDATAPAGEID = 6;
     const TRANSACTIONLISTPAGEUID = 14;
@@ -59,7 +60,7 @@ class MainHelper {
     }
 
     public static function setTitleTag($title) {
-        $GLOBALS['TSFE']->page['title'] = $title . ' - ' . self::$titleSuffix[$GLOBALS['TSFE']->lang];
+        $GLOBALS['TSFE']->page['title'] = $title;
     }
 
 
@@ -71,8 +72,8 @@ class MainHelper {
     );
 
     public static $titleSuffix = array(
-        'ru' => 'Кэшбэк система GigaBonus',
-        'uk' => 'Кешбек система GigaBonus'
+        'ru' => 'Кэшбэк-система GigaBonus',
+        'uk' => 'Кешбек-система GigaBonus'
     );
 
 

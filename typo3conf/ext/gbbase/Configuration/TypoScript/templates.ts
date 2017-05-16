@@ -17,6 +17,16 @@ page.typeNum = 0
 page.meta.viewport = initial-scale=1, minimum-scale=1, maximum-scale=1
 
 
+config.pageTitleFirst = 1
+config.pageTitleSeparator.noTrimWrap = | | |
+
+/*
+config.noPageTitle = 2
+page.headerData.1 = TEXT
+page.headerData.1.value = <title>###GIGABONUS_TITLE###</title>
+*/
+
+
 page.10 = FLUIDTEMPLATE
 page.10 {
     format = html

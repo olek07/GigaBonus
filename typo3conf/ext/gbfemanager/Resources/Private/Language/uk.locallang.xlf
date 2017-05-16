@@ -133,7 +133,7 @@
                     </trans-unit>
 
                     <trans-unit id="emailCreateUserConfirmationSubject">
-                        <target>GigaBonus | Реєстрація в системі</target>
+                        <target>Кешбек-система GigaBonus | Реєстрація в системі</target>
                     </trans-unit>
 
                     <trans-unit id="emailCreateUserConfirmationSignature">
@@ -141,7 +141,7 @@
                             <![CDATA[
                             З повагою,<br>
                             <br>
-                            Адміністрація системи GigaBonus
+                            Адміністрація системи GigaBonus.
                             ]]>
                         </target>
                     </trans-unit>
