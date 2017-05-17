@@ -23,6 +23,10 @@
                 <target>По</target>
             </trans-unit>
 
+            <trans-unit id="tx_gbaccount_domain_model_transaction.my_bonuses">
+                <target>Мои бонусы</target>
+            </trans-unit>
+
 		</body>
 	</file>
 </xliff>

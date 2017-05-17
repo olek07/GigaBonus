@@ -3,10 +3,12 @@ namespace Gigabonus\Gbbase\Hooks;
 
 
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
+use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\HttpUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Frontend\Exception;
+use TYPO3\CMS\Frontend\Page\PageGenerator;
 
 /**
  *
@@ -16,9 +18,13 @@ class MetaTagsHook  {
 
 
     public function setPageTitle($params, $obj) {
-        $pageTitle = $obj->page['subtitle'] ? $obj->page['subtitle'] : $obj->page['title'];
-        $GLOBALS['TSFE']->altPageTitle = $pageTitle;
-        // DebuggerUtility::var_dump($GLOBALS['TSFE']->page);
+
+        // for SEO. If the page subtitle is set, use it
+        if ($GLOBALS['TSFE']->page['subtitle'] != '') {
+            $GLOBALS['TSFE']->page['title'] = $GLOBALS['TSFE']->page['subtitle'];
+            PageGenerator::generatePageTitle();
+        }
+
     }
 
 

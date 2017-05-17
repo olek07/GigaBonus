@@ -13,37 +13,35 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<div id="transaction-list">
-<h1>Listing for Transaction</h1>
+	<div id="transaction-list">
+		<h1><f:translate key="tx_gbaccount_domain_model_transaction.my_bonuses"/></h1>
 
-<f:flashMessages />
+		<form action="" method="get">
+			<f:translate key="tx_gbaccount_domain_model_transaction.start_date" />:  <input type="text" name="startdate" id="startdate" value="{startdate}" readonly/>
+			<f:translate key="tx_gbaccount_domain_model_transaction.end_date" />: <input type="text" name="enddate" id="enddate" value="{enddate}" readonly/>
+			<input type="submit" value="Search" />
+		</form>
 
-	<form action="" method="get">
-		<f:translate key="tx_gbaccount_domain_model_transaction.start_date" />:  <input type="text" name="startdate" id="startdate" value="{startdate}" readonly/>
-		<f:translate key="tx_gbaccount_domain_model_transaction.end_date" />: <input type="text" name="enddate" id="enddate" value="{enddate}" readonly/>
-		<input type="submit" value="Search" />
-	</form>
+		<f:widget.paginate objects="{transactions}" as="paginatedTransactions" configuration="{itemsPerPage: 3, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 5}">
 
-    <f:widget.paginate objects="{transactions}" as="paginatedTransactions" configuration="{itemsPerPage: 3, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 5}">
+		<table class="tx_gbaccount" >
+		  <tr>
+			<th><f:translate key="tx_gbaccount_domain_model_transaction.amount" /></th>
+			<th> </th>
+			<th> </th>
+		  </tr>
 
-	<table class="tx_gbaccount" >
-	  <tr>
-		<th><f:translate key="tx_gbaccount_domain_model_transaction.amount" /></th>
-		<th> </th>
-		<th> </th>
-	  </tr>
+		  <f:for each="{paginatedTransactions}" as="transaction">
+			<tr>
+			  <td><f:link.action action="show" arguments="{transaction : transaction}" noCacheHash="1">{transaction.amount}<f:if condition="{transaction.isOnHold}">*</f:if></f:link.action></td>
+			  <td><f:format.date format="d.m.Y">{transaction.crdate}</f:format.date></td>
+			  <td>{transaction.partner.name}<br>
+				  {transaction.orderId.partnerOrderId}
+			  </td>
+			</tr>
+		  </f:for>
+		</table>
 
-	  <f:for each="{paginatedTransactions}" as="transaction">
-		<tr>
-		  <td><f:link.action action="show" arguments="{transaction : transaction}" noCacheHash="1">{transaction.amount}<f:if condition="{transaction.isOnHold}">*</f:if></f:link.action></td>
-		  <td><f:format.date format="d.m.Y">{transaction.crdate}</f:format.date></td>
-		  <td>{transaction.partner.name}<br>
-			  {transaction.orderId.partnerOrderId}
-		  </td>
-		</tr>
-	  </f:for>
-	</table>
-
-    </f:widget.paginate>
-</div>
+		</f:widget.paginate>
+	</div>
 </f:section>
