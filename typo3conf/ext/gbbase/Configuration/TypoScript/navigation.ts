@@ -7,8 +7,16 @@
 
         20 = HMENU
         20 {
+            /*
             special = list
             special.value = {$pages.changeUserDataPageUid},{$pages.changeUserPasswordPageUid},{$pages.transactionListPageUid}, {$pages.payOutPageUid}
+            */
+
+            special = directory
+            special.value = 2
+            entryLevel = 1
+
+
             1 = TMENU
             1 {
                 NO = 1
@@ -18,7 +26,23 @@
                 ACT < .NO
                 ACT.wrapItemAndSub = <li class="active">|</li>
 
-                wrap = <ul class="menu vertical">|</ul>
+                stdWrap.wrap.cObject = COA
+                stdWrap.wrap.cObject {
+                    10 = TEXT
+                    10.value = <ul class="menu vertical">|
+
+                    20 = TEXT
+                    20.typolink.parameter = 29
+                    20.typolink.additionalParams = &logintype=logout
+                    20.value = {LLL:EXT:gbbase/Resources/Private/Language/locallang.xlf:logout}
+                    20.insertData = 1
+                    20.wrap = <li>|</li>
+
+                    30 = TEXT
+                    30.value = </ul>
+
+                }
+
             }
         }
 

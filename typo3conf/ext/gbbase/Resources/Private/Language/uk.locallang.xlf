@@ -71,6 +71,9 @@
                     <trans-unit id="login">
                         <target>Вхід в систему</target>
                     </trans-unit>
+                    <trans-unit id="logout">
+                        <target>Вихід</target>
+                    </trans-unit>
                     <trans-unit id="my_gigabonus">
                         <target>Мій GigaBonus</target>
                     </trans-unit>
