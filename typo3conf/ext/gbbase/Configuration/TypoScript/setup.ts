@@ -7,5 +7,6 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/includejs.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/includecss.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/templates.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gbbase/Configuration/TypoScript/navigation.ts">
 
 

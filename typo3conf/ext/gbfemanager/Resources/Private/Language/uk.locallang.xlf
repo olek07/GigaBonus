@@ -221,6 +221,9 @@
                         <target state="translated">Ви вже підтвердили реєстрацію в системі.</target>
                     </trans-unit>
 
+                    <trans-unit id="titleCreateProfile">
+			<target>Реєстрація</target>
+  		    </trans-unit>
 
                     
 	        </body>

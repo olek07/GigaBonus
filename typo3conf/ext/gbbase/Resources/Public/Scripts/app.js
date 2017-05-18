@@ -42,7 +42,7 @@ var Layout = {
 
     loadingStart : function (evt, message) {
         // var modal = $('<div>').addClass('modal-container');
-        var modal = $('<div>').addClass('reveal-overlay').css('display', 'block');
+        var modal = $('<div>').addClass('reveal-overlay loading-start').css('display', 'block');
         $('body').prepend(modal);
 
         // $('body').addClass('is-reveal-open');
@@ -59,7 +59,7 @@ var Layout = {
         // $('html').removeProp("overflow-y");
         // $('body').removeProp("overflow-y");
 
-        $('.reveal-overlay').remove();
+        $('.loading-start').remove();
 
         // $('body').removeClass('is-reveal-open');
 

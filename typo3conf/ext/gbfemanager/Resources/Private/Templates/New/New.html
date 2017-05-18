@@ -10,11 +10,11 @@
 	<f:render partial="Misc/FlashMessages" arguments="{_all}" />
 	<div class="large-4 columns">
 		<f:form name="user" id="newUserForm" object="{user}" action="create" pageUid="1" pageType="{settings.new.pageType}" noCacheHash="1" class="form-horizontal {f:if(condition:'{settings.new.validation._enable.client}',then:'feManagerValidation',else:'')}">
+
+			<h1><f:translate key="titleCreateProfile" /></h1>
+
 			<f:form.validationResults for="{object}">
 			<fieldset>
-				<legend>
-					<f:translate key="titleCreateProfile" />
-				</legend>
 
 				<f:for each="{femanager:misc.explode(string:'{settings.new.fields}')}" as="field">
 				    <f:render partial="Fields/{femanager:misc.upper(string:'{field}')}" arguments="{_all}" />

@@ -45,6 +45,11 @@
                     ]]>
                     </target>
 		</trans-unit>
+		<trans-unit id="ll_welcome_header" approved="yes">
+			<source>User login</source>
+			<target state="translated">Вхід в систему</target>
+		</trans-unit>
+
 
 
 	</body>

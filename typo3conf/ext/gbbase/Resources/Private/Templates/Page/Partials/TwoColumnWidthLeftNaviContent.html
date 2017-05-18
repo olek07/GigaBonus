@@ -4,15 +4,15 @@
 
 	<f:section name="TwoColumnWidthLeftNaviContent">
 
+            <f:render partial="Menu/TopMenu" section="main" arguments="{_all}"/>
+
             <div class="row">
                 <div class="large-3 show-for-large columns">
-                    <f:cObject typoscriptObjectPath="lib.categoryList" />
+                    <f:cObject typoscriptObjectPath="lib.page.navigation.sidenavigation" />
                 </div>
 
                 <div class="large-9 columns">
-	                <f:format.raw>
                         <f:cObject typoscriptObjectPath="lib.contentDefaultTemplate" />
-                    </f:format.raw>
                 </div>
             </div>
 

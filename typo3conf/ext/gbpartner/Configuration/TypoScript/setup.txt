@@ -1,31 +1,6 @@
-
 plugin.tx_gbpartner_categorylisting {
 
 	persistence {
 		storagePid = {$plugin.tx_gbpartner_categorylisting.persistence.storagePid}
 	}
 }
-
-
-lib.categoryList = USER
-lib.categoryList {
-	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-	extensionName = Gbpartner
-	pluginName = Categorylisting
-	vendorName = Gigabonus
-	controller = Category
-	action = list
-	switchableControllerActions {
-		Category {
-			1 = list
-		}
-	}
-
-	persistence < plugin.tx_gbpartner_categorylisting.persistence
-
-	#view < plugin.tx_maramap.view
-	#persistence < plugin.tx_maramap.persistence
-	#settings < plugin.tx_maramap.settings
-}
-
-## page.20 < lib.categoryList

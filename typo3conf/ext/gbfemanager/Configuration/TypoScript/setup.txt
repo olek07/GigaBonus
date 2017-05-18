@@ -206,25 +206,6 @@ plugin.tx_femanager.settings.changemobilenumber.pageType = 109
 */
 
 
-page.25 = HMENU
-page.25 {
-    special = list
-    special.value = {$pages.changeUserDataPageUid},{$pages.changeUserPasswordPageUid},{$pages.transactionListPageUid}, {$pages.payOutPageUid}
-    1 = TMENU
-    1 {
-        NO = 1
-        NO.wrapItemAndSub = <li>|</li>
-        NO.stdWrap.field = subtitle // title
-
-        ACT < .NO
-        ACT.wrapItemAndSub = <li class="active">|</li>
-
-        wrap = <ul>|</ul>
-    }
-
-}
-
-
 ### Create new FE User
 GbfemanagerNewUser = PAGE
 GbfemanagerNewUser {
