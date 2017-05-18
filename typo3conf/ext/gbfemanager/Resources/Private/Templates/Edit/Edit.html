@@ -8,12 +8,19 @@
 	{allUserGroups}
 
 	<f:section name="main">
-            <f:link.page pageUid="3" additionalParams="{logintype:'logout'}">Abmelden</f:link.page><br>
 
 			<f:if condition="{user.txGbfemanagerConfirmmailSentCount} < {settings.confirmmailSendLimit}">
 				<f:then>
-			  		<f:translate key="you_have_not_confirmed_registration">[you_have_not_confirmed_registration]</f:translate>
-					<f:link.action pageUid="15" controller="SendConfirmMail" noCacheHash="1"><f:translate key="on_this_link" /></f:link.action>
+					<div id="sendConfirmMailStatusMessage">
+						<f:translate key="you_have_not_confirmed_registration">[you_have_not_confirmed_registration]</f:translate>
+
+						<a id="sendConfirmMailButton"><f:translate key="on_this_link" /></a>
+
+
+						<f:comment>
+						<f:link.action pageUid="15" controller="SendConfirmMail" noCacheHash="1"><f:translate key="on_this_link" /></f:link.action>
+						</f:comment>
+					</div>
 				</f:then>
 				<f:else>
 					Для подтверждения регистрации, пожалуйста,
@@ -83,7 +90,6 @@
 				</f:else>
 			</f:if>
 		</div>
-
 
 	</f:section>
 

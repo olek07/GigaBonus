@@ -32,7 +32,7 @@ GbfloginLogin {
     templateFile = EXT:gbfelogin/Resources/Private/Templates/FrontendLoginBox.html
 
     # location of member records
-    storagePid = 5
+    storagePid = {$pages.fontendUsersFolderUid}
 
     # set redirect options as per felogin documentation
     redirectMode =

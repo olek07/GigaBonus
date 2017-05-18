@@ -47,8 +47,9 @@ return [
         'debug' => true,
         'lifetime' => '31536000',
         'lockIP' => '0',
-        'loginSecurityLevel' => 'rsa',
+        'loginSecurityLevel' => 'normal',
         'pageNotFound_handling' => 'USER_FUNCTION:EXT:gbredirect/Classes/Services/PageNotFoundService.php:Gigabonus\\Gbredirect\\Services\\PageNotFoundService->pageNotFound',
+        'pageUnavailable_force' => '0',
     ],
     'GFX' => [
         'colorspace' => 'sRGB',

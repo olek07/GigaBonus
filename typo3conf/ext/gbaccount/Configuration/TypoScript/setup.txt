@@ -13,7 +13,7 @@ plugin.tx_gbaccount_transactions {
 		storagePid = {$plugin.tx_gbaccount_transactions.persistence.storagePid}
 	}
 }
-
+/*
 page.15 = USER_INT
 page.15 {
 	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
@@ -35,7 +35,7 @@ page.15 {
 	#view < plugin.tx_maramap.view
 	#settings < plugin.tx_maramap.settings
 }
-
+*/
 
 GbaccountTransactionList = PAGE
 GbaccountTransactionList {

@@ -27,14 +27,10 @@ class SendConfirmMailController extends \Gigabonus\Gbfemanager\Controller\NewCon
 
     public function sendAction() {
        
-        /*
         if ($GLOBALS['TSFE']->fe_user->user['uid'] === NULL) {
-            // redirect to the login page pid=3
-            $this->redirect(null, null, null, null, 3);
             exit;
         }
-         */
-        
+
         if ($this->user->getTxFemanagerConfirmedbyuser()) {
             $this->view->assign('alreadyConfimed', TRUE);
         }

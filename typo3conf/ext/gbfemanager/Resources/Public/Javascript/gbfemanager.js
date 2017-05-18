@@ -101,6 +101,9 @@ GbfemanagerEdit = {
             //timeout:   3000
         };
 
+        obj.initSendConfirmMail();
+
+
         // bind form using 'ajaxForm'
         $('#changeUserdataForm').ajaxForm(options);
     },
@@ -125,6 +128,15 @@ GbfemanagerEdit = {
         if (elMessage.length > 0){
             Layout.scrollToOffset($(elMessage[0]).offset().top - 50);
         }
+    },
+
+    initSendConfirmMail: function() {
+        $('#sendConfirmMailButton').click(function () {
+            $.ajax('/?type=115&L=' + Layout.currentLanguage)
+                .done(function(resp){
+                    $('#sendConfirmMailStatusMessage').html(resp);
+                });
+        })
     }
 
 };
