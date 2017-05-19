@@ -1,7 +1,7 @@
 <f:section name="main">
 
-<div class="reveal" id="modal-window" data-reveal data-options="closeOnClick:false;closeOnEsc:true;animationIn:true" data-animation-out="fade-out"></div>
-<!--  data-options="closeOnClick:false;closeOnEsc:true;" -->
+<div class="reveal" id="modal-window" data-reveal data-options="closeOnClick:false;closeOnEsc:true" data-animation-out="fade-out"></div>
+<!--  data-options="animationIn:true;closeOnClick:false;closeOnEsc:true;" -->
 
 <div class="row">
     <div class="top-bar">
@@ -13,9 +13,11 @@
                 <li>
                     <a href="/ru/partner">Наши партнёры</a>
                     <ul class="menu vertical">
-                        <li><a href="#">One</a></li>
-                        <li><a href="#">Two</a></li>
-                        <li><a href="#">Three</a></li>
+                        <li>
+                            <div style="width:800px;height:500px">
+                                <f:cObject typoscriptObjectPath="lib.topnavigation.categoryList"/>
+                            </div>
+                        </li>
                     </ul>
                 </li>
                 <li class="active"><a href="#">Акции</a></li>

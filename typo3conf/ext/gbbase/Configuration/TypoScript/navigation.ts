@@ -14,7 +14,7 @@
 
             special = directory
             special.value = 2
-            entryLevel = 1
+            // entryLevel = 1
 
 
             1 = TMENU
@@ -32,7 +32,7 @@
                     10.value = <ul class="menu vertical">|
 
                     20 = TEXT
-                    20.typolink.parameter = 29
+                    20.typolink.parameter = {$pages.logoutPageUid}
                     20.typolink.additionalParams = &logintype=logout
                     20.value = {LLL:EXT:gbbase/Resources/Private/Language/locallang.xlf:logout}
                     20.insertData = 1
@@ -106,6 +106,9 @@ lib.sidenavigation.categoryList {
     persistence < plugin.tx_gbpartner_categorylisting.persistence
 
 }
+
+lib.topnavigation.categoryList < lib.sidenavigation.categoryList
+
 
 ## don't show the category navigation if any page from myaccount is active
 [PIDinRootline = 2]
