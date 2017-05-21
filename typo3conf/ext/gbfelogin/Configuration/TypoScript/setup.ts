@@ -4,6 +4,8 @@ plugin.tx_felogin_pi1 {
   forgotResetMessageEmailSentMessage_stdWrap.htmlSpecialChars = 0
 
   linkConfig.useCacheHash = 1
+
+  _CSS_DEFAULT_STYLE >
 }
 
 GbfloginLogin = PAGE

@@ -15,7 +15,7 @@ class Tcahelper {
     public function getListOfCategories(&$config) {
 
         
-        $config['items'][] = ['Not selected', 0];
+        // $config['items'][] = ['Not selected', 0];
         
         if (count($config['row']['category']) > 0) {
             $res = @$GLOBALS['TYPO3_DB']->exec_SELECTquery(

@@ -371,7 +371,8 @@ return array(
 			'label' => 'Main category for canonical tag',
 			'config' => array(
 				'type' => 'select',
-				'renderType' => 'selectSingle',
+				'renderType' => 'selectSingleBox',
+				'default' => 0,
 				'itemsProcFunc' => 'Gigabonus\Gbpartner\Utility\Tcahelper->getListOfCategories',
 				/*
 				'items' => [['0', 0], ['----------', -1]],

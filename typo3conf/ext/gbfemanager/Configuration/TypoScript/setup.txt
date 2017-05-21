@@ -1,3 +1,4 @@
+page.includeCSS.femanagerMain >
 plugin.tx_femanager {
     view.layoutRootPaths.10 = EXT:gbfemanager/Resources/Private/Layouts/
     view.partialRootPaths.10 = EXT:gbfemanager/Resources/Private/Partials/
