@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="ru" datatype="plaintext" original="messages" date="2012-02-01T08:11:27Z">
+		<header>
+			<description>Labels for the Direct Mail tables</description>
+			<type>database</type>
+			<fileId>EXT:direct_mail/locallang_tca.xml</fileId>
+			<labelContext></labelContext>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="module_sys_dmail_group.category" approved="yes" xml:space="preserve">
+			<source>Subscribe to categories</source>
+			<target>Подписаться на категории</target>
+		</trans-unit>
+		<trans-unit id="module_sys_dmail_group.htmlemail" approved="yes" xml:space="preserve">
+			<source>Recieve e-mails as HTML?</source>
+			<target>Получать письма в HTML-формате</target>
+		</trans-unit>
+		<trans-unit id="module_sys_dmail_group.newsletter" approved="yes" xml:space="preserve">
+			<source>Activate Newsletter</source>
+			<target>Активировать рассылку</target>
+		</trans-unit>
+		<trans-unit id="pages.module.I.5" approved="yes" xml:space="preserve">
+			<source>Direct Mail</source>
+			<target>Email-рассылка</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail" approved="yes" xml:space="preserve">
+			<source>Direct mails</source>
+			<target>Письма</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.HTMLParams" approved="yes" xml:space="preserve">
+			<source>Parameters, HTML:</source>
+			<target>Параметры, HTML:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.HTMLParams.ALT.1" approved="yes" xml:space="preserve">
+			<source>URL for HTML content:</source>
+			<target>URL для содержимого HTML:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.attachment" approved="yes" xml:space="preserve">
+			<source>Attachments:</source>
+			<target>Присоединенные файлы:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.authcode_fieldList" approved="yes" xml:space="preserve">
+			<source>Fields used in the computation of authentication codes:</source>
+			<target>Поля, участвующие в вычислении кодов авторизации:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.charset" approved="yes" xml:space="preserve">
+			<source>Message text character set:</source>
+			<target>Кодировка текста письма:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.flowedFormat" approved="yes" xml:space="preserve">
+			<source>Use flowing text format in plain text content:</source>
+			<target>Использовать плавающий формат текста в обычном текстовом содержимом</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.from_email" approved="yes" xml:space="preserve">
+			<source>Sender email:</source>
+			<target>Email отправителя:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.from_name" approved="yes" xml:space="preserve">
+			<source>Sender name:</source>
+			<target>Имя отправителя:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.includeMedia" approved="yes" xml:space="preserve">
+			<source>Include images and other media in HTML content:</source>
+			<target>Включать изображения и другие медиа-файлы в HTML содержимое письма</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.issent" approved="yes" xml:space="preserve">
+			<source>Is sent:</source>
+			<target>Отправлено:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.long_link_mode" approved="yes" xml:space="preserve">
+			<source>Redirect not only links longer than 76 characters but ALL links:</source>
+			<target>Перенаправлять все ссылки (а не только те, которые длиннее 76 символов):</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.long_link_rdct_url" approved="yes" xml:space="preserve">
+			<source>Long links redirection url:</source>
+			<target>URL для перенаправления ссылок:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.organisation" approved="yes" xml:space="preserve">
+			<source>Organization:</source>
+			<target>Организация:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.page" approved="yes" xml:space="preserve">
+			<source>Mail page:</source>
+			<target>Страница письма:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.plainParams" approved="yes" xml:space="preserve">
+			<source>Parameters, Plain text:</source>
+			<target>Параметры, простой текст:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.plainParams.ALT.1" approved="yes" xml:space="preserve">
+			<source>URL for plain text content:</source>
+			<target>URL для обычного текстового содержимого:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.priority" approved="yes" xml:space="preserve">
+			<source>Priority:</source>
+			<target>Важность:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.priority.I.0" approved="yes" xml:space="preserve">
+			<source>Low</source>
+			<target>Низкая</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.priority.I.1" approved="yes" xml:space="preserve">
+			<source>Normal</source>
+			<target>Обычная</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.priority.I.2" approved="yes" xml:space="preserve">
+			<source>High</source>
+			<target>Высокая</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.renderedsize" approved="yes" xml:space="preserve">
+			<source>Compiled size:</source>
+			<target>Итоговый размер:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.replyto_email" approved="yes" xml:space="preserve">
+			<source>Reply email:</source>
+			<target>Email для ответа:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.replyto_name" approved="yes" xml:space="preserve">
+			<source>Reply name:</source>
+			<target>Имя для ответа:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.return_path" approved="yes" xml:space="preserve">
+			<source>Return Path:</source>
+			<target>Адрес для возвращенных писем:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.scheduled" approved="yes" xml:space="preserve">
+			<source>Scheduled time:</source>
+			<target>Запланированное время:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.scheduled_begin" approved="yes" xml:space="preserve">
+			<source>Delivery start:</source>
+			<target>Начало отправки:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.scheduled_end" approved="yes" xml:space="preserve">
+			<source>Delivery end:</source>
+			<target>Окончание отправки:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.sendOptions" approved="yes" xml:space="preserve">
+			<source>Format of mail content:</source>
+			<target>Формат письма:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.sendOptions.I.0" approved="yes" xml:space="preserve">
+			<source>Plain text</source>
+			<target>Обычный текст</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.sendOptions.I.1" approved="yes" xml:space="preserve">
+			<source>HTML</source>
+			<target>HTML</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.subject" approved="yes" xml:space="preserve">
+			<source>Subject:</source>
+			<target>Тема:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.transfer_encoding" approved="yes" xml:space="preserve">
+			<source>Content transfer encoding:</source>
+			<target>Кодировка передачи содержимого:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.type.I.0" approved="yes" xml:space="preserve">
+			<source>TYPO3 Page</source>
+			<target>Страница TYPO3</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.type.I.1" approved="yes" xml:space="preserve">
+			<source>External URL</source>
+			<target>Внешний URL</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.use_domain" approved="yes" xml:space="preserve">
+			<source>Domain of internal links:</source>
+			<target>Домен для внутренних ссылок:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail.use_rdct" approved="yes" xml:space="preserve">
+			<source>Redirect links longer than 76 characters:</source>
+			<target>Перенаправлять ссылки, длиннее 76 символов:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_category" approved="yes" xml:space="preserve">
+			<source>Direct Mail Category</source>
+			<target>Категории email-рассылки</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_category.category" approved="yes" xml:space="preserve">
+			<source>Category:</source>
+			<target>Категории:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_category.old_cat_number" approved="yes" xml:space="preserve">
+			<source>Old category number:</source>
+			<target>Старый номер категории:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group" approved="yes" xml:space="preserve">
+			<source>Recipient list</source>
+			<target>Список получателей</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.csv" approved="yes" xml:space="preserve">
+			<source>List format:</source>
+			<target>Формат списка:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.csv.I.0" approved="yes" xml:space="preserve">
+			<source>Separate emails by space/comma/linebreak</source>
+			<target>Разделять email-адреса пробелами/запятыми/переводами строки</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.csv.I.1" approved="yes" xml:space="preserve">
+			<source>CSV [name],[email]</source>
+			<target>CSV [имя],[email]</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.list" approved="yes" xml:space="preserve">
+			<source>Recipients:</source>
+			<target>Получатели:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.mail_groups" approved="yes" xml:space="preserve">
+			<source>Other recipient lists:</source>
+			<target>Другие списки получателей:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.recursive" approved="yes" xml:space="preserve">
+			<source>Include page subtree:</source>
+			<target>Включить поддерево страницы:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.select_categories" approved="yes" xml:space="preserve">
+			<source>Must subscribe to one of the categories:</source>
+			<target>Должен быть подписан на одну из категорий:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.static_list" approved="yes" xml:space="preserve">
+			<source>Recipients:</source>
+			<target>Получатели:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.type.I.0" approved="yes" xml:space="preserve">
+			<source>From pages</source>
+			<target>Со страниц</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.type.I.1" approved="yes" xml:space="preserve">
+			<source>Plain list</source>
+			<target>Простой список</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.type.I.2" approved="yes" xml:space="preserve">
+			<source>Static list</source>
+			<target>Статический список</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.type.I.3" approved="yes" xml:space="preserve">
+			<source>Special query</source>
+			<target>Специальный запрос</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.type.I.4" approved="yes" xml:space="preserve">
+			<source>From other recipient lists</source>
+			<target>Из других списков рассылки</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.whichtables" approved="yes" xml:space="preserve">
+			<source>Types of records:</source>
+			<target>Типы записей:</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.whichtables.I.0" approved="yes" xml:space="preserve">
+			<source>Address</source>
+			<target>Адрес</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.whichtables.I.1" approved="yes" xml:space="preserve">
+			<source>Website user</source>
+			<target>Пользователь сайта</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.whichtables.I.2" approved="yes" xml:space="preserve">
+			<source>From custom-defined table</source>
+			<target>Из специально определенной таблицы</target>
+		</trans-unit>
+		<trans-unit id="sys_dmail_group.whichtables.I.3" approved="yes" xml:space="preserve">
+			<source>Website User Group</source>
+			<target>Группа пользователей сайта</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

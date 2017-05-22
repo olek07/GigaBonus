@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2011-11-30T15:09:41Z" product-name="powermail" target-language="ru">
+    <header/>
+    <body>
+      <trans-unit id="pi1_title" xml:space="preserve" approved="yes">
+        <source>powermail</source>
+      <target state="translated">powermail</target></trans-unit>
+      <trans-unit id="pi1_plus_wiz_description" xml:space="preserve" approved="yes">
+        <source>Powerful and easy mailform extension with database storing, javascript validation and many more...</source>
+      <target state="translated">Мощное и простое расширение создания почтовых форм с сохранением данных, проверкой правильности на javascript и многим прочим...</target></trans-unit>
+    </body>
+  </file>
+</xliff>

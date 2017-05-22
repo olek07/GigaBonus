@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="ru" type="array">
+      <label index="powermailmarker_notitle">ОШИБКА: Не найдено заголовков текущего поля в БД (%s)</label>
+      <label index="locallangmarker_confirmation_question">Верны ли эти значения?</label>
+      <label index="locallangmarker_confirmation_back">Назад</label>
+      <label index="locallangmarker_confirmation_files">Прикрепленный файл %s:</label>
+      <label index="locallangmarker_confirmation_submit">Отправить значения сейчас</label>
+      <label index="locallangmarker_email_receiver">Спасибо за ваше письмо:</label>
+      <label index="locallangmarker_email_sender">Вы получили новое письмо:</label>
+      <label index="locallangmarker_mandatory_message">Есть некоторые ошибки:</label>
+      <label index="locallangmarker_mandatory_emptyfield">Это поле должно быть заполнено:</label>
+      <label index="locallangmarker_mandatory_submit">Обратно к форме:</label>
+      <label index="locallangmarker_error_validemail">Это неправильный адрес электронной почты:</label>
+      <label index="locallangmarker_error_file_main">Этот файл не передан:</label>
+      <label index="locallangmarker_error_file_toolarge">Этот файл слишком большой:</label>
+      <label index="locallangmarker_error_file_extension">Это расширение файла не позволено:</label>
+      <label index="locallangmarker_error_file_mimetype">Загружаемый файл не соответствует mime:</label>
+      <label index="error_check_recipient">Заполните следующее внутреннее поле: адрес электронной почты получателя</label>
+      <label index="error_check_noTS">Ошибка в Typoscript для powermail!</label>
+      <label index="error_captcha_empty">Пустой код Captcha</label>
+      <label index="error_captcha_wrong">Неверное значение поля Captcha</label>
+      <label index="error_backend_noip">Запрещено логирование IP</label>
+      <label index="error_validemail">Неправильный адрес электронной почты</label>
+      <label index="error_nomx">Несуществующий адрес электронной почты</label>
+      <label index="error_unique_field">%s уже использовался</label>
+      <label index="error_unique_ip">По IP адресу %s вход уже сделан</label>
+      <label index="error_expression_validation">Введены некорректные данные</label>
+      <label index="error_templateNotFound">Шаблон не найден, проверьте путь к своим шаблонам powermail</label>
+      <label index="error_captchaWrongExt">ОШИБКА powermail: выбранное капча-расширение "%s", не загружено! Выберите другое капча-расширение в константах powermail или установите расширение "%s".</label>
+      <label index="error_captchaNoExtFound">Установите captcha расширение, например sr_freecap, jm_recaptcha или wt_calculating_captcha!</label>
+      <label index="multiple_forward">Следующий шаг</label>
+      <label index="multiple_back">Предыдущий шаг</label>
+      <label index="pagebrowser_inner">из</label>
+      <label index="JSvalidation_label_required">Это необходимое поле</label>
+      <label index="JSvalidation_label_please_correct">Исправьте это значение</label>
+      <label index="JSvalidation_label_validate_number">Пожалуйста, введите правильное число в это поле</label>
+      <label index="JSvalidation_label_validate_digits">Пожалуйста, используйте в этом поле лишь числа, избегите пробелов или других символов, таких как точки или запятые</label>
+      <label index="JSvalidation_label_validate_alpha">Пожалуйста, используйте только латинские буквы (a-z) в этом поле</label>
+      <label index="JSvalidation_label_validate_alphanum">Пожалуйста, используйте только латинские буквы (a-z) или цифры(0-9) в этом поле. Пробелы и другие символы не разрешены.</label>
+      <label index="JSvalidation_label_validate_date">Пожалуйста, введите корректную дату.</label>
+      <label index="JSvalidation_label_validate_datetime">Введите правильную дату и время</label>
+      <label index="JSvalidation_label_validate_email">Пожалуйста, введите корректный адрес электронной почты</label>
+      <label index="JSvalidation_label_validate_url">Пожалуйста, введите корректный URL (http://www.test.com)</label>
+      <label index="JSvalidation_label_validate_date_au">Пожалуйста, используйте этот формат даты: дд/мм/гггг. Например, 17/03/2006 для 17-ого марта 2006.</label>
+      <label index="JSvalidation_label_validate_currency_dollar">Пожалуйста введите корректную сумму в долларах. Например 100.00 $</label>
+      <label index="JSvalidation_label_validate_selection">Пожалуйста, сделайте выбор</label>
+      <label index="JSvalidation_label_validate_one_required">Пожалуйста, выберите один из предложенных ниже вариантов</label>
+      <label index="JSvalidation_label_validate_max">Введите значение больше $1</label>
+      <label index="JSvalidation_label_validate_min">Введите значение меньше $1</label>
+      <label index="JSvalidation_dateinput_months">Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь</label>
+      <label index="JSvalidation_dateinput_shortMonths">Янв,Фев,Мрт,Апр,Май,Июн,Июл,Авг,Сен,Окт,Ноя,Дек</label>
+      <label index="JSvalidation_dateinput_days">Воскресенье,Понедельник,Вторник,Среда,Четверг,Пятница,Суббота</label>
+      <label index="JSvalidation_dateinput_shortDays">Вс,Пн,Вт,Ср,Чт,Пт,Сб</label>
+      <label index="JSvalidation_dateinput_firstDay">1</label>
+      <label index="JSvalidation_dateinput_format">dd-mm-yyyy</label>
+      <label index="JSvalidation_invalidtime">Неправильное время</label>
+      <label index="geoip_ip">IP адрес</label>
+      <label index="geoip_countryCode">Код страны</label>
+      <label index="geoip_countryName">Страна</label>
+      <label index="geoip_region">Область, регион</label>
+      <label index="geoip_city">Город</label>
+      <label index="geoip_zip">Индекс</label>
+      <label index="geoip_lng">ДОЛГ.</label>
+      <label index="geoip_lat">ШИР.</label>
+      <label index="geoip_dmaCode">Код DMA</label>
+      <label index="geoip_areaCode">Код города</label>
+    </languageKey>
+  </data>
+</T3locallangExt>

@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2011-11-30T15:09:41Z" product-name="powermail" target-language="ru">
+    <header/>
+    <body>
+      <trans-unit id="powermailmarker_notitle" xml:space="preserve" approved="yes">
+        <source>ERROR: No title to current field found in DB (%s)</source>
+      <target state="translated">ОШИБКА: Не найдено заголовков текущего поля в БД (%s)</target></trans-unit>
+      <trans-unit id="locallangmarker_confirmation_question" xml:space="preserve" approved="yes">
+        <source>Are these values correct?</source>
+      <target state="translated">Верны ли эти значения?</target></trans-unit>
+      <trans-unit id="locallangmarker_confirmation_back" xml:space="preserve" approved="yes">
+        <source>Go back</source>
+      <target state="translated">Назад</target></trans-unit>
+      <trans-unit id="locallangmarker_confirmation_files" xml:space="preserve" approved="yes">
+        <source>Attached file %s:</source>
+      <target state="translated">Прикрепленный файл %s:</target></trans-unit>
+      <trans-unit id="locallangmarker_confirmation_submit" xml:space="preserve" approved="yes">
+        <source>Send values now</source>
+      <target state="translated">Отправить значения сейчас</target></trans-unit>
+      <trans-unit id="locallangmarker_email_receiver" xml:space="preserve" approved="yes">
+        <source>Thank you for your email:</source>
+      <target state="translated">Спасибо за ваше письмо:</target></trans-unit>
+      <trans-unit id="locallangmarker_email_sender" xml:space="preserve" approved="yes">
+        <source>You've got a new email:</source>
+      <target state="translated">Вы получили новое письмо:</target></trans-unit>
+      <trans-unit id="locallangmarker_mandatory_message" xml:space="preserve" approved="yes">
+        <source>There are some errors:</source>
+      <target state="translated">Есть некоторые ошибки:</target></trans-unit>
+      <trans-unit id="locallangmarker_mandatory_emptyfield" xml:space="preserve" approved="yes">
+        <source>This field must be filled:</source>
+      <target state="translated">Это поле должно быть заполнено:</target></trans-unit>
+      <trans-unit id="locallangmarker_mandatory_submit" xml:space="preserve" approved="yes">
+        <source>Go back to the form</source>
+      <target state="translated">Обратно к форме:</target></trans-unit>
+      <trans-unit id="locallangmarker_error_validemail" xml:space="preserve" approved="yes">
+        <source>This is not a valid email address:</source>
+      <target state="translated">Это неправильный адрес электронной почты:</target></trans-unit>
+      <trans-unit id="locallangmarker_error_file_main" xml:space="preserve" approved="yes">
+        <source>This file could not be uploaded:</source>
+      <target state="translated">Этот файл не передан:</target></trans-unit>
+      <trans-unit id="locallangmarker_error_file_toolarge" xml:space="preserve" approved="yes">
+        <source>This file is too large:</source>
+      <target state="translated">Этот файл слишком большой:</target></trans-unit>
+      <trans-unit id="locallangmarker_error_file_extension" xml:space="preserve" approved="yes">
+        <source>This file extension is not allowed:</source>
+      <target state="translated">Это расширение файла не позволено:</target></trans-unit>
+      <trans-unit id="locallangmarker_error_file_mimetype" xml:space="preserve" approved="yes">
+        <source>Uploaded file don't fits mime check:</source>
+      <target state="translated">Загружаемый файл не соответствует mime:</target></trans-unit>
+      <trans-unit id="error_check_recipient" xml:space="preserve" approved="yes">
+        <source>Please fill in this backend field: Email address of receiver</source>
+      <target state="translated">Заполните следующее внутреннее поле: адрес электронной почты получателя</target></trans-unit>
+      <trans-unit id="error_check_noTS" xml:space="preserve" approved="yes">
+        <source>Typoscript for powermail missing!</source>
+      <target state="translated">Ошибка в Typoscript для powermail!</target></trans-unit>
+      <trans-unit id="error_captcha_empty" xml:space="preserve" approved="yes">
+        <source>Captcha Code empty</source>
+      <target state="translated">Пустой код Captcha</target></trans-unit>
+      <trans-unit id="error_captcha_wrong" xml:space="preserve" approved="yes">
+        <source>Captcha Code wrong</source>
+      <target state="translated">Неверное значение поля Captcha</target></trans-unit>
+      <trans-unit id="error_backend_noip" xml:space="preserve" approved="yes">
+        <source>IP logging disabled</source>
+      <target state="translated">Запрещено логирование IP</target></trans-unit>
+      <trans-unit id="error_validemail" xml:space="preserve" approved="yes">
+        <source>Email address is not valid</source>
+      <target state="translated">Неправильный адрес электронной почты</target></trans-unit>
+      <trans-unit id="error_nomx" xml:space="preserve" approved="yes">
+        <source>Email address doesn't exist</source>
+      <target state="translated">Несуществующий адрес электронной почты</target></trans-unit>
+      <trans-unit id="error_unique_field" xml:space="preserve" approved="yes">
+        <source>%s was already used</source>
+      <target state="translated">%s уже использовался</target></trans-unit>
+      <trans-unit id="error_unique_ip" xml:space="preserve" approved="yes">
+        <source>IP address %s already made an entry</source>
+      <target state="translated">По IP адресу %s вход уже сделан</target></trans-unit>
+      <trans-unit id="error_expression_validation" xml:space="preserve" approved="yes">
+        <source>Validation failed</source>
+      <target state="translated">Введены некорректные данные</target></trans-unit>
+      <trans-unit id="error_templateNotFound" xml:space="preserve" approved="yes">
+        <source>Template not found, check path to your powermail templates</source>
+      <target state="translated">Шаблон не найден, проверьте путь к своим шаблонам powermail</target></trans-unit>
+      <trans-unit id="error_captchaWrongExt" xml:space="preserve" approved="yes">
+        <source>Powermail ERROR: The chosen captcha extension "%s" is not loaded! Choose another captcha extension in the powermail constants or install the extension "%s".</source>
+      <target state="translated">ОШИБКА powermail: выбранное капча-расширение "%s", не загружено! Выберите другое капча-расширение в константах powermail или установите расширение "%s".</target></trans-unit>
+      <trans-unit id="error_captchaNoExtFound" xml:space="preserve" approved="yes">
+        <source>Please install a captcha extension like captcha, sr_freecap, jm_recaptcha or wt_calculating_captcha!</source>
+      <target state="translated">Установите captcha расширение, например sr_freecap, jm_recaptcha или wt_calculating_captcha!</target></trans-unit>
+      <trans-unit id="multiple_forward" xml:space="preserve" approved="yes">
+        <source>Next step</source>
+      <target state="translated">Следующий шаг</target></trans-unit>
+      <trans-unit id="multiple_back" xml:space="preserve" approved="yes">
+        <source>Previous step</source>
+      <target state="translated">Предыдущий шаг</target></trans-unit>
+      <trans-unit id="pagebrowser_inner" xml:space="preserve" approved="yes">
+        <source>of</source>
+      <target state="translated">из</target></trans-unit>
+      <trans-unit id="JSvalidation_label_required" xml:space="preserve" approved="yes">
+        <source>This is a required field</source>
+      <target state="translated">Это необходимое поле</target></trans-unit>
+      <trans-unit id="JSvalidation_label_please_correct" xml:space="preserve" approved="yes">
+        <source>Please correct this value</source>
+      <target state="translated">Исправьте это значение</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_number" xml:space="preserve" approved="yes">
+        <source>Please enter a valid number in this field</source>
+      <target state="translated">Пожалуйста, введите правильное число в это поле</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_digits" xml:space="preserve" approved="yes">
+        <source>Please use numbers only in this field. please avoid spaces or other characters such as dots or commas</source>
+      <target state="translated">Пожалуйста, используйте в этом поле лишь числа, избегите пробелов или других символов, таких как точки или запятые</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_alpha" xml:space="preserve" approved="yes">
+        <source>Please use letters only (a-z) in this field</source>
+      <target state="translated">Пожалуйста, используйте только латинские буквы (a-z) в этом поле</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_alphanum" xml:space="preserve" approved="yes">
+        <source>Please use only letters (a-z) or numbers (0-9) only in this field. No spaces or other characters are allowed</source>
+      <target state="translated">Пожалуйста, используйте только латинские буквы (a-z) или цифры(0-9) в этом поле. Пробелы и другие символы не разрешены.</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_date" xml:space="preserve" approved="yes">
+        <source>Please enter a valid date</source>
+      <target state="translated">Пожалуйста, введите корректную дату.</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_datetime" xml:space="preserve" approved="yes">
+        <source>Please enter a valid date and time</source>
+      <target state="translated">Введите правильную дату и время</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_email" xml:space="preserve" approved="yes">
+        <source>Please enter a valid email address (test@test.com)</source>
+      <target state="translated">Пожалуйста, введите корректный адрес электронной почты</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_url" xml:space="preserve" approved="yes">
+        <source>Please enter a valid URL (http://www.test.com)</source>
+      <target state="translated">Пожалуйста, введите корректный URL (http://www.test.com)</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_date_au" xml:space="preserve" approved="yes">
+        <source>Please use this date format: dd/mm/yyyy. For example 17/03/2006 for the 17th of March, 2006</source>
+      <target state="translated">Пожалуйста, используйте этот формат даты: дд/мм/гггг. Например, 17/03/2006 для 17-ого марта 2006.</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_currency_dollar" xml:space="preserve" approved="yes">
+        <source>Please enter a valid $ amount. For example $100.00</source>
+      <target state="translated">Пожалуйста введите корректную сумму в долларах. Например 100.00 $</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_selection" xml:space="preserve" approved="yes">
+        <source>Please make a selection</source>
+      <target state="translated">Пожалуйста, сделайте выбор</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_one_required" xml:space="preserve" approved="yes">
+        <source>Please select one of the below options</source>
+      <target state="translated">Пожалуйста, выберите один из предложенных ниже вариантов</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_max" xml:space="preserve" approved="yes">
+        <source>Please enter a value greater than $1</source>
+      <target state="translated">Введите значение больше $1</target></trans-unit>
+      <trans-unit id="JSvalidation_label_validate_min" xml:space="preserve" approved="yes">
+        <source>Please enter a value smaller than $1</source>
+      <target state="translated">Введите значение меньше $1</target></trans-unit>
+      <trans-unit id="JSvalidation_dateinput_months" xml:space="preserve" approved="yes">
+        <source>January,February,March,April,May,June,July,August,September,October,November,December</source>
+      <target state="translated">Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь</target></trans-unit>
+      <trans-unit id="JSvalidation_dateinput_shortMonths" xml:space="preserve" approved="yes">
+        <source>Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec</source>
+      <target state="translated">Янв,Фев,Мрт,Апр,Май,Июн,Июл,Авг,Сен,Окт,Ноя,Дек</target></trans-unit>
+      <trans-unit id="JSvalidation_dateinput_days" xml:space="preserve" approved="yes">
+        <source>Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</source>
+      <target state="translated">Воскресенье,Понедельник,Вторник,Среда,Четверг,Пятница,Суббота</target></trans-unit>
+      <trans-unit id="JSvalidation_dateinput_shortDays" xml:space="preserve" approved="yes">
+        <source>Sun,Mon,Tue,Wed,Thu,Fri,Sat</source>
+      <target state="translated">Вс,Пн,Вт,Ср,Чт,Пт,Сб</target></trans-unit>
+      <trans-unit id="JSvalidation_dateinput_firstDay" xml:space="preserve" approved="yes">
+        <source>0</source>
+      <target state="translated">1</target></trans-unit>
+      <trans-unit id="JSvalidation_dateinput_format" xml:space="preserve" approved="yes">
+        <source>yyyy-mm-dd</source>
+      <target state="translated">dd-mm-yyyy</target></trans-unit>
+      <trans-unit id="JSvalidation_invalidtime" xml:space="preserve" approved="yes">
+        <source>Invalid time</source>
+      <target state="translated">Неправильное время</target></trans-unit>
+      <trans-unit id="geoip_ip" xml:space="preserve" approved="yes">
+        <source>IP address</source>
+      <target state="translated">IP адрес</target></trans-unit>
+      <trans-unit id="geoip_countryCode" xml:space="preserve" approved="yes">
+        <source>Country Code</source>
+      <target state="translated">Код страны</target></trans-unit>
+      <trans-unit id="geoip_countryName" xml:space="preserve" approved="yes">
+        <source>Country</source>
+      <target state="translated">Страна</target></trans-unit>
+      <trans-unit id="geoip_region" xml:space="preserve" approved="yes">
+        <source>Region</source>
+      <target state="translated">Область, регион</target></trans-unit>
+      <trans-unit id="geoip_city" xml:space="preserve" approved="yes">
+        <source>City</source>
+      <target state="translated">Город</target></trans-unit>
+      <trans-unit id="geoip_zip" xml:space="preserve" approved="yes">
+        <source>ZIP</source>
+      <target state="translated">Индекс</target></trans-unit>
+      <trans-unit id="geoip_lng" xml:space="preserve" approved="yes">
+        <source>LNG</source>
+      <target state="translated">ДОЛГ.</target></trans-unit>
+      <trans-unit id="geoip_lat" xml:space="preserve" approved="yes">
+        <source>LAT</source>
+      <target state="translated">ШИР.</target></trans-unit>
+      <trans-unit id="geoip_dmaCode" xml:space="preserve" approved="yes">
+        <source>DMA Code</source>
+      <target state="translated">Код DMA</target></trans-unit>
+      <trans-unit id="geoip_areaCode" xml:space="preserve" approved="yes">
+        <source>Area Code</source>
+      <target state="translated">Код города</target></trans-unit>
+    </body>
+  </file>
+</xliff>

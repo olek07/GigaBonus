@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="uk" type="array">
+			<label index="title.description"/>
+			<label index="type.description"/>
+			<label index="settings.description"/>
+			<label index="path.description"/>
+			<label index="content_element.description"/>
+			<label index="text.description"/>
+			<label index="sender_email.description"/>
+			<label index="sender_name.description"/>
+			<label index="validation_title.description"/>
+			<label index="mandatory.description"/>
+			<label index="validation.description"/>
+			<label index="validation_configuration.description"/>
+			<label index="prefill_title.description"/>
+			<label index="prefill_value.description"/>
+			<label index="placeholder.description"/>
+			<label index="feuser_value.description"/>
+			<label index="create_from_typoscript.description"/>
+			<label index="css.description"/>
+			<label index="datepicker_settings.description"/>
+			<label index="marker_title.description"/>
+			<label index="auto_marker.description"/>
+			<label index="marker.description"/>
+			<label index="own_marker_select.description"/>
+			<label index="pages.description"/>
+		</languageKey>
+  </data>
+</T3locallangExt>

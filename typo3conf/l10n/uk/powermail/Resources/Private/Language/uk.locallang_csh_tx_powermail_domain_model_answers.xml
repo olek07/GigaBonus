@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="uk" type="array">
+			<label index="value.description"/>
+			<label index="value_type.description"/>
+			<label index="field.description"/>
+			<label index="mail.description"/>
+		</languageKey>
+  </data>
+</T3locallangExt>

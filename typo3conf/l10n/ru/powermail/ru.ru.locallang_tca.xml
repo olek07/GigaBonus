@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="ru" type="array">
+		<label index="module_sys_dmail_group.category">Подписаться на категории</label>
+		<label index="module_sys_dmail_group.htmlemail">Получать письма в HTML-формате</label>
+		<label index="module_sys_dmail_group.newsletter">Активировать рассылку</label>
+		<label index="pages.module.I.5">Email-рассылка</label>
+		<label index="sys_dmail">Письма</label>
+		<label index="sys_dmail.HTMLParams">Параметры, HTML:</label>
+		<label index="sys_dmail.HTMLParams.ALT.1">URL для содержимого HTML:</label>
+		<label index="sys_dmail.attachment">Присоединенные файлы:</label>
+		<label index="sys_dmail.authcode_fieldList">Поля, участвующие в вычислении кодов авторизации:</label>
+		<label index="sys_dmail.charset">Кодировка текста письма:</label>
+		<label index="sys_dmail.flowedFormat">Использовать плавающий формат текста в обычном текстовом содержимом</label>
+		<label index="sys_dmail.from_email">Email отправителя:</label>
+		<label index="sys_dmail.from_name">Имя отправителя:</label>
+		<label index="sys_dmail.includeMedia">Включать изображения и другие медиа-файлы в HTML содержимое письма</label>
+		<label index="sys_dmail.issent">Отправлено:</label>
+		<label index="sys_dmail.long_link_mode">Перенаправлять все ссылки (а не только те, которые длиннее 76 символов):</label>
+		<label index="sys_dmail.long_link_rdct_url">URL для перенаправления ссылок:</label>
+		<label index="sys_dmail.organisation">Организация:</label>
+		<label index="sys_dmail.page">Страница письма:</label>
+		<label index="sys_dmail.plainParams">Параметры, простой текст:</label>
+		<label index="sys_dmail.plainParams.ALT.1">URL для обычного текстового содержимого:</label>
+		<label index="sys_dmail.priority">Важность:</label>
+		<label index="sys_dmail.priority.I.0">Низкая</label>
+		<label index="sys_dmail.priority.I.1">Обычная</label>
+		<label index="sys_dmail.priority.I.2">Высокая</label>
+		<label index="sys_dmail.renderedsize">Итоговый размер:</label>
+		<label index="sys_dmail.replyto_email">Email для ответа:</label>
+		<label index="sys_dmail.replyto_name">Имя для ответа:</label>
+		<label index="sys_dmail.return_path">Адрес для возвращенных писем:</label>
+		<label index="sys_dmail.scheduled">Запланированное время:</label>
+		<label index="sys_dmail.scheduled_begin">Начало отправки:</label>
+		<label index="sys_dmail.scheduled_end">Окончание отправки:</label>
+		<label index="sys_dmail.sendOptions">Формат письма:</label>
+		<label index="sys_dmail.sendOptions.I.0">Обычный текст</label>
+		<label index="sys_dmail.sendOptions.I.1">HTML</label>
+		<label index="sys_dmail.subject">Тема:</label>
+		<label index="sys_dmail.transfer_encoding">Кодировка передачи содержимого:</label>
+		<label index="sys_dmail.type.I.0">Страница TYPO3</label>
+		<label index="sys_dmail.type.I.1">Внешний URL</label>
+		<label index="sys_dmail.use_domain">Домен для внутренних ссылок:</label>
+		<label index="sys_dmail.use_rdct">Перенаправлять ссылки, длиннее 76 символов:</label>
+		<label index="sys_dmail_category">Категории email-рассылки</label>
+		<label index="sys_dmail_category.category">Категории:</label>
+		<label index="sys_dmail_category.old_cat_number">Старый номер категории:</label>
+		<label index="sys_dmail_group">Список получателей</label>
+		<label index="sys_dmail_group.csv">Формат списка:</label>
+		<label index="sys_dmail_group.csv.I.0">Разделять email-адреса пробелами/запятыми/переводами строки</label>
+		<label index="sys_dmail_group.csv.I.1">CSV [имя],[email]</label>
+		<label index="sys_dmail_group.list">Получатели:</label>
+		<label index="sys_dmail_group.mail_groups">Другие списки получателей:</label>
+		<label index="sys_dmail_group.recursive">Включить поддерево страницы:</label>
+		<label index="sys_dmail_group.select_categories">Должен быть подписан на одну из категорий:</label>
+		<label index="sys_dmail_group.static_list">Получатели:</label>
+		<label index="sys_dmail_group.type.I.0">Со страниц</label>
+		<label index="sys_dmail_group.type.I.1">Простой список</label>
+		<label index="sys_dmail_group.type.I.2">Статический список</label>
+		<label index="sys_dmail_group.type.I.3">Специальный запрос</label>
+		<label index="sys_dmail_group.type.I.4">Из других списков рассылки</label>
+		<label index="sys_dmail_group.whichtables">Типы записей:</label>
+		<label index="sys_dmail_group.whichtables.I.0">Адрес</label>
+		<label index="sys_dmail_group.whichtables.I.1">Пользователь сайта</label>
+		<label index="sys_dmail_group.whichtables.I.2">Из специально определенной таблицы</label>
+		<label index="sys_dmail_group.whichtables.I.3">Группа пользователей сайта</label>
+		</languageKey>
+  </data>
+</T3locallangExt>

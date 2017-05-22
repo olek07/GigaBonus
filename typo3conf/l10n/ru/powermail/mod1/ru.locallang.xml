@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="ru" type="array">
+      <label index="title">Powermail</label>
+      <label index="function1">Список и экспорт Powermail</label>
+      <label index="function2">Графики Powermail</label>
+      <label index="nopowermails1">Нет записей powermail на этой странице!</label>
+      <label index="nopowermails2">Пожалуйста выберите страницу, содержащую powermails.</label>
+      <label index="title_no">№</label>
+      <label index="title_date">Дата</label>
+      <label index="title_sender">Отправитель</label>
+      <label index="title_IP">IP отправителя</label>
+      <label index="title_receiver">Получатель</label>
+      <label index="title_details">Детали</label>
+      <label index="title_delete">Удалить</label>
+      <label index="export_download_success">Успешно!</label>
+      <label index="export_download_download">Загрузить файл CSV</label>
+      <label index="export_download_downloadZIP">Загрузить сжатый файл CSV</label>
+      <label index="export_icon_excel">Экспорт в формат файла excel</label>
+      <label index="export_icon_csv">Экспорт в формат файла csv</label>
+      <label index="export_icon_html">Экспорт в таблицу HTML</label>
+      <label index="icon_deloff">Удаление после экспорта отключено! Нажмите, чтобы включить удаление после экспорта</label>
+      <label index="icon_delon">Удаление после экспорта включено! Нажмите, чтобы отключить удаление после экспорта</label>
+      <label index="icon_print">Нажмите для распечатки этого отображения</label>
+      <label index="icon_close">Нажмите, чтобы закрыть окно</label>
+      <label index="delall_sure">Продолжение приведет к удалению всех почтовых сообщений после экспорта. Продолжить?</label>
+      <label index="pagebrowser_page">страница</label>
+      <label index="pagebrowser_upto">до</label>
+      <label index="pagebrowser_within">из</label>
+      <label index="filter_start">Старт</label>
+      <label index="filter_end">Конец</label>
+      <label index="del_sure">Вы действительно хотите удалить эту запись?</label>
+      <label index="del_message">Сообщение с uid %s удалено!</label>
+      <label index="chart_chart">График: количество последних писем</label>
+      <label index="chart_table">Таблица: сведения о последних письмах</label>
+      <label index="path">Путь</label>
+      <label index="wait">Подождите...</label>
+      <label index="loading">Загрузка писем</label>
+      <label index="delete">Удалить</label>
+      <label index="perpage">На страницу</label>
+      <label index="deletechosen">Удалить выбранные письма</label>
+      <label index="choseline">Произошла ошибка</label>
+      <label index="choseline2">Выберете хотя бы одну строку.</label>
+      <label index="yes">Да</label>
+      <label index="no">Нет</label>
+      <label index="created">Создано</label>
+      <label index="delsure">Подтверждаете удаление выбранных строк?</label>
+      <label index="showrows">Строки {0} - {1} из {2}</label>
+      <label index="noresults">Писем нет</label>
+      <label index="rows">Строки</label>
+      <label index="shortcut">Создать ссылку на эту страницу</label>
+      <label index="exportformat">Формат экспорта:</label>
+      <label index="exportpdf">PDF</label>
+      <label index="exporthtml">HTML</label>
+      <label index="exportcsv">CSV</label>
+      <label index="exportxls">XLS</label>
+      <label index="start">Начало:</label>
+      <label index="end">Окончание:</label>
+      <label index="pivars">piVars</label>
+      <label index="date">Дата</label>
+      <label index="sender">Отправитель</label>
+      <label index="receiver">Получатель</label>
+      <label index="ip">Адрес IP</label>
+      <label index="phpexcel_library">Для этого функционала необходимо расширение phpexcel_library</label>
+      <label index="noPdf">Этот формат экспорта еще не реализован. Свяжитесь с командой разработчиков powermail, если желаете быть спонсором этого функционала.</label>
+    </languageKey>
+  </data>
+</T3locallangExt>

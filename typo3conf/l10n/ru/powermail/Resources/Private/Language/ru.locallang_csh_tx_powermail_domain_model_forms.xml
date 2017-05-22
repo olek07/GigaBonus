@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="ru" type="array">
+			<label index="title.description">Введите название для этой формы</label>
+			<label index="pages.description">Добавьте описание для этой формы</label>
+			<label index="css.description">Выберете макет (изменятся классы во внешнем интерфейсе)</label>
+		</languageKey>
+  </data>
+</T3locallangExt>

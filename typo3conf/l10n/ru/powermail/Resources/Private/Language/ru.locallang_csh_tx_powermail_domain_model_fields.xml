@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="ru" type="array">
+			<label index="title.description">Введите метку для поля</label>
+			<label index="type.description">Выберете тип поля</label>
+			<label index="settings.description">По одному параметру на строку. Если нужно разделить значение и метку, используйте символ |. Обозначьте предварительный выбор *.</label>
+			<label index="path.description"/>
+			<label index="content_element.description"/>
+			<label index="text.description"/>
+			<label index="sender_email.description">Это поле будет содержать email пользователя?</label>
+			<label index="sender_name.description">Это поле будет содержать Имя пользователя?</label>
+			<label index="validation_title.description">Настройки проверки</label>
+			<label index="mandatory.description">Это поле должно быть обязательным?</label>
+			<label index="validation.description">Проверить значение этого поля (url, email и т.п...)</label>
+			<label index="validation_configuration.description"/>
+			<label index="prefill_title.description">Настройки предварительного заполнения</label>
+			<label index="prefill_value.description">Заполнить это поле обычным текстом</label>
+			<label index="placeholder.description"/>
+			<label index="feuser_value.description">Заполнить это поле значениями из сведений о fe_user (предварительно настроенный статический текст будет заменен)</label>
+			<label index="create_from_typoscript.description"/>
+			<label index="css.description">Выбор шаблона (изменение классов во внешнем интерфейсе)</label>
+			<label index="datepicker_settings.description"/>
+			<label index="marker_title.description">Настройки переменных</label>
+			<label index="auto_marker.description">Эти переменные были автоматически сформированы системой</label>
+			<label index="marker.description">Используйте свои переменные в Rich Text Editor (например)</label>
+			<label index="own_marker_select.description">Включите, если нужно изменить автоматически сформированную переменную</label>
+			<label index="pages.description"/>
+		</languageKey>
+  </data>
+</T3locallangExt>

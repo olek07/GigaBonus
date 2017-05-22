@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="uk" type="array">
+			<label index="crdate.description"/>
+			<label index="sender_mail.description"/>
+			<label index="sender_name.description"/>
+			<label index="subject.description"/>
+			<label index="body.description"/>
+			<label index="receiver_mail.description"/>
+			<label index="form.description"/>
+			<label index="answers.description"/>
+			<label index="feuser.description"/>
+			<label index="spam_factor.description"/>
+			<label index="time.description"/>
+			<label index="sender_ip.description"/>
+			<label index="user_agent.description"/>
+			<label index="marketing_referer_domain.description"/>
+			<label index="marketing_referer.description"/>
+			<label index="marketing_country.description"/>
+			<label index="marketing_mobile_device.description"/>
+			<label index="marketing_frontend_language.description"/>
+			<label index="marketing_browser_language.description"/>
+			<label index="marketing_page_funnel.description"/>
+		</languageKey>
+  </data>
+</T3locallangExt>
