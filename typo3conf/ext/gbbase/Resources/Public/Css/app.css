@@ -36,3 +36,49 @@
     overflow-y: hidden;
 }
 
+
+.error-text {
+    color: #ec5840;
+    font-weight: bold;
+}
+
+
+#modalLoginForm {
+    background-color: #8cc63e;
+}
+
+#modalLoginForm h3 {
+    color: #fffffa;
+}
+
+#modalLoginForm input {
+    height: 3rem;
+    font-weight: bold;
+    background-color: #aed779;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+
+.header .columns{
+    background-color: #29aae3;
+    height: 40px;
+}
+
+.top-bar {
+    /* height: 40px; */
+}
+
+.footer-navi {
+    background-color: #656565;
+    color: #fdfdfd;
+}
+
+.footer-navi a {
+    color: #fdfdfd;
+}
+
+.footer {
+    background-color: #c5c5c5;
+}
