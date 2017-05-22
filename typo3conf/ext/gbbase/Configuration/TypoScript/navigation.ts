@@ -117,3 +117,61 @@ lib.topnavigation.categoryList < lib.sidenavigation.categoryList
     lib.page.navigation.sidenavigation < lib.sidenavigation.categoryList
 [global]
 
+
+lib.topnavigation.mainMenu = HMENU
+lib.topnavigation.mainMenu {
+    special = list
+    special.value = {$pages.aboutGigaBonusUid}, {$pages.partnerListUid}, {$pages.actionsUid}
+    1 = TMENU
+    1 {
+        NO = 1
+        NO {
+            // wrapItemAndSub = <li>|</li>
+            stdWrap.field = subtitle // title
+
+            wrapItemAndSub >
+            wrapItemAndSub.cObject = COA
+            wrapItemAndSub.cObject {
+                10 = TEXT
+                10.value = <li>|
+
+
+                20 = COA
+                20 {
+                    if.equals.field = uid
+                    if.value = {$pages.partnerListUid}
+
+                    ### if the menu item 'partner list' is renderung, generate the partner categories menu
+                    20 = TEXT
+                    20.value (
+                        <ul class="menu vertical">
+                            <li>
+                                <div style="width:800px;height:500px">
+                    )
+
+                    30 < lib.sidenavigation.categoryList
+
+                    40 = TEXT
+                    40.value (
+                                </div>
+                            </li>
+                        </ul>
+                    )
+
+                }
+
+
+
+                50 = TEXT
+                50.value = </li>
+
+            }
+
+        }
+
+        ACT < .NO
+        ACT.wrapItemAndSub.cObject.10.value = <li class="active">|
+
+        wrap = <ul class="dropdown menu" data-dropdown-menu>|</li>
+    }
+}

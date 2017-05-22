@@ -8,6 +8,9 @@ pages {
     logoutPageUid = 29
     fontendUsersFolderUid = 5
     footerNaviUid = 31
+    partnerListUid = 17
+    aboutGigaBonusUid = 34
+    actionsUid = 35
 
 }
 
