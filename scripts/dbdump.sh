@@ -28,6 +28,10 @@ cf_extbase_typo3dbbackend_queries
 cf_extbase_typo3dbbackend_queries_tags
 cf_extbase_typo3dbbackend_tablecolumns
 cf_extbase_typo3dbbackend_tablecolumns_tags
+sys_log
+fe_sessions
+fe_session_data
+be_sessions
 )
 
 IGNORED_TABLES_STRING=''
@@ -40,4 +44,4 @@ done
 # /opt/lampp/bin/mysqldump --host=${HOST} --user=${USER} --password=${PASSWORD} --single-transaction --no-data ${DATABASE} > ${DB_FILE}
 
 echo "Dump content"
-/opt/lampp/bin/mysqldump --host=${HOST} --user=${USER} --password=${PASSWORD} ${DATABASE} ${IGNORED_TABLES_STRING} > ../${DB_FILE}
+mysqldump --host=${HOST} --user=${USER} --password ${DATABASE} ${IGNORED_TABLES_STRING} > ../${DB_FILE}
