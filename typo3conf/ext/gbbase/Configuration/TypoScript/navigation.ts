@@ -127,7 +127,7 @@ lib.topnavigation.mainMenu {
         NO = 1
         NO {
             // wrapItemAndSub = <li>|</li>
-            stdWrap.field = subtitle // title
+            stdWrap.field = nav_title // subtitle // title
 
             wrapItemAndSub >
             wrapItemAndSub.cObject = COA

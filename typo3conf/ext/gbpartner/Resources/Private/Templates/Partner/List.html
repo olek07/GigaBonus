@@ -13,57 +13,37 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 
-<h3>{category.name}</h3>
+
+	<f:if condition="{category}">
+		<f:then>
+			<f:render partial="Partner/OverviewPage" arguments="{category:category}" />
+		</f:then>
+		<f:else>
+			<f:render partial="Partner/EntryPage" arguments="{partners:partners}" />
+		</f:else>
+	</f:if>
 
 
-	<div class="row small-up-1 medium-up-2 large-up-3 partner-items">
+	<table  class="tx_gbpartner" >
+		<tr>
+			<th><f:translate key="tx_gbpartner_domain_model_partner.name" /></th>
+			<th><f:translate key="tx_gbpartner_domain_model_partner.teaser" /></th>
+			<th><f:translate key="tx_gbpartner_domain_model_partner.description" /></th>
+			<th><f:translate key="tx_gbpartner_domain_model_partner.image" /></th>
+		</tr>
 
 		<f:for each="{category.partners}" as="partner">
-			<div class="column">
-				<f:link.action action="show" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:category.uid}">
-					<div style="position:relative; overflow-y: hidden;height:200px">
-						<f:if condition="{partner.image}">
-							<f:image src="{partner.image.0.reference.uid}" width="269" treatIdAsReference="1" style="width:100%" />
-						</f:if>
-						<div style="position:absolute;bottom:70px;color:black;">
-						  {partner.name}
-						</div>
-						<div class="incentive-text" style="width:100%; background-color: rgba(116, 116, 116, 0.8); font-weight: 500;
-									  position:absolute;bottom:10px;">
-							<f:format.raw>{partner.incentive}</f:format.raw>
-						</div>
-					</div>
-					<div style="height: 5rem;background-color: #fff;padding: 10px 10px;font-size:14px">
-						{partner.teaser}
-					</div>
-				</f:link.action>
-			</div>
+
+
+			<tr>
+				<td><f:link.action action="show" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:category.uid}"> {partner.name}</f:link.action></td>
+				<td>{partner.teaser}</td>
+				<td>{partner.description}</td>
+				<td>
+
+				</td>
+			</tr>
 		</f:for>
-	</div>
-
-
-
-
-<table  class="tx_gbpartner" >
-	<tr>
-		<th><f:translate key="tx_gbpartner_domain_model_partner.name" /></th>
-		<th><f:translate key="tx_gbpartner_domain_model_partner.teaser" /></th>
-		<th><f:translate key="tx_gbpartner_domain_model_partner.description" /></th>
-		<th><f:translate key="tx_gbpartner_domain_model_partner.image" /></th>
-	</tr>
-
-	<f:for each="{category.partners}" as="partner">
-
-
-		<tr>
-			<td><f:link.action action="show" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:category.uid}"> {partner.name}</f:link.action></td>
-			<td>{partner.teaser}</td>
-			<td>{partner.description}</td>
-			<td>
-
-			</td>
-		</tr>
-	</f:for>
-</table>
+	</table>
 
 </f:section>

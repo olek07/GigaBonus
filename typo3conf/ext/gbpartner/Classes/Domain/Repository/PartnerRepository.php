@@ -25,6 +25,9 @@ namespace Gigabonus\Gbpartner\Domain\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * The repository for Partners
@@ -32,5 +35,73 @@ namespace Gigabonus\Gbpartner\Domain\Repository;
 class PartnerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
+
+    /**
+     * @param array $uidlist
+     * @return QueryResultInterface
+     */
+    public function findByUidList(array $uidList){
+        /** @var QueryInterface $query */
+        $query = $this->createQuery();
+
+        $constraints = array();
+        
+        if (count($uidList) > 0) {
+            foreach($uidList as $uid){
+                $constraints[] = $query->equals('uid', $uid);
+            }
+        }
+        
+        $query->matching(
+            $query->logicalOr(
+                $constraints
+            )
+        );
+        
+        $query->setOrderings($this->orderByKey('uid', $uidList));
+        return $query->execute();
+    }
+
+
+    /**
+     * @param $key
+     * @param $uidList
+     * @return array
+     */
+    protected function orderByKey($key, $uidList) {
+        $order = array();
+        
+        foreach ($uidList as $uid) {
+            $order["$key={$uid}"] = QueryInterface::ORDER_DESCENDING;
+        }
+
+        return $order;
+    }
+
+
+    /**
+     * @param array $partnerIds
+     * @return array
+     */
+
+    public function ___getPartnersForEntryPage(array $partnerIds) {
+
+/*
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectSysLanguage(true);
+        $query->matching($query->in('uid', $partnerIds));
+        $query->getQuerySettings()->setLanguageUid(0);
+        $query->getQuerySettings()->setStoragePageIds([11]);
+        $partners = $query->execute();
+*/
+        $partners = [];
+
+        foreach ($partnerIds as $partnerId) {
+            $partners[] = $this->findByUid($partnerId);
+        }
+
+        return $partners;
+
+    }
     
 }

@@ -27,6 +27,7 @@ namespace Gigabonus\Gbpartner\Controller;
  ***************************************************************/
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -52,19 +53,26 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      */
     public function listAction(\Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
-        /**
-         * @todo show all partners if the url is /ru/partner/
-         */
+
+        $partners = NULL;
+
+        // if the partner entry page called
+        if ($category === NULL) {
+            // $partners = $this->partnerRepository->getPartnersForEntryPage(ArrayUtility::integerExplode(',', $this->settings['partners']));
+            $partners = $this->partnerRepository->findByUidList(ArrayUtility::integerExplode(',', $this->settings['partners']));
+        }
+
 
         if ($category !== NULL) {
             MainHelper::setTitleTag($category->getName());
         }
         else {
-            MainHelper::setTitleTag('Партнёры');
+            MainHelper::setTitleTag('Наши партнёры');
         }
 
         $this->view->assign('partnerDetailPageUid', MainHelper::PARTNERDETAILPAGEID);
         $this->view->assign('category', $category);
+        $this->view->assign('partners', $partners);
     }
     
     /**

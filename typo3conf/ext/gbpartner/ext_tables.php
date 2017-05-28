@@ -15,6 +15,13 @@ if (!defined('TYPO3_MODE')) {
 	'Partners in category'
 );
 
+
+$pluginSignature = 'Partnerlisting';
+
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_'.strtolower($pluginSignature)] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($_EXTKEY.'_'.strtolower($pluginSignature), 'FILE:EXT:'.$_EXTKEY.'/Configuration/FlexForms/'.$pluginSignature.'.xml');
+
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Gigabonus Partners');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_gbpartner_domain_model_partner', 'EXT:gbpartner/Resources/Private/Language/locallang_csh_tx_gbpartner_domain_model_partner.xlf');

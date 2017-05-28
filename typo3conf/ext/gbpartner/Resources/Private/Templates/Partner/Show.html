@@ -13,13 +13,29 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Single View for Partner</h1>
+  <h1>{partner.name}</h1>
 
-<f:render partial="Partner/Properties" arguments="{partner:partner}" />
-
-<f:link.action action="gotoPartner" pageUid="25" arguments="{partner:partner}" target="_blank">Перейти на сайт</f:link.action>
-  <br>
+  <f:render partial="Partner/Properties" arguments="{partner:partner}" />
 
 
-<f:link.action action="list" arguments="{category:category.uid}">Back to list</f:link.action><br />
+  <ul class="tabs" data-tabs id="example-tabs">
+    <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+    <li class="tabs-title"><a href="#panel2">Оплата и доставка</a></li>
+  </ul>
+
+  <div class="tabs-content" data-tabs-content="example-tabs">
+    <div class="tabs-panel is-active" id="panel1">
+      <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+    </div>
+    <div class="tabs-panel" id="panel2">
+      <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+    </div>
+  </div>
+
+
+  <f:link.action action="gotoPartner" pageUid="25" arguments="{partner:partner}" target="_blank">Перейти на сайт</f:link.action>
+    <br>
+
+
+  <f:link.action action="list" arguments="{category:category.uid}">Back to list</f:link.action><br />
 </f:section>
