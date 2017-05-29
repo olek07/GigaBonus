@@ -4,8 +4,7 @@
 
     <f:for each="{partners}" as="partner">
         <div class="column">
-            <f:comment>{partner}</f:comment>
-            <f:link.action action="show" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:partner.mainCategory}">
+            <f:link.action action="show" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:\"{f:if(condition:'{partner.mainCategory}',then:'{partner.mainCategory}',else:'{partner.category.0.uid}')}\"}">
                 <div style="position:relative; overflow-y: hidden;height:200px">
                     <f:if condition="{partner.image}">
                         <f:image src="{partner.image.0.reference.uid}" width="269" treatIdAsReference="1" style="width:100%" />

@@ -22,3 +22,11 @@ config {
     config.htmlTag_setParams = lang="uk" class="nojs"
     config.pageTitleSeparator = - Кешбек-система
 [global]
+
+
+### There is the Partnerlist plugin only 1 time on the page, only in the default language. 
+### The partners for the entry page are same for all languages
+[globalVar = TSFE:id = {$pages.partnerListUid}]
+    config.sys_language_overlay = 1
+    config.sys_language_mode = content_fallback
+[global]
