@@ -58,7 +58,6 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         // if the partner entry page called
         if ($category === NULL) {
-            // $partners = $this->partnerRepository->getPartnersForEntryPage(ArrayUtility::integerExplode(',', $this->settings['partners']));
             $partners = $this->partnerRepository->findByUidList(ArrayUtility::integerExplode(',', $this->settings['partners']));
         }
 

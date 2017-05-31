@@ -337,9 +337,10 @@ return array(
 			'exclude' => 0,
 			'label' => 'API key',
 			'config' => array(
-				'type' => 'input',
+				'type' => 'user',
+				'userFunc' => 'Gigabonus\\Gbpartner\\Backend\\Tca\\ApiFormRenderer->render',
 				'size' => 50,
-				'eval' => 'trim'
+				'eval' => 'trim,required'
 			),
 		),
 
