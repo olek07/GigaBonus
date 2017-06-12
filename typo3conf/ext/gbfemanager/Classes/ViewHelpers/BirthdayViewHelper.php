@@ -12,14 +12,14 @@ class BirthdayViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHe
     public function render() {
         $content = '<select data-birthday-day>';
 
-        $content .= '<option value="0"> ' . LocalizationUtility::translate('gbbase.day', "gbbase") . '</option>';
+        $content .= '<option value="0" disabled="disabled"> ' . LocalizationUtility::translate('gbbase.day', "gbbase") . '</option>';
         for ($i=1; $i<=31; $i++) {
             $content .= '<option>' . sprintf('%02d', $i) . '</option>';
         }
         $content .= '</select>' . "\n";
         
         $content.= '<select data-birthday-month>';
-        $content .= '<option value="0">' . LocalizationUtility::translate('gbbase.month', "gbbase") . '</option>';
+        $content .= '<option value="0" disabled="disabled">' . LocalizationUtility::translate('gbbase.month', "gbbase") . '</option>';
         for ($i=1; $i<=12; $i++) {
             $monthName = LocalizationUtility::translate('gbbase.month.name_' . $i, 'gbbase');
             $content .= '<option value="' . sprintf('%02d', $i) . '">' . $monthName . '</option>';
@@ -28,7 +28,7 @@ class BirthdayViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHe
         
         $currentYear = date('Y', time());
         $content.= '<select data-birthday-year>';
-        $content .= '<option value="0">' . LocalizationUtility::translate('gbbase.year', "gbbase") . '</option>';
+        $content .= '<option value="0" disabled="disabled">' . LocalizationUtility::translate('gbbase.year', "gbbase") . '</option>';
         for ($i=$currentYear - 15; $i>=$currentYear - 80; $i--) {
             $content .= '<option>' . $i . '</option>';
         }
