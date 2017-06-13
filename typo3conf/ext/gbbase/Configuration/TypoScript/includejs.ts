@@ -1,3 +1,14 @@
+config {
+    concatenateJs = 1
+#    concatenateCss = 0
+
+    compressJs = 0
+#    compressCss = 0
+}
+
+### config.inlineStyle2TempFile = 1
+### config.sendCacheHeaders = 1
+
 page.includeJSLibs {
     qjuery = EXT:gbbase/Resources/Public/Scripts/Libs/jquery-2.2.4.min.js
     qjueryui = EXT:gbbase/Resources/Public/Scripts/Libs/jquery-ui.min.js
@@ -8,6 +19,7 @@ page.includeJSLibs {
 page.includeJS {
     gbfemanager = EXT:gbfemanager/Resources/Public/Javascript/gbfemanager.js
     gbtransactions = EXT:gbaccount/Resources/Public/js/transactions.js
+    gbpartner = EXT:gbpartner/Resources/Public/js/gbpartner.js
 }
 
 page.includeJSFooterlibs {

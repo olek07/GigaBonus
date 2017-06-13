@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Partnerlisting',
 	array(
-		'Partner' => 'show,list,gotoPartner',
+		'Partner' => 'show,list,ajaxList,gotoPartner',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Partner' => 'gotoPartner',
+		'Partner' => 'ajaxList,gotoPartner',
 		
 	)
 );
@@ -30,3 +30,6 @@ if (!defined('TYPO3_MODE')) {
 		
 	)
 );
+
+
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['getToken'] = 'EXT:gbpartner/Classes/GetToken.php';

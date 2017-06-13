@@ -43,6 +43,21 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @inject
      */
     protected $partnerRepository = NULL;
+
+
+    /**
+     * action ajaxList
+     *
+     * @param \Gigabonus\Gbpartner\Domain\Model\Category $category
+     *
+     * @return void
+     */
+    public function ajaxListAction(\Gigabonus\Gbpartner\Domain\Model\Category $category = null) {
+        // $partners = $this->partnerRepository->findAll();
+        $this->view->assign('category', $category);
+
+    }
+
     
     /**
      * action list
@@ -85,10 +100,24 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     {
 
         if ($partner == NULL) {
-            $this->forward('list', null, null, array('category' => $category));
+            $this->forward('list', null, null, $this->request->getArguments());
         }
         else {
 
+
+            $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+
+            $pageRenderer->addJsFooterInlineCode('',"
+            $(document).ready(function(){
+                $(document).on(Layout.EVENT_INIT_FORMS, function() {
+                    Gbpartner.init();
+                });
+                $(document).trigger(Layout.EVENT_INIT_FORMS);
+            });
+            "
+            );
+
+    
             MainHelper::setTitleTag($partner->getName());
             $this->generateCanonicalTag($partner);
             $this->view->assign('category', $category);
@@ -107,6 +136,14 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
         $queryString = '/go.php?visitingTime=' . $visitingTime . '&token=' . $token . ($userId != NULL ? ('&userId=' . $userId) : '');
 
+
+        echo '<pre>';
+        var_dump($_SERVER);
+        echo '</pre>';
+
+        echo $_SERVER['HTTP_USER_AGENT'];
+        echo '<br><br>';
+
         echo 'http://' . $partner->getWebsiteUrl() . $queryString;
 
         echo '<br>';
@@ -119,7 +156,7 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
     /**
      * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
-     * @param \Gigabonus\Gbpartner\Domain\Model\Category $category
+     * 
      */
     protected function generateCanonicalTag(\Gigabonus\Gbpartner\Domain\Model\Partner $partner) {
 

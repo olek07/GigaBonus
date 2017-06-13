@@ -4,3 +4,56 @@ plugin.tx_gbpartner_categorylisting {
 		storagePid = {$plugin.tx_gbpartner_categorylisting.persistence.storagePid}
 	}
 }
+
+plugin.tx_gbpartner_partnerlisting {
+	view {
+		widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
+			templateRootPath = EXT:gbpartner/Resources/Private/Templates/
+		}
+
+	}
+}
+
+
+GbPartnerList = PAGE
+GbPartnerList {
+
+	typeNum = 117
+
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = none
+		admPanel = 0
+		metaCharset = utf-8
+		additionalHeaders {
+			10 {
+				header = Content-Type:text/html;charset=utf-8
+			}
+		}
+
+		disablePrefixComment = 1
+		debug = 0
+		no_cache = 1
+	}
+
+
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName = Gbpartner
+		pluginName = Partnerlisting
+		vendorName = Gigabonus
+		controller = Partner
+		action = ajaxList
+
+		switchableControllerActions {
+			Partner {
+				1 = ajaxList
+			}
+		}
+
+
+		persistence < plugin.tx_gbpartner_categorylisting.persistence
+	}
+}
+
