@@ -153,7 +153,7 @@ return array(
 			)
 		),
 
-		'order_id' => array(
+		'partner_order' => array(
 			'exclude' => 0,
 			'label' => 'Order Id',
 			'config' => array(
@@ -203,6 +203,16 @@ return array(
 			'config' => array(
 				'type' => 'check',
 				'size' => 4,
+			)
+		),
+
+		'status' => array(
+			'exclude' => 0,
+			'label' => 'Status',
+			'config' => array(
+				'type' => 'input',
+				'size' => 1,
+				'eval' => 'int'
 			)
 		),
 

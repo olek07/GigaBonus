@@ -132,6 +132,9 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $enddate = $this->dateToTimestamp($enddateFormated);
 
 
+        $bonusBalance = $this->transactionRepository->getBonusBalance($userId);
+
+
         $query = $this->transactionRepository->createQuery();
         $query->getQuerySettings()->setStoragePageIds([13]);
 
@@ -163,6 +166,7 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->view->assign('startdate', $startdateFormated);
         $this->view->assign('enddate', $enddateFormated);
         $this->view->assign('transactions', $transactions);
+        $this->view->assign('bonusBalance', $bonusBalance);
     }
     
     /**

@@ -26,6 +26,7 @@ namespace Gigabonus\Gbaccount\Domain\Repository;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use Gigabonus\Gbaccount\Domain\Model\Transaction;
+use Gigabonus\Gborderapi\Controller\OrderController;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -51,7 +52,9 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $transactions = $this->findByUser($userId);
 
         foreach ($transactions as $item) {
-            $result += $item->getAmount();
+            if ($item->getStatus() != OrderController::STATUS_REJECTED) {
+                $result += $item->getAmount();
+            }
         }
 
         return $result;
@@ -62,7 +65,6 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * Check if there is already an entry in the table
      *
      * @param $partnerId
-     * @param $partnerOrderId
      * @return Transaction
      */
     public function checkUniqueDb($orderId)
@@ -89,6 +91,33 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $order = $query->execute()->getFirst();
         return $order;
         */
+    }
+
+
+    /**
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder
+     */
+    public function rejectTransaction(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
+
+        // read the full typoscript configuration
+        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\Extbase\\Object\\ObjectManager');
+        $configurationManager = $objectManager->get('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManager');
+        $extbaseFrameworkConfiguration = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT);
+        $storagePid = $extbaseFrameworkConfiguration['plugin.']['tx_gbaccount_transactions.']['persistence.']['storagePid'];
+
+
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setStoragePageIds(array($storagePid));
+
+        /**
+         * @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction
+         */
+        $transaction = $query->matching($query->equals('partner_order', $partnerOrder))->execute()->getFirst();
+
+        $transaction->setStatus(OrderController::STATUS_REJECTED);
+
+        $this->update($transaction);
+
     }
 
 

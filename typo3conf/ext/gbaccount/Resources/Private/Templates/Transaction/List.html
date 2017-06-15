@@ -13,8 +13,13 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
+
+
+
 	<div id="transaction-list">
 		<h1><f:translate key="tx_gbaccount_domain_model_transaction.my_bonuses"/></h1>
+
+		{bonusBalance}
 
 		<form action="" method="get">
 			<f:translate key="tx_gbaccount_domain_model_transaction.start_date" />:  <input type="text" name="startdate" id="startdate" value="{startdate}" readonly/>
@@ -27,7 +32,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<table class="tx_gbaccount" >
 		  <tr>
 			<th><f:translate key="tx_gbaccount_domain_model_transaction.amount" /></th>
-			<th> </th>
+			<th>Дата </th>
+			<th>Партнёр </th>
 			<th> </th>
 		  </tr>
 
@@ -36,8 +42,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			  <td><f:link.action action="show" arguments="{transaction : transaction}" noCacheHash="1">{transaction.amount}<f:if condition="{transaction.isOnHold}">*</f:if></f:link.action></td>
 			  <td><f:format.date format="d.m.Y">{transaction.crdate}</f:format.date></td>
 			  <td>{transaction.partner.name}<br>
-				  {transaction.orderId.partnerOrderId}
+				  Номер заказа: {transaction.partnerOrder.partnerOrderId}
 			  </td>
+			  <td><f:if condition="{transaction.status} == 3">Отменено</f:if></td>
 			</tr>
 		  </f:for>
 		</table>

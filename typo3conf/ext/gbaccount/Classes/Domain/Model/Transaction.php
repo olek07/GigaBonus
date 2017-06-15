@@ -48,11 +48,11 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
 
     /**
-     * orderId
+     * partnerOrder
      *
      * @var \Gigabonus\Gborderapi\Domain\Model\Order
      */
-    protected $orderId = null;
+    protected $partnerOrder = null;
 
     /**
      * saldo
@@ -85,6 +85,13 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \DateTime
      */
     protected $crdate;
+
+
+    /**
+     * @var int
+     */
+    protected $status = null;
+    
 
     /**
      * Returns the amount
@@ -143,17 +150,17 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @return mixed
      */
-    public function getOrderId()
+    public function getPartnerOrder()
     {
-        return $this->orderId;
+        return $this->partnerOrder;
     }
 
     /**
-     * @param mixed $orderId
+     * @param mixed $partnerOrder
      */
-    public function setOrderId($orderId)
+    public function setPartnerOrder($partnerOrder)
     {
-        $this->orderId = $orderId;
+        $this->partnerOrder = $partnerOrder;
     }
 
     
@@ -193,7 +200,7 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the partner
      * 
-     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner|int $partner
      * @return void
      */
     public function setPartner($partner)
@@ -211,7 +218,7 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * @param \Gigabonus\Gbfemanager\Domain\Model\User $user
+     * @param \Gigabonus\Gbfemanager\Domain\Model\User|int $user
      */
     public function setUser($user)
     {
@@ -233,6 +240,23 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->crdate = $crdate;
     }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+    
     
 
 }

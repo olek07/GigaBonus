@@ -2,8 +2,9 @@
 namespace Gigabonus\Gborderapi\Partner;
 
 
+use TYPO3\CMS\Core\SingletonInterface;
 
-abstract class AbstractPartner {
+abstract class AbstractPartner implements SingletonInterface {
 
     /**
      * calculates our fee (Provision), that we receive from partner

@@ -41,6 +41,7 @@ class OrderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     );
 
+    
 
     /**
      * Check if there is already an entry in the table
@@ -51,6 +52,17 @@ class OrderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      */
     public function checkUniqueDb($partnerId, $partnerOrderId)
     {
+        $order = $this->findOrderByPartnerIdPartnerOrderId($partnerId, $partnerOrderId);
+        return $order;
+    }
+
+    /**
+     * @param $partnerId
+     * @param $partnerOrderId
+     * @return \Gigabonus\Gborderapi\Domain\Model\Order
+     */
+    public function findOrderByPartnerIdPartnerOrderId($partnerId, $partnerOrderId) {
+
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(true);
         // $query->getQuerySettings()->setIgnoreEnableFields(true);
@@ -65,8 +77,17 @@ class OrderRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $query->matching($constraint);
 
         $order = $query->execute()->getFirst();
+
         return $order;
     }
 
+
+    /**
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $order
+     */
+    public function saveOrder(\Gigabonus\Gborderapi\Domain\Model\Order $order) {
+        $this->add($order);
+        $this->persistenceManager->persistAll();
+    }
 
 }
