@@ -1,6 +1,7 @@
 <?php
 namespace Gigabonus\Gborderapi\Controller;
 
+use Gigabonus\Gbpartner\Domain\Model\Partner;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /***************************************************************
@@ -34,29 +35,6 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
-    const STATUS_PENDING = 1;
-    const STATUS_APPROVED = 2;
-    const STATUS_REJECTED = 3;
-    const STATUS_CHANGED = 4;
-
-    /**
-     * orderRepository
-     * 
-     * @var \Gigabonus\Gborderapi\Domain\Repository\OrderRepository
-     * @inject
-     */
-    protected $orderRepository = NULL;
-
-
-    /**
-     * partnerRepository
-     *
-     * @var \Gigabonus\Gbpartner\Domain\Repository\PartnerRepository
-     * @inject
-     */
-    protected $partnerRepository = NULL;
-
-
     /**
      * transactionRepository
      *
@@ -64,6 +42,12 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * @inject
      */
     protected $transactionRepository = NULL;
+
+    /**
+     * @var \Gigabonus\Gborderapi\Utility\Helper\OrderDataHelper
+     * @inject
+     */
+    protected $orderDataHelper = NULL;
 
 
     /**
@@ -77,15 +61,147 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     }
 
     /**
-     * action create
+     * action create. creates a new order and a new transaction
      *
-     * @param \Gigabonus\Gborderapi\Domain\Model\Order $newOrder
+     */
+    public function createAction()
+    {
+
+        $content = hex2bin('47494638396101000100900000ff000000000021f90405100000002c00000000010001000002020401003b');
+        # $content = base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw==');
+
+        # $GLOBALS['TSFE']->setContentType('image/gif');;
+
+//        $this->response->setHeader('Content-Type', 'image/gif');
+//        $this->response->setContent(base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw=='));
+//        $this->response->send();
+
+//        return '';
+
+//        return $content;
+
+        $orderData = $this->mapGetParamsToOrderData();
+        $partner = $this->orderDataHelper->findPartnerByUid($orderData['partnerId']);
+
+        if (!$this->orderDataHelper->isTokenValid($orderData, $partner)) {
+            throw new \Exception('Token is wrong');
+        }
+
+        $content = '';
+
+        try {
+            /* Create a new order */
+            $order = $this->orderDataHelper->createOrder($orderData, $partner);
+
+            /* Create a new transaction */
+            $this->createTransaction($order, $partner);
+
+            switch ($orderData['t']) {
+
+                case 'json':
+                    $content = '{success:true}';
+                    break;
+
+                case 'gif':
+                    // header('Content-Type: image/gif');
+                    $content = base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw==');
+                    break;
+                default:
+                    break;
+
+            }
+
+        }
+        catch (\Exception $e) {
+            // echo $e->getCode();
+            $content = '{success:false}';
+        }
+
+        return $content;
+    }
+
+
+    /**
+     * rejects an order and a transaction
+     */
+    public function rejectAction() {
+
+        $orderData = $this->mapGetParamsToOrderData();
+        $partner = $this->orderDataHelper->findPartnerByUid($orderData['partnerId']);
+
+        if (!$this->orderDataHelper->isTokenValid($orderData, $partner)) {
+            throw new \Exception('Token is wrong');
+        }
+
+        $order = $this->orderDataHelper->rejectOrder($orderData);
+
+        if ($order != NULL) {
+            $this->rejectTransaction($order);
+        }
+        
+        return 'rejectAction';
+    }
+
+
+    public function changeStatusAction() {
+
+        $orderData = $this->mapGetParamsToOrderData();
+        $partner = $this->orderDataHelper->findPartnerByUid($orderData['partnerId']);
+
+        if (!$this->orderDataHelper->isTokenValid($orderData, $partner)) {
+            die('Token is wrong');
+        }
+
+        $order = $this->orderDataHelper->changeOrderStatus($orderData);
+
+        $this->transactionRepository->changeTransactionStatus($order);
+
+        return 'changeStatus';
+
+    }
+
+    /**
+     *
+     * tracking pixel
+     *
      * @return string
      * @throws \Exception
      */
-    public function createAction(\Gigabonus\Gborderapi\Domain\Model\Order $newOrder = NULL)
-    {
+    public function trackingAction() {
 
+        try {
+            $orderData = $this->mapGetParamsToOrderData();
+            $partner = $this->orderDataHelper->findPartnerByUid($orderData['partnerId']);
+
+            if (!$this->orderDataHelper->isTokenValid($orderData, $partner)) {
+                throw new \Exception('Token is wrong');
+            }
+
+            /* Create a new order */
+            $order = $this->orderDataHelper->createOrder($orderData, $partner);
+
+            /* Create a new transaction */
+            $this->createTransaction($order, $partner);
+
+        }
+        catch (\Exception $e) {
+            #echo $e->getCode();
+            #echo $e->getMessage();
+            #exit;
+        }
+
+
+        $this->response->setHeader('Content-Type', 'image/gif');
+        $this->response->setContent(base64_decode('R0lGODlhAQABAJAAAP8AAAAAACH5BAUQAAAALAAAAAABAAEAAAICBAEAOw=='));
+
+        return '';
+    }
+
+
+    /**
+     * @return array
+     */
+    protected function mapGetParamsToOrderData() {
         $orderData = [];
         $orderData['partnerId'] = GeneralUtility::_GET('partnerId');
         $orderData['partnerOrderId'] = GeneralUtility::_GET('partnerOrderId');
@@ -95,104 +211,11 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $orderData['currency'] = GeneralUtility::_GET('currency');
         $orderData['additionalData'] = GeneralUtility::_GET('data');
         $orderData['token'] = GeneralUtility::_GET('token');
+        $orderData['t'] = GeneralUtility::_GET('t');                // type of returned data (json, gif)
 
-        switch ($orderData['status']) {
-
-            case self::STATUS_PENDING:
-            case self::STATUS_APPROVED:
-
-                /** @var \Gigabonus\Gbpartner\Domain\Model\Partner $partner */
-                $partner = $this->partnerRepository->findByUid($orderData['partnerId']);
-
-                /* Create a new order */
-                $order = $this->createOrder($orderData, $partner);
-
-                /* Create a new transaction */
-                $this->createTransaction($order, $partner);
-                break;
-
-            case self::STATUS_REJECTED:
-                $order = $this->rejectOrder($orderData);
-                if ($order != NULL) {
-                    $this->rejectTransaction($order);
-                }
-                break;
-            default:
-                break;
-        }
-
-        return 'ok';
+        return $orderData;
     }
 
-    /**
-     * @param  \Gigabonus\Gbpartner\Domain\Model\Partner $partner
-     * @return \Gigabonus\Gborderapi\Partner\AbstractPartner
-     * @throws \Exception
-     */
-    protected function initPartnerClass($partner) {
-
-        $partnerClassName = 'Gigabonus\\Gborderapi\\Partner\\' . $partner->getClassName();
-
-        if (!class_exists($partnerClassName)) {
-            throw new \Exception("Class doesn't exist");
-        }
-
-        /** @var \Gigabonus\Gborderapi\Partner\AbstractPartner $partnerClassObj */
-        $partnerClassObj = GeneralUtility::makeInstance($partnerClassName);
-
-        return $partnerClassObj;
-    }
-
-    /**
-     * @param $orderData
-     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
-     * @return \Gigabonus\Gborderapi\Domain\Model\Order
-     * @throws \Exception
-     */
-    protected function createOrder($orderData, $partner) {
-
-        $apiKey = $partner->getApiKey();
-        $partnerClassObj = $this->initPartnerClass($partner);
-
-        /**
-         * @var \Gigabonus\Gborderapi\Domain\Model\Order $order
-         */
-        $order = $this->objectManager->get('Gigabonus\\Gborderapi\\Domain\\Model\\Order');
-
-
-        // temporär wird apiKey als token benutzt
-        if ($apiKey == $orderData['token']) {
-            $order->setPartnerId($orderData['partnerId']);
-            $order->setPartner($partner);
-            $order->setPartnerOrderId($orderData['partnerOrderId']);
-            $order->setAmount($orderData['amount']);
-            $order->setStatus($orderData['status']);
-            $order->setUserId($orderData['userId']);
-            $currency = ($orderData['currency'] == '' ? 'UAH' : $orderData['currency']);
-            $order->setCurrency($currency);
-            $order->setData($orderData['additionalData']);
-
-            $fee = $partnerClassObj->calculateFee($orderData['amount']);
-            $order->setFee($fee);
-
-
-            if ($this->orderRepository->checkUniqueDb($orderData['partnerId'], $orderData['partnerOrderId'])) {
-                // return 'not unique';
-                throw new \Exception('not unique');
-            }
-
-
-            /* save order */
-            $this->orderRepository->saveOrder($order);
-
-            return $order;
-
-        }
-        else {
-            throw new \Exception('Token is wrong');
-        }
-
-    }
 
 
     /**
@@ -201,7 +224,7 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     protected function createTransaction(\Gigabonus\Gborderapi\Domain\Model\Order $order, $partner) {
 
-        $partnerClassObj = $this->initPartnerClass($partner);
+        $partnerClassObj = $this->orderDataHelper->initPartnerClass($partner);
         $bonus = $partnerClassObj->calculateBonus($order->getAmount());
 
         /** @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction */
@@ -211,31 +234,14 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $transaction->setPartner($order->getPartnerId());
         $transaction->setUser($order->getUserId());
         $transaction->setPartnerOrder($order->getUid());             // NOT the partner order id, but the uid in tx_gborderapi_domain_model_order
-        $transaction->setIsOnHold(true);
+        if ($order->getStatus() == 1) {
+            $transaction->setIsOnHold(true);
+        }
         $transaction->setStatus($order->getStatus());
 
         $this->transactionRepository->add($transaction);
     }
 
-    /**
-     * @param array $orderData
-     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
-     * @return \Gigabonus\Gborderapi\Domain\Model\Order
-     */
-    protected function rejectOrder($orderData) {
-
-        $order = $this->orderRepository->findOrderByPartnerIdPartnerOrderId($orderData['partnerId'], $orderData['partnerOrderId']);
-        if ($order != NULL) {
-            $order->setStatus(self::STATUS_REJECTED);
-            $this->orderRepository->update($order);
-
-            return $order;
-        }
-        else {
-            return null;
-        }
-
-    }
 
     /**
      * @param \Gigabonus\Gborderapi\Domain\Model\Order $order
@@ -243,7 +249,6 @@ class OrderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected function rejectTransaction(\Gigabonus\Gborderapi\Domain\Model\Order $order) {
         $this->transactionRepository->rejectTransaction($order);
     }
-
 
 
 }

@@ -136,7 +136,6 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
 
 
         $query = $this->transactionRepository->createQuery();
-        $query->getQuerySettings()->setStoragePageIds([13]);
 
         $constraints = array();
 

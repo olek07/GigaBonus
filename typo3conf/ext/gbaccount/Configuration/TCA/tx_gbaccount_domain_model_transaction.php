@@ -27,10 +27,10 @@ return array(
 		'iconfile' => 'EXT:gbaccount/Resources/Public/Icons/tx_gbaccount_domain_model_transaction.png'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, user, crdate, amount, saldo, partner, is_on_hold',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, user, crdate, amount, saldo, partner, is_on_hold, rejected',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,user,crdate,amount,saldo,partner,is_on_hold,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
+		'1' => array('showitem' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,--palette--;;1,user,crdate,amount,saldo,partner,is_on_hold,rejected,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,starttime,endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -203,6 +203,14 @@ return array(
 			'config' => array(
 				'type' => 'check',
 				'size' => 4,
+			)
+		),
+
+		'rejected' => array(
+			'exclude' => 0,
+			'label' => 'Rejected?',
+			'config' => array(
+				'type' => 'check',
 			)
 		),
 

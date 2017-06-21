@@ -6,10 +6,40 @@ plugin.tx_gborderapi_pi1 {
 		# layoutRootPaths.0 = {$plugin.tx_gborderapi_pi1.view.layoutRootPath}
 	}
 	persistence {
-		# storagePid = {$plugin.tx_gborderapi_pi1.persistence.storagePid}
+		storagePid = {$plugin.tx_gborderapi_pi1.persistence.storagePid}
                 classes {
                     Gigabonus\Gbaccount\Domain\Model\Transaction.newRecordStoragePid = 13
                 }
 	}
 }
 
+
+orderapi = PAGE
+orderapi {
+	config {
+		disableAllHeaderCode = 1
+		debug = 0
+		no_cache = 1
+
+		disableCharsetHeader = 1
+
+		additionalHeaders {
+			10 {
+				# header = Content-Type: image/gif
+				# header = Content-Type: text/html
+				# replace = 1
+			}
+		}
+
+	}
+	typeNum = 1452982642
+
+	10 < tt_content.list.20.gborderapi_pi1
+	10 = USER_INT
+	10 {
+
+		persistence < plugin.tx_gborderapi_pi1.persistence
+
+	}
+
+}

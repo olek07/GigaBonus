@@ -11,6 +11,7 @@ CREATE TABLE tx_gbaccount_domain_model_transaction (
   user int(11) unsigned DEFAULT '0',
 	partner int(11) unsigned DEFAULT '0',
   is_on_hold int(1) unsigned DEFAULT '0',
+	rejected int(1) unsigned DEFAULT '0',
 	partner_order int(11) unsigned DEFAULT '0',
 	status int(11) unsigned DEFAULT '0',
 

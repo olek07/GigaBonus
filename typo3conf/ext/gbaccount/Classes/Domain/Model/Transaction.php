@@ -48,6 +48,12 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
 
     /**
+     * @var bool
+     */
+    protected $rejected = false;
+
+
+    /**
      * partnerOrder
      *
      * @var \Gigabonus\Gborderapi\Domain\Model\Order
@@ -132,6 +138,23 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * @return boolean
+     */
+    public function isRejected()
+    {
+        return $this->rejected;
+    }
+
+    /**
+     * @param boolean $rejected
+     */
+    public function setRejected($rejected)
+    {
+        $this->rejected = $rejected;
+    }
+
+
+    /**
      * @return int
      */
     public function getSaldo()
@@ -163,29 +186,6 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->partnerOrder = $partnerOrder;
     }
 
-    
-    
-    /**
-     * __construct
-     */
-    public function __construct()
-    {
-        //Do not remove the next line: It would break the functionality
-        $this->initStorageObjects();
-    }
-    
-    /**
-     * Initializes all ObjectStorage properties
-     * Do not modify this method!
-     * It will be rewritten on each save in the extension builder
-     * You may modify the constructor of this class instead
-     * 
-     * @return void
-     */
-    protected function initStorageObjects()
-    {
-
-    }
     
     /**
      * Returns the partner
@@ -256,7 +256,28 @@ class Transaction extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->status = $status;
     }
-    
-    
+
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
+        //Do not remove the next line: It would break the functionality
+        $this->initStorageObjects();
+    }
+
+    /**
+     * Initializes all ObjectStorage properties
+     * Do not modify this method!
+     * It will be rewritten on each save in the extension builder
+     * You may modify the constructor of this class instead
+     *
+     * @return void
+     */
+    protected function initStorageObjects()
+    {
+
+    }
+
 
 }

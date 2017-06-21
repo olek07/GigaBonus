@@ -20,13 +20,6 @@ page.meta.viewport = initial-scale=1, minimum-scale=1, maximum-scale=1
 config.pageTitleFirst = 1
 config.pageTitleSeparator.noTrimWrap = | | |
 
-/*
-config.noPageTitle = 2
-page.headerData.1 = TEXT
-page.headerData.1.value = <title>###GIGABONUS_TITLE###</title>
-*/
-
-
 page.10 = FLUIDTEMPLATE
 page.10 {
     format = html
@@ -49,3 +42,27 @@ page.10.file.stdWrap.cObject {
 
 
 }
+
+
+### Tracking Pixel Page
+[globalVar = TSFE:id = {$pages.trackingPixelPageUid}]
+    page >
+    page = PAGE
+    page {
+        config {
+            disableAllHeaderCode = 1
+            debug = 0
+            no_cache = 1
+
+            disableCharsetHeader = 1
+        }
+
+        10 < tt_content.list.20.gborderapi_tracking
+        10 = USER_INT
+        10 {
+
+        persistence < plugin.tx_gborderapi_pi1.persistence
+
+        }
+    }
+[end]

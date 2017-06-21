@@ -1,3 +1,6 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:gborderapi/Configuration/TypoScript/constants.txt">
+
+
 pages {
     restorePasswordPageUid = 10
     changeUserDataPageUid = 6
@@ -11,6 +14,7 @@ pages {
     partnerListUid = 17
     aboutGigaBonusUid = 34
     actionsUid = 35
+    trackingPixelPageUid = 42
 
 }
 

@@ -52,7 +52,10 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $transactions = $this->findByUser($userId);
 
         foreach ($transactions as $item) {
-            if ($item->getStatus() != OrderController::STATUS_REJECTED) {
+            /**
+             * @var Transaction $item
+             */
+            if (!$item->isRejected()) {
                 $result += $item->getAmount();
             }
         }
@@ -96,9 +99,9 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
     /**
      * @param \Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder
+     * @return Transaction
      */
-    public function rejectTransaction(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
-
+    protected function findTransactionByPartnerOrder(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
         // read the full typoscript configuration
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\Extbase\\Object\\ObjectManager');
         $configurationManager = $objectManager->get('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManager');
@@ -113,11 +116,33 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
          * @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction
          */
         $transaction = $query->matching($query->equals('partner_order', $partnerOrder))->execute()->getFirst();
+        
+        return $transaction;
+    }
+    
 
-        $transaction->setStatus(OrderController::STATUS_REJECTED);
+    /**
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder
+     */
+    public function rejectTransaction(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
+
+        $transaction = $this->findTransactionByPartnerOrder($partnerOrder);
+
+        $transaction->setRejected(true);
 
         $this->update($transaction);
 
+    }
+
+    /**
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder
+     */
+    public function changeTransactionStatus(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
+        $transaction = $this->findTransactionByPartnerOrder($partnerOrder);
+
+        $transaction->setIsOnHold(false);
+
+        $this->update($transaction);
     }
 
 

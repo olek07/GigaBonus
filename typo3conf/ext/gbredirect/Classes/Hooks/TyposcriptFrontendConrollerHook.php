@@ -43,7 +43,7 @@ class TyposcriptFrontendConrollerHook  {
 
         $retVal = FALSE;
 
-        $noPageUrlPattern = '/^(\/typo3temp|\/typo3conf|\/fileadmin)/';
+        $noPageUrlPattern = '/^(\/typo3temp|\/typo3conf|\/fileadmin|\/api\/)/';
 
         // first check for no realurl link
         if(stristr($url, 'index.php')

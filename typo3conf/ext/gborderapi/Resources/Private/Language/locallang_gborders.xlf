@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-07-03T14:44:24Z" product-name="ppshortlinks">
+		<header/>
+		<body>
+			<trans-unit id="mlang_tabs_tab">
+				<source>Partner Orders</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr">
+				<source>Partner Orders</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
