@@ -66,3 +66,33 @@ page.10.file.stdWrap.cObject {
         }
     }
 [end]
+
+### Tracking Pixel Page
+[globalVar = TSFE:id = 41]
+    page >
+    page = PAGE
+    page {
+        config {
+            disableAllHeaderCode = 1
+            debug = 0
+            no_cache = 1
+
+            additionalHeaders {
+                10 {
+                    # header = Content-Type: application/json
+                    replace = 1
+                }
+            }
+
+            disableCharsetHeader = 1
+        }
+
+        10 < tt_content.list.20.gborderapi_pi1
+        10 = USER_INT
+        10 {
+
+            persistence < plugin.tx_gborderapi_pi1.persistence
+
+        }
+    }
+[end]

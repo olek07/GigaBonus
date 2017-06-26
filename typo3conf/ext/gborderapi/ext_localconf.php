@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Pi1',
 	array(
-		'Order' => 'new, create, reject, changeStatus',
+		'Order' => 'new, create, reject, change',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Order' => 'create, reject, changeStatus',
+		'Order' => 'create, reject, change',
 		
 	)
 );
@@ -38,16 +38,6 @@ if (!defined('TYPO3_MODE')) {
 
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars']['orderapi'] = [
 	[
-		'GETvar'   => 'type',
-		'valueMap' => [
-			'orderapi' => 1452982642
-		],
-	],
-
-	[
-		'cond'        => [
-			'prevValueInList' => '1452982642'
-		],
 		'GETvar'	=> 'version',
 		'optional'  => false
 	],
@@ -56,7 +46,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['fixedPostVars']['
 
 		'GETvar'      => 'tx_gborderapi_pi1[action]',
 		'valueMap'	=> array(
-			'change' => 'changeStatus'
+			// 'change' => 'changeStatus'
 		),
 		'optional'    => false
 	]

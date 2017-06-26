@@ -44,7 +44,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			  <td>{transaction.partner.name}<br>
 				  Номер заказа: {transaction.partnerOrder.partnerOrderId}
 			  </td>
-			  <td><f:if condition="{transaction.rejected}">Отменено</f:if></td>
+			  <td>
+                            <f:if condition="{transaction.rejected}">Отменено</f:if>
+                            <f:if condition="{transaction.isOnHold}">В ожидании</f:if>
+                          </td>
 			</tr>
 		  </f:for>
 		</table>

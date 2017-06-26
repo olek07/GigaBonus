@@ -27,6 +27,8 @@ namespace Gigabonus\Gbaccount\Domain\Repository;
  ***************************************************************/
 use Gigabonus\Gbaccount\Domain\Model\Transaction;
 use Gigabonus\Gborderapi\Controller\OrderController;
+use Gigabonus\Gborderapi\Domain\Model\Order;
+use Gigabonus\Gborderapi\Utility\Helper\OrderDataHelper;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
@@ -34,6 +36,15 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  */
 class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+
+    /**
+     * orderDataHelper
+     *
+     * @var \Gigabonus\Gborderapi\Utility\Helper\OrderDataHelper
+     * @inject
+     */
+    protected $orderDataHelper;
+
 
     /**
      * @var array
@@ -101,7 +112,7 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @param \Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder
      * @return Transaction
      */
-    protected function findTransactionByPartnerOrder(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
+    public function findTransactionByPartnerOrder(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
         // read the full typoscript configuration
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\Extbase\\Object\\ObjectManager');
         $configurationManager = $objectManager->get('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManager');
@@ -119,8 +130,37 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         
         return $transaction;
     }
-    
 
+
+
+
+    /**
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $order
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     */
+    public function createTransaction(\Gigabonus\Gborderapi\Domain\Model\Order $order, \Gigabonus\Gbpartner\Domain\Model\Partner $partner) {
+
+        $partnerClassObj = $this->orderDataHelper->initPartnerClass($partner);
+        $bonus = $partnerClassObj->calculateBonus($order->getAmount());
+
+        /** @var \Gigabonus\Gbaccount\Domain\Model\Transaction $transaction */
+        $transaction = $this->objectManager->get('Gigabonus\\Gbaccount\\Domain\\Model\\Transaction');
+
+        $transaction->setAmount($bonus);
+        $transaction->setPartner($order->getPartnerId());
+        $transaction->setUser($order->getUserId());
+        $transaction->setPartnerOrder($order->getUid());             // !!! NOT the partner order id, but the uid in tx_gborderapi_domain_model_order !!!
+        if ($order->getStatus() == 1) {
+            $transaction->setIsOnHold(true);
+        }
+        // $transaction->setStatus($order->getStatus());
+
+        $this->add($transaction);
+    }
+    
+    
+    
+    
     /**
      * @param \Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder
      */
@@ -135,15 +175,32 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     }
 
     /**
-     * @param \Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder
+     * @param \Gigabonus\Gborderapi\Domain\Model\Order $order
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
      */
-    public function changeTransactionStatus(\Gigabonus\Gborderapi\Domain\Model\Order $partnerOrder) {
-        $transaction = $this->findTransactionByPartnerOrder($partnerOrder);
+    public function changeTransaction(\Gigabonus\Gborderapi\Domain\Model\Order $order, $partner) {
 
-        $transaction->setIsOnHold(false);
+        $partnerClassObj = $this->orderDataHelper->initPartnerClass($partner);
+
+        $transaction = $this->findTransactionByPartnerOrder($order);
+
+        switch ($order->getStatus()) {
+            case 1:
+                $transaction->setIsOnHold(true);
+                break;
+            case 2:
+                $transaction->setIsOnHold(false);
+                break;
+        }
+
+
+        $bonus = $partnerClassObj->calculateBonus($order->getAmount());
+        $transaction->setAmount($bonus);
+
+
+        DebuggerUtility::var_dump($order);
 
         $this->update($transaction);
     }
-
 
 }

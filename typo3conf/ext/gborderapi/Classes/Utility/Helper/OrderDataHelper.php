@@ -38,6 +38,14 @@ class OrderDataHelper {
     const STATUS_APPROVED = 2;
     const STATUS_REJECTED = 3;
     const STATUS_CHANGED = 4;
+    
+    const PARTNER_NOT_FOUND = 1;
+    const NOT_UNIQUE = 2;
+    const PARTNER_CLASS_NOT_FOUND = 3;
+    const ORDER_NOT_FOUND = 4;
+    const WRONG_TOKEN = 5;
+    const NOT_CHANGEABLE = 6;
+    const WRONG_ORDERDATA = 7;
 
 
     /**
@@ -61,6 +69,26 @@ class OrderDataHelper {
         else {
             return false;
         }
+    }
+
+
+    /**
+     * @param  \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     * @return \Gigabonus\Gborderapi\Partner\AbstractPartner
+     * @throws \Exception
+     */
+    public function initPartnerClass($partner) {
+
+        $partnerClassName = 'Gigabonus\\Gborderapi\\Partner\\' . $partner->getClassName();
+
+        if (!class_exists($partnerClassName)) {
+            throw new \Exception("Class doesn't exist", self::PARTNER_CLASS_NOT_FOUND);
+        }
+
+        /** @var \Gigabonus\Gborderapi\Partner\AbstractPartner $partnerClassObj */
+        $partnerClassObj = GeneralUtility::makeInstance($partnerClassName);
+
+        return $partnerClassObj;
     }
 
     /**
@@ -87,14 +115,14 @@ class OrderDataHelper {
         $order->setUserId($orderData['userId']);
         $currency = ($orderData['currency'] == '' ? 'UAH' : $orderData['currency']);
         $order->setCurrency($currency);
-        $order->setData($orderData['additionalData']);
+        $order->setData($orderData['data']);
 
         $fee = $partnerClassObj->calculateFee($orderData['amount']);
         $order->setFee($fee);
 
 
         if ($this->orderRepository->checkUniqueDb($orderData['partnerId'], $orderData['partnerOrderId'])) {
-            throw new \Exception('not unique', 1);
+            throw new \Exception('Not unique', self::NOT_UNIQUE);
         }
 
 
@@ -105,24 +133,6 @@ class OrderDataHelper {
 
     }
 
-    /**
-     * @param  \Gigabonus\Gbpartner\Domain\Model\Partner $partner
-     * @return \Gigabonus\Gborderapi\Partner\AbstractPartner
-     * @throws \Exception
-     */
-    public function initPartnerClass($partner) {
-
-        $partnerClassName = 'Gigabonus\\Gborderapi\\Partner\\' . $partner->getClassName();
-
-        if (!class_exists($partnerClassName)) {
-            throw new \Exception("Class doesn't exist");
-        }
-
-        /** @var \Gigabonus\Gborderapi\Partner\AbstractPartner $partnerClassObj */
-        $partnerClassObj = GeneralUtility::makeInstance($partnerClassName);
-
-        return $partnerClassObj;
-    }
 
     /**
      * @param int $uid
@@ -136,7 +146,7 @@ class OrderDataHelper {
         // $uid may ONLY be the default language partner uid, NOT localization partner uid
 
         if ($partner == NULL || $partner->getUid() != $uid) {
-            throw new \Exception('Partner not found');
+            throw new \Exception('Partner not found', self::PARTNER_NOT_FOUND);
         }
 
         return $partner;
@@ -158,24 +168,54 @@ class OrderDataHelper {
             return $order;
         }
         else {
-            return null;
+            throw new \Exception('Order not found', self::ORDER_NOT_FOUND);
         }
 
     }
 
     /**
      * @param array $orderData
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
      */
-    public function changeOrderStatus($orderData) {
+    public function changeOrder($orderData, $partner) {
         $order = $this->orderRepository->findOrderByPartnerIdPartnerOrderId($orderData['partnerId'], $orderData['partnerOrderId']);
 
         if ($order != NULL) {
-            $order->setStatus($orderData['status']);
+
+            $status = $order->getStatus();
+            if ($status == self::STATUS_APPROVED) {
+                throw new \Exception('Approved. Not changeable', self::NOT_CHANGEABLE);
+            }
+
+            if ($status == self::STATUS_REJECTED) {
+                throw new \Exception('Rejected. Not changeable', self::NOT_CHANGEABLE);
+            }
+
+            $partnerClassObj = $this->initPartnerClass($partner);
+
+            if ($orderData['status'] != '') {
+                $order->setStatus($orderData['status']);
+            }
+
+            if ($orderData['currency'] != '') {
+                $order->setCurrency($orderData['currency']);
+            }
+
+            if ($orderData['data'] != '') {
+                $order->setData($orderData['data']);
+            }
+
+            if ($orderData['amount'] != '') {
+                $order->setAmount($orderData['amount']);
+                $fee = $partnerClassObj->calculateFee($orderData['amount']);
+                $order->setFee($fee);
+            }
+
             $this->orderRepository->update($order);
             return $order;
         }
         else {
-            return null;
+            throw new \Exception('Order not found', self::ORDER_NOT_FOUND);
         }
     }
     
