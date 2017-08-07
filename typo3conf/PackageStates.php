@@ -320,6 +320,12 @@ return [
             'packagePath' => 'typo3conf/ext/gbsearch/',
             'suggestions' => [],
         ],
+        'gbtools' => [
+            'composerName' => 'gigabonus/gbtools',
+            'state' => 'active',
+            'packagePath' => 'typo3conf/ext/gbtools/',
+            'suggestions' => [],
+        ],
         'powermail' => [
             'composerName' => 'in2code/powermail',
             'state' => 'active',

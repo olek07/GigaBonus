@@ -67,8 +67,8 @@ page.10.file.stdWrap.cObject {
     }
 [end]
 
-### Tracking Pixel Page
-[globalVar = TSFE:id = 41]
+### Order API Page
+[globalVar = TSFE:id = {$pages.orderApiPageUid}]
     page >
     page = PAGE
     page {

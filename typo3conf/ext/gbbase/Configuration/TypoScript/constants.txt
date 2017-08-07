@@ -15,6 +15,7 @@ pages {
     aboutGigaBonusUid = 34
     actionsUid = 35
     trackingPixelPageUid = 42
+    orderApiPageUid = 41
 
 }
 

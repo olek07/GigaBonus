@@ -61,7 +61,7 @@ if (TYPO3_MODE === 'BE') {
 		$TBE_MODULES = $temp_TBE_MODULES;
 	}
 
-
+/*
 	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
 		'Gigabonus.' . $_EXTKEY,
 		'gbtools',
@@ -75,6 +75,23 @@ if (TYPO3_MODE === 'BE') {
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_mod_file.xlf',
 		)
 	);
+
+
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+		'Gigabonus.' . $_EXTKEY,
+		'gbtools',
+		'pi1',
+		'',
+		array(
+			'BeTools' => 'overview'
+		),
+		array(
+			'access' => 'user,group',
+			'icon' => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/tx_ext_mymainmodule.gif',
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_mod_file.xlf',
+		)
+	);
+*/
 
 
 	/**

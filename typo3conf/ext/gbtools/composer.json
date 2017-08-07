@@ -1,0 +1,23 @@
+{
+  "name": "gigabonus/gbtools",
+  "description": "Gigabonus tools",
+  "keywords": ["typo3"],
+  "homepage": "",
+  "authors": [
+    {
+      "name": "Alexander Averbuch",
+      "email": "alav@gmx.net"
+    }
+  ],
+  "type": "typo3-cms-extension",
+  "license": "GPL-3.0",
+  "require": {
+    "gigabonus/gbbase": "*",
+    "in2code/femanager": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gigabonus\\Gbtools\\": "Classes/"
+    }
+  }
+}

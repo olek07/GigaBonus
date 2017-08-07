@@ -1,0 +1,22 @@
+
+<f:layout name="Backend" />
+
+
+<f:section name="content">
+
+
+<f:be.widget.paginate objects="{transactions}" as="paginatedTransactions" configuration="{itemsPerPage: 10, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 5, addQueryStringMethod: 'POST'}">
+
+                    <table>
+                                <f:for each="{paginatedTransactions}" as="transaction">
+                                  <tr>
+				    <td>{transaction.amount}</td>
+                                    <td>{transaction.partner.name}</td>
+                                    <td><f:format.date format="d.m.Y">{transaction.crdate}</f:format.date></td>
+                                  </tr>
+				</f:for>
+		     </table>
+
+</f:be.widget.paginate>
+
+</f:section>

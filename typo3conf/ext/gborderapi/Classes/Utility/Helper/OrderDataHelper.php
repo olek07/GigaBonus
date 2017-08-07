@@ -57,13 +57,19 @@ class OrderDataHelper {
 
         $apiKey = $partner->getApiKey();
 
+        // all parameters beside of data
+        $t = md5($orderData['partnerId']
+            . $orderData['partnerOrderId']
+            . ($orderData['amount'] ?? '')
+            . ($orderData['status'] ?? '')
+            . ($orderData['userId'])
+            . ($orderData['currency'] ?? '')
+            . $apiKey);
 
-        /**
-         * @todo die Prüflogik implementieren
-         */
 
-        // temporär wird apiKey als token benutzt
-        if ($apiKey == $orderData['token']) {
+        DebuggerUtility::var_dump($t, 'token');
+
+        if ($t == $orderData['token']) {
             return true;
         }
         else {

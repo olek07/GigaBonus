@@ -43,9 +43,6 @@ class OrderDataValidator {
             $retVal = false;
         }
 
-        DebuggerUtility::var_dump($orderData['amount']);
-
-
         $response = new \stdClass();
         $response->isValid = $retVal;
         // $response->errors = $this->getErrors();
