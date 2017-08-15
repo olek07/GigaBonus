@@ -7,15 +7,32 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Partnerlisting',
 	array(
-		'Partner' => 'show,list,ajaxList,gotoPartner',
+		'Partner' => 'show,list,ajaxList,gotoPartner,getPartnerToken',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Partner' => 'ajaxList,gotoPartner',
+		'Partner' => 'ajaxList,gotoPartner,getPartnerToken',
 		
 	)
 );
+
+
+// generation of the goto link on the partner page (showAction)
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Gigabonus.' . $_EXTKEY,
+	'Generatelink',
+	array(
+		'Partner' => 'generateGotoLink',
+
+	),
+	// non-cacheable actions
+	array(
+		'Partner' => 'generateGotoLink',
+
+	)
+);
+
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'Gigabonus.' . $_EXTKEY,
@@ -31,5 +48,3 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
-
-$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['getToken'] = 'EXT:gbpartner/Classes/GetToken.php';

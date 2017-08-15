@@ -1,31 +1,33 @@
 <?php
 
-$apiKey = 'f5hhGHJ346dffgnfdf237d87hfg';
-$tolerance = 60;
-$expire = time()+60*60*24*30;           // 30 days
+    $getToken = isset($_GET['getToken']) ? $_GET['getToken'] : '';
+    $sessionId = isset($_GET['sId']) ? $_GET['sId'] : '';
+    $token = isset($_GET['token']) ? $_GET['token'] : '';
 
+    if ($getToken == 1) {
+        session_start();
+        $_SESSION['token'] = md5(uniqid());
 
-if (isset($_GET['visitingTime']) && isset($_GET['userId']) && isset($_GET['token'])) {
+        echo json_encode(array('token' => $_SESSION['token'], 'sessionId' => session_id()));
 
-    $visitingTime = $_GET['visitingTime'];
-    $userId = $_GET['userId'];
-    $token = $_GET['token'];
-
-    $timeStamp = time();
-
-    if (md5($userId . $visitingTime . $apiKey) == $token) {
-
-        $visitingTime = 1485269493;
-
-        if (abs($timeStamp - $visitingTime) < $tolerance) {
-            setcookie('gb_userId', $userId, $expire, '/');
-            header('Location:/');
-            exit;
-            # echo ($timeStamp - $visitingTime) . ' ok';
-        }
-        else {
-            echo ($timeStamp - $visitingTime) . ' nicht ok';
-        }
+        exit;
     }
 
-}
+    if ($sessionId != '' && $token != '') {
+        session_id($sessionId);
+        session_start();
+        if ($_SESSION['token'] == $token) {
+            $uid = (int)$_GET['uid'];
+            setcookie('gbuid', $uid, time() + 3600 * 24 * 31, '/');
+            echo 'matches';
+        }
+        else {
+            echo 'doesn\'t match';
+        }
+
+        session_destroy();
+        exit;
+
+    }
+
+?>

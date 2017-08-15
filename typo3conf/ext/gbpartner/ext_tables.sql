@@ -102,3 +102,17 @@ CREATE TABLE tx_gbpartner_partner_category_mm (
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
+
+
+#
+# Table structure for table 'tx_gbpartner_gbtoken'
+#
+CREATE TABLE tx_gbpartner_gbtoken (
+        uid int(11) NOT NULL auto_increment,
+        token char(29) DEFAULT '' NOT NULL,
+        partner int(11) DEFAULT '0' NOT NULL,
+        user int(11) DEFAULT '0' NOT NULL,
+        crdate int(11) unsigned DEFAULT '0' NOT NULL,
+
+        PRIMARY KEY (uid)
+);

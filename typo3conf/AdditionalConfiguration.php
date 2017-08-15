@@ -9,6 +9,18 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['pageNotFound_handling_redirectPageID'] = 18; 
 $GLOBALS['TYPO3_CONF_VARS']['FE']['accessRestrictedPages_handling_statheader'] = 'HTTP/1.0 403 Forbidden'; // attention: this parameter is not provided by TYPO3, but needed for page-not-found-userfunction
 $GLOBALS['TYPO3_CONF_VARS']['FE']['accessRestrictedPages_handling_redirectPageID'] = 28; // "Please login"-page. attention: this parameter is not provided by TYPO3, but needed for page-not-found-userfunction
 
+/*
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'] = array(
+    // configuration for ERROR level log entries
+    \TYPO3\CMS\Core\Log\LogLevel::DEBUG => array(
+        // add a FileWriter
+        'TYPO3\\CMS\\Core\\Log\\Writer\\FileWriter' => array(
+            // configuration for the writer
+            'logFile' => 'typo3temp/logs/typo3_7ac500bce5.log'
+        )
+    )
+);
+*/
 
 
 $GLOBALS['SERVER_ENVIRONMENT']['GBDOMAIN'] = 'www.gigabonus.com.ua';

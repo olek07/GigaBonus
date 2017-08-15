@@ -26,6 +26,8 @@ namespace Gigabonus\Gbpartner\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
+use Gigabonus\Gbpartner\Domain\Repository\PartnerRepository;
+use Gigabonus\Gbpartner\Utility\Token;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\ArrayUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -43,6 +45,13 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @inject
      */
     protected $partnerRepository = NULL;
+
+
+    /**
+     * @var \Gigabonus\Gbpartner\Utility\Token
+     * @inject
+     */
+    protected $token = null;
 
 
     /**
@@ -104,7 +113,6 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         }
         else {
 
-
             $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
 
             $pageRenderer->addJsFooterInlineCode('',"
@@ -117,7 +125,6 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             "
             );
 
-    
             MainHelper::setTitleTag($partner->getName());
             $this->generateCanonicalTag($partner);
             $this->view->assign('category', $category);
@@ -125,10 +132,110 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         }
     }
 
+
+    /**
+     * action generateGotoLink
+     *
+     * @return void
+     */
+    public function generateGotoLinkAction() {
+
+        $partnerId = (int)GeneralUtility::_GET('tx_gbpartner_partnerlisting')['partner'];
+        $partner = $this->partnerRepository->findByUid($partnerId);
+
+        $gbToken = uniqid('token_', true);
+        $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+        $partnerId = $partner->getUid();
+
+        $this->token->gc();
+        
+        // save token with partnerId and userId 
+        $this->token->setToken($gbToken, $partnerId, $userId);
+        
+        $this->view->assign('gbToken', $gbToken);
+        $this->view->assign('partner', $partner);
+
+    }
+
+
     /**
      * @param \Gigabonus\Gbpartner\Domain\Model\Partner|null $partner
      */
     public function gotoPartnerAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null) {
+
+        if ($partner == NULL) {
+            exit;
+        }
+
+        $partnerId = $partner->getUid();
+        $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+        $t = GeneralUtility::_GET('t');
+
+
+        $res = $this->token->getToken($t);
+        
+        if ($res['partner'] == $partnerId && $res['user'] == $userId) {
+            $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+
+            $url = $partner->getWebsiteUrl() . '/go.php?uid=' . $userId;
+
+            $pageRenderer->addJsFooterInlineCode('',"
+            var url = '$url';
+            $(document).ready(function(){
+                try {
+                    window.opener.location.reload(true);
+                }
+                catch(e) {
+                }
+                $(document).on(Layout.EVENT_INIT_FORMS, function() {
+                    Gbpartner.init();
+                    Gbpartner.gotoPartner('$t', $partnerId, $userId);
+                });
+                $(document).trigger(Layout.EVENT_INIT_FORMS);
+            });
+            "
+            );
+
+            $this->view->assign('url', $url);
+            $this->view->assign('partner', $partner);
+            
+        }
+        else {
+            MainHelper::redirect2Home();
+        }
+    }
+
+
+    /**
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner|null $partner
+     */
+    public function getPartnerTokenAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null) {
+
+        if ($partner == NULL || $GLOBALS['TSFE']->fe_user->user == NULL) {
+            return '{}';
+        }
+
+        $t = GeneralUtility::_GET('t');
+        $userId = GeneralUtility::_GET('userId');
+
+        $res = $this->token->getToken($t);
+
+        if ($res['partner'] == $partner->getUid() && $res['user'] == $userId) {
+            $this->token->deleteToken($t);
+            return GeneralUtility::getUrl($partner->getWebsiteUrl() . '/go.php?getToken=1&' . uniqid());
+
+        }
+        else {
+            return '{}';
+        }
+
+    }
+    
+
+    /**
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner|null $partner
+     */
+    public function ___gotoPartnerAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null) {
 
         $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
         $visitingTime = time();

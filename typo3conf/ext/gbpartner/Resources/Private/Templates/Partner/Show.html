@@ -34,9 +34,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 
   <input type="button" onclick="Gbpartner.setToken();" value="Click me!">
-
-  <f:link.action action="gotoPartner" pageUid="25" arguments="{partner:partner}" target="_blank">Перейти на сайт</f:link.action>
-    <br>
+  <br><br><br>
+  <f:cObject typoscriptObjectPath="lib.gotoLink" />
+  <br><br><br>
 
 
   <f:link.action action="list" arguments="{category:category.uid}">Back to list</f:link.action><br />

@@ -57,3 +57,66 @@ GbPartnerList {
 	}
 }
 
+lib.gotoLink < tt_content.list.20.gbpartner_generatelink
+
+/*
+lib.gotoLink = USER_INT
+lib.gotoLink {
+	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+	extensionName = Gbpartner
+	pluginName = Partnerlisting
+	vendorName = Gigabonus
+	controller = Partner
+	action = generateGotoLink
+
+	switchableControllerActions {
+		Partner {
+			1 = generateGotoLink
+		}
+	}
+
+	// settings < plugin.tx_gbpartner_partnerlisting.settings
+}
+*/
+
+
+GbPartnerGetPartnerToken = PAGE
+GbPartnerGetPartnerToken {
+	typeNum = 118
+
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = none
+		admPanel = 0
+		metaCharset = utf-8
+		additionalHeaders {
+			10 {
+				header = Content-Type:text/html;charset=utf-8
+			}
+		}
+
+		disablePrefixComment = 1
+		debug = 0
+		no_cache = 1
+	}
+
+
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName = Gbpartner
+		pluginName = Partnerlisting
+		vendorName = Gigabonus
+		controller = Partner
+		action = getPartnerToken
+
+		switchableControllerActions {
+			Partner {
+				1 = getPartnerToken
+			}
+		}
+
+
+		persistence < plugin.tx_gbpartner_categorylisting.persistence
+	}
+}

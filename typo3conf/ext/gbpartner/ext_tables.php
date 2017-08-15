@@ -9,6 +9,13 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus Partnerlisting'
 );
 
+// generation of the goto link on the partner page (showAction)
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Gigabonus.' . $_EXTKEY,
+	'Generatelink',
+	'Gigabonus Generation of the goto link'
+);
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	'Gigabonus.' . $_EXTKEY,
 	'Categorylisting',
