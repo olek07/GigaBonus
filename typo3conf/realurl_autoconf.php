@@ -82,6 +82,20 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 				)
 			),
 
+
+			'gotoPartner' => array(
+				array(
+					'GETvar' => 'tx_gbpartner_partnerlisting[action]',
+					'noMatch' => 'bypass'
+				),
+
+				array(
+					'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
+					'noMatch' => 'bypass'
+				),
+
+			),
+
 			'partnerListConfiguration' => array(
 				array(
 					'GETvar' => 'tx_gbpartner_partnerlisting[category]',
@@ -174,6 +188,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 			17 => 'partnerDetailConfiguration',					    // registration confirmation E-Mail 
 			4 => 'confirmemail',
 			3 => 'forgotPassword',
+			25 => 'gotoPartner',
 
 		),
         'postVarSets' => array(
