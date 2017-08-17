@@ -34,6 +34,21 @@ if (!defined('TYPO3_MODE')) {
 );
 
 
+// used on the 'go-to-partner' page. gets by using ajax the session id and token from the partner website
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Gigabonus.' . $_EXTKEY,
+	'GotoPartner',
+	array(
+		'GotoPartner' => 'gotoPartner',
+	),
+	// non-cacheable actions
+	array(
+		'GotoPartner' => 'gotoPartner',
+	)
+);
+
+
+// list of categories on the left side and Our partners menu
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'Gigabonus.' . $_EXTKEY,
 	'Categorylisting',

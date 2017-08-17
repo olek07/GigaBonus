@@ -85,12 +85,12 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl'] = array(
 
 			'gotoPartner' => array(
 				array(
-					'GETvar' => 'tx_gbpartner_partnerlisting[action]',
+					'GETvar' => 'tx_gbpartner_gotopartner[action]',
 					'noMatch' => 'bypass'
 				),
 
 				array(
-					'GETvar' => 'tx_gbpartner_partnerlisting[controller]',
+					'GETvar' => 'tx_gbpartner_gotopartner[controller]',
 					'noMatch' => 'bypass'
 				),
 
