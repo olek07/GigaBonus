@@ -39,7 +39,7 @@ class GotoPartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
                 $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
 
                 $landingPage = urlencode('/index.php?id=51');
-                # $landingPage = '';
+                $landingPage = '';
 
                 $url = $partner->getWebsiteUrl() . '/go.php?uid=' . $userId . '&url=' . $landingPage;
 

@@ -66,8 +66,7 @@ class OrderDataHelper {
             . ($orderData['currency'] ?? '')
             . $apiKey);
 
-
-        DebuggerUtility::var_dump($t, 'token');
+        // DebuggerUtility::var_dump($t, 'token');
 
         if ($t == $orderData['token']) {
             return true;
@@ -88,7 +87,7 @@ class OrderDataHelper {
         $partnerClassName = 'Gigabonus\\Gborderapi\\Partner\\' . $partner->getClassName();
 
         if (!class_exists($partnerClassName)) {
-            throw new \Exception("Class doesn't exist", self::PARTNER_CLASS_NOT_FOUND);
+            throw new \Exception('Class ' . $partnerClassName . ' doesn\'t exist', self::PARTNER_CLASS_NOT_FOUND);
         }
 
         /** @var \Gigabonus\Gborderapi\Partner\AbstractPartner $partnerClassObj */
