@@ -13,13 +13,14 @@ page.includeJSLibs {
     qjuery = EXT:gbbase/Resources/Public/Scripts/Libs/jquery-2.2.4.min.js
     qjueryui = EXT:gbbase/Resources/Public/Scripts/Libs/jquery-ui.min.js
     qjueryform = EXT:gbbase/Resources/Public/Scripts/Libs/jquery.form.min.js
-    autocomplete = EXT:gbfemanager/Resources/Public/Javascript/jquery.ui.autocomplete.html.js
+    autocomplete = EXT:gbbase/Resources/Public/Scripts/Libs/jquery.ui.autocomplete.html.js
 }
 
 page.includeJS {
-    gbfemanager = EXT:gbfemanager/Resources/Public/Javascript/gbfemanager.js
+    gbfemanager = EXT:gbfemanager/Resources/Public/js/gbfemanager.js
     gbtransactions = EXT:gbaccount/Resources/Public/js/transactions.js
     gbpartner = EXT:gbpartner/Resources/Public/js/gbpartner.js
+    gbsearch = EXT:gbsearch/Resources/Public/js/gbsearch.js
 }
 
 page.includeJSFooterlibs {

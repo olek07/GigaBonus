@@ -26,32 +26,17 @@ namespace Gigabonus\Gbsearch\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
+use Gigabonus\Gbpartner\Domain\Model\Partner;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\HttpUtility;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * CategoryController
  */
-class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class SearchController extends GeneralSearchController
 {
-
-    /**
-     * partnerRepository
-     *
-     * @var \Gigabonus\Gbpartner\Domain\Repository\PartnerRepository
-     * @inject
-     */
-    protected $partnerRepository = NULL;
-
-
-    /**
-     * categoryRepository
-     *
-     * @var \Gigabonus\Gbpartner\Domain\Repository\CategoryRepository
-     * @inject
-     */
-    protected $categoryRepository = NULL;
-
-
 
     /**
      * action search
@@ -60,14 +45,30 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function searchAction()
     {
-        // $partners = $this->partnerRepository->findAll();
 
-        $query = $this->partnerRepository->createQuery();
-        $query->getQuerySettings()->setRespectSysLanguage(false);
-        $query->matching($query->in('uid', array(1,3,5,8,14)));
-        //$query->getQuerySettings()->setLanguageUid(0);
-       // $query->getQuerySettings()->setStoragePageIds([11]);
-        $partners = $query->execute();
+        $s = GeneralUtility::_GET('s');
+
+        if ($s == '') {
+            $this->view->assign('partners', NULL);
+            return;
+        }
+
+        /**
+         * @var QueryInterface|array $partners
+         */
+        $partners = $this->doSearch($s);
+
+        // if only one partner found, redirect to the partner page
+        if ($partners->count() == 1) {
+
+            /**
+             * @var \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+             */
+            $partner = $partners->getFirst();
+            $url = MainHelper::getPartnerPageUrl($partner);
+            // HttpUtility::redirect($url);
+
+        }
 
         $this->view->assign('partnerDetailPageUid', MainHelper::PARTNERDETAILPAGEID);
         $this->view->assign('partners', $partners);

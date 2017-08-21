@@ -1,0 +1,47 @@
+plugin.tx_gbsearch_search {
+	view {
+		widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper {
+			templateRootPath = EXT:gbsearch/Resources/Private/Templates/
+		}
+	}
+}
+
+
+
+
+
+GbsearchSuggestSearch = PAGE
+GbsearchSuggestSearch {
+
+	typeNum = 126
+
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = none
+		admPanel = 0
+		metaCharset = utf-8
+		additionalHeaders {
+			10 {
+				# header = Content-Type: application/json
+			}
+		}
+
+		disablePrefixComment = 1
+		debug = 0
+		no_cache = 1
+	}
+
+
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName = Gbsearch
+		pluginName = SuggestSearch
+		vendorName = Gigabonus
+		controller = SuggestSearch
+		action = search
+
+		persistence < plugin.tx_gbaccount_transactions.persistence
+	}
+}
+

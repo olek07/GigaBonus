@@ -9,3 +9,9 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus Search'
 );
 
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	'Gigabonus.' . $_EXTKEY,
+	'SuggestSearch',
+	'Gigabonus SuggestSearch'
+);

@@ -232,25 +232,8 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * 
      */
     protected function generateCanonicalTag(\Gigabonus\Gbpartner\Domain\Model\Partner $partner) {
-
-        // if no main category defined, take the first category as main category
-        $mainCategory = $partner->getMainCategory();
-        if ($mainCategory == 0) {
-            /**
-             * @var \Gigabonus\Gbpartner\Domain\Model\Category $category
-             */
-            $category = $partner->getCategory()->toArray()[0];
-            $mainCategory = $category->getUid();
-        }
-
-        $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
-            array(
-                'parameter' => 17,
-                'additionalParams' => '&tx_gbpartner_partnerlisting[action]=show&tx_gbpartner_partnerlisting[category]='
-                                      . $mainCategory . '&tx_gbpartner_partnerlisting[controller]=Partner&tx_gbpartner_partnerlisting[partner]='
-                                      . $partner->getUid()
-            )
-        );
+        
+        $url = MainHelper::getPartnerPageUrl($partner);
 
         /**
          * @var \TYPO3\CMS\Extbase\Mvc\Web\Response $response

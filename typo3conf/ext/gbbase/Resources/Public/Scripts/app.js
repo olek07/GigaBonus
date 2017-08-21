@@ -14,6 +14,7 @@ var Layout = {
 
         GbfemanagerModalRegistrationForm.init();
         GbfloginLogin.init();
+        Gbsearch.init();
         
     },
 

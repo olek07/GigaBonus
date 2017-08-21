@@ -63,6 +63,43 @@ class MainHelper {
         $GLOBALS['TSFE']->page['title'] = $title;
     }
 
+    /**
+     * returns the url to tha partner page
+     *
+     *
+     * @param \Gigabonus\Gbpartner\Domain\Model\Partner $partner
+     * @param \Gigabonus\Gbpartner\Domain\Model\Category|NULL $category
+     * @return mixed
+     */
+    public static function getPartnerPageUrl(\Gigabonus\Gbpartner\Domain\Model\Partner $partner, \Gigabonus\Gbpartner\Domain\Model\Category $category = NULL) {
+
+        if ($category !== NULL) {
+            $mainCategory = $category->getUid();
+        }
+        else {
+            // if no main category defined, take the first category as main category
+            $mainCategory = $partner->getMainCategory();
+            if ($mainCategory == 0) {
+                /**
+                 * @var \Gigabonus\Gbpartner\Domain\Model\Category $category
+                 */
+                $category = $partner->getCategory()->toArray()[0];
+                $mainCategory = $category->getUid();
+            }
+        }
+
+        $url = $GLOBALS['TSFE']->cObj->typoLink_URL(
+            array(
+                'parameter' => self::PARTNERDETAILPAGEID,
+                'additionalParams' => '&tx_gbpartner_partnerlisting[action]=show&tx_gbpartner_partnerlisting[category]='
+                    . $mainCategory . '&tx_gbpartner_partnerlisting[controller]=Partner&tx_gbpartner_partnerlisting[partner]='
+                    . $partner->getUid()
+            )
+        );
+        
+        return $url;
+    }
+
 
     /* ARRAY ID TO LANGUAGES WITH 2 LETTERS */
 

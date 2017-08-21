@@ -3,16 +3,28 @@
 
 <f:section name="main">
 <h1>Search</h1>
-<table  class="tx_gbpartner" >
-    <f:for each="{partners}" as="partner">
-        <tr>
-            <td><f:link.action action="show" controller="Partner" extensionName="gbpartner" pluginName="Partnerlisting" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:partner.category.0.uid}"> {partner.name}</f:link.action></td>
-            <td>{partner.teaser}</td>
-            <td>{partner.description}</td>
-            <td>{partner.image.originalResource.name}</td>
-        </tr>
-    </f:for>
-</table>
 
-
+    <f:if condition="{partners}">
+      <f:then>
+          <f:widget.paginate objects="{partners}" as="paginatedPartners"
+                             configuration="{itemsPerPage: 4, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 5}"
+          >
+              <div class="row small-up-1 medium-up-2 large-up-3 partner-items">
+                <table  class="tx_gbpartner" >
+                  <f:for each="{paginatedPartners}" as="partner">
+                    <tr>
+                        <td><f:link.action action="show" controller="Partner" extensionName="gbpartner" pluginName="Partnerlisting" pageUid="{partnerDetailPageUid}" arguments="{partner : partner, category:partner.category.0.uid}"> {partner.name}</f:link.action></td>
+                        <td>{partner.teaser}</td>
+                        <td>{partner.description}</td>
+                        <td>{partner.image.originalResource.name}</td>
+                    </tr>
+                  </f:for>
+                </table>
+              </div>
+        </f:widget.paginate>
+      </f:then>
+      <f:else>
+          Ничего не найдено
+      </f:else>
+    </f:if>
 </f:section>
