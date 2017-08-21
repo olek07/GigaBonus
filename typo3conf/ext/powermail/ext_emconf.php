@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "powermail".
  *
- * Auto generated 11-07-2017 21:50
+ * Auto generated 21-08-2017 20:19
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -16,7 +16,7 @@ $EM_CONF[$_EXTKEY] = array (
         and easy to use mailform extension with a lots of features
         (spam prevention, marketing information, optin, ajax submit, diagram analysis, etc...)',
   'category' => 'plugin',
-  'version' => '3.20.0',
+  'version' => '3.21.1',
   'state' => 'stable',
   'uploadfolder' => false,
   'createDirs' => 'uploads/tx_powermail,typo3temp/tx_powermail',

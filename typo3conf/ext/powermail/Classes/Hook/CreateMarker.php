@@ -194,10 +194,10 @@ class CreateMarker
     protected function checkAndRenameMarkers(array $markers)
     {
         foreach ($markers as $uid => $marker) {
-            $row = ObjectUtility::getDatabaseConnection()->exec_SELECTgetSingleRow(
-                'marker',
+            $row = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord(
                 Field::TABLE_NAME,
-                'uid=' . (int)$uid
+                (int)$uid,
+                'marker'
             );
             if ($row['marker'] !== $marker) {
                 ObjectUtility::getDatabaseConnection()->exec_UPDATEquery(
@@ -261,7 +261,7 @@ class CreateMarker
         /** @var Field $field */
         $field = $this->objectManager->get(Field::class);
         foreach ($properties as $key => $value) {
-            $field->_setProperty($key, GeneralUtility::underscoredToLowerCamelCase($value));
+            $field->_setProperty(GeneralUtility::underscoredToLowerCamelCase($key), $value);
         }
         if (!empty($properties['sys_language_uid'])) {
             $field->_setProperty('_languageUid', $properties['sys_language_uid']);
