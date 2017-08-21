@@ -11,6 +11,7 @@ Gbsearch = {
 
     },
 
+    // rendering of the items in the suggest menu
     renderItem: function( ul, item ) {
         return $("<li>")
             .attr("data-value", item.value )

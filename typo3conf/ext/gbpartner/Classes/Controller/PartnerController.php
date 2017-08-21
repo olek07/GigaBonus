@@ -108,6 +108,13 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
     public function showAction(\Gigabonus\Gbpartner\Domain\Model\Partner $partner = null, \Gigabonus\Gbpartner\Domain\Model\Category $category = null)
     {
 
+        if ($GLOBALS['TSFE']->fe_user->user != NULL) {
+            $userLoggedIn = true;
+        }
+        else {
+            $userLoggedIn = false;
+        }
+        
         if ($partner == NULL) {
             $this->forward('list', null, null, $this->request->getArguments());
         }
@@ -129,6 +136,7 @@ class PartnerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
             $this->generateCanonicalTag($partner);
             $this->view->assign('category', $category);
             $this->view->assign('partner', $partner);
+            $this->view->assign('userLoggedIn', $userLoggedIn);
         }
     }
 

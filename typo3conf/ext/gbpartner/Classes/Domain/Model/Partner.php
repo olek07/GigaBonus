@@ -110,6 +110,11 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $className = '';
 
+    /**
+     * @var string
+     */
+    protected $deliveryConditions = '';
+
 
     /**
      * Returns the name
@@ -361,7 +366,22 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->mainCategory = $mainCategory;
     }
-    
+
+    /**
+     * @return string
+     */
+    public function getDeliveryConditions()
+    {
+        return $this->deliveryConditions;
+    }
+
+    /**
+     * @param string $deliveryConditions
+     */
+    public function setDeliveryConditions($deliveryConditions)
+    {
+        $this->deliveryConditions = $deliveryConditions;
+    }
     
 
     protected function findImageByRelation($uid, $fieldname){
@@ -379,9 +399,7 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         return $files;
 
-
-
-        return $fileObject;
+        // return $fileObject;
     }
 
 
