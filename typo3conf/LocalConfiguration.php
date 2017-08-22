@@ -45,6 +45,7 @@ return [
     ],
     'FE' => [
         'cHashIncludePageId' => '1',
+        'compressionLevel' => '0',
         'debug' => true,
         'lifetime' => '31536000',
         'lockIP' => '0',

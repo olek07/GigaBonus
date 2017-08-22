@@ -114,7 +114,7 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         }
 
         if ($fileName != '') {
-            $pageRenderer->addJsFile('/typo3conf/ext/gbbase/Resources/Public/Scripts/Libs/' . $fileName);
+            $pageRenderer->addJsLibrary('datepicker', '/typo3conf/ext/gbbase/Resources/Public/Scripts/Libs/' . $fileName);
         }
 
         $pageRenderer->addJsFooterInlineCode('',
@@ -180,46 +180,6 @@ class TransactionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCont
         $this->view->assign('transaction', $transaction);
     }
     
-    /**
-     * action new
-     * 
-     * @return void
-     */
-    public function newAction()
-    {
-        $query = $this->partnerRepository->createQuery();
-        $query->getQuerySettings()->setLanguageUid(0);
-        $query->getQuerySettings()->setStoragePageIds([11]);
-        $result = $query->execute();
-
-        /*
-        $partners = [];
-        foreach ($result as $entry) {
-            $partner = new \stdClass();
-            $partner->value = $entry->getName();
-            $partner->key = $entry->getUid();
-            $partners[] = $partner;
-        }
-
-        $this->view->assign('partners', $partners);
-        */
-
-        $this->view->assign('partners', $result);
-    }
-
-    /**
-     * action create
-     * 
-     * @param \Gigabonus\Gbaccount\Domain\Model\Transaction $newTransaction
-     * @return void
-     */
-    public function createAction(\Gigabonus\Gbaccount\Domain\Model\Transaction $newTransaction)
-    {
-        $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See http://wiki.typo3.org/T3Doc/Extension_Builder/Using_the_Extension_Builder#1._Model_the_domain', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
-        $this->transactionRepository->add($newTransaction);
-        $this->redirect('list');
-    }
-
 
     public function bonusBalanceAction() {
 

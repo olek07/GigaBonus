@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Transactions',
 	array(
-		'Transaction' => 'list, show, new, create, edit, update',
+		'Transaction' => 'list, show',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Transaction' => 'list, show, new, create, edit, update',
+		'Transaction' => 'list, show',
 		
 	)
 );
