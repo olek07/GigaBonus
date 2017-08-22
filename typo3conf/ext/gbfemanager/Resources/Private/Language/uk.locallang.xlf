@@ -222,8 +222,12 @@
                     </trans-unit>
 
                     <trans-unit id="titleCreateProfile">
-			<target>Реєстрація</target>
-  		    </trans-unit>
+                        <target>Реєстрація</target>
+                    </trans-unit>
+
+                    <trans-unit id="email_new_validationErrorUniqueDb" approved="yes">
+                        <target state="translated">Вказана Вама адреса електронної пошти (E-Mail) вже зареєстрована в системі</target>
+                    </trans-unit>
 
                     
 	        </body>

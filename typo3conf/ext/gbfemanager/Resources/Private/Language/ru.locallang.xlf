@@ -194,9 +194,14 @@
                     <trans-unit id="profile_aready_confirmed" approved="yes">
                         <target state="translated">Вы уже подтвердили регистрацию в системе.</target>
                     </trans-unit>
+
                     <trans-unit id="titleCreateProfile">
-			<target>Регистрация</target>
-  		    </trans-unit>
+                        <target>Регистрация</target>
+                    </trans-unit>
+
+                    <trans-unit id="email_new_validationErrorUniqueDb" approved="yes">
+                        <target state="translated">Указанный Вами адрес электронной почты (E-Mail) уже зарегистрирован в системе</target>
+                    </trans-unit>
 
 
 
