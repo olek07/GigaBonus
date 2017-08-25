@@ -12,6 +12,10 @@
 			<trans-unit id="tx_gbaccount_domain_model_transaction.partner">
 				<source>Partner</source>
 			</trans-unit>
+                        <trans-unit id="tx_gbaccount_domain_model_payment">
+				<source>Payment</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

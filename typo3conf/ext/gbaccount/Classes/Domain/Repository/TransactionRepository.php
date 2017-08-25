@@ -53,23 +53,68 @@ class TransactionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         'crdate' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
     );
 
+
+    /**
+     * @param $transactions
+     * @return int
+     */
+    private function calculateBonusBalance($transactions) {
+        $result = 0;
+
+        foreach ($transactions as $transaction) {
+            /**
+             * @var Transaction $transaction
+             */
+            if (!$transaction->isRejected()) {
+                $result += $transaction->getAmount();
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param $transactions
+     * @return int
+     */
+    private function calculateBonusOnHold($transactions) {
+        $result = 0;
+
+        foreach ($transactions as $transaction) {
+            /**
+             * @var Transaction $transaction
+             */
+            if (!$transaction->isRejected() && $transaction->getIsOnHold()) {
+                $result += $transaction->getAmount();
+            }
+        }
+
+        return $result;
+    }
+
+
     /**
      * @param int $userId
      * @return int
      */
     public function getBonusBalance($userId = 0) {
-        $result = 0;
 
         $transactions = $this->findByUser($userId);
+        $result = $this->calculateBonusBalance($transactions);
 
-        foreach ($transactions as $item) {
-            /**
-             * @var Transaction $item
-             */
-            if (!$item->isRejected()) {
-                $result += $item->getAmount();
-            }
-        }
+        return $result;
+    }
+
+    /**
+     * @param int $userId
+     * @return array
+     */
+    public function getBonusBalanceAndOnHold($userId = 0) {
+
+        $result = [];
+        $transactions = $this->findByUser($userId);
+        $result['total'] = $this->calculateBonusBalance($transactions);
+        $result['onHold'] = $this->calculateBonusOnHold($transactions);
 
         return $result;
     }

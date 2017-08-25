@@ -121,7 +121,7 @@ lib.topnavigation.categoryList < lib.sidenavigation.categoryList
 lib.topnavigation.mainMenu = HMENU
 lib.topnavigation.mainMenu {
     special = list
-    special.value = {$pages.aboutGigaBonusUid}, {$pages.partnerListUid}, {$pages.actionsUid}
+    special.value = {$pages.aboutGigaBonusUid}, {$pages.partnerListUid}, {$pages.couponsUid}, {$pages.actionsUid}
     1 = TMENU
     1 {
         NO = 1

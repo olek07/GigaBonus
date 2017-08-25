@@ -14,6 +14,7 @@ pages {
     partnerListUid = 17
     aboutGigaBonusUid = 34
     actionsUid = 35
+    couponsUid = 43
     trackingPixelPageUid = 42
     orderApiPageUid = 41
 

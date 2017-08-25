@@ -31,3 +31,30 @@ if (!defined('TYPO3_MODE')) {
 
 	)
 );
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Gigabonus.' . $_EXTKEY,
+	'Dashboard',
+	array(
+		'Dashboard' => 'index',
+
+	),
+	// non-cacheable actions
+	array(
+                'Dashboard' => 'index',
+	)
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Gigabonus.' . $_EXTKEY,
+	'Payment',
+	array(
+		'Payment' => 'index',
+
+	),
+	// non-cacheable actions
+	array(
+                'Payment' => 'index',
+	)
+);
+
