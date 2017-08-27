@@ -13,6 +13,30 @@ plugin.tx_gbaccount_transactions {
 		storagePid = {$plugin.tx_gbaccount_transactions.persistence.storagePid}
 	}
 }
+
+/*
+config.tx_extbase.persistence.classes {
+	Gigabonus\Gbaccount\Domain\Model\Transaction {
+		storagePid = 13
+	}
+}
+*/
+
+plugin.tx_gbaccount_payment {
+	persistence {
+
+		storagePid = {$plugin.tx_gbaccount_transactions.persistence.storagePid}, 44
+
+		classes {
+			Gigabonus\Gbaccount\Domain\Model\Payment {
+				newRecordStoragePid = 44
+			}
+		}
+
+	}
+}
+
+
 /*
 page.15 = USER_INT
 page.15 {

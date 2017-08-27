@@ -1,1 +1,57 @@
 <h1>Выплата</h1>
+
+<f:flashMessages as="flashMessages">
+    <div class="femanager_status">
+        <div class="femanager_flashmessages">
+            <f:for each="{flashMessages}" as="flashMessage">
+                <div class="typo3-message message-{flashMessage.severity}">
+                    <div class="message-body">{flashMessage.message}</div>
+                </div>
+            </f:for>
+        </div>
+    </div>
+</f:flashMessages>
+
+
+
+<f:form action="payout" name="payment">
+
+    <h3>Выберите способ получения</h3>
+
+    <f:for each="{paymentTypes}" as="paymentType">
+
+        <f:form.radio property="paymentType" value="{paymentType}" /> {paymentType.name} | {paymentType.conditions} <br>
+
+    </f:for>
+
+
+
+
+
+
+    <f:form.textfield property="amount" />
+
+    <f:form.submit value="Выплатить" />
+</f:form>
+
+
+<h3>Последние выплаты:</h3>
+<table>
+    <f:for each="{payments}" as="payment">
+    <tr>
+        <td>{payment.amount}</td>
+        <td><f:format.date format="d.m.Y">{payment.crdate}</f:format.date></td>
+        <td>
+            <f:if condition="{payment.paidStatus}">
+                <f:then>
+                    Выплачено
+                </f:then>
+                <f:else>
+                    Ещё не выплачено
+                </f:else>
+            </f:if>
+        </td>
+        <td>{payment.paymentType.name}</td>
+    </tr>
+    </f:for>
+</table>

@@ -29,6 +29,7 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_gbaccount_domain_model_transaction', 'EXT:gbaccount/Resources/Private/Language/locallang_csh_tx_gbaccount_domain_model_transaction.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_gbaccount_domain_model_transaction');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_gbaccount_domain_model_payment');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_gbaccount_domain_model_payment_type');
 
 
 

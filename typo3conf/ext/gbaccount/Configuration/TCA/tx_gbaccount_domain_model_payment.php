@@ -18,10 +18,10 @@ return array(
 		'iconfile' => 'EXT:gbaccount/Resources/Public/Icons/tx_gbaccount_domain_model_payment.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, user, crdate, amount,paid_status',
+		'showRecordFieldList' => 'hidden, user, crdate, amount,paid_status,payment_data,payment_type',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden,--palette--;;1,user,crdate,amount,paid_status'),
+		'1' => array('showitem' => 'hidden,--palette--;;1,user,crdate,amount,paid_status,payment_data,payment_type'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -74,6 +74,31 @@ return array(
 				'type' => 'check',
 			)
 		),
+
+		'payment_data' => array(
+			'exclude' => 0,
+			'label' => 'Payment data',
+			'config' => array(
+				'type' => 'text',
+			)
+		),
+
+
+		'payment_type' => array(
+			'exclude' => 1,
+			'l10n_mode' => 'exclude',
+			'label' => 'Payment type',
+			'config' => array(
+				'type' => 'select',
+				// 'renderType' => 'selectSingleBox',
+				'foreign_table' => 'tx_gbaccount_domain_model_paymenttype',
+				'maxitems' => 1,
+			),
+		),
+
+
+
+
 
 	),
 );

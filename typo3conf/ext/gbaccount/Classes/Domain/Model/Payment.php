@@ -9,8 +9,8 @@ class Payment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
     /**
      * amount
      *
-     * @var int
-     * @validate NotEmpty
+     * @var integer
+     * @validate Integer
      */
     protected $amount = 0;
 
@@ -22,18 +22,14 @@ class Payment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
      */
     protected $user = null;
 
-    /**
-     * crdate
-     *
-     * @var \DateTime
-     */
-    protected $crdate;
 
     /**
-     * paymentMethod
+     * paymentType
+     *
+     * @var \Gigabonus\Gbaccount\Domain\Model\PaymentType
      *
      */
-    protected $paymentMethod;
+    protected $paymentType;
 
 
     /**
@@ -42,6 +38,20 @@ class Payment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
      * @var string
      */
     protected $paymentData = '';
+
+
+    /**
+     * @var bool
+     */
+    protected $paidStatus = false;
+
+
+    /**
+     * crdate
+     *
+     * @var \DateTime
+     */
+    protected $crdate;
 
 
     /**
@@ -102,19 +112,52 @@ class Payment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
     /**
      * @return mixed
      */
-    public function getPaymentMethod()
+    public function getPaymentType()
     {
-        return $this->paymentMethod;
+        return $this->paymentType;
     }
 
     /**
-     * @param mixed $paymentMethod
+     * @param mixed $paymentType
      */
-    public function setPaymentMethod($paymentMethod)
+    public function setPaymentType($paymentType)
     {
-        $this->paymentMethod = $paymentMethod;
+        $this->paymentType = $paymentType;
     }
 
-    
+    /**
+     * @return boolean
+     */
+    public function isPaidStatus()
+    {
+        return $this->paidStatus;
+    }
+
+    /**
+     * @param boolean $paidStatus
+     */
+    public function setPaidStatus($paidStatus)
+    {
+        $this->paidStatus = $paidStatus;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPaymentData()
+    {
+        return $this->paymentData;
+    }
+
+    /**
+     * @param string $paymentData
+     */
+    public function setPaymentData($paymentData)
+    {
+        $this->paymentData = $paymentData;
+    }
+
+
+
 
 }

@@ -13,8 +13,12 @@
 				<source>Partner</source>
 			</trans-unit>
                         <trans-unit id="tx_gbaccount_domain_model_payment">
-				<source>Payment</source>
+				<source>Payments</source>
 			</trans-unit>
+                        <trans-unit id="tx_gbaccount_domain_model_paymenttype">
+				<source>Payment types</source>
+			</trans-unit>
+
 
 		</body>
 	</file>

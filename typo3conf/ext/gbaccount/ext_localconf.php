@@ -49,12 +49,12 @@ if (!defined('TYPO3_MODE')) {
 	'Gigabonus.' . $_EXTKEY,
 	'Payment',
 	array(
-		'Payment' => 'index',
+		'Payment' => 'index, payout',
 
 	),
 	// non-cacheable actions
 	array(
-                'Payment' => 'index',
+                'Payment' => 'index, payout',
 	)
 );
 
