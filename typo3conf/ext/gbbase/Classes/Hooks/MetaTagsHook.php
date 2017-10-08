@@ -20,7 +20,7 @@ class MetaTagsHook  {
     public function setPageTitle($params, $obj) {
 
         // for SEO. If the page subtitle is set, use it
-        if ($GLOBALS['TSFE']->page['subtitle'] != '') {
+        if (!empty($GLOBALS['TSFE']->page['subtitle'])) {
             $GLOBALS['TSFE']->page['title'] = $GLOBALS['TSFE']->page['subtitle'];
             PageGenerator::generatePageTitle();
         }

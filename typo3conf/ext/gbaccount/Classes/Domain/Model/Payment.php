@@ -27,7 +27,7 @@ class Payment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
      * paymentType
      *
      * @var \Gigabonus\Gbaccount\Domain\Model\PaymentType
-     *
+     * @validate Integer
      */
     protected $paymentType;
 

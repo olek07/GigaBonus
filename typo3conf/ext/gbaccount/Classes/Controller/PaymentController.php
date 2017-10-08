@@ -67,7 +67,9 @@ class PaymentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
      * @return void
      */
     public function payoutAction(Payment $payment = null) {
-
+        /**
+         * @todo: implement validation of payment
+         */
         if ($payment != NULL) {
             $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
             if ($payment->getAmount() > $this->transactionRepository->getBonusBalance($userId)) {
@@ -83,8 +85,6 @@ class PaymentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 $transaction->setUser($userId);
 
                 $this->transactionRepository->add($transaction);
-
-
 
                 $payment->setUser($userId);
                 $payment->setPaidStatus(false);
