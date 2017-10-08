@@ -18,6 +18,52 @@ All changes are documented on https://docs.typo3.org/typo3cms/extensions/powerma
       Release Description
 
  - :Version:
+      4.0.2
+   :Date:
+      2017-09-29
+   :Changes:
+
+      * Bugfix: Values are not escapted any more by usage of {powermailAll} together with format.nl2br
+      * Bugfix: Prevent JS error if parsley is not included
+      * Feature: Add a public function in AbstractValidator to decide when there should be a validation and when not
+      * Task: Compare only field uids in input validation to allow extending a field model with an own model
+      * Task: Some small code refactoring
+      * Task: Add a behaviour test for multiline-input in a textarea
+      * Task: Add a note in manual for a conflict with extension compatibility6
+
+ - :Version:
+      4.0.1
+   :Date:
+      2017-09-18
+   :Changes:
+
+      * Bugfix: Fatal error for TYPO3 7.6 and powermail 4.0.0 - https://github.com/einpraegsam/powermail/issues/174
+      * Bugfix: Fix illegal string offset - https://github.com/einpraegsam/powermail/issues/169
+
+ - :Version:
+      4.0.0
+   :Date:
+      2017-09-18
+   :Changes:
+
+      * Feature: Add a viewhelper for building responsive columns in forms (e.g. via bootstrap)
+      * Feature: Make attachments also work on double opt-in mails
+      * Task: Update documentation: Adding JavaScript validators with parsley in a modern way
+      * Task: Update documentation: How to use own ViewHelpers in RTE fields in FlexForm
+      * Task: Update documentation: How to debug mail failures
+      * Task: Code cleanup and refactoring
+      * Bugfix: Use advanced field types for command controller exports
+      * Bugfix: Don't try to load glyphicons in Backend.css
+
+ - :Version:
+      3.22.1
+   :Date:
+      2017-09-06
+   :Changes:
+
+      * No code changes to 3.22.0 - new version due to TER security incident. See https://typo3.org/teams/security/security-bulletins/psa/typo3-psa-2017-001/
+
+ - :Version:
       3.22.0
    :Date:
       2017-08-28
