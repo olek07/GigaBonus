@@ -309,6 +309,14 @@ GbfemanagerModalRegistrationForm = {
     },
 
     showFormResponse : function(responseText, statusText, xhr, form) {
+        // alert(responseText);
+        try {
+            responseObj = $.parseJSON(responseText);
+            location.href = responseObj.url;
+        }
+        catch (e) {
+
+        }
         $('#modalRegistrationForm').replaceWith(responseText + Layout.modalCloseButtonHtml);
         $(document).trigger(Layout.EVENT_INIT_FORMS);
     }

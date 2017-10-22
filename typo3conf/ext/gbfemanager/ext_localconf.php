@@ -28,7 +28,7 @@ $signalSlotDispatcher->connect(
     'Pi1',
     [
         'User' => 'list, show, fileUpload, fileDelete, validate, loginAs',
-        'New' => 'create, new, confirmCreateRequest, createStatus, newAjax',
+        'New' => 'create, new, confirmCreateRequest, createStatus, newAjax, registered',
         'Edit' => 'edit, update, delete, confirmUpdateRequest',
         'ChangeMobileNumber' => 'edit, update',
         'Invitation' => 'new, create, edit, update, delete, status',
@@ -37,7 +37,7 @@ $signalSlotDispatcher->connect(
     ],
     [
         'User' => 'list, fileUpload, fileDelete, validate, loginAs',
-        'New' => 'create, new, confirmCreateRequest, createStatus, newAjax',
+        'New' => 'create, new, confirmCreateRequest, createStatus, newAjax, registered',
         'Edit' => 'edit, update, delete, confirmUpdateRequest',
         'ChangeMobileNumber' => 'edit, update',
         'Invitation' => 'new, create, edit, update, delete',
