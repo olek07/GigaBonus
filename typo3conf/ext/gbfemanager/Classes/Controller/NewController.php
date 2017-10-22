@@ -10,6 +10,7 @@ use In2code\Femanager\Utility\UserUtility;
 use Gigabonus\Gbbase\Utility\Helpers\MainHelper;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 
 class NewController extends \In2code\Femanager\Controller\NewController {
@@ -34,13 +35,12 @@ class NewController extends \In2code\Femanager\Controller\NewController {
         $pageRenderer->addJsFooterInlineCode('',"
             $(document).ready(function(){
                 $(document).on(Layout.EVENT_INIT_FORMS, function() {
-                    GbfemanagerNew.init();
+                    // GbfemanagerNew.init();
                 });
                 $(document).trigger(Layout.EVENT_INIT_FORMS);
             });
             "
         );
-
 
         parent::newAction($user);
     }
@@ -63,15 +63,42 @@ class NewController extends \In2code\Femanager\Controller\NewController {
      * @validate $user In2code\Femanager\Domain\Validator\PasswordValidator
      * @return void
      */
-    public function createAction(\In2code\Femanager\Domain\Model\User $user) {
-        // $user->setLanguage('uk');
+    public function createAction(\In2code\Femanager\Domain\Model\User $user = null) {
+        if ($user == NULL) {
+            // redirect to the first action in the controller (newAction) to avoid the action name 'new' in the url
+            $this->redirect('');
+        }
         parent::createAction($user);
     }
 
 
     public function registeredAction() {
+
+        // if there is a flash message, user has just registered
+        if (count($this->controllerContext->getFlashMessageQueue()->getAllMessages()) > 0) {
+            $this->view->assign('justRegistered', true);
+            #MainHelper::redirect2Home();
+            #exit;
+        }
+
         $this->controllerContext->getFlashMessageQueue()->clear();
     }
+
+
+    public function registeredAjaxAction() {
+        $this->controllerContext->getFlashMessageQueue()->clear();
+        // $this->uriBuilder->setRequest($this->request);
+        // $this->uriBuilder->setTargetPageType($pageType);
+        $this->uriBuilder->setTargetPageUid(4);
+        $url = $this->uriBuilder->uriFor('registered');
+
+        $obj = new \stdClass();
+        $obj->url = $url;
+
+        return json_encode($obj);
+    }
+
+
 
 
     /**
@@ -178,7 +205,14 @@ class NewController extends \In2code\Femanager\Controller\NewController {
         $this->signalSlotDispatcher->dispatch(__CLASS__, __FUNCTION__ . 'AfterPersist', [$user, $action, $this]);
         $this->finisherRunner->callFinishers($user, $this->actionMethodName, $this->settings, $this->contentObject);
 
-        $this->forward('registered');
+        // registration form call via ajax
+        if ($_GET['type'] == 111) {
+            $this->forward('registeredAjax');
+        }
+        else {
+            // $this->redirectToUri('/ru/registration');
+            $this->redirect('registered');
+        }
 
         // $this->redirectByAction($action, ($status ? $status . 'Redirect' : 'redirect'));
         // $this->redirect($redirectByActionName);
