@@ -1,0 +1,244 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$divider-name: 'divider';
+$divider-x: 25px;
+$divider-y: 0px;
+$divider-offset-x: -25px;
+$divider-offset-y: 0px;
+$divider-width: 24px;
+$divider-height: 24px;
+$divider-total-width: 95px;
+$divider-total-height: 91px;
+$divider-image: '../img/sprite.png';
+$divider: (25px, 0px, -25px, 0px, 24px, 24px, 95px, 91px, '../img/sprite.png', 'divider', );
+$glyphicons-072-bookmark-name: 'glyphicons_072_bookmark';
+$glyphicons-072-bookmark-x: 73px;
+$glyphicons-072-bookmark-y: 47px;
+$glyphicons-072-bookmark-offset-x: -73px;
+$glyphicons-072-bookmark-offset-y: -47px;
+$glyphicons-072-bookmark-width: 15px;
+$glyphicons-072-bookmark-height: 24px;
+$glyphicons-072-bookmark-total-width: 95px;
+$glyphicons-072-bookmark-total-height: 91px;
+$glyphicons-072-bookmark-image: '../img/sprite.png';
+$glyphicons-072-bookmark: (73px, 47px, -73px, -47px, 15px, 24px, 95px, 91px, '../img/sprite.png', 'glyphicons_072_bookmark', );
+$glyphicons-113-justify-name: 'glyphicons_113_justify';
+$glyphicons-113-justify-x: 22px;
+$glyphicons-113-justify-y: 47px;
+$glyphicons-113-justify-offset-x: -22px;
+$glyphicons-113-justify-offset-y: -47px;
+$glyphicons-113-justify-width: 24px;
+$glyphicons-113-justify-height: 21px;
+$glyphicons-113-justify-total-width: 95px;
+$glyphicons-113-justify-total-height: 91px;
+$glyphicons-113-justify-image: '../img/sprite.png';
+$glyphicons-113-justify: (22px, 47px, -22px, -47px, 24px, 21px, 95px, 91px, '../img/sprite.png', 'glyphicons_113_justify', );
+$glyphicons-116-text-bigger-name: 'glyphicons_116_text_bigger';
+$glyphicons-116-text-bigger-x: 49px;
+$glyphicons-116-text-bigger-y: 0px;
+$glyphicons-116-text-bigger-offset-x: -49px;
+$glyphicons-116-text-bigger-offset-y: 0px;
+$glyphicons-116-text-bigger-width: 24px;
+$glyphicons-116-text-bigger-height: 22px;
+$glyphicons-116-text-bigger-total-width: 95px;
+$glyphicons-116-text-bigger-total-height: 91px;
+$glyphicons-116-text-bigger-image: '../img/sprite.png';
+$glyphicons-116-text-bigger: (49px, 0px, -49px, 0px, 24px, 22px, 95px, 91px, '../img/sprite.png', 'glyphicons_116_text_bigger', );
+$glyphicons-138-picture-name: 'glyphicons_138_picture';
+$glyphicons-138-picture-x: 0px;
+$glyphicons-138-picture-y: 71px;
+$glyphicons-138-picture-offset-x: 0px;
+$glyphicons-138-picture-offset-y: -71px;
+$glyphicons-138-picture-width: 24px;
+$glyphicons-138-picture-height: 20px;
+$glyphicons-138-picture-total-width: 95px;
+$glyphicons-138-picture-total-height: 91px;
+$glyphicons-138-picture-image: '../img/sprite.png';
+$glyphicons-138-picture: (0px, 71px, 0px, -71px, 24px, 20px, 95px, 91px, '../img/sprite.png', 'glyphicons_138_picture', );
+$glyphicons-151-new-window-name: 'glyphicons_151_new_window';
+$glyphicons-151-new-window-x: 0px;
+$glyphicons-151-new-window-y: 25px;
+$glyphicons-151-new-window-offset-x: 0px;
+$glyphicons-151-new-window-offset-y: -25px;
+$glyphicons-151-new-window-width: 26px;
+$glyphicons-151-new-window-height: 22px;
+$glyphicons-151-new-window-total-width: 95px;
+$glyphicons-151-new-window-total-height: 91px;
+$glyphicons-151-new-window-image: '../img/sprite.png';
+$glyphicons-151-new-window: (0px, 25px, 0px, -25px, 26px, 22px, 95px, 91px, '../img/sprite.png', 'glyphicons_151_new_window', );
+$glyphicons-155-show-big-thumbnails-name: 'glyphicons_155_show_big_thumbnails';
+$glyphicons-155-show-big-thumbnails-x: 26px;
+$glyphicons-155-show-big-thumbnails-y: 25px;
+$glyphicons-155-show-big-thumbnails-offset-x: -26px;
+$glyphicons-155-show-big-thumbnails-offset-y: -25px;
+$glyphicons-155-show-big-thumbnails-width: 22px;
+$glyphicons-155-show-big-thumbnails-height: 22px;
+$glyphicons-155-show-big-thumbnails-total-width: 95px;
+$glyphicons-155-show-big-thumbnails-total-height: 91px;
+$glyphicons-155-show-big-thumbnails-image: '../img/sprite.png';
+$glyphicons-155-show-big-thumbnails: (26px, 25px, -26px, -25px, 22px, 22px, 95px, 91px, '../img/sprite.png', 'glyphicons_155_show_big_thumbnails', );
+$glyphicons-156-show-thumbnails-name: 'glyphicons_156_show_thumbnails';
+$glyphicons-156-show-thumbnails-x: 73px;
+$glyphicons-156-show-thumbnails-y: 0px;
+$glyphicons-156-show-thumbnails-offset-x: -73px;
+$glyphicons-156-show-thumbnails-offset-y: 0px;
+$glyphicons-156-show-thumbnails-width: 22px;
+$glyphicons-156-show-thumbnails-height: 22px;
+$glyphicons-156-show-thumbnails-total-width: 95px;
+$glyphicons-156-show-thumbnails-total-height: 91px;
+$glyphicons-156-show-thumbnails-image: '../img/sprite.png';
+$glyphicons-156-show-thumbnails: (73px, 0px, -73px, 0px, 22px, 22px, 95px, 91px, '../img/sprite.png', 'glyphicons_156_show_thumbnails', );
+$glyphicons-158-show-lines-name: 'glyphicons_158_show_lines';
+$glyphicons-158-show-lines-x: 47px;
+$glyphicons-158-show-lines-y: 71px;
+$glyphicons-158-show-lines-offset-x: -47px;
+$glyphicons-158-show-lines-offset-y: -71px;
+$glyphicons-158-show-lines-width: 24px;
+$glyphicons-158-show-lines-height: 15px;
+$glyphicons-158-show-lines-total-width: 95px;
+$glyphicons-158-show-lines-total-height: 91px;
+$glyphicons-158-show-lines-image: '../img/sprite.png';
+$glyphicons-158-show-lines: (47px, 71px, -47px, -71px, 24px, 15px, 95px, 91px, '../img/sprite.png', 'glyphicons_158_show_lines', );
+$glyphicons-319-sort-name: 'glyphicons_319_sort';
+$glyphicons-319-sort-x: 0px;
+$glyphicons-319-sort-y: 0px;
+$glyphicons-319-sort-offset-x: 0px;
+$glyphicons-319-sort-offset-y: 0px;
+$glyphicons-319-sort-width: 25px;
+$glyphicons-319-sort-height: 25px;
+$glyphicons-319-sort-total-width: 95px;
+$glyphicons-319-sort-total-height: 91px;
+$glyphicons-319-sort-image: '../img/sprite.png';
+$glyphicons-319-sort: (0px, 0px, 0px, 0px, 25px, 25px, 95px, 91px, '../img/sprite.png', 'glyphicons_319_sort', );
+$glyphicons-332-certificate-name: 'glyphicons_332_certificate';
+$glyphicons-332-certificate-x: 73px;
+$glyphicons-332-certificate-y: 22px;
+$glyphicons-332-certificate-offset-x: -73px;
+$glyphicons-332-certificate-offset-y: -22px;
+$glyphicons-332-certificate-width: 17px;
+$glyphicons-332-certificate-height: 25px;
+$glyphicons-332-certificate-total-width: 95px;
+$glyphicons-332-certificate-total-height: 91px;
+$glyphicons-332-certificate-image: '../img/sprite.png';
+$glyphicons-332-certificate: (73px, 22px, -73px, -22px, 17px, 25px, 95px, 91px, '../img/sprite.png', 'glyphicons_332_certificate', );
+$glyphicons-355-bullhorn-name: 'glyphicons_355_bullhorn';
+$glyphicons-355-bullhorn-x: 46px;
+$glyphicons-355-bullhorn-y: 47px;
+$glyphicons-355-bullhorn-offset-x: -46px;
+$glyphicons-355-bullhorn-offset-y: -47px;
+$glyphicons-355-bullhorn-width: 25px;
+$glyphicons-355-bullhorn-height: 20px;
+$glyphicons-355-bullhorn-total-width: 95px;
+$glyphicons-355-bullhorn-total-height: 91px;
+$glyphicons-355-bullhorn-image: '../img/sprite.png';
+$glyphicons-355-bullhorn: (46px, 47px, -46px, -47px, 25px, 20px, 95px, 91px, '../img/sprite.png', 'glyphicons_355_bullhorn', );
+$glyphicons-360-bug-name: 'glyphicons_360_bug';
+$glyphicons-360-bug-x: 0px;
+$glyphicons-360-bug-y: 47px;
+$glyphicons-360-bug-offset-x: 0px;
+$glyphicons-360-bug-offset-y: -47px;
+$glyphicons-360-bug-width: 22px;
+$glyphicons-360-bug-height: 24px;
+$glyphicons-360-bug-total-width: 95px;
+$glyphicons-360-bug-total-height: 91px;
+$glyphicons-360-bug-image: '../img/sprite.png';
+$glyphicons-360-bug: (0px, 47px, 0px, -47px, 22px, 24px, 95px, 91px, '../img/sprite.png', 'glyphicons_360_bug', );
+$glyphicons-440-folder-closed-name: 'glyphicons_440_folder_closed';
+$glyphicons-440-folder-closed-x: 49px;
+$glyphicons-440-folder-closed-y: 22px;
+$glyphicons-440-folder-closed-offset-x: -49px;
+$glyphicons-440-folder-closed-offset-y: -22px;
+$glyphicons-440-folder-closed-width: 24px;
+$glyphicons-440-folder-closed-height: 22px;
+$glyphicons-440-folder-closed-total-width: 95px;
+$glyphicons-440-folder-closed-total-height: 91px;
+$glyphicons-440-folder-closed-image: '../img/sprite.png';
+$glyphicons-440-folder-closed: (49px, 22px, -49px, -22px, 24px, 22px, 95px, 91px, '../img/sprite.png', 'glyphicons_440_folder_closed', );
+$glyphicons-459-header-name: 'glyphicons_459_header';
+$glyphicons-459-header-x: 24px;
+$glyphicons-459-header-y: 71px;
+$glyphicons-459-header-offset-x: -24px;
+$glyphicons-459-header-offset-y: -71px;
+$glyphicons-459-header-width: 23px;
+$glyphicons-459-header-height: 20px;
+$glyphicons-459-header-total-width: 95px;
+$glyphicons-459-header-total-height: 91px;
+$glyphicons-459-header-image: '../img/sprite.png';
+$glyphicons-459-header: (24px, 71px, -24px, -71px, 23px, 20px, 95px, 91px, '../img/sprite.png', 'glyphicons_459_header', );
+$spritesheet-width: 95px;
+$spritesheet-height: 91px;
+$spritesheet-image: '../img/sprite.png';
+$spritesheet-sprites: ($divider, $glyphicons-072-bookmark, $glyphicons-113-justify, $glyphicons-116-text-bigger, $glyphicons-138-picture, $glyphicons-151-new-window, $glyphicons-155-show-big-thumbnails, $glyphicons-156-show-thumbnails, $glyphicons-158-show-lines, $glyphicons-319-sort, $glyphicons-332-certificate, $glyphicons-355-bullhorn, $glyphicons-360-bug, $glyphicons-440-folder-closed, $glyphicons-459-header, );
+$spritesheet: (95px, 91px, '../img/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
