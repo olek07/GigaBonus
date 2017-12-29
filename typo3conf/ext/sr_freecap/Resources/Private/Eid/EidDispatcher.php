@@ -3,7 +3,7 @@
  * Copyright notice
  *
  * 2010 Daniel Lienert <daniel@lienert.cc>, Michael Knoll <mimi@kaktusteam.de>
- * 2012 Stanislas Rolland <typo3(arobas)sjbr.ca>
+ * 2012-2017 Stanislas Rolland <typo3(arobas)sjbr.ca>
  * All rights reserved
  *
  *
@@ -25,19 +25,13 @@
  ***************************************************************/
 /**
  * This script loads the required environment to dispatch an extbase call
- *
- * Include this script in ext_localconf:
- * $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['sr_freecap_EidDispatcher'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('sr_freecap') . 'Resources/Private/Eid/EidDispatcher.php'
- *
- * @author Daniel Lienert <daniel@lienert.cc>
- * @author Stanislas Rolland <typo3(arobas)sjbr.ca>
  */
 // Exit, if script is called directly
 if (!defined('TYPO3_MODE') || TYPO3_MODE !== 'FE') {
 	die('Could not access this script directly!');
 }
+// Setting privacy policy header for IE in popup window
+header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 // Hand over to the Eid Utility Object
-/** @var $dispatcher SJBR\SrFreecap\Utility\EidUtility */
-$dispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('SJBR\\SrFreecap\\Utility\\EidUtility');
+$dispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\SJBR\SrFreecap\Utility\EidUtility::class);
 echo $dispatcher->initAndDispatch();
-?>

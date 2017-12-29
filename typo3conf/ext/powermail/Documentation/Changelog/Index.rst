@@ -18,6 +18,88 @@ All changes are documented on https://docs.typo3.org/typo3cms/extensions/powerma
       Release Description
 
  - :Version:
+      4.4.0
+   :Date:
+      2017-12-22
+   :Changes:
+
+      * Feature: Backend module: Allow exporting of new fields
+      * Feature: CommandController: Allow exporting of new fields
+      * Task: Bring testing framework via composer
+      * Task: Small code refactoring
+
+ - :Version:
+      4.3.5
+   :Date:
+      2017-12-20
+   :Changes:
+
+      * Bugfix: Mails are not stored 3 times any more on each ajaxsubmit (with redirect configuration)
+      * Bugfix: Type in constants for bootstrapPath was wrong (affected in contstant editor)
+      * Task: Log mail sending errors as errors and not was warning
+      * Task: Describe in documentation how to register a callback function on an ajax submit
+      * Task: Small change in documentation
+
+ - :Version:
+      4.3.4
+   :Date:
+      2017-12-11
+   :Changes:
+
+      * Task: Small optic cleanup in backend module action selector
+      * Task: Small code cleanup
+
+ - :Version:
+      4.3.3
+   :Date:
+      2017-12-07
+   :Changes:
+
+      * Bugfix: Fix prefilling of a datefield in chrome with enforceDatepicker
+      * Bugfix: Fix pagebrowser in backend module overviewBeAction()
+
+ - :Version:
+      4.3.2
+   :Date:
+      2017-12-05
+   :Changes:
+
+      * Bugfix: Revert FlexForm receiver.type commit from 4.3.1 because TYPO3 throws an exception when the field is not available for displayCond
+
+ - :Version:
+      4.3.1
+   :Date:
+      2017-12-05
+   :Changes:
+
+      * Bugfix: FlexForm receiver.type should be an exclude field to disable this field for editors if wanted
+      * Task: Small documentation update
+
+ - :Version:
+      4.3.0
+   :Date:
+      2017-11-25
+   :Changes:
+
+      * Bugfix: Fix namespace for PluginPreview
+      * Bugfix: Small fix to not crash backend module in workspace
+      * Task: Update signals in documentation
+
+ - :Version:
+      4.2.0
+   :Date:
+      2017-11-14
+   :Changes:
+
+      * Feature: Register your own JS tasks on AJAX complete now in fireAjaxCompleteEvent()  `#182 <https://github.com/einpraegsam/powermail/issues/182>`_
+      * Bugfix: Avoid exception in plugin preview together with oldschool extension plugins
+      * Bugfix: Backend Module list: Fix search in additional fields
+      * Bugfix: Fix typo in german frontend and backend labels
+      * Task: Never return an empty type for localized fields (even if there is something wrong in database)
+      * Task: Documentation update
+      * Task: Small code cleanup
+
+ - :Version:
       4.1.0
    :Date:
       2017-10-16

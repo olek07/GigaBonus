@@ -28,6 +28,7 @@ namespace SJBR\SrFreecap\ViewHelpers;
 
 use SJBR\SrFreecap\ViewHelpers\TranslateViewHelper;
 use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Session\Backend\Exception\SessionNotFoundException;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
@@ -72,6 +73,11 @@ class ImageViewHelper extends AbstractTagBasedViewHelper
 	 */
 	public function render($suffix = '')
 	{
+		// This viewhelper needs a frontend user session
+		if (!is_object($GLOBALS ['TSFE']) || !isset($GLOBALS ['TSFE']->fe_user)) {
+			throw new SessionNotFoundException('No frontend user found in session!');
+		}
+
 		$value = '';
 
 		// Include the required JavaScript

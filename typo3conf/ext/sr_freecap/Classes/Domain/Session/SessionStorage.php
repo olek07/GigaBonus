@@ -4,7 +4,7 @@ namespace SJBR\SrFreecap\Domain\Session;
 /*
  *  Copyright notice
  *
- *  (c) 2012-2015 Stanislas Rolland <typo3@sjbr.ca>
+ *  (c) 2012-2017 Stanislas Rolland <typo3@sjbr.ca>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -26,6 +26,9 @@ namespace SJBR\SrFreecap\Domain\Session;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  */
+
+use TYPO3\CMS\Core\Session\Backend\Exception\SessionNotFoundException;
+
 /**
  * Session storage
  *
@@ -75,13 +78,13 @@ class SessionStorage implements \TYPO3\CMS\Core\SingletonInterface
 	 * Gets a frontend user from TSFE->fe_user
 	 *
 	 * @return	\TYPO3\CMS\Frontend\Authentication\FrontendUserAuthtenication	The current frontend user object
-	 * @throws	LogicException
+	 * @throws	SessionNotFoundException
 	 */
 	protected function getFrontendUser()
 	{
 		if ($GLOBALS ['TSFE']->fe_user) {
 			return $GLOBALS ['TSFE']->fe_user;
 		}
-		throw new LogicException ('No Frontentuser found in session!');
+		throw new SessionNotFoundException('No frontend user found in session!');
 	}
 }

@@ -1,3 +1,5 @@
 
   # cat=basic; type=# cat=basic; type=user[SJBR\SrFreecap\Configuration\ConfigurationHelper->buildEncryptionAlgorithmSelector]; label=Encryption Algorithm: Select the encryption algorithm to be used by the extension.
-encryptionAlgorithm = blowfish
+encryptionAlgorithm = AES-256-CBC
+  # cat=basic; type=# cat=basic; type=string; label=Salt: Salt
+salt = cH!swe!retReGu7W6bEDRup7usuDUh9THeD2CHeGE*ewr4n39=E@rAsp7c-Ph@pH

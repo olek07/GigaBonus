@@ -4,7 +4,7 @@ namespace SJBR\SrFreecap\Utility;
 /*
  *  Copyright notice
  *
- *  (c) 2012-2016 Stanislas Rolland <typo3(arobas)sjbr.ca>
+ *  (c) 2012-2017 Stanislas Rolland <typo3(arobas)sjbr.ca>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,6 +32,13 @@ namespace SJBR\SrFreecap\Utility;
 class EncryptionUtility
 {
 	/**
+	 * Salt
+	 *
+	 * @var string
+	 */
+	private $salt = 'cH!swe!retReGu7W6bEDRup7usuDUh9THeD2CHeGE*ewr4n39=E@rAsp7c-Ph@pH';
+
+	/**
 	 * Encrypts a string
 	 *
 	 * @param array $string: the string to be encrypted
@@ -39,13 +46,17 @@ class EncryptionUtility
 	 */
 	public static function encrypt($string)
 	{
-		if (in_array('mcrypt', get_loaded_extensions())) {
+		if (in_array('openssl', get_loaded_extensions())) {
 			$encryptionAlgorithm = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sr_freecap']['encryptionAlgorithm'];
-			$availableAlgorithms = mcrypt_list_algorithms();
+			$availableAlgorithms = openssl_get_cipher_methods();
 			if (in_array($encryptionAlgorithm, $availableAlgorithms)) {
 				$key = md5($GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey'], true);
-				$iv = mcrypt_create_iv(mcrypt_get_iv_size($encryptionAlgorithm, MCRYPT_MODE_CBC), MCRYPT_RAND);
-				$string = mcrypt_encrypt($encryptionAlgorithm, $key, $string, MCRYPT_MODE_CBC, $iv);
+				$iv_size = openssl_cipher_iv_length($encryptionAlgorithm);
+				$salt = isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sr_freecap']['salt']) ? trim($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sr_freecap']['salt']) : $this->salt;
+				$hash = hash('sha256', $salt . $key . $salt);
+				$iv = substr($hash, strlen($hash) - $iv_size);
+				$key = substr($hash, 0, 32);
+				$string = openssl_encrypt($string, $encryptionAlgorithm, $key, OPENSSL_RAW_DATA, $iv);
 				$cypher = array(base64_encode($string), base64_encode($iv));
 			} else {
 				$cypher = array(base64_encode($string));
@@ -64,9 +75,13 @@ class EncryptionUtility
 	 */
 	public static function decrypt($cypher)
 	{
-		if (in_array('mcrypt', get_loaded_extensions())) {
+		if (in_array('openssl', get_loaded_extensions())) {
+			$encryptionAlgorithm = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sr_freecap']['encryptionAlgorithm'];
 			$key = md5($GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey'], true);
-			$string = trim(mcrypt_decrypt($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sr_freecap']['encryptionAlgorithm'], $key, base64_decode($cypher[0]), MCRYPT_MODE_CBC, base64_decode($cypher[1])));
+			$salt = isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sr_freecap']['salt']) ? trim($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['sr_freecap']['salt']) : $this->salt;
+			$hash = hash('sha256', $salt . $key . $salt);
+			$key = substr($hash, 0, 32);
+			$string = trim(openssl_decrypt(base64_decode($cypher[0]), $encryptionAlgorithm, $key, OPENSSL_RAW_DATA, base64_decode($cypher[1])));
 		} else {
 			$string = base64_decode($cypher[0]);
 		}

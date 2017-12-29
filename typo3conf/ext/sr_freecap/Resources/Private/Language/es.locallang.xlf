@@ -13,11 +13,11 @@
 			</trans-unit>
 			<trans-unit id="notice" xml:space="preserve" approved="yes">
 				<source>Please enter here the word as displayed in the picture.</source>
-				<target>Por favor introduzca la palabra tal como aparece en la imagen.</target>
+				<target>Favor entrar las letras tal como aparecen en la imagen.</target>
 			</trans-unit>
 			<trans-unit id="notice_informal" xml:space="preserve" approved="yes">
 				<source>Please enter here the word as displayed in the picture.</source>
-				<target>Por favor introduce la palabra tal como aparece en la imagen.</target>
+				<target>Favor entrar las letras tal como aparecen en la imagen.</target>
 			</trans-unit>
 			<trans-unit id="explain" xml:space="preserve" approved="yes">
 				<source>This is to prevent spamming.</source>
@@ -41,11 +41,11 @@
 			</trans-unit>
 			<trans-unit id="click_here_accessible" xml:space="preserve" approved="yes">
 				<source>Click here for audio version of the word to enter.</source>
-				<target></target>
+				<target>Haga clic aquí para una oír una versión audio de las letras.</target>
 			</trans-unit>
 			<trans-unit id="click_here_accessible_informal" xml:space="preserve" approved="yes">
 				<source>Click here for audio version of the word to enter.</source>
-				<target></target>
+				<target>Haz clic aquí para una oír una versión audio de las letras.</target>
 			</trans-unit>
 			<trans-unit id="click_here_accessible_before_link" xml:space="preserve" approved="yes">
 				<source>For </source>
@@ -85,11 +85,11 @@
 			</trans-unit>
 			<trans-unit id="9221561048" xml:space="preserve">
 				<source>Please enter the word or number as it appears in the image. The entered value was incorrect.</source>
-				<target>Por favor introduzca la palabra tal como aparece en la imagen. La valor entrada no es correcta.</target>
+				<target>Las letras entradas no son correctas.</target>
 			</trans-unit>
 			<trans-unit id="9221561048_informal" xml:space="preserve">
 				<source>Please enter the word or number as it appears in the image. The entered value was incorrect.</source>
-				<target>Por favor introduce la palabra tal como aparece en la imagen. La valor entrada no es correcta.</target>
+				<target>Favor entrar las letras tal como aparecen en la imagen. Las letras entradas no son correctas.</target>
 			</trans-unit>
 		</body>
 	</file>

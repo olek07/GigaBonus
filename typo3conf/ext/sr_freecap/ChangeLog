@@ -1,3 +1,15 @@
+2017-12-19  Stanislas Rolland  <typo(arobas)sjbr.ca>
+	* Resolves #80906: Unknown Exception thrown when domain model with validator is used in backend context
+	* Resolves #82716: Migrate from mcrypt to openssl (follow-up)
+	* Update version to 2.4.1
+
+2017-10-16  Stanislas Rolland  <typo(arobas)sjbr.ca>
+	* Resolves #82716: Migrate from mcrypt to openssl
+	* Resolves #81736: Add P3P header for IE 11 of Windows 7 when page opens in popup
+
+2017-05-28  Stanislas Rolland  <typo(arobas)sjbr.ca>
+	* Resolves #81354: Error code not localized
+
 2017-01-07  Stanislas Rolland  <typo(arobas)sjbr.ca>
 
 	* Change composer name to sjbr/sr-freecap

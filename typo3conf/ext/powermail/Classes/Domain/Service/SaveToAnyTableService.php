@@ -4,39 +4,16 @@ namespace In2code\Powermail\Domain\Service;
 use In2code\Powermail\Utility\ObjectUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-/***************************************************************
- *  Copyright notice
- *
- *  (c) 2014 Alex Kellner <alexander.kellner@in2code.de>, in2code.de
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
-
 /**
  * This class allows you to save values to any table in TYPO3 database
  *
- * @package powermail
- * @license http://www.gnu.org/licenses/lgpl.html
- *          GNU Lesser General Public License, version 3 or later
+ * Class SaveToAnyTableService
  */
 class SaveToAnyTableService
 {
+    const MODE_INSERT = 'insert';
+    const MODE_UPDATE = 'update';
+    const MODE_NONE = 'none';
 
     /**
      * Database Table to store
@@ -57,7 +34,7 @@ class SaveToAnyTableService
      *
      * @var string
      */
-    protected $mode = 'insert';
+    protected $mode = self::MODE_INSERT;
 
     /**
      * Unique field important for update
@@ -110,13 +87,13 @@ class SaveToAnyTableService
     {
         $this->checkProperties();
         switch ($this->getMode()) {
-            case 'update':
-            case 'none':
+            case self::MODE_UPDATE:
+            case self::MODE_NONE:
                 $this->checkIfIdentifierFieldExists();
                 $uid = $this->update();
                 break;
 
-            case 'insert':
+            case self::MODE_INSERT:
             default:
                 $uid = $this->insert();
         }
@@ -149,7 +126,7 @@ class SaveToAnyTableService
         }
 
         // update existing entry (only if mode is not "none")
-        if ($this->getMode() !== 'none') {
+        if ($this->getMode() !== self::MODE_NONE) {
             $this->databaseConnection->exec_UPDATEquery(
                 $this->getTable(),
                 $this->getUniqueIdentifier() . ' = ' . (int)$row[$this->getUniqueIdentifier()],
@@ -169,7 +146,7 @@ class SaveToAnyTableService
     protected function checkProperties()
     {
         if (empty($this->getProperties())) {
-            throw new \Exception('No properties to insert/update given');
+            throw new \UnexpectedValueException('No properties to insert/update given');
         }
     }
 
@@ -183,7 +160,7 @@ class SaveToAnyTableService
     public function setTable($table)
     {
         if (empty($table)) {
-            throw new \Exception('No tablename given');
+            throw new \UnexpectedValueException('No tablename given');
         }
         $this->removeNotAllowedSigns($table);
         $this->table = $table;
@@ -217,12 +194,12 @@ class SaveToAnyTableService
      */
     public function getProperty($propertyName)
     {
-        $property = '';
+        $currentProperty = '';
         $properties = $this->getProperties();
         if (array_key_exists($propertyName, $properties)) {
-            $property = $properties[$propertyName];
+            $currentProperty = $properties[$propertyName];
         }
-        return $property;
+        return $currentProperty;
     }
 
     /**
@@ -239,26 +216,15 @@ class SaveToAnyTableService
     }
 
     /**
-     * Remove property/value pair form array by its key
-     *
-     * @param $propertyName
-     * @return void
-     */
-    public function removeProperty($propertyName)
-    {
-        unset($this->properties[$propertyName]);
-    }
-
-    /**
      * @param string $mode
      * @return void
      */
     public function setMode($mode)
     {
         $possibleModes = [
-            'insert',
-            'update',
-            'none'
+            self::MODE_INSERT,
+            self::MODE_UPDATE,
+            self::MODE_NONE
         ];
         if (in_array($mode, $possibleModes)) {
             $this->mode = $mode;
@@ -296,16 +262,6 @@ class SaveToAnyTableService
     public function getUniqueIdentifier()
     {
         return $this->uniqueIdentifier;
-    }
-
-    /**
-     * @param string $uniqueIdentifier
-     * @return SaveToAnyTableService
-     */
-    public function setUniqueIdentifier($uniqueIdentifier)
-    {
-        $this->uniqueIdentifier = $uniqueIdentifier;
-        return $this;
     }
 
     /**
@@ -381,8 +337,11 @@ class SaveToAnyTableService
         $where = $this->getUniqueField() . ' = ' . $searchterm;
         $where .= $this->getDeletedWhereClause();
         $where .= $this->getAdditionalWhere();
-        $row = $this->databaseConnection->exec_SELECTgetSingleRow($this->getUniqueIdentifier(), $this->getTable(), $where);
-        return $row;
+        return $this->databaseConnection->exec_SELECTgetSingleRow(
+            $this->getUniqueIdentifier(),
+            $this->getTable(),
+            $where
+        );
     }
 
     /**
@@ -403,7 +362,7 @@ class SaveToAnyTableService
     protected function checkIfIdentifierFieldExists()
     {
         if (!$this->isFieldExisting($this->getUniqueIdentifier())) {
-            throw new \Exception(
+            throw new \InvalidArgumentException(
                 'Field ' . $this->getUniqueIdentifier() . ' in table ' . $this->getTable() . ' does not exist,' .
                 ' but it\'s needed for _ifUnique functionality'
             );
